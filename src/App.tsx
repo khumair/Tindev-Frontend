@@ -1,11 +1,8 @@
 import React from 'react';
-import './sass/styles.scss';
+import './scss/styles.scss';
 
-const App = () => (
-	<div>
-		<h1>Welcome to TinDev</h1>
-		<p>Team 4 ;) </p>
-	</div>
-);
+import Routes from './Routes';
+
+const App = () => <Routes />;
 
 export default App;
