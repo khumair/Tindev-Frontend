@@ -1,12 +1,16 @@
 // @import '../../node_modules/bootstrap/scss/bootstrap.scss'
 
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 body {
-	background-color: grey;
+  background-color: grey;
 }
 
 .btn-flat {
-	background-color: #55dd55;
-	color: #000;
+  background-color: #55dd55;
+  color: #000;
+}
+.colcenter {
+  padding: 1rem;
+  text-align: center;
 }
