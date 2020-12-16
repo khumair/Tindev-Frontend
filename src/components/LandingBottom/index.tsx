@@ -24,6 +24,7 @@ const LandingBottom = () => {
 					est?
 				</p>
 			</div>
+
 			<div className='icons align-items-center d-flex justify-content-center'>
 				<img
 					src='https://img.icons8.com/nolan/64/facebook.png'
