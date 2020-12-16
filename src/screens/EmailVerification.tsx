@@ -24,34 +24,9 @@ const EmailVerification = () => {
     console.log(value, name)
     /* @ts-ignore */
     setCode((prevValue: SetCode) => {
-      if (name === 'first') {
-        return {
-          first: value,
-          second: prevValue.second,
-          third: prevValue.third,
-          fourth: prevValue.fourth,
-        }
-      } else if (name === 'second') {
-        return {
-          first: prevValue.first, 
-          second: value, 
-          third: prevValue.third, 
-          fourth: prevValue.fourth,
-        }
-      } else if (name === 'third') {
-        return {
-          first: prevValue.first, 
-          second: prevValue.second, 
-          third: value, 
-          fourth: prevValue.fourth,
-        } 
-      } else if (name === 'fourth') {
-        return {
-          first: prevValue.first, 
-          second: prevValue.second, 
-          third: prevValue.third, 
-          fourth: value,
-        }
+      return {
+        ...prevValue, 
+        [name]: value
       }
     })
   }
