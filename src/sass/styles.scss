@@ -3,10 +3,43 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-	background-color: grey;
+	background-color: white;
 }
 
 .btn-flat {
 	background-color: #55dd55;
 	color: #000;
+}
+
+.verification-code {
+	width: 2.5em;
+	height: 2.3em;
+	margin: 0.7em;
+}
+
+.verification {
+	padding-bottom: 1em;
+	&__button {
+		margin-bottom: 1.5em;
+	}
+}
+
+.new-code {
+	font-size: 0.9em;
+}
+
+.btn-light {
+	font-size: 1.1em;
+	background-color: red;
+	color: white;
+	padding: 0.61em 1em;
+	margin-bottom: 2em;
+}
+
+.email {
+	font-size: 0.9em;
+}
+
+.email-verify {
+	padding: 1em 0;
 }

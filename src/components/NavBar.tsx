@@ -7,7 +7,7 @@ const NavBar = () => {
   // useSelector to get user info
   // this is hard coded data for testing title on the navbar
   const userInfo1 = { companyName: 'Google'}
-  const userInfo2 = { jobSeekerName: 'Dilippo'}
+  const userInfo2 = { firstName: 'Dilippo'}
 
   const handleLogout = () => {
     console.log('logout')
@@ -33,7 +33,7 @@ const NavBar = () => {
               <Nav.Link><i className="fas fa-user"></i>Company Login</Nav.Link>
             </LinkContainer>)}
               {userInfo2 ? (
-                <NavDropdown title={userInfo2.jobSeekerName} id="company-name">
+                <NavDropdown title={userInfo2.firstName} id="company-name">
                   <LinkContainer to='/profileJobSeeker'>
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
