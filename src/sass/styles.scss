@@ -11,6 +11,11 @@ body {
 	color: #000;
 }
 
+/** navbar */
+.navbar {
+	background: -webkit-linear-gradient(10deg, #fd748b, #fd74fd 10%, #c274fd)
+}
+
 /** email verification page */
 .verification-code {
 	width: 2.5em;

@@ -14,7 +14,7 @@ const NavBar = () => {
   }
 
   return (
-    <Navbar bg="light" expand="lg" collapseOnSelect>
+    <Navbar expand="lg" collapseOnSelect className="navbar">
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>TinDev</Navbar.Brand>
