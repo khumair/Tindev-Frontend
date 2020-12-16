@@ -29,7 +29,7 @@ const Register = () => {
 				onSubmit={handleSubmit}
 				className='container'>
 				<Form.Row>
-					<Form.Group as={Col} sm='8' controlId='validationCustom01'>
+					<Form.Group as={Col} sm='8' controlId='validationCustomUsername'>
 						<Form.Control required type='text' placeholder='Username' />
 						<Form.Control.Feedback type='invalid'>
 							Username is required
@@ -38,7 +38,7 @@ const Register = () => {
 				</Form.Row>
 
 				<Form.Row>
-					<Form.Group as={Col} sm='8' controlId='validationCustom02'>
+					<Form.Group as={Col} sm='8' controlId='validationCustomEmail'>
 						<Form.Control required type='email' placeholder='eMail' />
 						<Form.Control.Feedback type='invalid'>
 							eMail is required
@@ -47,7 +47,7 @@ const Register = () => {
 				</Form.Row>
 
 				<Form.Row>
-					<Form.Group as={Col} sm='8' controlId='validationCustom02'>
+					<Form.Group as={Col} sm='8' controlId='validationCustomPassword'>
 						<Form.Control required type='password' placeholder='Password' />
 						<Form.Control.Feedback type='invalid'>
 							Password is required
@@ -56,7 +56,10 @@ const Register = () => {
 				</Form.Row>
 
 				<Form.Row>
-					<Form.Group as={Col} sm='8' controlId='validationCustom02'>
+					<Form.Group
+						as={Col}
+						sm='8'
+						controlId='validationCustomConfirmPassword'>
 						<Form.Control
 							required
 							type='password'
