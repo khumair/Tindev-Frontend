@@ -1,13 +1,12 @@
 import React from 'react';
-import './scss/styles.scss';
 
 import Routes from './Routes';
-import Footer from './components/Footer';
+
+import './scss/styles.scss';
 
 const App = () => (
 	<>
 		<Routes />
-		<Footer />
 	</>
 );
 

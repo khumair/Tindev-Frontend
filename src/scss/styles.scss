@@ -1,9 +1,19 @@
-// @import '../../node_modules/bootstrap/scss/bootstrap.scss'
+// @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 @import '~bootstrap/scss/bootstrap';
+@import '_mobile';
 
 body {
 	padding: 0px;
 	margin: 0px auto;
 	color: #ddd;
+}
+
+.landing-top-bg {
+	background: url(../media/header-img.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 80vh;
+	width: 100%;
 }
