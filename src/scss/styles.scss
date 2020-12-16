@@ -17,3 +17,21 @@ body {
 	height: 80vh;
 	width: 100%;
 }
+
+.half-circle {
+	width: 200px;
+	height: 100px;
+	background: linear-gradient(#a24fae, #773bb7);
+	border-bottom-right-radius: 100px;
+	border-bottom-left-radius: 100px;
+	border: 0;
+	color: #fff;
+	text-align: center;
+}
+
+.svg-icon {
+	position: absolute;
+	bottom: 0;
+	right: 20px;
+	height: 25vh;
+}

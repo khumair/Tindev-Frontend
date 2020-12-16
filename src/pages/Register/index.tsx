@@ -1,7 +1,14 @@
+import React from 'react';
+
+import HalfCircle from '../../components/HalfCircle';
+import CustomSvgIcon from '../../components/CustomSvgIcon';
+import starsLady from '../../media/star-lady.svg';
+
 const Register = () => (
-	<div>
-		<h1>Register Page . . . </h1>
-	</div>
+	<>
+		<HalfCircle inputText='Welcome' />
+		<CustomSvgIcon img={starsLady} />
+	</>
 );
 
 export default Register;
