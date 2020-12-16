@@ -40,7 +40,7 @@ const NavBar = () => {
                   <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
                 </NavDropdown>
               ) : ( <LinkContainer to='/login' >
-              <Nav.Link><i className="fas"></i>Jobseeker Login</Nav.Link>
+              <Nav.Link><i className="fas fa-user"></i>Jobseeker Login</Nav.Link>
             </LinkContainer>)}
             </Nav>
           </Navbar.Collapse>

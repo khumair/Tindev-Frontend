@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { Container, Button, Image } from 'react-bootstrap'
+import { Container, Button, Row, Col, Image } from 'react-bootstrap'
+
+import img from '../images/woman-with-megaphon.png'
 
 type SetCode = {
   
@@ -45,7 +47,7 @@ const EmailVerification = () => {
       <div className="text-center py-2">
         <h3 className="email-verify">Email Verification</h3>
         <p className="email">Email verification for {email} </p>
-        <h4>Please check out your mail and enter verification code:</h4>
+        <h4 className="check-out">Please check out your mail and enter verification code:</h4>
       </div>
       <div className="verification text-center">
         <input name="first" onChange={handleChange} value={code.first} className="verification-code"></input>
@@ -53,18 +55,16 @@ const EmailVerification = () => {
         <input name="third" onChange={handleChange} value={code.third} className="verification-code"></input>
         <input name="fourth" onChange={handleChange} value={code.fourth} className="verification-code"></input>
       </div>
-      <div className="text-center">
-        <div className="verification">
+      <div className="bottom-section">
+        <div className="verification text-center">
           <Button onClick={handleVerification} className="verification__button btn btn-dark btn-lg">Send verification code</Button>
         </div>
-        <p className="new-code text-center">Didn't receive the verification code?</p>
         <div className="verification__resend-button text-center resend">
+        <p className="new-code text-center">Didn't receive the verification code?</p>
           <Button onClick={handleResend} className="btn btn-light btn-lg">Get new verification code</Button>
         </div>
+        <Image src={`${img}`} fluid className="woman-behind-megaphon"></Image>
       </div>
-    </Container>
-    <Container>
-      <Image></Image>
     </Container>
     </>
   )
