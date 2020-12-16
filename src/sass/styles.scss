@@ -11,9 +11,18 @@ body {
 	color: #000;
 }
 
+/** landing page */
+// .header {
+// 	background: -webkit-linear-gradient(-100deg, #c274fd, #ab74fd 30%, #8b74fd)
+// }
+
 /** navbar */
 .navbar {
 	background: -webkit-linear-gradient(10deg, #fd748b, #fd74fd 10%, #c274fd)
+}
+
+a#company-name {
+	margin-right: 2.3rem;
 }
 
 /** email verification page */
@@ -41,7 +50,7 @@ body {
 	font-size: 1.1em;
 	background-color: #a64fae;
 	color: white;
-	padding: 0.61em 1em;
+	padding: 0.64em 1em;
 	margin-bottom: 2em;
 }
 

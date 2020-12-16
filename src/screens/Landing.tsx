@@ -2,9 +2,9 @@ import React from 'react'
 
 const Landing = () => {
   return (
-    <div className="home-page">
+    <header className="header">
       Hello
-    </div>
+    </header>
   )
 }
 

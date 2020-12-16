@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Container, Button, Row, Col, Image } from 'react-bootstrap'
+import { Container, Button, Image } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 
 import img from '../images/woman-with-megaphon.png'
 
@@ -12,6 +13,7 @@ type SetCode = {
 }
 
 const EmailVerification = () => {
+  const history = useHistory()
   const [code, setCode] = useState({
     first: '',
     second: '',
@@ -35,6 +37,7 @@ const EmailVerification = () => {
 
   const handleVerification = () => {
     console.log('verified')
+    history.push('/login')
   }
 
   const handleResend = () => {
