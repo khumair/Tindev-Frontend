@@ -1,8 +1,13 @@
 import React from 'react';
-import './scss/styles.scss';
 
 import Routes from './Routes';
 
-const App = () => <Routes />;
+import './scss/styles.scss';
+
+const App = () => (
+	<>
+		<Routes />
+	</>
+);
 
 export default App;
