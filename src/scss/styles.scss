@@ -1,24 +1,44 @@
-// @import '../../node_modules/bootstrap/scss/bootstrap.scss'
+// @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 @import '~bootstrap/scss/bootstrap';
+@import '_mobile';
 
 body {
-	background-color: white;
+	padding: 0px;
+	margin: 0px auto;
+	color: #ddd;
 }
 
-.btn-flat {
-	background-color: #55dd55;
-	color: #000;
+.landing-top-bg {
+	background: url(../media/header-img.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 80vh;
+	width: 100%;
 }
 
-/** landing page */
-// .header {
-// 	background: -webkit-linear-gradient(-100deg, #c274fd, #ab74fd 30%, #8b74fd)
-// }
+.half-circle {
+	width: 200px;
+	height: 100px;
+	background: linear-gradient(#a24fae, #773bb7);
+	border-bottom-right-radius: 100px;
+	border-bottom-left-radius: 100px;
+	border: 0;
+	color: #fff;
+	text-align: center;
+}
+
+.svg-icon {
+	position: absolute;
+	bottom: 0;
+	right: 20px;
+	height: 25vh;
+}
 
 /** navbar */
 .navbar {
-	background: -webkit-linear-gradient(10deg, #fd748b, #fd74fd 10%, #c274fd)
+	background: white;
 }
 
 a#company-name {
