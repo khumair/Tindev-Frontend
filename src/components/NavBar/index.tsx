@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 
+import './NavBar.scss'
+
 const NavBar = () => {
   const history = useHistory()
   // useSelector to get user info

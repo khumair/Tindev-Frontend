@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import img from '../images/woman-with-megaphon.png'
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
+import './EmailVerification.scss'
 
 type SetCode = {
   

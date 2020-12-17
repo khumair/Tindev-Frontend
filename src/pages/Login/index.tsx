@@ -7,6 +7,7 @@ import starsLady from '../../media/standing-lady.svg'
 import NavBar from '../../components/NavBar'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
+import './Login.scss'
 
 const Login = ({ history }: any) => {
 	const [email, setEmail] = useState('')
@@ -31,7 +32,7 @@ const Login = ({ history }: any) => {
 		<Container>
 			<Row className="justify-content-md-center">
 				<Col xs={12} md={4}>
-					<h2 className="text-center signin">Sign in to TinDev</h2>
+					<h2 className="signin">Sign in to TinDev</h2>
 					{/* {error && <Message variant="danger">{error}</Message>} */}
 					{loading && <Loader />}
 					<Form onSubmit={submitHandler}>
@@ -66,6 +67,6 @@ const Login = ({ history }: any) => {
 		<CustomSvgIcon img={starsLady} />
 	</div>
 	)
-}
+}	
 
 export default Login

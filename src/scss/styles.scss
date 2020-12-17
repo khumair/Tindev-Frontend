@@ -37,74 +37,13 @@ body {
 	height: 25vh;
 }
 
-/** navbar */
-.navbar {
-	background: white;
-}
-
-.navbar-brand {
-	padding-left: 1.6em;
-}
-
-a.nav-link {
-	margin-left: 2.3rem;
-}
-
-/** signin page */
-.signin {
-	color: #a64fae;
-	font-weight: bold;
-	padding-bottom: 1em;
-}
-
-.label {
-	color:  rgb(143, 137, 137);
-}
-
-.new-user {
-	color: rgb(143, 137, 137);
-	padding-bottom: 9.8em;
-}
-
-.register {
-	color: #a64fae;
-	text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-.signin-button {
-	background-color: #a64fae;
-	border:  #a64fae;
-	color: white;
-}
-
-/** footer */ 
-.copyright {
-	color: #817a7a;
-}
-
-/** email verification page */
-.verification-code {
-	width: 2.5em;
-	height: 2.3em;
-	margin: 0.7em;
-	border: 1px solid rgb(119, 117, 117);
-	border-radius: 7%;
-}
-
+/** buttons on email verification page */
 .verification {
 	padding-bottom: 1em;
 	&__button {
 		margin-bottom: 0.8em;
 		background-color: #463547;
 	}
-}
-
-.new-code {
-	font-size: 0.9em;
 }
 
 .btn-light {
@@ -115,63 +54,9 @@ a:hover {
 	margin-bottom: 8em;
 }
 
-.email {
-	font-size: 0.9em;
-	color: rgb(59, 57, 57);
-}
 
-.email-verify {
-	color: #322933;
-	padding: 1em 0;
-}
 
-.check-out {
-	color: #0a2346;
-}
 
-.new-code {
-	color: rgb(59, 57, 57);
-}
 
-.bottom-section {
-	position: relative;
-}
-
-// .woman-behind-megaphon {
-// 	width: 220px;
-// 	height: 200px;
-// 	position: absolute;
-// 	right: 15%;
-// 	top: 27%;
-// 	@media (max-width: 1100px) {
-// 		width: 150px;
-// 		height: 120px;
-// 		position: absolute;
-// 		right: 5%;
-// 		bottom: 17%;
-// 	}
-// 	@media (max-width: 768px) {
-// 		width: 100px;
-// 		height: 80px;
-// 		position: absolute;
-// 		right: 4%;
-// 		bottom: 20%;
-// 	}
-// 	@media (max-width: 670px) {
-// 		width: 50px;
-// 		height: 40px;
-// 		position: absolute;
-// 		right: 0.5%;
-// 		bottom: 5%;
-// 	}
-// 	@media (max-width: 360px) {
-// 		width: 50px;
-// 		height: 40px;
-// 		position: absolute;
-// 		right: -10%;
-// 		bottom: 1%;
-// 		z-index: -1;
-// 	}
-// }
 
 
