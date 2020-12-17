@@ -3,6 +3,8 @@ import { Container, Button, Image } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 import img from '../images/woman-with-megaphon.png'
+import CustomSvgIcon from '../../components/CustomSvgIcon'
+import starsLady from '../../media/standing-lady.svg'
 
 type SetCode = {
   
@@ -66,9 +68,10 @@ const EmailVerification = () => {
         <p className="new-code text-center">Didn't receive the verification code?</p>
           <Button onClick={handleResend} className="btn btn-light btn-lg">Get new verification code</Button>
         </div>
-        <Image src={`${img}`} fluid className="woman-behind-megaphon"></Image>
+        {/* <Image src={`${img}`} fluid className="woman-behind-megaphon"></Image> */}
       </div>
     </Container>
+    <CustomSvgIcon img={starsLady} />
     </>
   )
 }
