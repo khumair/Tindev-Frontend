@@ -17,30 +17,28 @@ const NavBar = () => {
 
   return (
     <Navbar expand="lg" collapseOnSelect className="navbar">
-        <Container>
-          <LinkContainer to='/'>
-            <Navbar.Brand>TinDev</Navbar.Brand>
-          </LinkContainer>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-            {!userInfo && 
-            <LinkContainer to='/register'>
-              <Nav.Link><i className="register"></i>Register</Nav.Link>
-            </LinkContainer>}
-              {userInfo ? (
-                <NavDropdown title={userInfo.userName} id="username">
-                  <LinkContainer to='/profileJobSeeker'>
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
-                  </LinkContainer>
-                  <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
-                </NavDropdown>
-              ) : ( <LinkContainer to='/login'>
-              <Nav.Link><i className="fas fa-user"></i>Login</Nav.Link>
-            </LinkContainer>)}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
+        <LinkContainer to='/'>
+          <Navbar.Brand>TinDev</Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+          {!userInfo && 
+          <LinkContainer to='/register'>
+            <Nav.Link><i className="register"></i>Register</Nav.Link>
+          </LinkContainer>}
+            {userInfo ? (
+              <NavDropdown title={userInfo.userName} id="username">
+                <LinkContainer to='/profileJobSeeker'>
+                  <NavDropdown.Item>Profile</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+              </NavDropdown>
+            ) : ( <LinkContainer to='/login'>
+            <Nav.Link><i className="fas fa-user"></i>Login</Nav.Link>
+          </LinkContainer>)}
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
   )
 }
