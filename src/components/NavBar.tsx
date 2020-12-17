@@ -21,9 +21,10 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
+            {!userInfo && 
             <LinkContainer to='/register'>
               <Nav.Link><i className="register"></i>Register</Nav.Link>
-            </LinkContainer>
+            </LinkContainer>}
               {userInfo ? (
                 <NavDropdown title={userInfo.userName} id="username">
                   <LinkContainer to='/profileJobSeeker'>
@@ -31,8 +32,8 @@ const NavBar = () => {
                   </LinkContainer>
                   <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
                 </NavDropdown>
-              ) : ( <LinkContainer to='/login' >
-              <Nav.Link><i className="fas fa-user"></i>Jobseeker Login</Nav.Link>
+              ) : ( <LinkContainer to='/login'>
+              <Nav.Link><i className="fas fa-user"></i>Login</Nav.Link>
             </LinkContainer>)}
             </Nav>
           </Navbar.Collapse>
