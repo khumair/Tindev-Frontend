@@ -9,6 +9,12 @@ body {
 	color: #ddd;
 }
 
+Button {
+	background: linear-gradient(#a24fae, #773bb7);
+	color: #fff;
+	min-width: 170px;
+}
+
 .landing-top-bg {
 	background: url(../media/header-img.svg);
 	background-position: center;
@@ -34,6 +40,12 @@ body {
 	bottom: 0;
 	right: 20px;
 	height: 25vh;
+}
+
+.user-img {
+	position: absolute;
+	top: 15%;
+	right: 10%;
 }
 
 /** navbar */

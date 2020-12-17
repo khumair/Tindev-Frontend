@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Col } from 'react-bootstrap';
 
 import HalfCircle from '../../components/HalfCircle';
 import CustomSvgIcon from '../../components/CustomSvgIcon';
 import starsLady from '../../media/star-lady.svg';
+import CustomButton from '../../components/CustomButton';
 
 const Register = () => {
 	const [validated, setValidated] = useState(false);
@@ -71,9 +72,7 @@ const Register = () => {
 					</Form.Group>
 				</Form.Row>
 
-				<Button type='submit' variant='outline-primary my-3'>
-					Submit
-				</Button>
+				<CustomButton text='Submit' className='my-3' />
 
 				<p>
 					Already a member? <Link to='/login'>Sign In</Link>
