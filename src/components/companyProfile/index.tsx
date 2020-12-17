@@ -4,7 +4,7 @@ import uploadImage from "../../assets/images/upload-Image.png";
 const CompanyProfile = () => {
   return (
     <Container fluid="md">
-      <h1>Company Profile</h1>
+      <h2 className="row justify-content-center">Company Profile</h2>
       <Row>
         <Col xs>
           <Form>
@@ -56,11 +56,11 @@ const CompanyProfile = () => {
               </Col>
             </Form.Group>
           </Form>
-          <Button> Save</Button>
+          <Button className="btn-form"> Save</Button>
         </Col>
         <Col className="colcenter">
           <Image src={uploadImage} /> <br />
-          <Button className="mt-4">Upload</Button>
+          <Button className="btn-upload mt-4">Upload</Button>
         </Col>
       </Row>
     </Container>
