@@ -60,7 +60,10 @@ const CompanyProfile = () => {
         </Col>
         <Col className="colcenter">
           <Image src={uploadImage} /> <br />
-          <Button className="btn-upload mt-4">Upload</Button>
+          <Button className="btn-upload mt-4">
+            <a href="http://www.google.com">signup</a>
+            Upload
+          </Button>
         </Col>
       </Row>
     </Container>

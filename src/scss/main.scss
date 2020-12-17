@@ -40,6 +40,12 @@ body {
 }
 .tag-btn {
   font-family: "poppins", sans-serif;
+  border-color: $purple-color;
+  color: $purple-color;
+}
+.tag-btn:hover {
+  background-color: $purple-color;
+  border-color: #ffffff;
 }
 h2 {
   line-height: 1.66;

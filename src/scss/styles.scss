@@ -1,14 +1,13 @@
-// @import '../../node_modules/bootstrap/scss/bootstrap.scss'
-
 @import "~bootstrap/scss/bootstrap";
 @import "./fonts.scss";
 
+// Variables
+$purple-color: #a64fae;
 body {
   font-family: "poppins", sans-serif;
   background-color: grey;
   background-color: #ffff;
 }
-
 .btn-flat {
   background-color: #55dd55;
   color: #000;
@@ -16,4 +15,45 @@ body {
 .colcenter {
   padding: 1rem;
   text-align: center;
+}
+
+.btn-form {
+  background-color: $purple-color;
+  color: #ffffff;
+  border: none;
+  font-family: "poppins", sans-serif;
+  margin: 15px 145px;
+  border-radius: 5px;
+  height: 75px;
+  width: 215px;
+}
+
+.btn-upload {
+  background-color: $purple-color;
+  color: #ffffff;
+  border: none;
+  font-family: "poppins", sans-serif;
+  margin: 15px 145px;
+  border-radius: 5px;
+  height: 45px;
+  width: 80px;
+}
+.tag-btn {
+  font-family: "poppins", sans-serif;
+  border-color: $purple-color;
+  color: $purple-color;
+}
+.tag-btn:hover {
+  background-color: $purple-color;
+  border-color: #ffffff;
+}
+h2 {
+  line-height: 1.66;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: $purple-color;
+  font-family: "poppins", sans-serif;
+  font-size: 36px;
 }

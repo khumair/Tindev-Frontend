@@ -5,8 +5,8 @@ import CompanyMatchPage from "./components/companyMatchPage";
 
 const App = () => (
   <>
-    {/* <CompanyProfile /> */}
-    <CompanyMatchPage />
+    <CompanyProfile />
+    {/* <CompanyMatchPage /> */}
   </>
 );
 

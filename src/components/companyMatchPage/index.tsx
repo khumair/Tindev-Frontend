@@ -18,11 +18,17 @@ const CompanyMatchPage = () => {
                   <div className="col-xs-8 col-sm-7 col-md-8">
                     <h5>Car System Alerts</h5>
                     <p>Check the battery and alternator conditions</p>
-                    <Badge pill className="btn  btn-outline-primary">
+                    <Badge
+                      pill
+                      className="tag-btn btn btn-pill btn-outline-primary ml-2"
+                    >
                       JavaScript
                     </Badge>
-                    <Badge pill className="tag-btn btn-outline-primary ml-3">
-                      JavaScript
+                    <Badge
+                      pill
+                      className="tag-btn btn btn-pill btn-outline-primary ml-2"
+                    >
+                      ReactJs
                     </Badge>
                   </div>
                 </div>
