@@ -1,13 +1,12 @@
-import React from 'react';
-
+import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 
-import './scss/styles.scss';
+import './scss/styles.scss'
 import Landing from './pages/Landing'
 import Footer from './components/Footer'
 import Register from './pages/Register'
-import EmailVerification from './pages/EmailVerification';
+import EmailVerification from './pages/EmailVerification'
 import Login from './pages/Login'
 
 const App = () => (
@@ -22,6 +21,6 @@ const App = () => (
 		</main>
 		<Footer />
 	</Router>
-);
+)
 
-export default App;
+export default App
