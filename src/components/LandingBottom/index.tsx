@@ -2,7 +2,7 @@ import team from '../../media/team-dev.svg';
 
 const LandingBottom = () => {
 	return (
-		<div className='container mb-5'>
+		<div className='container mb-5 pb-5'>
 			<div className='row justify-content-center'>
 				<h4 className='text-danger text-center'>
 					<q>
