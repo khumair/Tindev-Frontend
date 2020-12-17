@@ -3,3 +3,9 @@
 		display: none !important;
 	}
 }
+
+@media screen and (max-width: 576px) {
+	.hide-sm {
+		display: none !important;
+	}
+}

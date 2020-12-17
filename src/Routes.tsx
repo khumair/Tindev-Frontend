@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import EditProfile from './pages/EditProfile';
 
 import Landing from './pages/Landing';
 import Login from './pages/Login';
@@ -10,6 +11,7 @@ const Routes = () => (
 		<Route exact path='/' component={Landing} />
 		<Route path='/login' component={Login} />
 		<Route path='/register' component={Register} />
+		<Route path='/edit-profile' component={EditProfile} />
 	</Switch>
 );
 
