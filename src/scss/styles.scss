@@ -54,6 +54,17 @@ body {
 	margin-bottom: 8em;
 }
 
+/** button on login page */
+a:hover {
+  text-decoration: none;
+}
+
+.signin-button {
+	background-color: #a64fae;
+	border:  #a64fae;
+	color: white;
+}
+
 
 
 
