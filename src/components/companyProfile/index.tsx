@@ -37,7 +37,7 @@ const CompanyProfile = () => {
 
             <Form.Group as={Row} controlId="formElement">
               <Form.Label column sm="4">
-                City
+                city City
               </Form.Label>
               <Col sm="8">
                 <Form.Control type="text" placeholder="Password" />
