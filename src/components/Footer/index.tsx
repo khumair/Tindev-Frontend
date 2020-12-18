@@ -1,6 +1,8 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
+import './Footer.scss'
+
 const Footer = () => {
   const date = new Date()
   const year = date.getFullYear()
@@ -9,7 +11,7 @@ const Footer = () => {
     <footer>
       <Container>
         <Row>
-          <Col className="text-center py-3">
+          <Col className="text-center">
             <p className="copyright">Copyright &copy; TinDev {year}</p>
           </Col>
         </Row>
