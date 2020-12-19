@@ -1,7 +1,15 @@
-const Landing = () => (
-	<div>
-		<h1>Landing Page</h1>
-	</div>
-);
+import React from 'react'
 
-export default Landing;
+import NavBar from '../../components/NavBar'
+import LandingTop from '../../components/LandingTop'
+import LandingBottom from '../../components/LandingBottom'
+
+const Landing = () => (
+	<>
+		<NavBar />
+		<LandingTop />
+		<LandingBottom />
+	</>
+)
+
+export default Landing

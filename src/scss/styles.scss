@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 @import "~bootstrap/scss/bootstrap";
 @import "./fonts.scss";
+=======
+// @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+@import '~bootstrap/scss/bootstrap';
+@import '_mobile';
+>>>>>>> cc0984374fb0b99af135e0ab4ff895026772324b
 
 // Variables
 $purple-color: #a64fae;
 body {
+<<<<<<< HEAD
   font-family: "poppins", sans-serif;
   background-color: grey;
   background-color: #ffff;
@@ -56,4 +64,61 @@ h2 {
   color: $purple-color;
   font-family: "poppins", sans-serif;
   font-size: 36px;
+=======
+	padding: 0px;
+	margin: 0px auto;
+	color: #ddd;
+	font-family: 'Poppins', sans-serif;
 }
+
+.landing-top-bg {
+	background: url(../media/header-img.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 80vh;
+	width: 100%;
+>>>>>>> cc0984374fb0b99af135e0ab4ff895026772324b
+}
+
+.half-circle {
+	width: 200px;
+	height: 100px;
+	background: linear-gradient(#a24fae, #773bb7);
+	border-bottom-right-radius: 100px;
+	border-bottom-left-radius: 100px;
+	border: 0;
+	color: #fff;
+	text-align: center;
+}
+
+.svg-icon {
+	position: absolute;
+	bottom: 0;
+	right: 20px;
+	height: 25vh;
+}
+
+/** buttons on email verification page */
+.verification {
+	padding-bottom: 1em;
+	&__button {
+		margin-bottom: 0.8em;
+		background-color: #463547;
+	}
+}
+
+.btn-light {
+	font-size: 1.1em;
+	background-color: #a64fae;
+	color: white;
+	padding: 0.64em 1em;
+	margin-bottom: 8em;
+}
+
+
+
+
+
+
+
