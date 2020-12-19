@@ -65,11 +65,10 @@ const EmailVerification = () => {
         <div className="verification text-center">
           <Button onClick={handleVerification} className="verification__button btn btn-dark btn-lg">Send verification code</Button>
         </div>
-        <div className="verification__resend-button text-center resend">
+        <div className="verification__button text-center">
         <p className="new-code text-center">Didn't receive the verification code?</p>
-          <Button onClick={handleResend} className="btn btn-light btn-lg">Get new verification code</Button>
+          <Button onClick={handleResend} className="btn btn-light btn-lg resend">Get new verification code</Button>
         </div>
-        {/* <Image src={`${img}`} fluid className="woman-behind-megaphon"></Image> */}
       </div>
     </Container>
     <CustomSvgIcon img={starsLady} />
