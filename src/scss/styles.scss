@@ -10,6 +10,12 @@ body {
 	font-family: 'Poppins', sans-serif;
 }
 
+Button {
+	background: linear-gradient(#a24fae, #773bb7);
+	color: #fff;
+	min-width: 170px;
+}
+
 .landing-top-bg {
 	background: url(../media/header-img.svg);
 	background-position: center;
@@ -37,7 +43,34 @@ body {
 	height: 25vh;
 }
 
+<<<<<<< HEAD
 /** buttons on email verification page */
+=======
+.user-img {
+	position: absolute;
+	top: 15%;
+	right: 10%;
+}
+
+/** navbar */
+.navbar {
+	background: white;
+}
+
+a#company-name {
+	margin-right: 2.3rem;
+}
+
+/** email verification page */
+.verification-code {
+	width: 2.5em;
+	height: 2.3em;
+	margin: 0.7em;
+	border: 1px solid rgb(119, 117, 117);
+	border-radius: 7%;
+}
+
+>>>>>>> bd0064ea14f22b81eacdbc1e7521d0508792aaae
 .verification {
 	padding-bottom: 1em;
 	&__button {
@@ -66,8 +99,19 @@ a:hover {
 }
 
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+.new-code {
+	font-size: 0.9em;
+	color: rgb(59, 57, 57);
+}
+
+.bottom-section {
+	position: relative;
+}
+>>>>>>> bd0064ea14f22b81eacdbc1e7521d0508792aaae

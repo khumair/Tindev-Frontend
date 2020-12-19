@@ -1,9 +1,9 @@
 import React from 'react'
 
+<<<<<<< HEAD
 import Routes from './Routes'
 import Footer from './components/Footer'
-
-import './scss/styles.scss'
+import './scss/styles.scss';
 
 const App = () => (
 	<>
@@ -11,5 +11,7 @@ const App = () => (
 		<Footer />
 	</>
 )
+	</>
+);
 
 export default App

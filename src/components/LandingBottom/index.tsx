@@ -2,7 +2,7 @@ import team from '../../media/team-dev.svg'
 
 const LandingBottom = () => {
 	return (
-		<div className='container mb-5'>
+		<div className='container mb-5 pb-5'>
 			<div className='row justify-content-center'>
 				<h4 className='text-danger text-center'>
 					<q>
@@ -11,6 +11,7 @@ const LandingBottom = () => {
 				</h4>
 			</div>
 
+<<<<<<< HEAD
 			<div
 				className='border border-primary rounded mx-auto d-block my-5 p-5'
 				style={{ width: '80%' }}>
@@ -18,6 +19,12 @@ const LandingBottom = () => {
 
 				<h4 className='text-center my-2 p-3 text-primary '>About TinDev</h4>
 				<p className='text-center text-secondary p-3 w-50 m-auto'>
+=======
+			<div className='border border-primary rounded mx-auto d-block my-5 p-5'>
+				<img className='img-fluid mx-auto d-block' src={team} alt='team-svg' />
+				<h4 className='text-center my-2 p-3 text-primary '>About TeamDev</h4>
+				<p className='text-center text-secondary p-3 lh-lg'>
+>>>>>>> bd0064ea14f22b81eacdbc1e7521d0508792aaae
 					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis
 					excepturi dolorem quas unde esse est? Lorem, ipsum dolor sit amet
 					consectetur adipisicing elit. Debitis excepturi dolorem quas unde esse
