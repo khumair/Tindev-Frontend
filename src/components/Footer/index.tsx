@@ -10,7 +10,7 @@ const Footer = () => {
     <footer>
       <Container>
         <Row>
-          <Col className="text-center">
+          <Col className="text-center py-1 fixed-bottom">
             <p className="copyright">Copyright &copy; TinDev {year}</p>
           </Col>
         </Row>
