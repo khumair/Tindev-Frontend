@@ -9,12 +9,14 @@ import NavBar from '../../components/NavBar'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
 import FormContainer from '../../components/FormContainer'
+import CustomButton from '../../components/CustomButton'
 //import { login } from '../../redux/actions/userActions'
 import './Login.scss'
 
 const Login = ({ history }: any) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const login = 'Login'
 
 	//const dispatch = useDispatch()
 
@@ -62,7 +64,7 @@ const Login = ({ history }: any) => {
 						onChange={(e) => setPassword(e.target.value)}
 					></Form.Control>
 				</Form.Group>
-				<Button type="submit" className="signin-button" variant="outline-dark my-2">Login</Button>
+				<CustomButton text={login} />
 			</Form>
 			<Row className="forgot-password">
 				<Col>

@@ -32,39 +32,21 @@
 	position: relative;
 }
 
-// .woman-behind-megaphon {
-// 	width: 220px;
-// 	height: 200px;
-// 	position: absolute;
-// 	right: 15%;
-// 	top: 27%;
-// 	@media (max-width: 1100px) {
-// 		width: 150px;
-// 		height: 120px;
-// 		position: absolute;
-// 		right: 5%;
-// 		bottom: 17%;
-// 	}
-// 	@media (max-width: 768px) {
-// 		width: 100px;
-// 		height: 80px;
-// 		position: absolute;
-// 		right: 4%;
-// 		bottom: 20%;
-// 	}
-// 	@media (max-width: 670px) {
-// 		width: 50px;
-// 		height: 40px;
-// 		position: absolute;
-// 		right: 0.5%;
-// 		bottom: 5%;
-// 	}
-// 	@media (max-width: 360px) {
-// 		width: 50px;
-// 		height: 40px;
-// 		position: absolute;
-// 		right: -10%;
-// 		bottom: 1%;
-// 		z-index: -1;
-// 	}
-// }
+/** buttons */
+.verification {
+	padding-bottom: 1em;
+	&__button {
+		margin-bottom: 0.8em;
+		// background-color: #463547;
+		background-color: red;
+	}
+}
+
+.btn-light {
+	font-size: 1.1em;
+	background-color: #a64fae;
+	color: white;
+	padding: 0.64em 1em;
+	margin-bottom: 8em;
+}
+

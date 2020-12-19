@@ -6,6 +6,7 @@ body {
 	margin: 0px auto;
 	color: #ddd;
 	font-family: 'Poppins', sans-serif;
+	width: 100%; overflow-x: hidden;
 }
 
 Button {
@@ -41,64 +42,11 @@ Button {
 	height: 25vh;
 }
 
-/** buttons on email verification page */
-.user-img {
-	position: absolute;
-	top: 15%;
-	right: 10%;
-}
-
-/** navbar */
-.navbar {
-	background: white;
-}
-
-a#company-name {
-	margin-right: 2.3rem;
-}
-
-/** email verification page */
-.verification-code {
-	width: 2.5em;
-	height: 2.3em;
-	margin: 0.7em;
-	border: 1px solid rgb(119, 117, 117);
-	border-radius: 7%;
-}
-
-.verification {
-	padding-bottom: 1em;
-	&__button {
-		margin-bottom: 0.8em;
-		background-color: #463547;
-	}
-}
-
-.btn-light {
-	font-size: 1.1em;
-	background-color: #a64fae;
-	color: white;
-	padding: 0.64em 1em;
-	margin-bottom: 8em;
-}
-
-/** button on login page */
 a:hover {
   text-decoration: none;
 }
 
-.signin-button {
-	background-color: #a64fae;
-	border:  #a64fae;
-	color: white;
-}
 
-.new-code {
-	font-size: 0.9em;
-	color: rgb(59, 57, 57);
-}
 
-.bottom-section {
-	position: relative;
-}
+
 
