@@ -63,7 +63,7 @@ const EmailVerification = () => {
       </div>
       <div className="bottom-section">
         <div className="verification text-center">
-          <Button onClick={handleVerification} className="verification__button btn btn-dark btn-lg">Send verification code</Button>
+          <Button onClick={handleVerification} className="verification-button btn btn-dark btn-lg">Send verification code</Button>
         </div>
         <div className="verification__button text-center">
         <p className="new-code text-center">Didn't receive the verification code?</p>

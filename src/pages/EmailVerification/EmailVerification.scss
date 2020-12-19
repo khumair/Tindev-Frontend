@@ -33,20 +33,16 @@
 }
 
 /** buttons */
-.verification {
-	padding-bottom: 1em;
-	&__button {
-		margin-bottom: 0.8em;
-		// background-color: #463547;
-		background-color: red;
-	}
+.verification-button {
+	margin: 0.8em 0;
+	background-color: #463547;
+	color: white;
 }
 
 .btn-light.resend {
 	font-size: 1.1em;
-	background-color: #a64fae;
 	color: white;
-	padding: 0.64em 1em;
+	padding: 0.68em 1em;
 	margin-bottom: 8em;
 }
 
