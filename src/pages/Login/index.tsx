@@ -8,6 +8,7 @@ import starsLady from '../../media/standing-lady.svg'
 import NavBar from '../../components/NavBar'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
+import FormContainer from '../../components/FormContainer'
 //import { login } from '../../redux/actions/userActions'
 import './Login.scss'
 
@@ -38,9 +39,9 @@ const Login = ({ history }: any) => {
 	return (
 	<div>
 		<NavBar />
-		<Container>
-			<Row className="justify-content-md-center">
-				<Col xs={12} md={4}>
+		<FormContainer>
+			{/* <Row className="justify-content-md-center">
+				<Col xs={12} md={4}> */}
 					<h2 className="signin">Sign in to TinDev</h2>
 					{/* {error && <Message variant="danger">{error}</Message>} */}
 					{loading && <Loader />}
@@ -75,9 +76,9 @@ const Login = ({ history }: any) => {
 						New User? <Link className="register" to='/register'>Register</Link>
 						</Col>
 					</Row>
-				</Col>
-			</Row>
-		</Container>
+				{/* </Col>
+			</Row> */}
+		</FormContainer>
 		<CustomSvgIcon img={starsLady} />
 	</div>
 	)

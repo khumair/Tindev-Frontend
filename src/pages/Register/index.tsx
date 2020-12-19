@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-import HalfCircle from '../../components/HalfCircle'
-import CustomSvgIcon from '../../components/CustomSvgIcon'
-import starsLady from '../../media/star-lady.svg'
-
-const Register = () => (
-	<>
-		<HalfCircle inputText='Welcome' />
-		<CustomSvgIcon img={starsLady} />
-	</>
-)
-=======
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Col } from 'react-bootstrap';
@@ -96,6 +82,5 @@ const Register = () => {
 		</>
 	);
 };
->>>>>>> bd0064ea14f22b81eacdbc1e7521d0508792aaae
 
 export default Register
