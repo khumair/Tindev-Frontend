@@ -22,10 +22,11 @@ body {
   color: #ffffff;
   border: none;
   font-family: "poppins", sans-serif;
-  margin: 15px 145px;
+  margin-top: 25px;
   border-radius: 5px;
-  height: 75px;
-  width: 215px;
+  height: 50px;
+
+  // width: 215px;
 }
 
 .btn-upload {
@@ -36,7 +37,7 @@ body {
   margin: 15px 145px;
   border-radius: 5px;
   height: 45px;
-  width: 80px;
+  width: 100px;
 }
 .tag-btn {
   font-family: "poppins", sans-serif;
@@ -56,4 +57,16 @@ h2 {
   color: $purple-color;
   font-family: "poppins", sans-serif;
   font-size: 36px;
+}
+
+.text-field {
+  width: auto;
+  height: 3rem;
+  border-radius: 10px;
+  border: solid 1px #000;
+  // font-family: "poppins", sans-serif;
+  // margin-top: 15px;
+}
+.form-group-set {
+  margin-top: 1.8rem;
 }

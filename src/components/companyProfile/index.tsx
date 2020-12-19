@@ -8,62 +8,99 @@ const CompanyProfile = () => {
       <Row>
         <Col xs>
           <Form>
-            <Form.Group as={Row} controlId="formElement">
+            <Form.Group
+              className="form-group-set"
+              as={Row}
+              controlId="formElement"
+            >
               <Form.Label column sm="4">
                 Company Name
               </Form.Label>
               <Col sm="8">
-                <Form.Control type="text" placeholder="Comapny Name" />
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  placeholder="Comapny Name"
+                />
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} controlId="formElement">
+            <Form.Group
+              className="form-group-set"
+              as={Row}
+              controlId="formElement"
+            >
               <Form.Label column sm="4">
                 Address
               </Form.Label>
               <Col sm="8">
-                <Form.Control type="text" placeholder="Address" />
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  placeholder="Address"
+                />
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} controlId="formElement">
+            <Form.Group
+              className="form-group-set"
+              as={Row}
+              controlId="formElement"
+            >
               <Form.Label column sm="4">
                 Country
               </Form.Label>
               <Col sm="8">
-                <Form.Control type="text" placeholder="Country" />
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  placeholder="Country"
+                />
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} controlId="formElement">
+            <Form.Group
+              className="form-group-set"
+              as={Row}
+              controlId="formElement"
+            >
               <Form.Label column sm="4">
-                city City
+                City
               </Form.Label>
               <Col sm="8">
-                <Form.Control type="text" placeholder="Password" />
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  placeholder="Helsinki"
+                />
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} controlId="formPlaintextPassword">
+            <Form.Group
+              as={Row}
+              className="form-group-set"
+              controlId="formPlaintextPassword"
+            >
               <Form.Label column sm="4">
                 WebSite
               </Form.Label>
               <Col sm="8">
                 <Form.Control
+                  className="text-field"
                   type="text"
                   placeholder="http://www.company.com"
                 />
               </Col>
             </Form.Group>
           </Form>
-          <Button className="btn-form"> Save</Button>
+          <Button className="btn-form" size="lg" block>
+            {" "}
+            Save
+          </Button>
         </Col>
         <Col className="colcenter">
           <Image src={uploadImage} /> <br />
-          <Button className="btn-upload mt-4">
-            <a href="http://www.google.com">signup</a>
-            Upload
-          </Button>
+          <Button className="btn-upload mt-4">Upload</Button>
         </Col>
       </Row>
     </Container>
