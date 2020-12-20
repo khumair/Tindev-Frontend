@@ -35,6 +35,7 @@ const Login = ({ history }: any) => {
 
 	const submitHandler = (e: React.FormEvent) => {
 		e.preventDefault()
+		console.log('login')
 		// dispatch login(email, password)
 	}
 
@@ -42,7 +43,7 @@ const Login = ({ history }: any) => {
 	<div>
 		<NavBar />
 		<FormContainer>
-		<h2 className="signin">Sign in to TinDev</h2>
+		<h2 className="signin">Sign In To TinDev</h2>
 			{/* {error && <Message variant="danger">{error}</Message>} */}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>

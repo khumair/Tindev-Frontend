@@ -30,15 +30,6 @@ const Register = () => {
 				onSubmit={handleSubmit}
 				className='container'>
 				<Form.Row>
-					<Form.Group as={Col} sm='8' controlId='validationCustomUsername'>
-						<Form.Control required type='text' placeholder='Username' />
-						<Form.Control.Feedback type='invalid'>
-							Username is required
-						</Form.Control.Feedback>
-					</Form.Group>
-				</Form.Row>
-
-				<Form.Row>
 					<Form.Group as={Col} sm='8' controlId='validationCustomEmail'>
 						<Form.Control required type='email' placeholder='eMail' />
 						<Form.Control.Feedback type='invalid'>
