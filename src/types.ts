@@ -13,18 +13,32 @@ export type RegisterEmployerRequestAction = {
 
 export type RegisterEmployerSuccessAction = {
   type: typeof REGISTER_EMPLOYER_SUCCESS
+  payload: {
+    credentials: {
+      email: string
+      password: string
+    }
+  }
 }
 
 export type RegisterEmployerFailAction = {
   type: typeof REGISTER_EMPLOYER_FAIL
+  payload: {
+    error: any
+  }
 }
 
 export type Credential = {
-  id: number
   email: string
   password: string
 }
 
 export type CredentialState = {
+  credentials: {}
+  loading: Boolean
+  error: any
+}
 
+export type AppState = {
+  employerRegister: CredentialState
 }

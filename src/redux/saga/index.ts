@@ -1,26 +1,14 @@
-import { put, all, takeLatest, select, fork } from 'redux-saga/effects'
+import { put, all, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
-import { watchNewGeneratedNumberRequestStart } from './numberfile'
 import { registerEmployerSuccess } from '../../redux/actions/employerActions'
+import { url } from '../../App'
 
-type Credentials = {
-  email: string
-  password: string
-}
-
-const config = {
-  headers: {
-    'Content_Type': 'application/json'
-  }
-}
-
-function* sendEmployerCredentialsSaga() {
+function* registerEmployerSaga(email: any, password: any) {
   try {
     const req = yield axios.post(
-       '/employer',
-      // { email, password } as Credentials, 
-      // config
+       `${url}/employer`,
+       { email, password }
     )
       yield put(registerEmployerSuccess(req.data))
   } catch (error) {
@@ -34,7 +22,8 @@ function* saveState() {
 }
 
 const sagaWatcher = [
-  takeLatest('REGISTER_EMPLOYER_REQUEST', sendEmployerCredentialsSaga),
+  /* @ts-ignore */
+  takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
   takeLatest('*', saveState)
 ]
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { Form, Col } from 'react-bootstrap';
 
@@ -6,9 +7,22 @@ import HalfCircle from '../../components/HalfCircle';
 import CustomSvgIcon from '../../components/CustomSvgIcon';
 import starsLady from '../../media/star-lady.svg';
 import CustomButton from '../../components/CustomButton';
+import Loader from '../../components/Loader'
+import Message from '../../components/Message'
+import { registerEmployerRequest } from '../../redux/actions/employerActions'
+import { AppState } from '../../types'
 
 const Register = () => {
 	const [validated, setValidated] = useState(false);
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+	const [confirmPassword, setConfirmPassword] = useState('')
+	const [message, setMessage] = useState('')
+
+	const dispatch = useDispatch()
+
+	const employerRegister = useSelector((state: AppState) => state.employerRegister)
+	const { loading, credentials, error } = employerRegister
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		const form = event.currentTarget;
@@ -18,12 +32,20 @@ const Register = () => {
 		}
 
 		setValidated(true);
+		if (password !== confirmPassword) {
+			setMessage('Passwords do not match')
+		} else {
+			dispatch(registerEmployerRequest(email, password))
+		}
 	};
 
 	return (
 		<>
 			<HalfCircle inputText='Welcome' />
 			<h3 className='text-center my-5'>Sign up</h3>
+			{message && <Message variant='danger'>{message}</Message>}
+			{error && <Message variant='danger'>{error}</Message>}
+			{loading && <Loader />}
 			<Form
 				noValidate
 				validated={validated}
@@ -31,7 +53,13 @@ const Register = () => {
 				className='container'>
 				<Form.Row>
 					<Form.Group as={Col} sm='8' controlId='validationCustomEmail'>
-						<Form.Control required type='email' placeholder='eMail' />
+						<Form.Control 
+							required 
+							type='email' 
+							placeholder='Email' 
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
 						<Form.Control.Feedback type='invalid'>
 							eMail is required
 						</Form.Control.Feedback>
@@ -40,7 +68,13 @@ const Register = () => {
 
 				<Form.Row>
 					<Form.Group as={Col} sm='8' controlId='validationCustomPassword'>
-						<Form.Control required type='password' placeholder='Password' />
+						<Form.Control 
+							required 
+							type='password' 
+							placeholder='Password' 
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							/>
 						<Form.Control.Feedback type='invalid'>
 							Password is required
 						</Form.Control.Feedback>
@@ -56,6 +90,8 @@ const Register = () => {
 							required
 							type='password'
 							placeholder='Confirm password'
+							value={confirmPassword}
+							onChange={(e) => setConfirmPassword(e.target.value)}
 						/>
 						<Form.Control.Feedback type='invalid'>
 							Passwords does not match!

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Container, Form } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Form } from 'react-bootstrap'
 
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import CustomButton from '../../components/CustomButton'
@@ -16,14 +16,15 @@ type SetCode = {
   fourth: any,
 }
 
-const EmailVerification = () => {
-  const history = useHistory()
+const EmailVerification = ({ history }: any) => {
   const [code, setCode] = useState({
     first: '',
     second: '',
     third: '',
     fourth: '',
   })
+
+  const dispatch = useDispatch()
 
   const email = 'duy@abc.com'
 
@@ -42,6 +43,8 @@ const EmailVerification = () => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('verify')
+    // dispatch()
+    history.push('/login')
   }
 
   const handleResend = () => {
@@ -65,6 +68,7 @@ const EmailVerification = () => {
           </div>
           <div className="verification text-center">
             <CustomButton 
+              type="submit"
               text="Send verification code"
               className="verification-button btn btn-dark btn-lg"
             />
@@ -73,12 +77,14 @@ const EmailVerification = () => {
         <div className="verification__button text-center">
           <p className="new-code text-center">Didn't receive the verification code?</p>
           <CustomButton 
+            type="submit"
             text="Get new verification code"
             className="resend btn btn-light btn-lg"
             onClick={handleResend}
           />
         </div>
       </FormContainer>
+      <CustomSvgIcon img={starsLady}/>
     </>
   )
 }

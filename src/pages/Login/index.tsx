@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-//import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Container, Form, Button, Row, Col } from 'react-bootstrap'
 
@@ -18,7 +18,7 @@ const Login = ({ history }: any) => {
 	const [password, setPassword] = useState('')
 	const login = 'Login'
 
-	//const dispatch = useDispatch()
+	const dispatch = useDispatch()
 
 	//const login = useSelector((state) => state.login)
 	// const { loading, error, userInfo } = login
@@ -67,7 +67,7 @@ const Login = ({ history }: any) => {
 				</Form.Group>
 				<CustomButton text={login} />
 			</Form>
-			<Row className="forgot-password">
+			<Row className="forgot-password py-3">
 				<Col>
 					<Link className="forgot-password" to='/reset-password'>Forgot your password?</Link>
 				</Col>
