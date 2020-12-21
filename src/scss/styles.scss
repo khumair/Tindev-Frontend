@@ -1,57 +1,61 @@
-// @import '../../node_modules/bootstrap/scss/bootstrap.scss';
-
 @import '~bootstrap/scss/bootstrap';
 @import '_mobile';
 
 body {
-	padding: 0px;
-	margin: 0px auto;
-	color: #ddd;
-	font-family: 'Poppins', sans-serif;
+  padding: 0px;
+  margin: 0px auto;
+  color: #ddd;
+  font-family: 'Poppins', sans-serif;
+}
+
+Button {
+  background: linear-gradient(#a24fae, #773bb7);
+  color: #fff;
+  min-width: 170px;
 }
 
 .landing-top-bg {
-	background: url(../media/header-img.svg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 80vh;
-	width: 100%;
+  background: url(../media/header-img.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  width: 100%;
 }
 
 .half-circle {
-	width: 200px;
-	height: 100px;
-	background: linear-gradient(#a24fae, #773bb7);
-	border-bottom-right-radius: 100px;
-	border-bottom-left-radius: 100px;
-	border: 0;
-	color: #fff;
-	text-align: center;
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(#a24fae, #773bb7);
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border: 0;
+  color: #fff;
+  text-align: center;
 }
 
 .svg-icon {
-	position: absolute;
-	bottom: 0;
-	right: 20px;
-	height: 25vh;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  height: 25vh;
 }
 
 /** buttons on email verification page */
 .verification {
-	padding-bottom: 1em;
-	&__button {
-		margin-bottom: 0.8em;
-		background-color: #463547;
-	}
+  padding-bottom: 1em;
+  &__button {
+    margin-bottom: 0.8em;
+    background-color: #463547;
+  }
 }
 
 .btn-light {
-	font-size: 1.1em;
-	background-color: #a64fae;
-	color: white;
-	padding: 0.64em 1em;
-	margin-bottom: 8em;
+  font-size: 1.1em;
+  background-color: #a64fae;
+  color: white;
+  padding: 0.64em 1em;
+  margin-bottom: 8em;
 }
 
 /** button on login page */
@@ -60,14 +64,7 @@ a:hover {
 }
 
 .signin-button {
-	background-color: #a64fae;
-	border:  #a64fae;
-	color: white;
+  background-color: #a64fae;
+  border: #a64fae;
+  color: white;
 }
-
-
-
-
-
-
-
