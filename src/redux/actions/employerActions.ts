@@ -5,13 +5,10 @@ import {
   REGISTER_EMPLOYER_FAIL,
 } from '../../types'
 
-export const registerEmployerRequest = (email: string, password: string) => {
+export const registerEmployerRequest = (credentials: Credential) => {
   return {
     type: REGISTER_EMPLOYER_REQUEST, 
-    payload: {
-      email,
-      password,
-    },
+    credentials
   }
 }
 

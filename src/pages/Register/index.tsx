@@ -22,7 +22,7 @@ const Register = () => {
 	const dispatch = useDispatch()
 
 	const employerRegister = useSelector((state: AppState) => state.employerRegister)
-	const { loading, credentials, error } = employerRegister
+	//const { loading, error } = employerRegister
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		const form = event.currentTarget;
@@ -32,10 +32,15 @@ const Register = () => {
 		}
 
 		setValidated(true);
+	
+		const credentials = {
+			email: form.email,
+			password: form.password
+		}
 		if (password !== confirmPassword) {
 			setMessage('Passwords do not match')
 		} else {
-			dispatch(registerEmployerRequest(email, password))
+			dispatch(registerEmployerRequest(credentials))
 		}
 	};
 
@@ -44,8 +49,8 @@ const Register = () => {
 			<HalfCircle inputText='Welcome' />
 			<h3 className='text-center my-5'>Sign up</h3>
 			{message && <Message variant='danger'>{message}</Message>}
-			{error && <Message variant='danger'>{error}</Message>}
-			{loading && <Loader />}
+			{/* {error && <Message variant='danger'>{error}</Message>}
+			{loading && <Loader />} */}
 			<Form
 				noValidate
 				validated={validated}

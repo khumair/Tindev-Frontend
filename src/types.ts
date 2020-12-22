@@ -9,6 +9,7 @@ export type employerActions =
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
+  credentials: any
 }
 
 export type RegisterEmployerSuccessAction = {
