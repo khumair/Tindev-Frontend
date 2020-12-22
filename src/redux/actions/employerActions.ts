@@ -8,7 +8,7 @@ import {
 export const registerEmployerRequest = (credentials: Credential) => {
   return {
     type: REGISTER_EMPLOYER_REQUEST, 
-    credentials
+    payload: credentials
   }
 }
 

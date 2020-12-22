@@ -9,7 +9,12 @@ export type employerActions =
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
-  credentials: any
+  payload: {
+    credentials: {
+      email: string
+      password: string
+    }
+  }
 }
 
 export type RegisterEmployerSuccessAction = {

@@ -21,8 +21,8 @@ const Register = () => {
 
 	const dispatch = useDispatch()
 
-	const employerRegister = useSelector((state: AppState) => state.employerRegister)
-	//const { loading, error } = employerRegister
+	// const employerRegister = useSelector((state: AppState) => state.employerRegister)
+	// const { loading, error } = employerRegister
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		const form = event.currentTarget;
