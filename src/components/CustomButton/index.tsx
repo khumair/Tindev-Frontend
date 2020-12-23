@@ -3,7 +3,9 @@ import { Button } from 'react-bootstrap';
 
 type CustomBtn = {
 	text: string;
+	type?: string;
 	className?: string;
+	onClick?: () => void
 };
 
 const CustomButton = ({ text, ...otherProps }: CustomBtn) => {
