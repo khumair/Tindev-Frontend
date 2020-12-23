@@ -6,7 +6,7 @@ const LandingTop = () => (
 			<div className='row m-auto'>
 				<div className='col-md-8 align-items-center d-flex justify-content-center'>
 					<div className='card-body mt-5'>
-						<h2 className=''>Heading</h2>
+						<h2 className='heading'>Heading</h2>
 						<h4 className='card-title'>Heading Text will be here</h4>
 						<p className='card-text'>
 							Cras sit amet nibh libero, in gravida nulla. Nulla vel metus

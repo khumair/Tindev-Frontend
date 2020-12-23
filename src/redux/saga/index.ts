@@ -4,11 +4,11 @@ import axios from 'axios'
 import { registerEmployerSuccess } from '../../redux/actions/employerActions'
 import { url } from '../../App'
 
-function* registerEmployerSaga(email: any, password: any) {
+function* registerEmployerSaga(credentials: Credential) {
   try {
     const req = yield axios.post(
        `${url}/employer`,
-       { email, password }
+       { credentials }
     )
       yield put(registerEmployerSuccess(req.data))
   } catch (error) {

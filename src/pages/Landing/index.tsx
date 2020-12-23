@@ -5,11 +5,11 @@ import LandingTop from '../../components/LandingTop'
 import LandingBottom from '../../components/LandingBottom'
 
 const Landing = () => (
-	<>
-		<NavBar />
-		<LandingTop />
-		<LandingBottom />
-	</>
+  <>
+    <NavBar />
+    <LandingTop />
+    <LandingBottom />
+  </>
 )
 
 export default Landing

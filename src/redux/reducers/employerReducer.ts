@@ -9,7 +9,7 @@ import {
 export const employerRegisterReducer = (state: CredentialState, action: employerActions) => {
   switch (action.type) {
     case REGISTER_EMPLOYER_REQUEST:
-      return { ...state, loading: true }
+      return { ...state, loading: true, credentials: {} }
     case REGISTER_EMPLOYER_SUCCESS:
       return { ...state, loading: false, credentials: action.payload }
     case REGISTER_EMPLOYER_FAIL:

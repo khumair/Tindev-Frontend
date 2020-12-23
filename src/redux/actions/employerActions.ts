@@ -5,7 +5,7 @@ import {
   REGISTER_EMPLOYER_FAIL,
 } from '../../types'
 
-export const registerEmployerRequest = (credentials: Credential) => {
+export const registerEmployerRequest = (credentials: {}) => {
   return {
     type: REGISTER_EMPLOYER_REQUEST, 
     payload: credentials
