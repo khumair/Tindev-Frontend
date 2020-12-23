@@ -1,10 +1,10 @@
-import team from '../../media/team-dev.svg';
+import team from '../../media/team-dev.svg'
 
 const LandingBottom = () => {
   return (
-    <div className='container mb-5 pb-5'>
-      <div className='row justify-content-center'>
-        <h4 className='text-danger text-center'>
+    <div className="container mb-5 pb-5">
+      <div className="row justify-content-center">
+        <h4 className="text-danger text-center">
           <q>
             Write a bit about our motives message so we can explain our self
           </q>
@@ -12,13 +12,13 @@ const LandingBottom = () => {
       </div>
 
       <div
-        className='border border-primary rounded mx-auto d-block my-5 p-5'
+        className="border border-primary rounded mx-auto d-block my-5 p-5"
         style={{ width: '80%' }}
       >
-        <img className='mx-auto d-block' src={team} alt='team-svg' />
+        <img className="mx-auto d-block" src={team} alt="team-svg" />
 
-        <h4 className='text-center my-2 p-3 text-primary '>About TinDev</h4>
-        <p className='text-center text-secondary p-3 w-50 m-auto'>
+        <h4 className="text-center my-2 p-3 text-primary ">About TinDev</h4>
+        <p className="text-center text-secondary p-3 w-50 m-auto">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis
           excepturi dolorem quas unde esse est? Lorem, ipsum dolor sit amet
           consectetur adipisicing elit. Debitis excepturi dolorem quas unde esse
@@ -26,25 +26,25 @@ const LandingBottom = () => {
         </p>
       </div>
 
-      <div className='icons align-items-center d-flex justify-content-center'>
+      <div className="icons align-items-center d-flex justify-content-center">
         <img
-          src='https://img.icons8.com/nolan/64/facebook.png'
-          alt='Facebook-icon'
-          className='px-3'
+          src="https://img.icons8.com/nolan/64/facebook.png"
+          alt="Facebook-icon"
+          className="px-3"
         />
         <img
-          src='https://img.icons8.com/nolan/64/twitter.png'
-          alt='twitter-icon'
-          className='px-3'
+          src="https://img.icons8.com/nolan/64/twitter.png"
+          alt="twitter-icon"
+          className="px-3"
         />
         <img
-          src='https://img.icons8.com/nolan/64/instagram-new.png'
-          alt='instagram-icon'
-          className='px-3'
+          src="https://img.icons8.com/nolan/64/instagram-new.png"
+          alt="instagram-icon"
+          className="px-3"
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LandingBottom;
+export default LandingBottom

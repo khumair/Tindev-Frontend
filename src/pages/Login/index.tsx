@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+//import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Container, Form, Button, Row, Col } from 'react-bootstrap'
 
@@ -7,19 +8,27 @@ import starsLady from '../../media/standing-lady.svg'
 import NavBar from '../../components/NavBar'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
+//import { login } from '../../redux/actions/userActions'
 import './Login.scss'
 
 const Login = ({ history }: any) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
+	//const dispatch = useDispatch()
+
+	//const login = useSelector((state) => state.login)
+	// const { loading, error, userInfo } = login
+
 	const userInfo = {email: 'duy@abc.com', password: '12345'}
 	const error = 'no no no'
 	const loading = false
-	// use useEffect here
-	// if (userInfo) {
-	// 	history.push(redirect)
-	// }
+	
+	// useEffect(() => {
+	// 	if (userInfo) {
+	// 		history.push(redirect)
+	// 	}
+	// }, [history, userInfo, redirect])
 
 	const submitHandler = (e: React.FormEvent) => {
 		e.preventDefault()
@@ -50,14 +59,19 @@ const Login = ({ history }: any) => {
 							<Form.Control 
 								type="password" 
 								placeholder="Enter password" 
-								value={email} 
+								value={password} 
 								onChange={(e) => setPassword(e.target.value)}
 							></Form.Control>
 						</Form.Group>
 						<Button type="submit" className="signin-button" variant="outline-dark my-2">Login</Button>
 					</Form>
-					<Row className="my-2">
-						<Col className="new-user my-2">
+					<Row className="forgot-password">
+						<Col>
+						  <Link className="forgot-password" to='/reset-password'>Forgot your password?</Link>
+						</Col>
+					</Row>
+					<Row className="new-user">
+						<Col>
 						New User? <Link className="register" to='/register'>Register</Link>
 						</Col>
 					</Row>

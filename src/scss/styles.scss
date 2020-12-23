@@ -1,5 +1,3 @@
-// @import '../../node_modules/bootstrap/scss/bootstrap.scss';
-
 @import '~bootstrap/scss/bootstrap';
 @import '_mobile';
 
@@ -58,4 +56,15 @@ Button {
   color: white;
   padding: 0.64em 1em;
   margin-bottom: 8em;
+}
+
+/** button on login page */
+a:hover {
+  text-decoration: none;
+}
+
+.signin-button {
+  background-color: #a64fae;
+  border: #a64fae;
+  color: white;
 }
