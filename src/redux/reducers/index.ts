@@ -1,14 +1,6 @@
 import { combineReducers } from 'redux'
-import { employerRegisterReducer } from './employerReducer'
-import { numberCollectionReducer, NumberCollectionState } from './numberReducer'
+import employer from './employer'
 
-export interface State {
-  numberCollection: NumberCollectionState
-}
+const rootReducer = () => combineReducers({ employer })
 
-export const rootReducers = () => 
-  combineReducers({
-  employerRegister: employerRegisterReducer,
-})
-
-
+export default rootReducer

@@ -1,20 +1,27 @@
 import {
   employerActions,
-  CredentialState,
   REGISTER_EMPLOYER_REQUEST,
   REGISTER_EMPLOYER_SUCCESS,
   REGISTER_EMPLOYER_FAIL,
-} from '../../types'
+} from '../types'
 
-export const employerRegisterReducer = (state: CredentialState, action: employerActions) => {
+const initialState = {
+  credentials: '',
+  loading: false,
+  error: null,
+}
+
+const employer = (state = initialState, action: employerActions) => {
   switch (action.type) {
     case REGISTER_EMPLOYER_REQUEST:
-      return { ...state, loading: true, credentials: {} }
+      return { ...state, loading: true, credentials: '' }
     case REGISTER_EMPLOYER_SUCCESS:
       return { ...state, loading: false, credentials: action.payload }
     case REGISTER_EMPLOYER_FAIL:
-      return { loading: false, error: action.payload }
-    default: 
+      return { ...state, loading: false, error: action.payload }
+    default:
       return state
   }
 }
+
+export default employer
