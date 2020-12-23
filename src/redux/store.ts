@@ -1,8 +1,8 @@
-import { createStore, compose, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import rootReducer from './reducers';
-import rootSaga from './saga';
-import { AppState } from './types';
+import { createStore, compose, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import rootReducer from './reducers'
+import rootSaga from './saga'
+import { AppState } from './types'
 
 export const initState: AppState = {
   employer: {
@@ -10,15 +10,15 @@ export const initState: AppState = {
     loading: false,
     error: null,
   },
-};
+}
 
 export default function makeStore(initialState = initState) {
-  const sagaMiddleware = createSagaMiddleware();
-  let composeEnhancer = compose;
+  const sagaMiddleware = createSagaMiddleware()
+  let composeEnhancer = compose
 
   if (process.env.NODE_ENV === 'development') {
     if ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-      composeEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+      composeEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     }
   }
 
@@ -26,16 +26,16 @@ export default function makeStore(initialState = initState) {
     rootReducer(),
     initialState,
     composeEnhancer(applyMiddleware(sagaMiddleware))
-  );
+  )
 
-  sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga)
 
   if ((module as any).hot) {
-    (module as any).hot.accept('./reducers', () => {
-      const nextReducer = require('./reducers').default;
-      store.replaceReducer(nextReducer);
-    });
+    ;(module as any).hot.accept('./reducers', () => {
+      const nextReducer = require('./reducers').default
+      store.replaceReducer(nextReducer)
+    })
   }
 
-  return store;
+  return store
 }
