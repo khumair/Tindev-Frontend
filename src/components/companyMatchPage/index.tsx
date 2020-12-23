@@ -1,42 +1,44 @@
 import * as React from "react";
-import { Col, Row, Container, Button, Image, Badge } from "react-bootstrap";
-import male from "../../assets/images/male.png";
+import { Col, Row, Tab, Nav, TabContainer } from "react-bootstrap";
+import MatchCard from "./matchCard";
+import SearchBar from "./Search";
+
 const CompanyMatchPage = () => {
   return (
-    <div className="Container">
-      <div className="Row mb-2">
-        {/* <div className="Col-md-2"></div> */}
-        <div className="Col-md-12">
-          <a href="#" className="text-dark">
-            <div className="card shadow">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-xs-1 col-sm-2 col-md-1 mr-3">
-                    <Image src={male} />
-                    <br></br>
-                  </div>
-                  <div className="col-xs-8 col-sm-7 col-md-8">
-                    <h5>Car System Alerts</h5>
-                    <p>Check the battery and alternator conditions</p>
-                    <Badge
-                      pill
-                      className="tag-btn btn btn-pill btn-outline-primary ml-2"
-                    >
-                      JavaScript
-                    </Badge>
-                    <Badge
-                      pill
-                      className="tag-btn btn btn-pill btn-outline-primary ml-2"
-                    >
-                      ReactJs
-                    </Badge>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+    <div className="Container ">
+      <SearchBar />
+      <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+        <Row className="side-nav-link">
+          <Col sm={2}>
+            <Nav variant="pills" className="flex-column">
+              <Nav.Item className="side-tab">
+                <Nav.Link className="navlink" eventKey="first">
+                  Job Post
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item className="side-tab">
+                <Nav.Link eventKey="second">Matches</Nav.Link>
+              </Nav.Item>
+              <Nav.Item className="side-tab">
+                <Nav.Link eventKey="third">Chat</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Col>
+          <Col sm={10}>
+            <Tab.Content>
+              <Tab.Pane eventKey="first">
+                <h2>Job Post</h2>
+              </Tab.Pane>
+              <Tab.Pane eventKey="second">
+                <MatchCard />
+              </Tab.Pane>
+              <Tab.Pane eventKey="third">
+                <h2>Chat</h2>
+              </Tab.Pane>
+            </Tab.Content>
+          </Col>
+        </Row>
+      </Tab.Container>
     </div>
   );
 };
