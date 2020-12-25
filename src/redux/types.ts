@@ -46,9 +46,5 @@ export type CredentialState = {
 }
 
 export type AppState = {
-  employer: {
-    credentials: any
-    loading: boolean
-    error: any
-  }
+  employer: CredentialState
 }

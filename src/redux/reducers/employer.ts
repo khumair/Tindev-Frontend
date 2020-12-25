@@ -11,7 +11,7 @@ const initialState = {
   error: null,
 }
 
-const employer = (state = initialState, action: employerActions) => {
+const test = (state = initialState, action: employerActions) => {
   switch (action.type) {
     case REGISTER_EMPLOYER_REQUEST:
       return { ...state, loading: true, credentials: '' }
@@ -24,4 +24,4 @@ const employer = (state = initialState, action: employerActions) => {
   }
 }
 
-export default employer
+export default test

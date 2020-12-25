@@ -24,6 +24,7 @@ export default function makeStore(initialState = initState) {
 
   const store = createStore(
     rootReducer(),
+    //@ts-ignore
     initialState,
     composeEnhancer(applyMiddleware(sagaMiddleware))
   )

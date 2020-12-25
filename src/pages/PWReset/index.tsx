@@ -8,29 +8,29 @@ import FormContainer from '../../components/FormContainer'
 
 const PWReset = () => {
   return (
-    <div className='container'>
+    <div className="container">
       <FormContainer>
-        <h2 className='text-center my-5'>Reset Password</h2>
+        <h2 className="text-center my-5">Reset Password</h2>
         <Form noValidate>
-          <label htmlFor='new-pw' className='form-label'>
+          <label htmlFor="new-pw" className="form-label">
             New Password
           </label>
           <Form.Row>
-            <Form.Group as={Col} controlId='newPassword'>
-              <Form.Control required type='password' />
+            <Form.Group as={Col} controlId="newPassword">
+              <Form.Control required type="password" />
             </Form.Group>
           </Form.Row>
 
-          <label htmlFor='new-pw' className='form-label'>
+          <label htmlFor="new-pw" className="form-label">
             Repeat Password
           </label>
           <Form.Row>
-            <Form.Group as={Col} controlId='repeatPassword'>
-              <Form.Control required type='password' />
+            <Form.Group as={Col} controlId="repeatPassword">
+              <Form.Control required type="password" />
             </Form.Group>
           </Form.Row>
 
-          <CustomButton text='Submit' className='btn-lg my-3' />
+          <CustomButton text="Submit" className="btn-lg my-3" />
         </Form>
       </FormContainer>
       <CustomSvgIcon img={starsLady} />
