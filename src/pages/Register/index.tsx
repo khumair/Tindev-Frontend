@@ -15,7 +15,7 @@ import {
 } from '../../redux/actions/'
 import { AppState } from '../../redux/types'
 import FormContainer from '../../components/FormContainer'
-//import "./Register.scss";
+import './Register.scss'
 
 const Register = () => {
   const [isJobSeeker, setIsJobSeeker] = useState(false)
@@ -25,7 +25,7 @@ const Register = () => {
   const [message, setMessage] = useState('')
 
   const employer = useSelector((state: AppState) => state.employer)
-  const { loading, error } = employer
+  const { loading, error, credentials } = employer
 
   const dispatch = useDispatch()
 
@@ -42,10 +42,6 @@ const Register = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
 
-    const credentials = {
-      email: email,
-      password: password,
-    }
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     } else if (isJobSeeker) {
