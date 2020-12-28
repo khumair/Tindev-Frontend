@@ -17,14 +17,16 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: Setup cache
-        uses: actions/setup-cache@v1
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      - uses: actions/cache@v1
         with:
-          path: ~/.npm
-          key: ${{runner.os}}-modules-${{hashFiles('**/package-lock.json') }}
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{runner.os}}-modules-
-            ${{runner.os}}-
+            ${{ runner.os }}-node-
 
       - name: Install dependency
         run: npm ci
