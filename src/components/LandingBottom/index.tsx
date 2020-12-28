@@ -10,15 +10,10 @@ const LandingBottom = () => {
           </q>
         </h4>
       </div>
-
-      <div
-        className="border border-primary rounded mx-auto d-block my-5 p-5"
-        style={{ width: '80%' }}
-      >
-        <img className="mx-auto d-block" src={team} alt="team-svg" />
-
+      <div className="border border-primary rounded mx-auto d-block my-5 p-5">
+        <img className="img-fluid mx-auto d-block" src={team} alt="team-svg" />
         <h4 className="text-center my-2 p-3 text-primary ">About TinDev</h4>
-        <p className="text-center text-secondary p-3 w-50 m-auto">
+        <p className="text-center text-secondary p-3 lh-lg">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis
           excepturi dolorem quas unde esse est? Lorem, ipsum dolor sit amet
           consectetur adipisicing elit. Debitis excepturi dolorem quas unde esse

@@ -10,7 +10,7 @@ import './NavBar.scss'
 const NavBar = () => {
   //const dispatch = useDispatch()
   const history = useHistory()
-  // const login = useSelector((state) => state.logout)
+  // const login = useSelector((state) => state.login)
   // const userInfo = login
 
   // this is hard coded data for testing title on the navbar
