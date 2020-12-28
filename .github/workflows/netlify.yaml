@@ -8,17 +8,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [10.x, 12.x, 14x]
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: ${{matrix.node}}
-
-      - name: Checkout code
-        uses: actions/checkout@v2
+          node-version: 12.x
 
       - name: Setup cache
         uses: actions/setup-cache@v1
@@ -45,4 +42,3 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=build --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
