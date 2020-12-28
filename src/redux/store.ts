@@ -10,6 +10,11 @@ export const initState: AppState = {
     loading: false,
     error: null,
   },
+  jobSeeker: {
+    credentials: '',
+    loading: false,
+    error: null,
+  },
 }
 
 export default function makeStore(initialState = initState) {

@@ -1,8 +1,8 @@
 import {
-  EmployerActions,
-  REGISTER_EMPLOYER_REQUEST,
-  REGISTER_EMPLOYER_SUCCESS,
-  REGISTER_EMPLOYER_FAIL,
+  JobSeekerActions,
+  REGISTER_JOBSEEKER_REQUEST,
+  REGISTER_JOBSEEKER_SUCCESS,
+  REGISTER_JOBSEEKER_FAIL,
 } from '../types'
 
 const initialState = {
@@ -11,17 +11,17 @@ const initialState = {
   error: null,
 }
 
-const test = (state = initialState, action: EmployerActions) => {
+const jobSeekerRegister = (state = initialState, action: JobSeekerActions) => {
   switch (action.type) {
-    case REGISTER_EMPLOYER_REQUEST:
+    case REGISTER_JOBSEEKER_REQUEST:
       return { ...state, loading: true, credentials: '' }
-    case REGISTER_EMPLOYER_SUCCESS:
+    case REGISTER_JOBSEEKER_SUCCESS:
       return { ...state, loading: false, credentials: action.payload }
-    case REGISTER_EMPLOYER_FAIL:
+    case REGISTER_JOBSEEKER_FAIL:
       return { ...state, loading: false, error: action.payload }
     default:
       return state
   }
 }
 
-export default test
+export default jobSeekerRegister
