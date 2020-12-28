@@ -1,0 +1,49 @@
+name: netlify production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [10.x, 12.x, 14x]
+    steps:
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node}}
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup cache
+        uses: actions/setup-cache@v1
+        with:
+          path: ~/.npm
+          key: ${{runner.os}}-modules-${{hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{runner.os}}-modules-
+            ${{runner.os}}-
+
+      - name: Install dependency
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=build --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
