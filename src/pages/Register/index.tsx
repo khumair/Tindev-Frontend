@@ -9,7 +9,7 @@ import starsLady from '../../media/star-lady.svg'
 import CustomButton from '../../components/CustomButton'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
-import { registerEmployerRequest } from '../../redux/actions/employerActions'
+import { registerEmployerRequest } from '../../redux/actions'
 import { AppState } from '../../types'
 
 const Register = () => {
@@ -27,13 +27,12 @@ const Register = () => {
   const handleSubmit = (event: React.FormEvent) => {
     console.log('clicked')
     // if (form.checkValidity() === false) {
-       event.preventDefault()
+    event.preventDefault()
     //   event.stopPropagation()
     // }
 
     // setValidated(true)
 
-    
     const credentials = {
       email: email,
       password: password,
@@ -48,42 +47,42 @@ const Register = () => {
 
   return (
     <>
-      <HalfCircle inputText='Welcome' />
-      <h3 className='text-center my-5'>Sign up</h3>
-      {message && <Message variant='danger'>{message}</Message>}
+      <HalfCircle inputText="Welcome" />
+      <h3 className="text-center my-5">Sign up</h3>
+      {message && <Message variant="danger">{message}</Message>}
       {/* {error && <Message variant='danger'>{error}</Message>}
 			{loading && <Loader />} */}
       <Form
         noValidate
         validated={validated}
         onSubmit={handleSubmit}
-        className='container'
+        className="container"
       >
         <Form.Row>
-          <Form.Group as={Col} sm='8' controlId='validationCustomEmail'>
+          <Form.Group as={Col} sm="8" controlId="validationCustomEmail">
             <Form.Control
               required
-              type='email'
-              placeholder='Email'
+              type="email"
+              placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
-            <Form.Control.Feedback type='invalid'>
+            <Form.Control.Feedback type="invalid">
               eMail is required
             </Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
 
         <Form.Row>
-          <Form.Group as={Col} sm='8' controlId='validationCustomPassword'>
+          <Form.Group as={Col} sm="8" controlId="validationCustomPassword">
             <Form.Control
               required
-              type='password'
-              placeholder='Password'
+              type="password"
+              placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={e => setPassword(e.target.value)}
             />
-            <Form.Control.Feedback type='invalid'>
+            <Form.Control.Feedback type="invalid">
               Password is required
             </Form.Control.Feedback>
           </Form.Group>
@@ -92,26 +91,26 @@ const Register = () => {
         <Form.Row>
           <Form.Group
             as={Col}
-            sm='8'
-            controlId='validationCustomConfirmPassword'
+            sm="8"
+            controlId="validationCustomConfirmPassword"
           >
             <Form.Control
               required
-              type='password'
-              placeholder='Confirm password'
+              type="password"
+              placeholder="Confirm password"
               value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              onChange={e => setConfirmPassword(e.target.value)}
             />
-            <Form.Control.Feedback type='invalid'>
+            <Form.Control.Feedback type="invalid">
               Passwords does not match!
             </Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
 
-        <CustomButton text='Submit' className='my-3' />
+        <CustomButton text="Submit" className="my-3" />
 
         <p>
-          Already a member? <Link to='/login'>Sign In</Link>
+          Already a member? <Link to="/login">Sign In</Link>
         </p>
       </Form>
       <CustomSvgIcon img={starsLady} />

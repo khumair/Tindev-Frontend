@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import './Footer.scss'
 
 const Footer = () => {
- const year = new Date().getFullYear()
+  const year = new Date().getFullYear()
 
   return (
     <footer>

@@ -8,11 +8,11 @@ import PWReset from './pages/PWReset'
 
 const Routes = () => (
   <Switch>
-    <Route exact path='/' component={Landing} />
-    <Route path='/login' component={Login} />
-    <Route path='/register' component={Register} />
-    <Route path='/edit-jobseeker-profile' component={EditProfile} />
-    <Route path='/reset-password' component={PWReset} />
+    <Route exact path="/" component={Landing} />
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={Register} />
+    <Route path="/edit-jobseeker-profile" component={EditProfile} />
+    <Route path="/reset-password" component={PWReset} />
   </Switch>
 )
 
