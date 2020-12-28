@@ -10,8 +10,9 @@ const removeToken = () => {
   localStorage.removeItem('token')
 }
 
-export default {
+const LocalStorage = {
   getToken,
   saveToken,
   removeToken,
 }
+export default LocalStorage
