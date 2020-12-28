@@ -2,8 +2,7 @@ name: netlify production
 
 on:
   push:
-    branches:
-      - master
+    branches: [master, develop]
 
 jobs:
   deploy:
