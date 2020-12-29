@@ -2,18 +2,18 @@
 
 @import '~bootstrap/scss/bootstrap';
 @import '_mobile';
-
+$purple-color: #a64fae;
 body {
 	padding: 0px;
 	margin: 0px auto;
 	color: #ddd;
 }
 
-Button {
-	background: linear-gradient(#a24fae, #773bb7);
-	color: #fff;
-	min-width: 170px;
-}
+// Button {
+// 	background: linear-gradient(#a24fae, #773bb7);
+// 	color: #fff;
+// 	min-width: 170px;
+// }
 
 .landing-top-bg {
 	background: url(../media/header-img.svg);
@@ -104,3 +104,43 @@ a#company-name {
 .bottom-section {
 	position: relative;
 }
+
+
+// match Card buttons 
+.card-button{
+	background: linear-gradient(#a24fae, #773bb7);
+	color: #fff;
+	height: 40px;
+	width: auto;
+	margin-top: 20px;
+	margin-right: 15px;
+}
+
+.search-bar{
+	
+width: 400px;
+}
+.search-bar-sec{
+	float: right;
+}
+.btn-upload {
+	background-color: $purple-color;
+	color: #ffffff;
+	border: none;
+	font-family: "poppins", sans-serif;
+	margin: 15px 145px;
+	border-radius: 5px;
+	height: 45px;
+	width: 100px;
+  }
+  .upload-image {
+	padding: 1rem;
+	text-align: center;
+  }
+  Input {
+	position: absolute;
+	font-size: 50px;
+	opacity: 0;
+	right: 0;
+	top: 0;
+  }
