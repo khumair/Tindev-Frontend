@@ -1,23 +1,32 @@
 import React from 'react'
-//import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
-//import { logout } from '../../redux/actions/userActions'
+import { logoutJobSeeker } from '../../redux/actions/jobseeker'
+import { logoutEmployer } from '../../redux/actions/employer'
+import { AppState } from '../../redux/types'
 import './NavBar.scss'
 
 const NavBar = () => {
-  //const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const history = useHistory()
-  // const login = useSelector((state) => state.login)
-  // const userInfo = login
-
-  // this is hard coded data for testing title on the navbar
-  const userInfo = { userName: 'Dilippo' }
+  const employerCredentials = useSelector(
+    (state: AppState) => state.employer.credentials
+  )
+  const jobSeekerCredentials = useSelector(
+    (state: AppState) => state.jobSeeker.credentials
+  )
+  const credentials = employerCredentials || jobSeekerCredentials
 
   const handleLogout = () => {
-    // dispatch(logout())
+    console.log(credentials)
+    if (jobSeekerCredentials) {
+      dispatch(logoutJobSeeker())
+    } else if (employerCredentials) {
+      dispatch(logoutEmployer())
+    }
     history.push('/')
   }
 
@@ -29,15 +38,15 @@ const NavBar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          {!userInfo && (
+          {credentials && (
             <LinkContainer to="/register">
               <Nav.Link>
                 <i className="register"></i>Register
               </Nav.Link>
             </LinkContainer>
           )}
-          {userInfo ? (
-            <NavDropdown title={userInfo.userName} id="username">
+          {!credentials ? (
+            <NavDropdown title="profile" id="credentials">
               <LinkContainer to="/profileJobSeeker">
                 <NavDropdown.Item>Profile</NavDropdown.Item>
               </LinkContainer>
