@@ -1,13 +1,19 @@
-// @import '../../node_modules/bootstrap/scss/bootstrap.scss';
-
 @import '~bootstrap/scss/bootstrap';
 @import '_mobile';
 
 body {
   padding: 0px;
   margin: 0px auto;
-  color: #ddd;
+  color: rgb(105, 99, 99);
   font-family: 'Poppins', sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.heading,
+.card-title,
+.card-text {
+  color: #ddd;
 }
 
 Button {
@@ -43,21 +49,8 @@ Button {
   height: 25vh;
 }
 
-/** buttons on email verification page */
-.verification {
-  padding-bottom: 1em;
-  &__button {
-    margin-bottom: 0.8em;
-    background-color: #463547;
-  }
-}
-
-.btn-light {
-  font-size: 1.1em;
-  background-color: #a64fae;
-  color: white;
-  padding: 0.64em 1em;
-  margin-bottom: 8em;
+a:hover {
+  text-decoration: none;
 }
 
 // Customized and used on Job-Seeker

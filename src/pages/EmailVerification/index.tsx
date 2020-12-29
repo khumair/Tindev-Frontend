@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom'
 
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
-import './EmailVerification.scss'
 
 type SetCode = {
   first: any

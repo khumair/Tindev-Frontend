@@ -4,13 +4,8 @@
 	padding-bottom: 1em;
 }
 
-.label {
-	color:  rgb(143, 137, 137);
-}
-
-.new-user {
+.forgot-password, .new-user, .label {
 	color: rgb(143, 137, 137);
-	padding-bottom: 9.8em;
 }
 
 .register {
@@ -18,12 +13,5 @@
 	text-decoration: none;
 }
 
-a:hover {
-  text-decoration: none;
-}
 
-.signin-button {
-	background-color: #a64fae;
-	border:  #a64fae;
-	color: white;
-}
+

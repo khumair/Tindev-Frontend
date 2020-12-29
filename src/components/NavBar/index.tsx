@@ -2,16 +2,20 @@ import { useHistory } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
+//import { logout } from '../../redux/actions/userActions'
 import './NavBar.scss'
 
 const NavBar = () => {
+  //const dispatch = useDispatch()
   const history = useHistory()
-  // useSelector to get user info
+  // const login = useSelector((state) => state.login)
+  // const userInfo = login
+
   // this is hard coded data for testing title on the navbar
   const userInfo = { userName: 'Dilippo' }
 
   const handleLogout = () => {
-    // dispatch logout
+    // dispatch(logout())
     history.push('/')
   }
 

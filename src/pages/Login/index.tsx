@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Container, Form, Button, Row, Col } from 'react-bootstrap'
 
@@ -6,6 +7,9 @@ import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
 import NavBar from '../../components/NavBar'
 import Loader from '../../components/Loader'
+import FormContainer from '../../components/FormContainer'
+import CustomButton from '../../components/CustomButton'
+//import { login } from '../../redux/actions/userActions'
 import './Login.scss'
 
 const Login = ({ history }: any) => {
