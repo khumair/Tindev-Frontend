@@ -30,11 +30,13 @@ const Register = () => {
 
   const dispatch = useDispatch()
 
-  const handleCompany = () => {
+  const handleCompany = (event: React.FormEvent) => {
+    event.preventDefault()
     setRole(employer)
   }
 
-  const handleSeeker = () => {
+  const handleSeeker = (event: React.FormEvent) => {
+    event.preventDefault()
     setRole(jobSeeker)
   }
 
@@ -102,9 +104,6 @@ const Register = () => {
                 value={confirmPassword}
                 onChange={e => setConfirmPassword(e.target.value)}
               />
-              <Form.Control.Feedback type="invalid">
-                Passwords does not match!
-              </Form.Control.Feedback>
             </Form.Group>
           </Form.Row>
 
