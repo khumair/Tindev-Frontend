@@ -45,8 +45,8 @@ const NavBar = () => {
               </Nav.Link>
             </LinkContainer>
           )}
-          {!credentials ? (
-            <NavDropdown title="profile" id="credentials">
+          {credentials ? (
+            <NavDropdown title="forNow" id="credentials">
               <LinkContainer to="/profileJobSeeker">
                 <NavDropdown.Item>Profile</NavDropdown.Item>
               </LinkContainer>

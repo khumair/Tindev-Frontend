@@ -26,7 +26,14 @@ const Register = () => {
 
   const employer = useSelector((state: AppState) => state.employer)
   const jobSeeker = useSelector((state: AppState) => state.jobSeeker)
-  const { loading, error } = jobSeeker || employer
+  const jobSeekerError = useSelector((state: AppState) => state.jobSeeker.error)
+  const jobSeekerLoader = useSelector(
+    (state: AppState) => state.jobSeeker.loading
+  )
+  const employerError = useSelector((state: AppState) => state.employer.error)
+  const employerLoader = useSelector(
+    (state: AppState) => state.employer.loading
+  )
 
   const dispatch = useDispatch()
 
@@ -58,8 +65,10 @@ const Register = () => {
         <HalfCircle inputText="Welcome" />
         <h3 className="text-center my-5">Sign up</h3>
         {message && <Message variant="danger">{message}</Message>}
-        {error && <Message variant="danger">{error}</Message>}
-        {loading && <Loader />}
+        {employerError && <Message variant="danger">{employerError}</Message>}
+        {employerLoader && <Loader />}
+        {jobSeekerError && <Message variant="danger">{jobSeekerError}</Message>}
+        {jobSeekerLoader && <Loader />}
         <Form onSubmit={handleSubmit} className="container">
           <Button className="employer-role" onClick={handleCompany}>
             I am an employer

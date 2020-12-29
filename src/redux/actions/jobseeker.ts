@@ -13,7 +13,6 @@ export const registerJobSeekerRequest = (email: any, password: any) => {
   return {
     type: REGISTER_JOBSEEKER_REQUEST,
     payload: {
-      info: {},
       credentials: {
         email,
         password,
@@ -39,19 +38,18 @@ export const loginJobSeekerRequest = (email: string, password: string) => {
   return {
     type: LOGIN_JOBSEEKER_REQUEST,
     payload: {
-      info: {},
-      // credentials: {
-      //   email,
-      //   password,
-      // },
+      credentials: {
+        email,
+        password,
+      },
     },
   }
 }
 
-export const loginJobSeekerSuccess = (employerInfo: Credential) => {
+export const loginJobSeekerSuccess = (jobSeekerInfo: Credential) => {
   return {
     type: LOGIN_JOBSEEKER_SUCCESS,
-    payload: employerInfo,
+    payload: jobSeekerInfo,
   }
 }
 

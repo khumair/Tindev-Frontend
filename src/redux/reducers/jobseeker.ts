@@ -1,3 +1,4 @@
+import { jobSeekerInfoFromStorage } from '../saga/jobseeker'
 import {
   JobSeekerActions,
   REGISTER_JOBSEEKER_REQUEST,
@@ -11,7 +12,7 @@ import {
 
 const initialState = {
   credentials: { email: '', password: '' },
-  jobSeekerInfo: {},
+  jobSeekerInfo: jobSeekerInfoFromStorage,
   loading: false,
   error: null,
 }
@@ -25,7 +26,7 @@ const jobSeeker = (state = initialState, action: JobSeekerActions) => {
     case REGISTER_JOBSEEKER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case LOGIN_JOBSEEKER_REQUEST:
-      return { ...state, loading: true }
+      return { ...state, loading: true, credentials: action.payload }
     case LOGIN_JOBSEEKER_SUCCESS:
       return { ...state, loading: false, employerInfo: action.payload }
     case LOGIN_JOBSEEKER_FAIL:

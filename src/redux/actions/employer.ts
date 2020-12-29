@@ -13,11 +13,10 @@ export const registerEmployerRequest = (email: string, password: string) => {
   return {
     type: REGISTER_EMPLOYER_REQUEST,
     payload: {
-      info: {},
-      //   credentials: {
-      //   email,
-      //   password,
-      // },
+      credentials: {
+        email,
+        password,
+      },
     },
   }
 }
@@ -39,7 +38,6 @@ export const loginEmployerRequest = (email: string, password: string) => {
   return {
     type: LOGIN_EMPLOYER_REQUEST,
     payload: {
-      info: {},
       credentials: {
         email,
         password,

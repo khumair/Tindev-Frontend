@@ -1,3 +1,4 @@
+import { employerInfoFromStorage } from '../saga/employer'
 import {
   EmployerActions,
   REGISTER_EMPLOYER_REQUEST,
@@ -11,7 +12,7 @@ import {
 
 const initialState = {
   credentials: { email: '', password: '' },
-  employerInfo: {},
+  employerInfo: employerInfoFromStorage,
   loading: false,
   error: null,
 }
@@ -25,7 +26,7 @@ const employer = (state = initialState, action: EmployerActions) => {
     case REGISTER_EMPLOYER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case LOGIN_EMPLOYER_REQUEST:
-      return { ...state, loading: true }
+      return { ...state, loading: true, credentials: action.payload }
     case LOGIN_EMPLOYER_SUCCESS:
       return { ...state, loading: false, employerInfo: action.payload }
     case LOGIN_EMPLOYER_FAIL:

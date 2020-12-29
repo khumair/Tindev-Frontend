@@ -25,7 +25,6 @@ export type EmployerActions =
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
   payload: {
-    info: object
     credentials: {
       email: string
       password: string
@@ -53,7 +52,6 @@ export type RegisterEmployerFailAction = {
 export type LoginEmployerRequestAction = {
   type: typeof LOGIN_EMPLOYER_REQUEST
   payload: {
-    info: object
     credentials: {
       email: string
       password: string
@@ -94,7 +92,6 @@ export type JobSeekerActions =
 export type RegisterJobSeekerRequestAction = {
   type: typeof REGISTER_JOBSEEKER_REQUEST
   payload: {
-    info: object
     credentials: {
       email: string
       password: string
@@ -105,7 +102,6 @@ export type RegisterJobSeekerRequestAction = {
 export type RegisterJobSeekerSuccessAction = {
   type: typeof REGISTER_JOBSEEKER_SUCCESS
   payload: {
-    info: {}
     jobSeekerInfo: {
       email: string
       password: string
@@ -123,7 +119,6 @@ export type RegisterJobSeekerFailAction = {
 export type LoginJobSeekerRequestAction = {
   type: typeof LOGIN_JOBSEEKER_REQUEST
   payload: {
-    info: object
     credentials: {
       email: string
       password: string
@@ -134,7 +129,6 @@ export type LoginJobSeekerRequestAction = {
 export type LoginJobSeekerSuccessAction = {
   type: typeof LOGIN_JOBSEEKER_SUCCESS
   payload: {
-    info: object
     jobSeekerInfo: {
       email: string
       password: string
@@ -159,7 +153,6 @@ export type Credential = {
 }
 
 export type CredentialState = {
-  info: {}
   credentials: {}
   loading: Boolean
   error: any
