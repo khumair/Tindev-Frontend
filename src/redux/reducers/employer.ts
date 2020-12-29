@@ -7,21 +7,22 @@ import {
 
 const initialState = {
   credentials: { email: '', password: '' },
+  employerInfo: {},
   loading: false,
   error: null,
 }
 
-const test = (state = initialState, action: EmployerActions) => {
+const employer = (state = initialState, action: EmployerActions) => {
   switch (action.type) {
     case REGISTER_EMPLOYER_REQUEST:
-      return { loading: true }
+      return { ...state, loading: true, credentials: action.payload }
     case REGISTER_EMPLOYER_SUCCESS:
-      return { loading: false, credentials: action.payload.credentials }
+      return { ...state, employerInfo: action.payload, loading: false }
     case REGISTER_EMPLOYER_FAIL:
-      return { loading: false, error: action.payload }
+      return { ...state, loading: false, error: action.payload }
     default:
       return state
   }
 }
 
-export default test
+export default employer

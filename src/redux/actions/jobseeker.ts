@@ -1,4 +1,5 @@
 import {
+  Credential,
   REGISTER_JOBSEEKER_REQUEST,
   REGISTER_JOBSEEKER_SUCCESS,
   REGISTER_JOBSEEKER_FAIL,
@@ -12,10 +13,10 @@ export const registerJobSeekerRequest = (email: any, password: any) => {
   }
 }
 
-export const registerJobSeekerSuccess = (credentials: Credential) => {
+export const registerJobSeekerSuccess = (jobSeekerInfo: Credential) => {
   return {
     type: REGISTER_JOBSEEKER_SUCCESS,
-    payload: credentials,
+    payload: jobSeekerInfo,
   }
 }
 

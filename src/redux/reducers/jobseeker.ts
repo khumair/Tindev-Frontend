@@ -7,16 +7,17 @@ import {
 
 const initialState = {
   credentials: { email: '', password: '' },
+  jobSeekerInfo: {},
   loading: false,
   error: null,
 }
 
-const jobSeekerRegister = (state = initialState, action: JobSeekerActions) => {
+const jobSeeker = (state = initialState, action: JobSeekerActions) => {
   switch (action.type) {
     case REGISTER_JOBSEEKER_REQUEST:
-      return { ...state, loading: true }
+      return { ...state, loading: true, credentials: action.payload }
     case REGISTER_JOBSEEKER_SUCCESS:
-      return { ...state, loading: false, credentials: action.payload }
+      return { ...state, loading: false, jobSeekerInfo: action.payload }
     case REGISTER_JOBSEEKER_FAIL:
       return { ...state, loading: false, error: action.payload }
     default:
@@ -24,4 +25,4 @@ const jobSeekerRegister = (state = initialState, action: JobSeekerActions) => {
   }
 }
 
-export default jobSeekerRegister
+export default jobSeeker
