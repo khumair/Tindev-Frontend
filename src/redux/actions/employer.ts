@@ -14,10 +14,10 @@ export const registerEmployerRequest = (email: string, password: string) => {
     type: REGISTER_EMPLOYER_REQUEST,
     payload: {
       info: {},
-      credentials: {
-        email,
-        password,
-      },
+      //   credentials: {
+      //   email,
+      //   password,
+      // },
     },
   }
 }

@@ -6,11 +6,13 @@ import { AppState } from './types'
 
 export const initState: AppState = {
   employer: {
+    info: {},
     credentials: { email: '', password: '' },
     loading: false,
     error: null,
   },
   jobSeeker: {
+    info: {},
     credentials: { email: '', password: '' },
     loading: false,
     error: null,

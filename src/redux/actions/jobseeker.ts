@@ -40,10 +40,10 @@ export const loginJobSeekerRequest = (email: string, password: string) => {
     type: LOGIN_JOBSEEKER_REQUEST,
     payload: {
       info: {},
-      credentials: {
-        email,
-        password,
-      },
+      // credentials: {
+      //   email,
+      //   password,
+      // },
     },
   }
 }

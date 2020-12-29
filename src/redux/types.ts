@@ -80,9 +80,6 @@ export type LoginEmployerFailAction = {
 
 export type LogoutEmployerAction = {
   type: typeof LOGOUT_EMPLOYER
-  payload: {
-    error: any
-  }
 }
 
 export type JobSeekerActions =
@@ -108,6 +105,7 @@ export type RegisterJobSeekerRequestAction = {
 export type RegisterJobSeekerSuccessAction = {
   type: typeof REGISTER_JOBSEEKER_SUCCESS
   payload: {
+    info: {}
     jobSeekerInfo: {
       email: string
       password: string
@@ -136,6 +134,7 @@ export type LoginJobSeekerRequestAction = {
 export type LoginJobSeekerSuccessAction = {
   type: typeof LOGIN_JOBSEEKER_SUCCESS
   payload: {
+    info: object
     jobSeekerInfo: {
       email: string
       password: string
@@ -152,9 +151,6 @@ export type LoginJobSeekerFailAction = {
 
 export type LogoutJobSeekerAction = {
   type: typeof LOGOUT_JOBSEEKER
-  payload: {
-    error: any
-  }
 }
 
 export type Credential = {
@@ -163,6 +159,7 @@ export type Credential = {
 }
 
 export type CredentialState = {
+  info: {}
   credentials: {}
   loading: Boolean
   error: any
