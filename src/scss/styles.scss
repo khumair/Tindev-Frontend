@@ -59,3 +59,22 @@ Button {
   padding: 0.64em 1em;
   margin-bottom: 8em;
 }
+
+// Customized and used on Job-Seeker
+.company-icon {
+  max-width: 60px;
+}
+
+.card-container {
+  height: 60vh;
+  width: 60vw;
+  position: absolute;
+  bottom: 20%;
+  right: 5%;
+  overflow-y: auto;
+}
+
+.custom-skill {
+  width: fit-content;
+  min-width: 100px;
+}
