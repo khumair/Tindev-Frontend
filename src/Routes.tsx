@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import EditProfile from './pages/EditProfile'
 import PWReset from './pages/PWReset'
+import Profile from './pages/Profile'
 
 const Routes = () => (
   <Switch>
@@ -13,6 +14,7 @@ const Routes = () => (
     <Route path="/register" component={Register} />
     <Route path="/edit-jobseeker-profile" component={EditProfile} />
     <Route path="/reset-password" component={PWReset} />
+    <Route path="/job-seeker/profile" component={Profile} />
   </Switch>
 )
 
