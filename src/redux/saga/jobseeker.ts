@@ -9,11 +9,14 @@ import {
   loginJobSeekerFail,
 } from '../../redux/actions/jobseeker'
 
-const credentials = (state: AppState) => state.jobSeeker.credentials
+const credential = (state: AppState) => state.jobSeeker.credential
 function* registerJobSeekerSaga() {
   try {
-    const credentialData = yield select(credentials)
-    const req = yield axios.post('/jobSeeker', { credentials: credentialData })
+    const credentialData = yield select(credential)
+    const req = yield axios.post('/jobSeeker', {
+      info: {},
+      credential: credentialData,
+    })
     yield put(registerJobSeekerSuccess(req.data))
   } catch (error) {
     yield put(registerJobSeekerFail())
@@ -22,7 +25,7 @@ function* registerJobSeekerSaga() {
 
 function* loginJobSeekerSaga() {
   try {
-    const credentialData = yield select(credentials)
+    const credentialData = yield select(credential)
     const config = { headers: { Content_Type: 'Application/json' } }
     const { data } = yield axios.post(
       '/jobSeeker/login/local',
@@ -34,7 +37,7 @@ function* loginJobSeekerSaga() {
     yield put(loginJobSeekerFail())
   }
 
-  localStorage.setItem('jobSeekerInfo', JSON.stringify(credentials))
+  localStorage.setItem('jobSeekerInfo', JSON.stringify(credential))
 }
 
 export const jobSeekerInfoFromStorage = localStorage.getItem('jobSeekerInfo')

@@ -12,19 +12,19 @@ import './NavBar.scss'
 const NavBar = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const employerCredentials = useSelector(
-    (state: AppState) => state.employer.credentials
+  const employerCredential = useSelector(
+    (state: AppState) => state.employer.credential
   )
-  const jobSeekerCredentials = useSelector(
-    (state: AppState) => state.jobSeeker.credentials
+  const jobSeekerCredential = useSelector(
+    (state: AppState) => state.jobSeeker.credential
   )
-  const credentials = employerCredentials || jobSeekerCredentials
+  const credential = employerCredential || jobSeekerCredential
 
   const handleLogout = () => {
-    console.log(credentials)
-    if (jobSeekerCredentials) {
+    console.log(credential)
+    if (jobSeekerCredential) {
       dispatch(logoutJobSeeker())
-    } else if (employerCredentials) {
+    } else if (employerCredential) {
       dispatch(logoutEmployer())
     }
     history.push('/')
@@ -38,14 +38,14 @@ const NavBar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          {credentials && (
+          {credential && (
             <LinkContainer to="/register">
               <Nav.Link>
                 <i className="register"></i>Register
               </Nav.Link>
             </LinkContainer>
           )}
-          {credentials ? (
+          {credential ? (
             <NavDropdown title="forNow" id="credentials">
               <LinkContainer to="/profileJobSeeker">
                 <NavDropdown.Item>Profile</NavDropdown.Item>

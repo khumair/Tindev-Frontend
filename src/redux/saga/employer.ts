@@ -9,11 +9,14 @@ import {
   loginEmployerFail,
 } from '../../redux/actions/employer'
 
-const credentials = (state: AppState) => state.employer.credentials
+const credential = (state: AppState) => state.employer.credential
 function* registerEmployerSaga() {
   try {
-    const credentialData = yield select(credentials)
-    const req = yield axios.post('/employer', { credentials: credentialData })
+    const credentialData = yield select(credential)
+    const req = yield axios.post('/employer', {
+      info: {},
+      credential: credentialData,
+    })
     yield put(registerEmployerSuccess(req.data))
   } catch (error) {
     yield put(registerEmployerFail())
@@ -22,7 +25,7 @@ function* registerEmployerSaga() {
 
 function* loginEmployerSaga() {
   try {
-    const credentialData = yield select(credentials)
+    const credentialData = yield select(credential)
     const config = { headers: { Content_Type: 'Application/json' } }
     const { data } = yield axios.post(
       '/employer/login/local',
@@ -34,7 +37,7 @@ function* loginEmployerSaga() {
     yield put(loginEmployerFail())
   }
 
-  localStorage.setItem('employerInfo', JSON.stringify(credentials))
+  localStorage.setItem('employerInfo', JSON.stringify(credential))
 }
 
 export const employerInfoFromStorage = localStorage.getItem('employerInfo')

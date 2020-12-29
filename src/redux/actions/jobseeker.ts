@@ -9,14 +9,17 @@ import {
   LOGOUT_JOBSEEKER,
 } from '../types'
 
-export const registerJobSeekerRequest = (email: any, password: any) => {
+export const registerJobSeekerRequest = (
+  info: any,
+  email: string,
+  password: string
+) => {
   return {
     type: REGISTER_JOBSEEKER_REQUEST,
+    info,
     payload: {
-      credentials: {
-        email,
-        password,
-      },
+      email,
+      password,
     },
   }
 }
@@ -38,10 +41,8 @@ export const loginJobSeekerRequest = (email: string, password: string) => {
   return {
     type: LOGIN_JOBSEEKER_REQUEST,
     payload: {
-      credentials: {
-        email,
-        password,
-      },
+      email,
+      password,
     },
   }
 }

@@ -49,13 +49,13 @@ const Register = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
-
+    const info = {}
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     } else if (role === employer) {
-      dispatch(registerEmployerRequest(email, password))
+      dispatch(registerEmployerRequest(info, email, password))
     } else if (role === jobSeeker) {
-      dispatch(registerJobSeekerRequest(email, password))
+      dispatch(registerJobSeekerRequest(info, email, password))
     }
   }
 

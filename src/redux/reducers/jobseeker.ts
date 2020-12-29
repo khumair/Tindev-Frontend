@@ -11,7 +11,8 @@ import {
 } from '../types'
 
 const initialState = {
-  credentials: { email: '', password: '' },
+  info: {},
+  credential: { email: '', password: '' },
   jobSeekerInfo: jobSeekerInfoFromStorage,
   loading: false,
   error: null,
@@ -20,13 +21,19 @@ const initialState = {
 const jobSeeker = (state = initialState, action: JobSeekerActions) => {
   switch (action.type) {
     case REGISTER_JOBSEEKER_REQUEST:
-      return { ...state, loading: true, credentials: action.payload }
+      return {
+        ...state,
+        loading: true,
+        info: {},
+        email: action.payload,
+        password: action.payload,
+      }
     case REGISTER_JOBSEEKER_SUCCESS:
       return { ...state, loading: false, jobSeekerInfo: action.payload }
     case REGISTER_JOBSEEKER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case LOGIN_JOBSEEKER_REQUEST:
-      return { ...state, loading: true, credentials: action.payload }
+      return { ...state, loading: true, credential: action.payload }
     case LOGIN_JOBSEEKER_SUCCESS:
       return { ...state, loading: false, employerInfo: action.payload }
     case LOGIN_JOBSEEKER_FAIL:
