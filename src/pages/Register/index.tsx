@@ -18,24 +18,23 @@ import FormContainer from '../../components/FormContainer'
 import './Register.scss'
 
 const Register = () => {
-  const [isJobSeeker, setIsJobSeeker] = useState(false)
+  const [isJobSeeker, setIsJobSeeker] = useState({})
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState('')
 
   const employer = useSelector((state: AppState) => state.employer)
-  const { loading, error, credentials } = employer
+  const jobSeeker = useSelector((state: AppState) => state.jobSeeker)
+  const { loading, error } = employer || jobSeeker
 
   const dispatch = useDispatch()
 
   const handleChange = () => {
     if (!isJobSeeker) {
       setIsJobSeeker(true)
-      console.log(isJobSeeker)
     } else {
       setIsJobSeeker(false)
-      console.log(isJobSeeker)
     }
   }
 
@@ -45,9 +44,9 @@ const Register = () => {
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     } else if (isJobSeeker) {
-      dispatch(registerEmployerRequest(credentials))
+      dispatch(registerEmployerRequest(email, password))
     } else {
-      dispatch(registerJobSeekerRequest(credentials))
+      dispatch(registerJobSeekerRequest(email, password))
     }
   }
 
@@ -69,7 +68,6 @@ const Register = () => {
                 type="radio"
                 label="Yes"
                 name="formVerticalRadios"
-                // id='formVerticalRadios1'
                 defaultChecked={!isJobSeeker}
                 className="pr-4"
                 onChange={handleChange}
@@ -78,7 +76,6 @@ const Register = () => {
                 type="radio"
                 label="No"
                 name="formVerticalRadios"
-                // id='formVerticalRadios2'
                 onChange={handleChange}
               />
             </Col>

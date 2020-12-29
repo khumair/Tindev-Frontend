@@ -3,24 +3,25 @@ import {
   REGISTER_EMPLOYER_REQUEST,
   REGISTER_EMPLOYER_SUCCESS,
   REGISTER_EMPLOYER_FAIL,
-} from '../types';
+} from '../types'
 
-export const registerEmployerRequest = (credentials: {}) => {
+export const registerEmployerRequest = (email: any, password: any) => {
   return {
     type: REGISTER_EMPLOYER_REQUEST,
-    payload: credentials,
-  };
-};
+    email,
+    password,
+  }
+}
 
 export const registerEmployerSuccess = (credentials: Credential) => {
   return {
     type: REGISTER_EMPLOYER_SUCCESS,
     payload: credentials,
-  };
-};
+  }
+}
 
 export const registerEmployerFail = () => {
   return {
     type: REGISTER_EMPLOYER_FAIL,
-  };
-};
+  }
+}

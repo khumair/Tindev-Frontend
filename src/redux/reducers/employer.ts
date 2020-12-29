@@ -6,7 +6,7 @@ import {
 } from '../types'
 
 const initialState = {
-  credentials: '',
+  credentials: { email: '', password: '' },
   loading: false,
   error: null,
 }
@@ -14,11 +14,11 @@ const initialState = {
 const test = (state = initialState, action: EmployerActions) => {
   switch (action.type) {
     case REGISTER_EMPLOYER_REQUEST:
-      return { ...state, loading: true, credentials: '' }
+      return { loading: true }
     case REGISTER_EMPLOYER_SUCCESS:
-      return { ...state, loading: false, credentials: action.payload }
+      return { loading: false, credentials: action.payload.credentials }
     case REGISTER_EMPLOYER_FAIL:
-      return { ...state, loading: false, error: action.payload }
+      return { loading: false, error: action.payload }
     default:
       return state
   }

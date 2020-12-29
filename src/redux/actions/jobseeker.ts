@@ -4,10 +4,11 @@ import {
   REGISTER_JOBSEEKER_FAIL,
 } from '../types'
 
-export const registerJobSeekerRequest = (credentials: {}) => {
+export const registerJobSeekerRequest = (email: any, password: any) => {
   return {
     type: REGISTER_JOBSEEKER_REQUEST,
-    payload: credentials,
+    payload: email,
+    password,
   }
 }
 

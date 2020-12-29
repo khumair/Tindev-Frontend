@@ -70,8 +70,8 @@ export type RegisterJobSeekerFailAction = {
 }
 
 export type Credential = {
-  email: string
-  password: string
+  email: any
+  password: any
 }
 
 export type CredentialState = {
