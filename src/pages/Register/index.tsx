@@ -1,37 +1,28 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Form, Col } from 'react-bootstrap'
+import { Form, Col, Container, Row } from 'react-bootstrap'
 
 import HalfCircle from '../../components/HalfCircle'
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/star-lady.svg'
 import CustomButton from '../../components/CustomButton'
-import Loader from '../../components/Loader'
+
 import Message from '../../components/Message'
 import { registerEmployerRequest } from '../../redux/actions'
-import { AppState } from '../../types'
 
 const Register = () => {
-  const [validated, setValidated] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [confirmPassword] = useState('')
   const [message, setMessage] = useState('')
-
-  // const employerRegister = useSelector((state: AppState) => state.employerRegister)
-  // const { loading, error, credentials } = employerRegister
 
   const dispatch = useDispatch()
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const submitHandler = (event: React.FormEvent) => {
     console.log('clicked')
-    // if (form.checkValidity() === false) {
-    event.preventDefault()
-    //   event.stopPropagation()
-    // }
 
-    // setValidated(true)
+    event.preventDefault()
 
     const credentials = {
       email: email,
@@ -46,75 +37,57 @@ const Register = () => {
   }
 
   return (
-    <>
+    <div className="container">
       <HalfCircle inputText="Welcome" />
-      <h3 className="text-center my-5">Sign up</h3>
+      <h3 className="text-center my-5">Register</h3>
       {message && <Message variant="danger">{message}</Message>}
-      {/* {error && <Message variant='danger'>{error}</Message>}
-			{loading && <Loader />} */}
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-        className="container"
-      >
-        <Form.Row>
-          <Form.Group as={Col} sm="8" controlId="validationCustomEmail">
-            <Form.Control
-              required
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <Form.Control.Feedback type="invalid">
-              eMail is required
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col xs={12} md={4}>
+            <Form onSubmit={submitHandler}>
+              <Form.Group controlId="email">
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-        <Form.Row>
-          <Form.Group as={Col} sm="8" controlId="validationCustomPassword">
-            <Form.Control
-              required
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
-            <Form.Control.Feedback type="invalid">
-              Password is required
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
+              <Form.Group controlId="password">
+                <Form.Control
+                  type="password"
+                  placeholder="Enter password"
+                  value={email}
+                  onChange={e => setPassword(e.target.value)}
+                  className="my-4"
+                ></Form.Control>
+              </Form.Group>
 
-        <Form.Row>
-          <Form.Group
-            as={Col}
-            sm="8"
-            controlId="validationCustomConfirmPassword"
-          >
-            <Form.Control
-              required
-              type="password"
-              placeholder="Confirm password"
-              value={confirmPassword}
-              onChange={e => setConfirmPassword(e.target.value)}
-            />
-            <Form.Control.Feedback type="invalid">
-              Passwords does not match!
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
+              <Form.Group controlId="password">
+                <Form.Control
+                  type="password"
+                  placeholder="Confirm Password"
+                  value={email}
+                  onChange={e => setPassword(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-        <CustomButton text="Submit" className="my-3" />
-
-        <p>
-          Already a member? <Link to="/login">Sign In</Link>
-        </p>
-      </Form>
+              <CustomButton text="Register" className="my-3" />
+            </Form>
+            <Row className="my-2">
+              <Col>
+                Already a member? {''}
+                <Link className="purple-text" to="/login">
+                  Login
+                </Link>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
       <CustomSvgIcon img={starsLady} />
-    </>
+    </div>
   )
 }
 
