@@ -31,12 +31,10 @@ const employer = (state = initialState, action: EmployerActions) => {
     case REGISTER_EMPLOYER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case LOGIN_EMPLOYER_REQUEST:
-      //@ts-ignore
       return {
         ...state,
         loading: true,
-        email: action.payload.email,
-        password: action.payload.password,
+        credential: action.payload,
       }
     case LOGIN_EMPLOYER_SUCCESS:
       return { ...state, loading: false, employerInfo: action.payload }
