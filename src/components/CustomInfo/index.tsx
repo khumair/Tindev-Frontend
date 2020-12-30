@@ -11,7 +11,7 @@ type Info = {
 const CustomInfo = ({ title, skill, message }: Info) => {
   return (
     <>
-      <Card className="d-flex flex-row align-items-center border-0 py-1 text-dark">
+      <Card className="d-flex align-items-center border-0 py-1 text-dark">
         <div>{title}</div>
         <div className="skill-container d-flex ">
           <CustomSkill skill={skill} />
