@@ -1,17 +1,26 @@
 import React from 'react'
-import { Image, Badge, Button} from "react-bootstrap";
+import { Image, Badge, Button,Form, FormControl} from "react-bootstrap";
 import male from "../../assets/images/male.png";
 
-const MatchCard = () => {
-    return(
+
+const MatchCard = () => {  
+  
+  return(
+    
+    
         <div className="Container">
+          <div className="d-flex flex-row-reverse">
+  <Form inline className="search-form">
+    <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
+    
+  </Form>
+</div>
         <div className="Row mb-2">
-          {/* <div className="Col-md-2"></div> */}
           <div className="Col-md-12">
             <a href="#" className="text-dark">
-              <div className="card shadow">
+              <div className="card border border-dark mt-2">
                 <div className="card-body">
-                  <div className="row">
+                  <div className="row align-items-center">
                     <div className="col-xs-1 col-sm-2 col-md-1 mr-3">
                       <Image src={male} />
                       <br></br>

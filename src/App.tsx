@@ -6,12 +6,13 @@ import './scss/styles.scss';
 
 import CompanyProfile from './components/CompanyProfile'
 import CompanyMatchPage from './components/CompanyMatchPage'
+// import Tags from './components/JobPost/Tags'
 
 const App = () => (
 	<>
 	{/* <CompanyProfile /> */}
-	{/* <CompanyMatchPage /> */}
-	<JobPost />
+	<CompanyMatchPage />
+	{/* <JobPost /> */}
 	</>
 );
 

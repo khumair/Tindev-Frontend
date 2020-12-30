@@ -1,17 +1,13 @@
 import React from 'react'
-import {InputGroup, FormControl, Button} from 'react-bootstrap'
+import {Form,FormControl, Button} from 'react-bootstrap'
 const SearchBarCont = () => {
     return(
-        <InputGroup className="mb-3">
-        <FormControl
-          placeholder="Seach"
-          aria-label="Search"
-          aria-describedby="basic-addon2"
-        />
-        <InputGroup.Append>
-          <Button variant="outline-secondary">Search</Button>
-        </InputGroup.Append>
-      </InputGroup>
+<div className="row justify-content-end mr-5">
+  <Form inline>
+    <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
+    <Button type="submit">Submit</Button>
+  </Form>
+</div>
     )
 }
-export default 'SearchBarCont'
+export default 'SearchBarCont';

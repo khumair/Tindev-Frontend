@@ -1,24 +1,13 @@
 import * as React from "react";
-import { Tab, Row, Col, Nav, InputGroup, Button, FormControl} from "react-bootstrap";
+import { Tab, Row, Col, Nav,Form, InputGroup, FormControl, Button} from "react-bootstrap";
 import './style.scss'
 import MatchCard from './MatchCard'
 import SearchBarCont from './SearchBarCont'
+import JobPost from '../JobPost'
 const CompanyMatchPage = () => {
   return (
   <>
-  
-  <div className='Row'> 
-   <InputGroup className="search-bar">
-        <FormControl
-          placeholder="Seach"
-          aria-label="Search"
-          aria-describedby="basic-addon2"
-        />
-        <InputGroup.Append>
-          <Button variant="outline-secondary">Search</Button>
-        </InputGroup.Append>
-      </InputGroup>
-  </div>
+
   <div>
   <Tab.Container  defaultActiveKey="first">
   <Row>
@@ -35,10 +24,10 @@ const CompanyMatchPage = () => {
         </Nav.Item>
       </Nav>
     </Col>
-    <Col sm={9}>
+    <Col sm={9} className="tab-content">
       <Tab.Content>
         <Tab.Pane eventKey="first">
-            
+            <JobPost />
         </Tab.Pane>
         <Tab.Pane eventKey="second">
         <MatchCard />

@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Col, Row, Container, Button, Image} from "react-bootstrap";
+import DateSelector from './DatePicker'
 import uploadImage from "../../assets/images/upload-Image.png";
 const CompanyProfile = () => {
   return (
@@ -116,15 +117,14 @@ const CompanyProfile = () => {
                 Starting At
               </Form.Label>
               <Col sm="8">
-                <Form.Control
+                {/* <Form.Control
                   className="text-field"
                   type="text"
                   placeholder="29/12/2020"
-                />
+                /> */}
+                <DateSelector />
               </Col>
             </Form.Group>
-     
-            
           </Form>
           <Button className="btn-form" size="lg" block>
             {" "}
@@ -133,9 +133,9 @@ const CompanyProfile = () => {
         </Col>
         <Col className="upload-image">
           <Image src={uploadImage} /> <br />
-          <div className="file btn btn-lg btn-primary">
+          <div className="btn btn-primary">
 							Upload
-							<input type="file" name="file"/>
+							<Form.File type="file" name="file" className="upload-btn"/>
 						</div>
           {/* <Button className="btn-upload mt-4">Upload</Button> */}
           {/* <Form.File id="exampleFormControlFile1"  className="btn-upload mt-4"/> */}

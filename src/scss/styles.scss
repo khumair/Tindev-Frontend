@@ -1,6 +1,7 @@
 // @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 @import '~bootstrap/scss/bootstrap';
+@import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 @import '_mobile';
 $purple-color: #a64fae;
 body {
@@ -112,7 +113,7 @@ a#company-name {
 	color: #fff;
 	height: 40px;
 	width: auto;
-	margin-top: 20px;
+	// margin-top: 2%;
 	margin-right: 15px;
 }
 
@@ -123,7 +124,57 @@ width: 400px;
 .search-bar-sec{
 	float: right;
 }
-.btn-upload {
+
+  .upload-image {
+	padding: 1rem;
+	text-align: center;
+  }
+ .upload-btn {
+	position: absolute;
+	font-size: 40px;
+	opacity: 0;
+	margin: -35px;
+	
+ }
+ DateSelector {
+	 width: 10px;
+	 padding: 20px;
+ }
+ .DatePicker__input {
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 0.4em 0.8em;
+	font-family: inherit;
+	text-align: center;
+	font-size: 12px;
+	height: 35px;
+	width: 200%;
+  }
+
+//   Umair Style file
+.btn-flat {
+	background-color: #55dd55;
+	color: #000;
+  }
+  .colcenter {
+	padding: 1rem;
+	text-align: center;
+  }
+  
+  .btn-form {
+	background-color: $purple-color;
+	color: #ffffff;
+	border: none;
+	font-family: "poppins", sans-serif;
+	margin-top: 25px;
+	border-radius: 5px;
+	height: 50px;
+  
+	// width: 215px;
+  }
+  
+  .btn-upload {
 	background-color: $purple-color;
 	color: #ffffff;
 	border: none;
@@ -133,14 +184,42 @@ width: 400px;
 	height: 45px;
 	width: 100px;
   }
-  .upload-image {
-	padding: 1rem;
-	text-align: center;
+  .tag-btn {
+	font-family: "poppins", sans-serif;
+	border-color: $purple-color;
+	color: $purple-color;
   }
-  Input {
-	position: absolute;
-	font-size: 50px;
-	opacity: 0;
-	right: 0;
-	top: 0;
+  .tag-btn:hover {
+	background-color: $purple-color;
+	border-color: #ffffff;
+  }
+  h2 {
+	line-height: 1.66;
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: $purple-color;
+	font-family: "poppins", sans-serif;
+	font-size: 36px;
+  }
+  
+  .text-field {
+	width: auto;
+	height: 3rem;
+	border-radius: 10px;
+	border: solid 1px #000;
+	// font-family: "poppins", sans-serif;
+	// margin-top: 15px;
+  }
+  .form-group-set {
+	margin-top: 1.8rem;
+  }
+  .tab-content{
+	  max-width: 95%;
+  }
+
+  .search-form {
+	border: 1px solid #ddd;
+	border-radius: 4px;
   }
