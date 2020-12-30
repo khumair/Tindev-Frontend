@@ -9,10 +9,8 @@ import starsLady from '../../media/star-lady.svg'
 import CustomButton from '../../components/CustomButton'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
-import {
-  registerEmployerRequest,
-  registerJobSeekerRequest,
-} from '../../redux/actions/'
+import { registerEmployerRequest } from '../../redux/actions/employer'
+import { registerJobSeekerRequest } from '../../redux/actions/jobseeker'
 import { AppState } from '../../redux/types'
 import FormContainer from '../../components/FormContainer'
 import './Register.scss'
@@ -52,7 +50,9 @@ const Register = () => {
     const info = {}
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
-    } else if (role === employer) {
+    }
+
+    if (role === employer) {
       dispatch(registerEmployerRequest(info, email, password))
     } else if (role === jobSeeker) {
       dispatch(registerJobSeekerRequest(info, email, password))
