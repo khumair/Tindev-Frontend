@@ -1,5 +1,8 @@
 import { REGISTER_EMPLOYER_REQUEST, JOB_POST_REQUEST } from '../types'
-import { registerJobPostSuccess } from './../actions/jobpost'
+import {
+  registerJobPostSuccess,
+  registerJobPostFail,
+} from './../actions/jobpost'
 import { AppState } from './../types'
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
@@ -20,11 +23,11 @@ function* registerEmployerSaga(credentials: Credential) {
 function* creatingJobPostSaga() {
   try {
     const job = yield select(jobPostFormData)
-    const res = yield axios.post('/jobpost', job)
+    const res = yield axios.post('/employer/jobs', job)
     console.log(res)
     yield put(registerJobPostSuccess())
   } catch (e) {
-    console.log(e)
+    yield registerJobPostFail(e)
   }
 }
 
