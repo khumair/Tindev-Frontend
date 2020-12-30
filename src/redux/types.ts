@@ -13,6 +13,15 @@ export const LOGIN_JOBSEEKER_SUCCESS = 'LOGIN_JOBSEEKER_SUCCESS'
 export const LOGIN_JOBSEEKER_FAIL = 'LOGIN_JOBSEEKER_FAIL'
 export const LOGOUT_JOBSEEKER = 'LOGOUT_JOBSEEKER'
 
+export type ActionType = {
+  type: string
+  payload: {
+    info: any
+    email: string
+    password: string
+  }
+}
+
 export type EmployerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction

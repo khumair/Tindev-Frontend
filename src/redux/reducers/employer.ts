@@ -21,13 +21,18 @@ const initialState = {
 const employer = (state = initialState, action: EmployerActions) => {
   switch (action.type) {
     case REGISTER_EMPLOYER_REQUEST:
+      // if ('email' && 'password' in action.payload) {
       return {
         ...state,
         loading: true,
-        info: {},
-        email: action.payload,
-        password: action.payload,
+        // info: {},
+        //@ts-ignore
+        email: action.payload.email,
+        //@ts-ignore
+        password: action.payload.password,
       }
+    // }
+
     case REGISTER_EMPLOYER_SUCCESS:
       return { ...state, employerInfo: action.payload, loading: false }
     case REGISTER_EMPLOYER_FAIL:
