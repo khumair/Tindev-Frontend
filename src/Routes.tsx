@@ -12,13 +12,13 @@ import Profile from './pages/Profile'
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={Landing} />
-    <Route path="/login" component={Login} />
-    <Route path="/register" component={Register} />
-    <Route path="/verify" component={EmailVerification} />
-    <Route path="/job-seeker" component={JobSeeker} />
-    <Route path="/edit-jobseeker-profile" component={EditProfile} />
-    <Route path="/reset-password" component={PWReset} />
-    <Route path="/job-seeker/profile" component={Profile} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/register" component={Register} />
+    <Route exact path="/verify" component={EmailVerification} />
+    <Route exact path="/job-seeker" component={JobSeeker} />
+    <Route exact path="/edit-jobseeker-profile" component={EditProfile} />
+    <Route exact path="/reset-password" component={PWReset} />
+    <Route exact path="/job-seeker/profile" component={Profile} />
   </Switch>
 )
 
