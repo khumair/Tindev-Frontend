@@ -21,13 +21,9 @@ const initialState = {
 const employer = (state = initialState, action: EmployerActions) => {
   switch (action.type) {
     case REGISTER_EMPLOYER_REQUEST:
-      return {
-        ...state,
-        loading: true,
-        credential: action.payload,
-      }
+      return { ...state, loading: true, credential: action.payload }
     case REGISTER_EMPLOYER_SUCCESS:
-      return { ...state, employerInfo: action.payload, loading: false }
+      return { ...state, loading: false, employerInfo: action.payload }
     case REGISTER_EMPLOYER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case LOGIN_EMPLOYER_REQUEST:

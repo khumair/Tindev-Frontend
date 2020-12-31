@@ -163,7 +163,6 @@ export type CredentialStateEmployer = {
 
 export type CredentialStateJobSeeker = {
   info: {}
-  skills: []
   credential: {}
   loading: Boolean
   error: any

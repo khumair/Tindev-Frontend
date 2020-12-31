@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Form, Row, Col } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
-import NavBar from '../../components/NavBar'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
@@ -23,6 +23,7 @@ const Login = () => {
   const [password, setPassword] = useState('')
 
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const employer = useSelector((state: AppState) => state.employer)
   const jobSeeker = useSelector((state: AppState) => state.jobSeeker)
@@ -38,14 +39,15 @@ const Login = () => {
     e.preventDefault()
     if (employer) {
       dispatch(loginEmployerRequest(email, password))
+      history.push('/employer/homepage')
     } else if (jobSeeker) {
       dispatch(loginJobSeekerRequest(email, password))
+      history.push('/jobSeeker/homepage')
     }
   }
 
   return (
     <div>
-      <NavBar />
       <FormContainer>
         <h2 className="signin">Sign In To TinDev</h2>
         {error && <Message variant="danger">{error}</Message>}

@@ -35,28 +35,27 @@ const Register = () => {
 
   const dispatch = useDispatch()
 
-  const handleCompany = (event: React.FormEvent) => {
-    event.preventDefault()
-    setRole(employer)
-  }
-
   const handleSeeker = (event: React.FormEvent) => {
     event.preventDefault()
     setRole(jobSeeker)
   }
 
+  const handleCompany = (event: React.FormEvent) => {
+    event.preventDefault()
+    setRole(employer)
+  }
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     const info = {}
-    const skills: any = []
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     }
 
-    if (role === employer) {
+    if (role === jobSeeker) {
+      dispatch(registerJobSeekerRequest(info, email, password))
+    } else if (role === employer) {
       dispatch(registerEmployerRequest(info, email, password))
-    } else if (role === jobSeeker) {
-      dispatch(registerJobSeekerRequest(info, skills, email, password))
     }
   }
 
@@ -66,15 +65,16 @@ const Register = () => {
         <HalfCircle inputText="Welcome" />
         <h3 className="text-center my-5">Sign up</h3>
         {message && <Message variant="danger">{message}</Message>}
-        {employerError && <Message variant="danger">{employerError}</Message>}
-        {employerLoader && <Loader />}
         {jobSeekerError && <Message variant="danger">{jobSeekerError}</Message>}
         {jobSeekerLoader && <Loader />}
+        {employerError && <Message variant="danger">{employerError}</Message>}
+        {employerLoader && <Loader />}
+
         <Form onSubmit={handleSubmit} className="container">
           <Button className="employer-role" onClick={handleCompany}>
-            I am an employer
+            Register employer
           </Button>
-          <Button onClick={handleSeeker}>I am a jobseeker</Button>
+          <Button onClick={handleSeeker}>Register jobseeker</Button>
           <Form.Row>
             <Form.Group as={Col} controlId="validationCustomEmail">
               <Form.Control

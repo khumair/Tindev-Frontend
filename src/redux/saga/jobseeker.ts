@@ -16,7 +16,6 @@ function* registerJobSeekerSaga() {
     const req = yield axios.post('/jobSeeker', {
       info: {},
       credential: credentialData,
-      skills: [],
     })
     yield put(registerJobSeekerSuccess(req.data))
   } catch (error) {
@@ -27,24 +26,22 @@ function* registerJobSeekerSaga() {
 function* loginJobSeekerSaga() {
   try {
     const credentialData = yield select(credential)
-    const config = { headers: { Content_Type: 'Application/json' } }
-    const { email, password } = yield axios.post(
-      '/jobSeeker/login/local',
-      { jobSeekerInfo: credentialData },
-      config
-    )
-    yield put(loginJobSeekerSuccess({ email, password }))
+    const res = yield axios.post('/jobSeeker/login/local', {
+      email: credentialData.email,
+      password: credentialData.password,
+    })
+    yield put(loginJobSeekerSuccess(res.data))
   } catch (error) {
     yield put(loginJobSeekerFail())
   }
 
-  localStorage.setItem('jobSeekerInfo', JSON.stringify(credential))
+  //localStorage.setItem('jobSeekerInfo', JSON.stringify(credential))
 }
 
-export const jobSeekerInfoFromStorage = localStorage.getItem('jobSeekerInfo')
-  ? //@ts-ignore
-    JSON.parse(localStorage.getItem('jobSeekerInfo'))
-  : null
+// export const jobSeekerInfoFromStorage = localStorage.getItem('jobSeekerInfo')
+//   ? //@ts-ignore
+//     JSON.parse(localStorage.getItem('jobSeekerInfo'))
+//   : null
 
 const sagaWatcher = [
   takeLatest('REGISTER_JOBSEEKER_REQUEST', registerJobSeekerSaga),
