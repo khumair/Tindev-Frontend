@@ -1,5 +1,4 @@
 import {
-  ActionType,
   Credential,
   REGISTER_EMPLOYER_REQUEST,
   REGISTER_EMPLOYER_SUCCESS,
@@ -14,7 +13,7 @@ export const registerEmployerRequest = (
   info: any,
   email: string,
   password: string
-): ActionType => {
+) => {
   return {
     type: REGISTER_EMPLOYER_REQUEST,
     payload: {

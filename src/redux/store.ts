@@ -13,6 +13,7 @@ export const initState: AppState = {
   },
   jobSeeker: {
     info: {},
+    skills: [],
     credential: { email: '', password: '' },
     loading: false,
     error: null,

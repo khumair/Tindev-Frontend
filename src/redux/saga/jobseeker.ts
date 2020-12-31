@@ -16,6 +16,7 @@ function* registerJobSeekerSaga() {
     const req = yield axios.post('/jobSeeker', {
       info: {},
       credential: credentialData,
+      skills: [],
     })
     yield put(registerJobSeekerSuccess(req.data))
   } catch (error) {
@@ -27,12 +28,12 @@ function* loginJobSeekerSaga() {
   try {
     const credentialData = yield select(credential)
     const config = { headers: { Content_Type: 'Application/json' } }
-    const { data } = yield axios.post(
+    const { email, password } = yield axios.post(
       '/jobSeeker/login/local',
       { jobSeekerInfo: credentialData },
       config
     )
-    yield put(loginJobSeekerSuccess(data))
+    yield put(loginJobSeekerSuccess({ email, password }))
   } catch (error) {
     yield put(loginJobSeekerFail())
   }

@@ -35,10 +35,10 @@ const Login = () => {
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    if (jobSeeker) {
-      dispatch(loginJobSeekerRequest(email, password))
-    } else if (employer) {
+    if (employer) {
       dispatch(loginEmployerRequest(email, password))
+    } else if (jobSeeker) {
+      dispatch(loginJobSeekerRequest(email, password))
     }
   }
 

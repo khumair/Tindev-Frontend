@@ -26,24 +26,22 @@ function* registerEmployerSaga() {
 function* loginEmployerSaga() {
   try {
     const credentialData = yield select(credential)
-    const config = { headers: { Content_Type: 'Application/json' } }
-    const { data } = yield axios.post(
-      '/employer/login/local',
-      { employerInfo: credentialData },
-      config
-    )
-    yield put(loginEmployerSuccess(data))
+    const res = yield axios.post('/employer/login/local', {
+      email: credentialData.email,
+      password: credentialData.password,
+    })
+    yield put(loginEmployerSuccess(res.data))
   } catch (error) {
     yield put(loginEmployerFail())
   }
 
-  localStorage.setItem('employerInfo', JSON.stringify(credential))
+  //localStorage.setItem('employerInfo', JSON.stringify(credential))
 }
 
-export const employerInfoFromStorage = localStorage.getItem('employerInfo')
-  ? //@ts-ignore
-    JSON.parse(localStorage.getItem('employerInfo'))
-  : null
+// export const employerInfoFromStorage = localStorage.getItem('employerInfo')
+//  ? //@ts-ignore
+//    JSON.parse(localStorage.getItem('employerInfo'))
+//  : null
 
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),

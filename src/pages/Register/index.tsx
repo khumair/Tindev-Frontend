@@ -48,6 +48,7 @@ const Register = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     const info = {}
+    const skills: any = []
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     }
@@ -55,7 +56,7 @@ const Register = () => {
     if (role === employer) {
       dispatch(registerEmployerRequest(info, email, password))
     } else if (role === jobSeeker) {
-      dispatch(registerJobSeekerRequest(info, email, password))
+      dispatch(registerJobSeekerRequest(info, skills, email, password))
     }
   }
 

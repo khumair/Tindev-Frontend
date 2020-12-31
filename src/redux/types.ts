@@ -13,15 +13,6 @@ export const LOGIN_JOBSEEKER_SUCCESS = 'LOGIN_JOBSEEKER_SUCCESS'
 export const LOGIN_JOBSEEKER_FAIL = 'LOGIN_JOBSEEKER_FAIL'
 export const LOGOUT_JOBSEEKER = 'LOGOUT_JOBSEEKER'
 
-export type ActionType = {
-  type: string
-  payload: {
-    info: any
-    email: string
-    password: string
-  }
-}
-
 export type EmployerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction
@@ -102,6 +93,7 @@ export type JobSeekerActions =
 export type RegisterJobSeekerRequestAction = {
   type: typeof REGISTER_JOBSEEKER_REQUEST
   payload: {
+    info: {}
     credential: {
       email: string
       password: string
@@ -158,18 +150,26 @@ export type LogoutJobSeekerAction = {
 }
 
 export type Credential = {
-  email: any
-  password: any
+  email: string
+  password: string
 }
 
-export type CredentialState = {
+export type CredentialStateEmployer = {
   info: {}
   credential: {}
   loading: Boolean
   error: any
 }
 
+export type CredentialStateJobSeeker = {
+  info: {}
+  skills: []
+  credential: {}
+  loading: Boolean
+  error: any
+}
+
 export type AppState = {
-  employer: CredentialState
-  jobSeeker: CredentialState
+  employer: CredentialStateEmployer
+  jobSeeker: CredentialStateJobSeeker
 }

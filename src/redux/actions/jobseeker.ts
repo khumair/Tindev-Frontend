@@ -12,14 +12,18 @@ import {
 export const registerJobSeekerRequest = (
   info: any,
   email: string,
-  password: string
+  password: string,
+  skills: any
 ) => {
   return {
     type: REGISTER_JOBSEEKER_REQUEST,
-    info,
     payload: {
-      email,
-      password,
+      info,
+      credential: {
+        email,
+        password,
+      },
+      skills,
     },
   }
 }

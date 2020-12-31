@@ -12,6 +12,7 @@ import {
 
 const initialState = {
   info: {},
+  skills: [{ id: '' }],
   credential: { email: '', password: '' },
   jobSeekerInfo: jobSeekerInfoFromStorage,
   loading: false,
@@ -21,13 +22,7 @@ const initialState = {
 const jobSeeker = (state = initialState, action: JobSeekerActions) => {
   switch (action.type) {
     case REGISTER_JOBSEEKER_REQUEST:
-      return {
-        ...state,
-        loading: true,
-        info: {},
-        email: action.payload,
-        password: action.payload,
-      }
+      return { ...state, loading: true, credential: action.payload }
     case REGISTER_JOBSEEKER_SUCCESS:
       return { ...state, loading: false, jobSeekerInfo: action.payload }
     case REGISTER_JOBSEEKER_FAIL:
@@ -35,7 +30,7 @@ const jobSeeker = (state = initialState, action: JobSeekerActions) => {
     case LOGIN_JOBSEEKER_REQUEST:
       return { ...state, loading: true, credential: action.payload }
     case LOGIN_JOBSEEKER_SUCCESS:
-      return { ...state, loading: false, employerInfo: action.payload }
+      return { ...state, loading: false, jobSeekerInfo: action.payload }
     case LOGIN_JOBSEEKER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case LOGOUT_JOBSEEKER:
