@@ -1,19 +1,28 @@
-import React from 'react';
-import JobPost from './components/JobPost'
-import Routes from './Routes';
+import React, { useEffect } from 'react'
+import axios from 'axios'
 
-import './scss/styles.scss';
+import Routes from './Routes'
+import Footer from './components/Footer'
+import './scss/styles.scss'
+import LocalStorage from './local-storage'
 
-import CompanyProfile from './components/CompanyProfile'
-import CompanyMatchPage from './components/CompanyMatchPage'
-// import Tags from './components/JobPost/Tags'
+const App = () => {
+  useEffect(() => {
+    axios.interceptors.request.use((config: any) => {
+      const token = LocalStorage.getToken()
+      if (token) {
+        config.headers['Authorization'] = `Bearer ${token}`
+      }
+      return config
+    })
+  }, [])
 
-const App = () => (
-	<>
-	{/* <CompanyProfile /> */}
-	<CompanyMatchPage />
-	{/* <JobPost /> */}
-	</>
-);
+  return (
+    <>
+      <Routes />
+      <Footer />
+    </>
+  )
+}
 
-export default App;
+export default App
