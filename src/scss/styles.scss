@@ -85,3 +85,38 @@ a:hover {
   width: fit-content;
   min-width: 100px;
 }
+
+/** signin page */
+.signin {
+  padding-top: 3rem;
+  padding-bottom: 1.5em;
+}
+
+/** register page */
+Button.employer-role,
+Button.jobseeker-role {
+  margin-bottom: 2rem;
+  min-width: 49%;
+  border: #773bb7 1px solid;
+  background: white;
+  color: black;
+  @media (max-width: 991px) {
+    min-width: 100% !important;
+  }
+  @media (max-width: 407px) {
+    min-width: 100% !important;
+  }
+}
+
+Button.employer-role:hover,
+Button.jobseeker-role:hover {
+  background: #400082;
+}
+
+Button.employer-role {
+  margin-right: 2%;
+}
+
+Button.register-button {
+  min-width: 100%;
+}

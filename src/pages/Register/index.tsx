@@ -13,7 +13,6 @@ import { registerEmployerRequest } from '../../redux/actions/employer'
 import { registerJobSeekerRequest } from '../../redux/actions/jobseeker'
 import { AppState } from '../../redux/types'
 import FormContainer from '../../components/FormContainer'
-import './Register.scss'
 
 const Register = () => {
   const [email, setEmail] = useState('')
@@ -74,7 +73,9 @@ const Register = () => {
           <Button className="employer-role" onClick={handleCompany}>
             Register employer
           </Button>
-          <Button onClick={handleSeeker}>Register jobseeker</Button>
+          <Button className="jobseeker-role" onClick={handleSeeker}>
+            Register jobseeker
+          </Button>
           <Form.Row>
             <Form.Group as={Col} controlId="validationCustomEmail">
               <Form.Control
@@ -117,7 +118,7 @@ const Register = () => {
             </Form.Group>
           </Form.Row>
 
-          <CustomButton text="Submit" className="my-3" />
+          <CustomButton text="Submit" className="my-3 register-button" />
 
           <p>
             Already a member? <Link to="/login">Sign In</Link>

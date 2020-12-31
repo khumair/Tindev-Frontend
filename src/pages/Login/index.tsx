@@ -15,7 +15,7 @@ import {
   loginEmployerRequest,
   loginJobSeekerRequest,
 } from '../../redux/actions/'
-import './Login.scss'
+
 import { AppState } from '../../redux/types'
 
 const Login = () => {
