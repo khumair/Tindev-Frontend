@@ -6,9 +6,10 @@ import { Form, Row, Col } from 'react-bootstrap'
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
 import NavBar from '../../components/NavBar'
-import Message from '../../components/Message'
 import Loader from '../../components/Loader'
+import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
+
 import CustomButton from '../../components/CustomButton'
 import {
   loginEmployerRequest,
