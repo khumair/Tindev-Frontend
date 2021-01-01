@@ -13,7 +13,7 @@ import FormContainer from '../../components/FormContainer'
 import CustomButton from '../../components/CustomButton'
 import {
   loginEmployerRequest,
-  loginJobSeekerRequest,
+  loginJobseekerRequest,
 } from '../../redux/actions/'
 
 import { AppState } from '../../redux/types'
@@ -26,8 +26,8 @@ const Login = () => {
   const history = useHistory()
 
   const employer = useSelector((state: AppState) => state.employer)
-  const jobSeeker = useSelector((state: AppState) => state.jobSeeker)
-  const { loading, error } = jobSeeker || employer
+  const jobseeker = useSelector((state: AppState) => state.jobseeker)
+  const { loading, error } = jobseeker || employer
 
   // useEffect(() => {
   // 	if (userInfo) {
@@ -40,9 +40,9 @@ const Login = () => {
     if (employer) {
       dispatch(loginEmployerRequest(email, password))
       history.push('/employer/homepage')
-    } else if (jobSeeker) {
-      dispatch(loginJobSeekerRequest(email, password))
-      history.push('/jobSeeker/homepage')
+    } else if (jobseeker) {
+      dispatch(loginJobseekerRequest(email, password))
+      history.push('/jobseeker/homepage')
     }
   }
 

@@ -81,16 +81,16 @@ export type LogoutEmployerAction = {
   type: typeof LOGOUT_EMPLOYER
 }
 
-export type JobSeekerActions =
-  | RegisterJobSeekerRequestAction
-  | RegisterJobSeekerSuccessAction
-  | RegisterJobSeekerFailAction
-  | LoginJobSeekerRequestAction
-  | LoginJobSeekerSuccessAction
-  | LoginJobSeekerFailAction
-  | LogoutJobSeekerAction
+export type JobseekerActions =
+  | RegisterJobseekerRequestAction
+  | RegisterJobseekerSuccessAction
+  | RegisterJobseekerFailAction
+  | LoginJobseekerRequestAction
+  | LoginJobseekerSuccessAction
+  | LoginJobseekerFailAction
+  | LogoutJobseekerAction
 
-export type RegisterJobSeekerRequestAction = {
+export type RegisterJobseekerRequestAction = {
   type: typeof REGISTER_JOBSEEKER_REQUEST
   payload: {
     info: {}
@@ -101,7 +101,7 @@ export type RegisterJobSeekerRequestAction = {
   }
 }
 
-export type RegisterJobSeekerSuccessAction = {
+export type RegisterJobseekerSuccessAction = {
   type: typeof REGISTER_JOBSEEKER_SUCCESS
   payload: {
     jobSeekerInfo: {
@@ -111,14 +111,14 @@ export type RegisterJobSeekerSuccessAction = {
   }
 }
 
-export type RegisterJobSeekerFailAction = {
+export type RegisterJobseekerFailAction = {
   type: typeof REGISTER_JOBSEEKER_FAIL
   payload: {
     error: any
   }
 }
 
-export type LoginJobSeekerRequestAction = {
+export type LoginJobseekerRequestAction = {
   type: typeof LOGIN_JOBSEEKER_REQUEST
   payload: {
     credential: {
@@ -128,7 +128,7 @@ export type LoginJobSeekerRequestAction = {
   }
 }
 
-export type LoginJobSeekerSuccessAction = {
+export type LoginJobseekerSuccessAction = {
   type: typeof LOGIN_JOBSEEKER_SUCCESS
   payload: {
     jobSeekerInfo: {
@@ -138,14 +138,14 @@ export type LoginJobSeekerSuccessAction = {
   }
 }
 
-export type LoginJobSeekerFailAction = {
+export type LoginJobseekerFailAction = {
   type: typeof LOGIN_JOBSEEKER_FAIL
   payload: {
     error: any
   }
 }
 
-export type LogoutJobSeekerAction = {
+export type LogoutJobseekerAction = {
   type: typeof LOGOUT_JOBSEEKER
 }
 
@@ -161,7 +161,7 @@ export type CredentialStateEmployer = {
   error: any
 }
 
-export type CredentialStateJobSeeker = {
+export type CredentialStateJobseeker = {
   info: {}
   credential: {}
   loading: Boolean
@@ -170,5 +170,5 @@ export type CredentialStateJobSeeker = {
 
 export type AppState = {
   employer: CredentialStateEmployer
-  jobSeeker: CredentialStateJobSeeker
+  jobseeker: CredentialStateJobseeker
 }

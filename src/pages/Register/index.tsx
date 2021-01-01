@@ -10,7 +10,7 @@ import CustomButton from '../../components/CustomButton'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { registerEmployerRequest } from '../../redux/actions/employer'
-import { registerJobSeekerRequest } from '../../redux/actions/jobseeker'
+import { registerJobseekerRequest } from '../../redux/actions/jobseeker'
 import { AppState } from '../../redux/types'
 import FormContainer from '../../components/FormContainer'
 
@@ -22,10 +22,10 @@ const Register = () => {
   const [role, setRole] = useState({})
 
   const employer = useSelector((state: AppState) => state.employer)
-  const jobSeeker = useSelector((state: AppState) => state.jobSeeker)
-  const jobSeekerError = useSelector((state: AppState) => state.jobSeeker.error)
+  const jobSeeker = useSelector((state: AppState) => state.jobseeker)
+  const jobSeekerError = useSelector((state: AppState) => state.jobseeker.error)
   const jobSeekerLoader = useSelector(
-    (state: AppState) => state.jobSeeker.loading
+    (state: AppState) => state.jobseeker.loading
   )
   const employerError = useSelector((state: AppState) => state.employer.error)
   const employerLoader = useSelector(
@@ -52,7 +52,7 @@ const Register = () => {
     }
 
     if (role === jobSeeker) {
-      dispatch(registerJobSeekerRequest(info, email, password))
+      dispatch(registerJobseekerRequest(info, email, password))
     } else if (role === employer) {
       dispatch(registerEmployerRequest(info, email, password))
     }

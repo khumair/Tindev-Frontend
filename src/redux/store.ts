@@ -11,7 +11,7 @@ export const initState: AppState = {
     loading: false,
     error: null,
   },
-  jobSeeker: {
+  jobseeker: {
     info: {},
     credential: { email: '', password: '' },
     loading: false,

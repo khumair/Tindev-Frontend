@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import employer from './employer'
-import jobSeeker from './jobseeker'
+import jobseeker from './jobseeker'
 
-const rootReducer = () => combineReducers({ employer, jobSeeker })
+const rootReducer = () => combineReducers({ employer, jobseeker })
 
 export default rootReducer

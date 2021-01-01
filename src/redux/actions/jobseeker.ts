@@ -9,7 +9,7 @@ import {
   LOGOUT_JOBSEEKER,
 } from '../types'
 
-export const registerJobSeekerRequest = (
+export const registerJobseekerRequest = (
   info: any,
   email: string,
   password: string
@@ -24,20 +24,20 @@ export const registerJobSeekerRequest = (
   }
 }
 
-export const registerJobSeekerSuccess = (jobSeekerInfo: Credential) => {
+export const registerJobseekerSuccess = (jobSeekerInfo: Credential) => {
   return {
     type: REGISTER_JOBSEEKER_SUCCESS,
     payload: jobSeekerInfo,
   }
 }
 
-export const registerJobSeekerFail = () => {
+export const registerJobseekerFail = () => {
   return {
     type: REGISTER_JOBSEEKER_FAIL,
   }
 }
 
-export const loginJobSeekerRequest = (email: string, password: string) => {
+export const loginJobseekerRequest = (email: string, password: string) => {
   return {
     type: LOGIN_JOBSEEKER_REQUEST,
     payload: {
@@ -47,20 +47,20 @@ export const loginJobSeekerRequest = (email: string, password: string) => {
   }
 }
 
-export const loginJobSeekerSuccess = (jobSeekerInfo: Credential) => {
+export const loginJobseekerSuccess = (jobSeekerInfo: Credential) => {
   return {
     type: LOGIN_JOBSEEKER_SUCCESS,
     payload: jobSeekerInfo,
   }
 }
 
-export const loginJobSeekerFail = () => {
+export const loginJobseekerFail = () => {
   return {
     type: LOGIN_JOBSEEKER_FAIL,
   }
 }
 
-export const logoutJobSeeker = () => {
+export const logoutJobseeker = () => {
   return {
     type: LOGOUT_JOBSEEKER,
   }
