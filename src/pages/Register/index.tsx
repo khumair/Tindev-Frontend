@@ -53,8 +53,10 @@ const Register = () => {
 
     if (role === jobSeeker) {
       dispatch(registerJobseekerRequest(info, email, password))
+      setMessage('Registered successfully')
     } else if (role === employer) {
       dispatch(registerEmployerRequest(info, email, password))
+      setMessage('Registered successfully')
     }
   }
 
@@ -63,12 +65,13 @@ const Register = () => {
       <FormContainer>
         <HalfCircle inputText="Welcome" />
         <h3 className="text-center my-5">Sign up</h3>
-        {message && <Message variant="danger">{message}</Message>}
         {jobSeekerError && <Message variant="danger">{jobSeekerError}</Message>}
         {jobSeekerLoader && <Loader />}
         {employerError && <Message variant="danger">{employerError}</Message>}
         {employerLoader && <Loader />}
-
+        {!jobSeekerError && !employerError && message && (
+          <Message variant="success">{message}</Message>
+        )}
         <Form onSubmit={handleSubmit} className="container">
           <Button className="employer-role" onClick={handleCompany}>
             Register employer

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Form, Row, Col } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
 
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
@@ -11,10 +11,8 @@ import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
 
 import CustomButton from '../../components/CustomButton'
-import {
-  loginEmployerRequest,
-  loginJobseekerRequest,
-} from '../../redux/actions/'
+import { loginEmployerRequest } from '../../redux/actions/employer'
+import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 
 import { AppState } from '../../redux/types'
 
@@ -29,20 +27,17 @@ const Login = () => {
   const jobseeker = useSelector((state: AppState) => state.jobseeker)
   const { loading, error } = jobseeker || employer
 
-  // useEffect(() => {
-  // 	if (userInfo) {
-  // 		history.push(redirect)
-  // 	}
-  // }, [history, userInfo, redirect])
-
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     if (employer) {
       dispatch(loginEmployerRequest(email, password))
+      // TODO: Shouldn't redirect if loginEmployerFail
       history.push('/employer/homepage')
     } else if (jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
       history.push('/jobseeker/homepage')
+    } else {
+      console.log('login error', error)
     }
   }
 
