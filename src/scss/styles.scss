@@ -120,3 +120,42 @@ Button.employer-role {
 Button.register-button {
   min-width: 100%;
 }
+
+Tab {
+  color: black;
+}
+
+/** date-picker */
+
+.DatePicker__input {
+  color: black;
+}
+.responsive-calendar {
+  font-size: 9px !important;
+  color: black;
+}
+
+@media (max-width: 1500px) {
+  .responsive-calendar {
+    font-size: 8px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .responsive-calendar {
+    font-size: 7px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-calendar {
+    font-size: 6px !important;
+  }
+}
+
+/* Large screens */
+@media (min-width: 2500px) {
+  .responsive-calendar {
+    font-size: 12px !important;
+  }
+}
