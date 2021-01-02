@@ -18,7 +18,7 @@ const Routes = () => (
     <Route exact path="/edit-jobseeker-profile" component={EditProfile} />
     <Route exact path="/reset-password" component={PWReset} />
     <Route exact path="/jobseeker/profile" component={Profile} />
-    <Route exact path="/company/match" component={CompanyMatch} />
+    <Route exact path="/company/profile" component={CompanyMatch} />
   </Switch>
 )
 
