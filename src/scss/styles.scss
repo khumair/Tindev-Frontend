@@ -92,6 +92,10 @@ a:hover {
   padding-bottom: 1.5em;
 }
 
+.login-button {
+  min-width: 100%;
+}
+
 /** register page */
 .alert {
   margin-left: 1rem;
@@ -155,4 +159,10 @@ Button.register-button {
   .responsive-calendar {
     font-size: 12px !important;
   }
+}
+
+.footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }

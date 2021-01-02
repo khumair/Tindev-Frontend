@@ -36,7 +36,7 @@ function* loginEmployerSaga() {
     yield put(loginEmployerFail())
   }
 
-  //localStorage.setItem('employerInfo', JSON.stringify(credential))
+  localStorage.setItem('employerInfo', JSON.stringify(credential))
 }
 
 // export const employerInfoFromStorage = localStorage.getItem('employerInfo')

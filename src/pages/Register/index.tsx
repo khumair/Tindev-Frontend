@@ -41,7 +41,6 @@ const Register = () => {
     }
     if (document.getElementById('employer') === event.target) {
       setRole(employer)
-      console.log(document.getElementById('jobseeker'))
     }
   }
 

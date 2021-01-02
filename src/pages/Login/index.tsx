@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <div>
       <FormContainer>
-        <h2 className="signin text-center">Signin to TinDev</h2>
+        <h2 className="signin text-center purple-text">Signin to TinDev</h2>
         {employerError && <Message variant="danger">{employerError}</Message>}
         {employerLoader && <Loader />}
         {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
@@ -76,7 +76,7 @@ const Login = () => {
               onChange={e => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <CustomButton text="Login" />
+          <CustomButton text="Login" className="login-button" />
         </Form>
         <Row className="forgot-password py-3">
           <Col>
