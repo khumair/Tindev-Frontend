@@ -1,5 +1,6 @@
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
+
 import { AppState } from '../types'
 
 import {
@@ -30,18 +31,21 @@ function* loginEmployerSaga() {
       email: credentialData.email,
       password: credentialData.password,
     })
-    yield put(loginEmployerSuccess(res.data))
-  } catch (error) {
-    yield put(loginEmployerFail())
-  }
 
-  //localStorage.setItem('employerInfo', JSON.stringify(credential))
+    yield put(loginEmployerSuccess(res))
+    localStorage.setItem('employerInfo', JSON.stringify(res.data))
+  } catch (error) {
+    // TODO: Fix error handling
+    yield put(loginEmployerFail())
+    console.log('error', error)
+    throw new Error(error)
+  }
 }
 
-// export const employerInfoFromStorage = localStorage.getItem('employerInfo')
-//  ? //@ts-ignore
-//    JSON.parse(localStorage.getItem('employerInfo'))
-//  : null
+export const employerInfoFromStorage = localStorage.getItem('employerInfo')
+  ? //@ts-ignore
+    JSON.parse(localStorage.getItem('employerInfo'))
+  : null
 
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),

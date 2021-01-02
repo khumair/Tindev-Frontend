@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Form, Row, Col } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
 
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
@@ -11,47 +11,64 @@ import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
 
 import CustomButton from '../../components/CustomButton'
-import {
-  loginEmployerRequest,
-  loginJobseekerRequest,
-} from '../../redux/actions/'
+import { loginEmployerRequest } from '../../redux/actions/employer'
+import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 
 import { AppState } from '../../redux/types'
+import { employerInfoFromStorage } from '../../redux/saga/employer'
+import { jobseekerInfoFromStorage } from '../../redux/saga/jobseeker'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoggedIn, setLoggedIn] = useState(false)
 
   const dispatch = useDispatch()
   const history = useHistory()
 
   const employer = useSelector((state: AppState) => state.employer)
   const jobseeker = useSelector((state: AppState) => state.jobseeker)
-  const { loading, error } = jobseeker || employer
+  const jobseekerError = useSelector((state: AppState) => state.jobseeker.error)
+  const jobseekerLoader = useSelector(
+    (state: AppState) => state.jobseeker.loading
+  )
+  const employerError = useSelector((state: AppState) => state.employer.error)
+  const employerLoader = useSelector(
+    (state: AppState) => state.employer.loading
+  )
+  //const { loading, error } = jobseeker || employer
 
-  // useEffect(() => {
-  // 	if (userInfo) {
-  // 		history.push(redirect)
-  // 	}
-  // }, [history, userInfo, redirect])
+  useEffect(() => {
+    setLoggedIn(true)
+  }, [isLoggedIn])
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     if (employer) {
       dispatch(loginEmployerRequest(email, password))
-      history.push('/employer/homepage')
+      if (employerInfoFromStorage) {
+        setLoggedIn(true)
+        history.push('/employer/homepage')
+      }
     } else if (jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
-      history.push('/jobseeker/homepage')
+      if (jobseekerInfoFromStorage) {
+        setLoggedIn(true)
+        history.push('/jobseeker/homepage')
+      }
+    } else {
+      setLoggedIn(false)
     }
   }
 
   return (
     <div>
       <FormContainer>
-        <h2 className="signin text-center">Signin to TinDev</h2>
-        {error && <Message variant="danger">{error}</Message>}
-        {loading && <Loader />}
+        <h2 className="signin text-center purple-text">Signin to TinDev</h2>
+        {employerError && <Message variant="danger">{employerError}</Message>}
+        {employerLoader && <Loader />}
+        {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
+        {jobseekerLoader && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="email">
             <Form.Label className="label">EMAIL</Form.Label>
@@ -71,7 +88,7 @@ const Login = () => {
               onChange={e => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <CustomButton text="Login" />
+          <CustomButton text="Login" className="login-button" />
         </Form>
         <Row className="forgot-password py-3">
           <Col>

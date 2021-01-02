@@ -92,7 +92,17 @@ a:hover {
   padding-bottom: 1.5em;
 }
 
+.login-button {
+  min-width: 100%;
+}
+
 /** register page */
+.alert {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: center;
+}
+
 Button.employer-role,
 Button.jobseeker-role {
   margin-bottom: 2rem;
@@ -110,7 +120,7 @@ Button.jobseeker-role {
 
 Button.employer-role:hover,
 Button.jobseeker-role:hover {
-  background: #400082;
+  background: #490e87;
 }
 
 Button.employer-role {
@@ -121,18 +131,9 @@ Button.register-button {
   min-width: 100%;
 }
 
-Tab {
-  color: black;
-}
-
-/** date-picker */
-
-.DatePicker__input {
-  color: black;
-}
+/** datepicker */
 .responsive-calendar {
   font-size: 9px !important;
-  color: black;
 }
 
 @media (max-width: 1500px) {

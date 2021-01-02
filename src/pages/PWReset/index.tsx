@@ -10,7 +10,7 @@ const PWReset = () => {
   return (
     <div className="container">
       <FormContainer>
-        <h2 className="text-center my-5">Reset Password</h2>
+        <h2 className="text-center my-5 purple-text">Reset Password</h2>
         <Form noValidate>
           <label htmlFor="new-pw" className="form-label">
             New Password

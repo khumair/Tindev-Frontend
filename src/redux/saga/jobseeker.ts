@@ -31,17 +31,16 @@ function* loginJobseekerSaga() {
       password: credentialData.password,
     })
     yield put(loginJobseekerSuccess(res.data))
+    localStorage.setItem('jobSeekerInfo', JSON.stringify(res.data))
   } catch (error) {
     yield put(loginJobseekerFail())
   }
-
-  //localStorage.setItem('jobSeekerInfo', JSON.stringify(credential))
 }
 
-// export const jobSeekerInfoFromStorage = localStorage.getItem('jobSeekerInfo')
-//   ? //@ts-ignore
-//     JSON.parse(localStorage.getItem('jobSeekerInfo'))
-//   : null
+export const jobseekerInfoFromStorage = localStorage.getItem('jobSeekerInfo')
+  ? //@ts-ignore
+    JSON.parse(localStorage.getItem('jobSeekerInfo'))
+  : null
 
 const sagaWatcher = [
   takeLatest('REGISTER_JOBSEEKER_REQUEST', registerJobseekerSaga),
