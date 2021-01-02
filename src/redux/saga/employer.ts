@@ -31,6 +31,7 @@ function* loginEmployerSaga() {
       email: credentialData.email,
       password: credentialData.password,
     })
+
     yield put(loginEmployerSuccess(res.data))
     localStorage.setItem('employerInfo', JSON.stringify(res.data))
   } catch (error) {
@@ -38,10 +39,11 @@ function* loginEmployerSaga() {
   }
 }
 
-// export const employerInfoFromStorage = localStorage.getItem('employerInfo')
-//   ? //@ts-ignore
-//     JSON.parse(localStorage.getItem('employerInfo'))
-//   : null
+// TODO: fix
+export const employerInfoFromStorage = localStorage.getItem('employerInfo')
+  ? //@ts-ignore
+    JSON.parse(localStorage.getItem('employerInfo'))
+  : null
 
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),

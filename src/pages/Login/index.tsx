@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -15,10 +15,12 @@ import { loginEmployerRequest } from '../../redux/actions/employer'
 import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 
 import { AppState } from '../../redux/types'
+import { employerInfoFromStorage } from '../../redux/saga/employer'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoggedIn, setLoggedIn] = useState(false)
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -39,15 +41,23 @@ const Login = () => {
     e.preventDefault()
     if (employer) {
       dispatch(loginEmployerRequest(email, password))
-      // TODO: Shouldn't redirect if loginEmployerFail
-      history.push('/employer/homepage')
+      if (employerInfoFromStorage) {
+        setLoggedIn(true)
+        history.push('/employer/homepage')
+      }
     } else if (jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
+      setLoggedIn(true)
       history.push('/jobseeker/homepage')
     } else {
-      console.log('login error')
+      console.log('login fail')
+      setLoggedIn(false)
     }
   }
+
+  useEffect(() => {
+    setLoggedIn(true)
+  }, [isLoggedIn])
 
   return (
     <div>
