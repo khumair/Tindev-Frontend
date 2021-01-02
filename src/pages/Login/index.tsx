@@ -48,13 +48,13 @@ const Login = () => {
       dispatch(loginEmployerRequest(email, password))
       if (employerInfoFromStorage) {
         setLoggedIn(true)
-        history.push('/employer/homepage')
+        history.push('/company/match')
       }
     } else if (jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
       if (jobseekerInfoFromStorage) {
         setLoggedIn(true)
-        history.push('/jobseeker/homepage')
+        history.push('/jobseeker/match')
       }
     } else {
       setLoggedIn(false)
