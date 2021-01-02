@@ -2,7 +2,7 @@ const getToken = () => {
   return localStorage.getItem('token')
 }
 
-const saveToken = (token: string) => {
+export const saveToken = (token: string) => {
   localStorage.setItem('token', token)
 }
 
