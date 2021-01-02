@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Form, Col, Button } from 'react-bootstrap'
 
@@ -22,12 +21,10 @@ const Register = () => {
   const [message, setMessage] = useState('')
   const [role, setRole] = useState({})
 
-  const history = useHistory()
-
   const employer = useSelector((state: AppState) => state.employer)
-  const jobSeeker = useSelector((state: AppState) => state.jobseeker)
-  const jobSeekerError = useSelector((state: AppState) => state.jobseeker.error)
-  const jobSeekerLoader = useSelector(
+  const jobseeker = useSelector((state: AppState) => state.jobseeker)
+  const jobseekerError = useSelector((state: AppState) => state.jobseeker.error)
+  const jobseekerLoader = useSelector(
     (state: AppState) => state.jobseeker.loading
   )
   const employerError = useSelector((state: AppState) => state.employer.error)
@@ -37,14 +34,15 @@ const Register = () => {
 
   const dispatch = useDispatch()
 
-  const handleSeeker = (event: React.FormEvent) => {
+  const handleRole = (event: React.FormEvent) => {
     event.preventDefault()
-    setRole(jobSeeker)
-  }
-
-  const handleCompany = (event: React.FormEvent) => {
-    event.preventDefault()
-    setRole(employer)
+    if (document.getElementById('jobseeker') === event.target) {
+      setRole(jobseeker)
+    }
+    if (document.getElementById('employer') === event.target) {
+      setRole(employer)
+      console.log(document.getElementById('jobseeker'))
+    }
   }
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -54,14 +52,12 @@ const Register = () => {
       setMessage('Passwords do not match')
     }
 
-    if (role === jobSeeker) {
+    if (role === jobseeker) {
       dispatch(registerJobseekerRequest(info, email, password))
       setMessage('Registered successfully')
-      history.push('/login')
     } else if (role === employer) {
       dispatch(registerEmployerRequest(info, email, password))
       setMessage('Registered successfully')
-      history.push('/login')
     }
   }
 
@@ -70,18 +66,22 @@ const Register = () => {
       <FormContainer>
         <HalfCircle inputText="Welcome" />
         <h3 className="text-center my-5">Sign up</h3>
-        {jobSeekerError && <Message variant="danger">{jobSeekerError}</Message>}
-        {jobSeekerLoader && <Loader />}
+        {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
+        {jobseekerLoader && <Loader />}
         {employerError && <Message variant="danger">{employerError}</Message>}
         {employerLoader && <Loader />}
-        {!jobSeekerError && !employerError && message && (
+        {!jobseekerError && !employerError && message && (
           <Message variant="success">{message}</Message>
         )}
         <Form onSubmit={handleSubmit} className="container">
-          <Button className="employer-role" onClick={handleCompany}>
+          <Button className="employer-role" id="employer" onClick={handleRole}>
             Register employer
           </Button>
-          <Button className="jobseeker-role" onClick={handleSeeker}>
+          <Button
+            className="jobseeker-role"
+            id="jobseeker"
+            onClick={handleRole}
+          >
             Register jobseeker
           </Button>
           <Form.Row>
