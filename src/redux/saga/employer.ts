@@ -32,14 +32,16 @@ function* loginEmployerSaga() {
       password: credentialData.password,
     })
 
-    yield put(loginEmployerSuccess(res.data))
+    yield put(loginEmployerSuccess(res))
     localStorage.setItem('employerInfo', JSON.stringify(res.data))
   } catch (error) {
+    // FIX: error handling
     yield put(loginEmployerFail())
+    console.log('error', error)
+    throw new Error(error)
   }
 }
 
-// TODO: fix
 export const employerInfoFromStorage = localStorage.getItem('employerInfo')
   ? //@ts-ignore
     JSON.parse(localStorage.getItem('employerInfo'))
