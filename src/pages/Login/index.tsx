@@ -51,7 +51,7 @@ const Login = () => {
                 <Form.Control
                   type="password"
                   placeholder="Enter password"
-                  value={email}
+                  value={password}
                   onChange={e => setPassword(e.target.value)}
                   className="my-4"
                 ></Form.Control>

@@ -14,7 +14,7 @@ import { registerEmployerRequest } from '../../redux/actions'
 const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState('')
 
   const dispatch = useDispatch()
@@ -58,7 +58,7 @@ const Register = () => {
                 <Form.Control
                   type="password"
                   placeholder="Enter password"
-                  value={email}
+                  value={password}
                   onChange={e => setPassword(e.target.value)}
                   className="my-4"
                 ></Form.Control>
@@ -68,8 +68,8 @@ const Register = () => {
                 <Form.Control
                   type="password"
                   placeholder="Confirm Password"
-                  value={email}
-                  onChange={e => setPassword(e.target.value)}
+                  value={confirmPassword}
+                  onChange={e => setConfirmPassword(e.target.value)}
                 ></Form.Control>
               </Form.Group>
 
