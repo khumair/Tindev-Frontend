@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
-
 import Routes from './Routes'
 import Footer from './components/Footer'
 import './scss/styles.scss'

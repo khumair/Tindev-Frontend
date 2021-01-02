@@ -1,12 +1,13 @@
-import React from "react";
-import { Form, Col, Row, Container, Button, Image} from "react-bootstrap";
-import DateSelector from './DatePicker'
-import uploadImage from "../../assets/images/upload-Image.png";
-const CompanyProfile = () => {
+import React from 'react'
+import { Form, Col, Row, Container, Button, Image } from 'react-bootstrap'
+import uploadImage from '../../media/upload-Image.png'
+import DatePicker from './DatePicker'
+
+const JopPost = () => {
   return (
     <Container fluid="md">
-      <h2 className="row justify-content-center">Company Profile</h2>
-      <Row>
+      <h2 className="row justify-content-center">Job Post</h2>
+      <Row className="job-post-row">
         <Col xs>
           <Form>
             <Form.Group
@@ -15,7 +16,7 @@ const CompanyProfile = () => {
               controlId="formElement"
             >
               <Form.Label column sm="4">
-                Job Title
+                Job
               </Form.Label>
               <Col sm="8">
                 <Form.Control
@@ -36,8 +37,10 @@ const CompanyProfile = () => {
               </Form.Label>
               <Col sm="8">
                 <Form.Control
+                  className="text-field"
                   as="textarea"
                   rows={4}
+                  placeholder="Address"
                 />
               </Col>
             </Form.Group>
@@ -51,11 +54,7 @@ const CompanyProfile = () => {
                 Required Skills
               </Form.Label>
               <Col sm="8">
-                <Form.Control
-                  className="text-field"
-                  type="text"
-                  placeholder="Typescript"
-                />
+                <Form.Control className="text-field" type="text" />
               </Col>
             </Form.Group>
 
@@ -65,14 +64,10 @@ const CompanyProfile = () => {
               controlId="formElement"
             >
               <Form.Label column sm="4">
-                Nice to have
+                Nice to Have
               </Form.Label>
               <Col sm="8">
-                <Form.Control
-                  className="text-field"
-                  type="text"
-                  placeholder="JavaScript"
-                />
+                <Form.Control className="text-field" type="text" />
               </Col>
             </Form.Group>
 
@@ -88,7 +83,7 @@ const CompanyProfile = () => {
                 <Form.Control
                   className="text-field"
                   type="text"
-                  placeholder="Country"
+                  placeholder="Finland"
                 />
               </Col>
             </Form.Group>
@@ -117,31 +112,21 @@ const CompanyProfile = () => {
                 Starting At
               </Form.Label>
               <Col sm="8">
-                {/* <Form.Control
-                  className="text-field"
-                  type="text"
-                  placeholder="29/12/2020"
-                /> */}
-                <DateSelector />
+                <DatePicker />
               </Col>
             </Form.Group>
           </Form>
           <Button className="btn-form" size="lg" block>
-            {" "}
+            {' '}
             Save
           </Button>
         </Col>
-        <Col className="upload-image">
+        <Col className="colcenter upload-image">
           <Image src={uploadImage} /> <br />
-          <div className="btn btn-primary">
-							Upload
-							<Form.File type="file" name="file" className="upload-btn"/>
-						</div>
-          {/* <Button className="btn-upload mt-4">Upload</Button> */}
-          {/* <Form.File id="exampleFormControlFile1"  className="btn-upload mt-4"/> */}
+          <Button className="btn-upload mt-4">Add Logo</Button>
         </Col>
       </Row>
     </Container>
-  );
-};
-export default CompanyProfile;
+  )
+}
+export default JopPost

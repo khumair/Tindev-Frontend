@@ -3,6 +3,10 @@
 @import '_mobile';
 @import '_utilities';
 
+
+// Variable 
+
+$purple-color :rgb(105, 99, 99);
 body {
   padding: 0px;
   margin: 0px auto;
@@ -17,21 +21,17 @@ body {
 .card-text {
   color: #ddd;
 }
-
 .container {
   height: 95vh;
 }
-
 .purple-text {
   color: var(--purple);
 }
-
-Button {
-  background: linear-gradient(#a24fae, #773bb7);
-  color: #fff;
-  min-width: 170px;
-}
-
+// Button {
+//   background: linear-gradient(#a24fae, #773bb7);
+//   color: #fff;
+//   min-width: 170px;
+// }
 .landing-top-bg {
   background: url(../media/header-img.svg);
   background-position: center;
@@ -40,7 +40,6 @@ Button {
   height: 80vh;
   width: 100%;
 }
-
 .half-circle {
   width: 200px;
   height: 100px;
@@ -93,15 +92,15 @@ a:hover {
 	background: linear-gradient(#a24fae, #773bb7);
 	color: #fff;
 	height: 40px;
-	width: auto;
+  width: 10px !important;
 	// margin-top: 2%;
-	margin-right: 15px;
+	margin-right: 1px;
 }
 
-.search-bar{
+// .search-bar{
 	
-width: 400px;
-}
+// width: 400px;
+// }
 .search-bar-sec{
 	float: right;
 }
@@ -115,12 +114,8 @@ width: 400px;
 	font-size: 40px;
 	opacity: 0;
 	margin: -35px;
-	
  }
- DateSelector {
-	 width: 10px;
-	 padding: 20px;
- }
+
  .DatePicker__input {
 	background: #fff;
 	border: 1px solid #ddd;
@@ -130,7 +125,7 @@ width: 400px;
 	text-align: center;
 	font-size: 12px;
 	height: 35px;
-	width: 200%;
+	width: 100%;
   }
 
 //   Umair Style file
@@ -151,8 +146,7 @@ width: 400px;
 	margin-top: 25px;
 	border-radius: 5px;
 	height: 50px;
-  
-	// width: 215px;
+
   }
   
   .btn-upload {
@@ -188,10 +182,9 @@ width: 400px;
   .text-field {
 	width: auto;
 	height: 3rem;
-	border-radius: 10px;
+	border-radius: 5px;
 	border: solid 1px #000;
-	// font-family: "poppins", sans-serif;
-	// margin-top: 15px;
+
   }
   .form-group-set {
 	margin-top: 1.8rem;
@@ -204,3 +197,41 @@ width: 400px;
 	border: 1px solid #ddd;
 	border-radius: 4px;
   }
+
+  /*   Company Match Page Styling */
+.view-btn {
+  background-color: #a64fae;
+  border: none;
+  margin-right: 2px;
+  height: 30px;
+  align-items: center;
+  width: 25% !important
+}
+.match-card {
+  border: solid 1px;
+  border-radius: 5px;
+}
+
+.nav-pills .nav-link.active {
+  color: $purple-color;
+  background-color: #ffffff;
+}
+
+.nav-pills .nav-link {
+  font-size: semi-bold;
+  font-weight: 2rem;
+  color: #000;
+}
+.side-nav-link {
+  margin: 10px;
+}
+
+/********** SearchBar ***************/
+
+.search-bar{
+  margin-right: 5%;
+  border: solid 1px #000000;
+  border-radius: 4px;
+
+}
+

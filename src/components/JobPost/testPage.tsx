@@ -1,6 +1,8 @@
 import React from 'react'
 import { Form, Col, Row, Container, Button, Image } from 'react-bootstrap'
+import DateSelector from './DatePicker'
 import uploadImage from '../../media/upload-Image.png'
+// import uploadImage from '../../medi'
 const CompanyProfile = () => {
   return (
     <Container fluid="md">
@@ -14,7 +16,7 @@ const CompanyProfile = () => {
               controlId="formElement"
             >
               <Form.Label column sm="4">
-                Company Name
+                Job Title
               </Form.Label>
               <Col sm="8">
                 <Form.Control
@@ -31,13 +33,26 @@ const CompanyProfile = () => {
               controlId="formElement"
             >
               <Form.Label column sm="4">
-                Address
+                Job Description
+              </Form.Label>
+              <Col sm="8">
+                <Form.Control as="textarea" rows={4} />
+              </Col>
+            </Form.Group>
+
+            <Form.Group
+              className="form-group-set"
+              as={Row}
+              controlId="formElement"
+            >
+              <Form.Label column sm="4">
+                Required Skills
               </Form.Label>
               <Col sm="8">
                 <Form.Control
                   className="text-field"
                   type="text"
-                  placeholder="Address"
+                  placeholder="Typescript"
                 />
               </Col>
             </Form.Group>
@@ -46,6 +61,23 @@ const CompanyProfile = () => {
               className="form-group-set"
               as={Row}
               controlId="formElement"
+            >
+              <Form.Label column sm="4">
+                Nice to have
+              </Form.Label>
+              <Col sm="8">
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  placeholder="JavaScript"
+                />
+              </Col>
+            </Form.Group>
+
+            <Form.Group
+              as={Row}
+              className="form-group-set"
+              controlId="formPlaintextPassword"
             >
               <Form.Label column sm="4">
                 Country
@@ -58,11 +90,10 @@ const CompanyProfile = () => {
                 />
               </Col>
             </Form.Group>
-
             <Form.Group
-              className="form-group-set"
               as={Row}
-              controlId="formElement"
+              className="form-group-set"
+              controlId="formPlaintextPassword"
             >
               <Form.Label column sm="4">
                 City
@@ -75,21 +106,21 @@ const CompanyProfile = () => {
                 />
               </Col>
             </Form.Group>
-
             <Form.Group
               as={Row}
               className="form-group-set"
               controlId="formPlaintextPassword"
             >
               <Form.Label column sm="4">
-                WebSite
+                Starting At
               </Form.Label>
               <Col sm="8">
-                <Form.Control
+                {/* <Form.Control
                   className="text-field"
                   type="text"
-                  placeholder="http://www.company.com"
-                />
+                  placeholder="29/12/2020"
+                /> */}
+                <DateSelector />
               </Col>
             </Form.Group>
           </Form>
@@ -98,9 +129,14 @@ const CompanyProfile = () => {
             Save
           </Button>
         </Col>
-        <Col className="colcenter">
+        <Col className="upload-image">
           <Image src={uploadImage} /> <br />
-          <Button className="btn-upload mt-4">Upload</Button>
+          <div className="btn btn-primary mt-3">
+            Upload Logo
+            <Form.File type="file" name="file" className="upload-btn" />
+          </div>
+          {/* <Button className="btn-upload mt-4">Upload</Button> */}
+          {/* <Form.File id="exampleFormControlFile1"  className="btn-upload mt-4"/> */}
         </Col>
       </Row>
     </Container>
