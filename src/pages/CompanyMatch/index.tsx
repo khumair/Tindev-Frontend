@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React /*, { useState } */ from 'react'
+//import { useDispatch, useSelector } from 'react-redux'
 import { Tab, Row, Col, Nav } from 'react-bootstrap'
 import MatchCard from '../../components/MatchCard'
 import CompanyProfileForm from '../../components/CompanyProfileForm'
@@ -18,7 +18,6 @@ const CompanyMatchPage = () => {
     },
   ]
 
-  const jobPost = { title: 'Fullstack Developer' }
   return (
     <>
       <div>
@@ -45,7 +44,7 @@ const CompanyMatchPage = () => {
                 <Tab.Pane eventKey="second">
                   {jobseekerMatches.map(jobseeker => {
                     return (
-                      <MatchCard 
+                      <MatchCard
                         key={jobseeker.lastName}
                         firstName={jobseeker.firstName}
                         lastName={jobseeker.lastName}

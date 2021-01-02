@@ -14,11 +14,11 @@ const Routes = () => (
     <Route exact path="/" component={Landing} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/register" component={Register} />
-    <Route exact path="/job-seeker" component={JobSeeker} />
+    <Route exact path="/jobseeker/match" component={JobSeeker} />
     <Route exact path="/edit-jobseeker-profile" component={EditProfile} />
     <Route exact path="/reset-password" component={PWReset} />
-    <Route exact path="/job-seeker/profile" component={Profile} />
-    <Route exact path="/match" component={CompanyMatch} />
+    <Route exact path="/jobseeker/profile" component={Profile} />
+    <Route exact path="/company/match" component={CompanyMatch} />
   </Switch>
 )
 

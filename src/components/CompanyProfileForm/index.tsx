@@ -1,9 +1,9 @@
 import React from 'react'
-import { Form, Col, Row, Container, Button, Image } from 'react-bootstrap'
+import { Form, Col, Row, Container, Button /*Image*/ } from 'react-bootstrap'
 import DateSelector from '../DateSelector'
 //import uploadImage from '../../media/upload-Image.png'
 
-const CompanyProfile = () => {
+const CompanyProfileForm = () => {
   return (
     <Container fluid="md">
       <h2 className="row justify-content-center">Company Profile</h2>
@@ -102,7 +102,7 @@ const CompanyProfile = () => {
                 <Form.Control
                   className="text-field"
                   type="text"
-                  placeholder="Helsinki"
+                  placeholder="City"
                 />
               </Col>
             </Form.Group>
@@ -128,8 +128,8 @@ const CompanyProfile = () => {
             {' '}
             Save
           </Button>
-        {/* </Col> */}
-        {/* <Col className="upload-image">
+          {/* </Col> */}
+          {/* <Col className="upload-image">
           <Image src={uploadImage} /> <br />
           <div className="btn btn-primary">
             Upload
@@ -142,4 +142,4 @@ const CompanyProfile = () => {
     </Container>
   )
 }
-export default CompanyProfile
+export default CompanyProfileForm

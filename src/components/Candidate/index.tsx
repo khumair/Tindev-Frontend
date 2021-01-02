@@ -10,15 +10,18 @@ type CandidateProps = {
 const Candidate = ({ firstName, lastName, skills }: CandidateProps) => {
   return (
     <div>
-      <h5>{firstName} {lastName}</h5>
-      {skills.map(skill => {
+      <h5>
+        {firstName} {lastName}
+      </h5>
+      {skills.map((skill, index) => {
         return (
-        <Badge
-          pill
-          className="tag-btn btn btn-pill btn-outline-primary ml-2"
-        >
-          {skill}
-        </Badge>
+          <Badge
+            pill
+            key={index}
+            className="tag-btn btn btn-pill btn-outline-primary ml-2"
+          >
+            {skill}
+          </Badge>
         )
       })}
     </div>
