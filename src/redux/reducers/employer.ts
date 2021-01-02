@@ -29,7 +29,6 @@ const employer = (state = initialState, action: EmployerActions) => {
     case LOGIN_EMPLOYER_REQUEST:
       return { ...state, loading: true, credential: action.payload }
     case LOGIN_EMPLOYER_SUCCESS:
-      console.log(employerInfoFromStorage)
       return { ...state, loading: false, employerInfo: action.payload }
     case LOGIN_EMPLOYER_FAIL:
       return { ...state, loading: false, error: action.payload }
@@ -39,5 +38,7 @@ const employer = (state = initialState, action: EmployerActions) => {
       return state
   }
 }
+
+console.log(employerInfoFromStorage)
 
 export default employer

@@ -16,6 +16,7 @@ import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 
 import { AppState } from '../../redux/types'
 import { employerInfoFromStorage } from '../../redux/saga/employer'
+import { jobseekerInfoFromStorage } from '../../redux/saga/jobseeker'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -37,6 +38,10 @@ const Login = () => {
   )
   //const { loading, error } = jobseeker || employer
 
+  useEffect(() => {
+    setLoggedIn(true)
+  }, [isLoggedIn])
+
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     if (employer) {
@@ -47,17 +52,14 @@ const Login = () => {
       }
     } else if (jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
-      setLoggedIn(true)
-      history.push('/jobseeker/homepage')
+      if (jobseekerInfoFromStorage) {
+        setLoggedIn(true)
+        history.push('/jobseeker/homepage')
+      }
     } else {
-      console.log('login fail')
       setLoggedIn(false)
     }
   }
-
-  useEffect(() => {
-    setLoggedIn(true)
-  }, [isLoggedIn])
 
   return (
     <div>

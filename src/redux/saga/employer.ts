@@ -35,7 +35,7 @@ function* loginEmployerSaga() {
     yield put(loginEmployerSuccess(res))
     localStorage.setItem('employerInfo', JSON.stringify(res.data))
   } catch (error) {
-    // FIX: error handling
+    // TODO: Fix error handling
     yield put(loginEmployerFail())
     console.log('error', error)
     throw new Error(error)
