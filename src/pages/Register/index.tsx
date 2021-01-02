@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Form, Col, Button } from 'react-bootstrap'
 
@@ -20,6 +21,8 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState('')
   const [role, setRole] = useState({})
+
+  const history = useHistory()
 
   const employer = useSelector((state: AppState) => state.employer)
   const jobSeeker = useSelector((state: AppState) => state.jobseeker)
@@ -54,9 +57,11 @@ const Register = () => {
     if (role === jobSeeker) {
       dispatch(registerJobseekerRequest(info, email, password))
       setMessage('Registered successfully')
+      history.push('/login')
     } else if (role === employer) {
       dispatch(registerEmployerRequest(info, email, password))
       setMessage('Registered successfully')
+      history.push('/login')
     }
   }
 

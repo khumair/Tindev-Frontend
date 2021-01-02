@@ -36,13 +36,13 @@ function* loginEmployerSaga() {
     yield put(loginEmployerFail())
   }
 
-  //localStorage.setItem('employerInfo', JSON.stringify(credential))
+  localStorage.setItem('employerInfo', JSON.stringify(credential))
 }
 
-// export const employerInfoFromStorage = localStorage.getItem('employerInfo')
-//  ? //@ts-ignore
-//    JSON.parse(localStorage.getItem('employerInfo'))
-//  : null
+export const employerInfoFromStorage = localStorage.getItem('employerInfo')
+  ? //@ts-ignore
+    JSON.parse(localStorage.getItem('employerInfo'))
+  : null
 
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),

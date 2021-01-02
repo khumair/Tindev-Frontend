@@ -93,6 +93,12 @@ a:hover {
 }
 
 /** register page */
+.alert {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: center;
+}
+
 Button.employer-role,
 Button.jobseeker-role {
   margin-bottom: 2rem;
@@ -149,9 +155,4 @@ Button.register-button {
   .responsive-calendar {
     font-size: 12px !important;
   }
-}
-
-.alert {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }

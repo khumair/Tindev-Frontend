@@ -1,4 +1,4 @@
-//import { employerInfoFromStorage } from '../saga/employer'
+import { employerInfoFromStorage } from '../saga/employer'
 import {
   EmployerActions,
   REGISTER_EMPLOYER_REQUEST,
@@ -13,7 +13,7 @@ import {
 const initialState = {
   info: {},
   credential: { email: '', password: '' },
-  employerInfo: {},
+  employerInfo: employerInfoFromStorage,
   loading: false,
   error: null,
 }

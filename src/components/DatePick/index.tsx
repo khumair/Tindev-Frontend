@@ -6,12 +6,12 @@ const DatePick = () => {
   const [day, setDay] = React.useState<DayValue>(null)
 
   const year = new Date().getFullYear.toString().substr(-2)
-  const currentYear = parseInt(year)
+  const range = parseInt(year + 1)
 
   const maximumDate = {
-    year: currentYear,
-    month: 12,
-    day: 31,
+    year: range,
+    month: 5,
+    day: 30,
   }
 
   return (

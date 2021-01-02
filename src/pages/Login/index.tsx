@@ -25,7 +25,15 @@ const Login = () => {
 
   const employer = useSelector((state: AppState) => state.employer)
   const jobseeker = useSelector((state: AppState) => state.jobseeker)
-  const { loading, error } = jobseeker || employer
+  const jobseekerError = useSelector((state: AppState) => state.jobseeker.error)
+  const jobseekerLoader = useSelector(
+    (state: AppState) => state.jobseeker.loading
+  )
+  const employerError = useSelector((state: AppState) => state.employer.error)
+  const employerLoader = useSelector(
+    (state: AppState) => state.employer.loading
+  )
+  //const { loading, error } = jobseeker || employer
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
@@ -37,7 +45,7 @@ const Login = () => {
       dispatch(loginJobseekerRequest(email, password))
       history.push('/jobseeker/homepage')
     } else {
-      console.log('login error', error)
+      console.log('login error')
     }
   }
 
@@ -45,8 +53,10 @@ const Login = () => {
     <div>
       <FormContainer>
         <h2 className="signin text-center">Signin to TinDev</h2>
-        {error && <Message variant="danger">{error}</Message>}
-        {loading && <Loader />}
+        {employerError && <Message variant="danger">{employerError}</Message>}
+        {employerLoader && <Loader />}
+        {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
+        {jobseekerLoader && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="email">
             <Form.Label className="label">EMAIL</Form.Label>
