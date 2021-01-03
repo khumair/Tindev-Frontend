@@ -6,6 +6,7 @@ import { registerEmployerSuccess } from '../../redux/actions/employer'
 function* registerEmployerSaga(credentials: Credential) {
   try {
     const req = yield axios.post('/employer', { credentials })
+    console.log('req.data::>', req.data)
     yield put(registerEmployerSuccess(req.data))
   } catch (error) {
     console.log(error)

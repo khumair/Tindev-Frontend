@@ -1,8 +1,8 @@
 import {
-  jobseekerActions,
-  FETCH_JOBSEEKER_FAIL,
-  FETCH_JOBSEEKER_REQUEST,
-  FETCH_JOBSEEKER_SUCCESS,
+  jobseekerDataActions,
+  REGISTER_JOBSEEKER_DATA_REQUEST,
+  REGISTER_JOBSEEKER_DATA_SUCCESS,
+  REGISTER_JOBSEEKER_DATA_FAIL,
 } from '../types'
 
 const initState = {
@@ -11,20 +11,20 @@ const initState = {
   error: null,
 }
 
-const jobseekerReducer = (state = initState, action: jobseekerActions) => {
+const jobseekerReducer = (state = initState, action: jobseekerDataActions) => {
   switch (action.type) {
-    case FETCH_JOBSEEKER_REQUEST:
+    case REGISTER_JOBSEEKER_DATA_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case FETCH_JOBSEEKER_SUCCESS:
+    case REGISTER_JOBSEEKER_DATA_SUCCESS:
       return {
         ...state,
         loading: false,
         credentials: action.payload,
       }
-    case FETCH_JOBSEEKER_FAIL:
+    case REGISTER_JOBSEEKER_DATA_FAIL:
       return {
         ...state,
         loading: false,

@@ -1,19 +1,19 @@
 export const REGISTER_EMPLOYER_REQUEST = 'REGISTER_EMPLOYER_REQUEST'
 export const REGISTER_EMPLOYER_SUCCESS = 'REGISTER_EMPLOYER_SUCCESS'
 export const REGISTER_EMPLOYER_FAIL = 'REGISTER_EMPLOYER_FAIL'
-export const FETCH_JOBSEEKER_REQUEST = 'FETCH_JOBSEEKER_REQUEST'
-export const FETCH_JOBSEEKER_SUCCESS = 'FETCH_JOBSEEKER_SUCCESS'
-export const FETCH_JOBSEEKER_FAIL = 'FETCH_JOBSEEKER_FAIL'
+export const REGISTER_JOBSEEKER_DATA_REQUEST = 'REGISTER_JOBSEEKER_DATA_REQUEST'
+export const REGISTER_JOBSEEKER_DATA_SUCCESS = 'REGISTER_JOBSEEKER_DATA_SUCCESS'
+export const REGISTER_JOBSEEKER_DATA_FAIL = 'REGISTER_JOBSEEKER_DATA_FAIL'
 
 export type employerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction
   | RegisterEmployerFailAction
 
-export type jobseekerActions =
-  | FetchJobseekerRequestAction
-  | FetchJobseekerSuccessAction
-  | FetchJobseekerFailAction
+export type jobseekerDataActions =
+  | registerJobseekerDataRequestAction
+  | registerJobseekerDataSuccessAction
+  | registerJobseekerDataFailAction
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
@@ -49,6 +49,9 @@ export type Credential = {
   lastName?: string
   contact?: string
   seniority?: string
+  skills?: any[]
+  skillLevel?: string
+  duration?: string
 }
 
 export type CredentialState = {
@@ -62,15 +65,15 @@ export type AppState = {
   jobseeker: CredentialState
 }
 
-export type FetchJobseekerRequestAction = {
-  type: typeof FETCH_JOBSEEKER_REQUEST
+export type registerJobseekerDataRequestAction = {
+  type: typeof REGISTER_JOBSEEKER_DATA_REQUEST
   payload: {
     jobSeekerId: string
   }
 }
 
-export type FetchJobseekerSuccessAction = {
-  type: typeof FETCH_JOBSEEKER_SUCCESS
+export type registerJobseekerDataSuccessAction = {
+  type: typeof REGISTER_JOBSEEKER_DATA_SUCCESS
   payload: {
     firstName: string
     lastName: string
@@ -79,8 +82,8 @@ export type FetchJobseekerSuccessAction = {
   }
 }
 
-export type FetchJobseekerFailAction = {
-  type: typeof FETCH_JOBSEEKER_FAIL
+export type registerJobseekerDataFailAction = {
+  type: typeof REGISTER_JOBSEEKER_DATA_FAIL
   payload: {
     error: any
   }

@@ -1,43 +1,27 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
 import { Form, Row, Col } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import { AppState } from '../../redux/types'
 import userImg from '../../media/user-img.svg'
 import HalfCircle from '../../components/HalfCircle'
 import CustomButton from '../../components/CustomButton'
-import { fetchJobseekerRequest } from '../../redux/actions/jobseeker'
-import Message from '../../components/Message'
-import Loader from '../../components/Loader'
+import { registerJobseekerDataRequest } from '../../redux/actions/jobseeker'
 
 const EditProfile = () => {
   const [state, setState] = React.useState({
     id: '',
     firstName: '',
     lastName: '',
-    contact: '',
+    phone: '',
     seniority: '',
+    degreeName: '',
+    institutionName: '',
+    skills: [],
+    skillLevel: '',
+    duration: '',
   })
 
   const dispatch = useDispatch()
-
-  const credentials = useSelector(
-    (state: AppState) => state.jobseeker.credentials
-  )
-  const loading = useSelector((state: AppState) => state.jobseeker.loading)
-  const error = useSelector((state: AppState) => state.jobseeker.error)
-
-  const jobseekerId = useParams() as string
-  console.log('jobseekerId', jobseekerId)
-
-  React.useEffect(() => {
-    try {
-      dispatch(fetchJobseekerRequest(jobseekerId))
-    } catch (error) {
-      console.log('Error::>', error)
-    }
-  }, [dispatch, jobseekerId])
 
   const handleChange = (e: React.FormEvent<HTMLFormElement>) => {
     const target = e.target
@@ -50,15 +34,43 @@ const EditProfile = () => {
     })
   }
 
-  const { firstName, lastName, contact, seniority } = credentials
+  const {
+    firstName,
+    lastName,
+    phone,
+    seniority,
+    degreeName,
+    institutionName,
+    skills,
+    skillLevel,
+    duration,
+  } = state
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log('Submitted')
+    const userData = {
+      firstName,
+      lastName,
+      phone,
+      seniority,
+      degreeName,
+      institutionName,
+      skills,
+      skillLevel,
+      duration,
+    }
+
+    dispatch(registerJobseekerDataRequest(userData))
+  }
 
   return (
     <>
       <HalfCircle inputText="Education & Experiences" />
-      {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader />}
+
       <Form
-        onChange={(e: React.FormEvent<HTMLFormElement>) => handleChange(e)}
+        onSubmit={e => handleSubmit(e)}
+        onChange={e => handleChange(e)}
         className="container p-5 my-5"
       >
         <div className="d-flex">
@@ -68,7 +80,6 @@ const EditProfile = () => {
                 <Form.Control
                   type="text"
                   name="firstName"
-                  value={firstName}
                   placeholder="First name"
                 />
               </Col>
@@ -79,20 +90,20 @@ const EditProfile = () => {
                 <Form.Control
                   type="text"
                   name="lastName"
-                  value={lastName}
                   placeholder="Last name"
                 />
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} controlId="formHorizontalContact">
+            <Form.Group as={Row} controlId="formHorizontalphone">
               <Col sm="10">
                 <Form.Control
-                  type="text"
-                  name="contact"
-                  value={contact}
-                  placeholder="Contact"
+                  type="tel"
+                  name="phone"
+                  placeholder="phone"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 />
+                <small>Format: 123-456-7890</small>
               </Col>
             </Form.Group>
 
@@ -101,7 +112,6 @@ const EditProfile = () => {
                 <Form.Control
                   type="text"
                   name="seniority"
-                  value={seniority}
                   placeholder="Seniority"
                 />
               </Col>
@@ -115,8 +125,8 @@ const EditProfile = () => {
                 <Form.Check
                   type="radio"
                   label="Yes"
-                  name="formVerticalRadios"
-                  id="formVerticalRadios1"
+                  name="formRadios"
+                  id="formRadios1"
                   value="relocatable"
                   className="pr-4"
                 />
@@ -124,8 +134,8 @@ const EditProfile = () => {
                   type="radio"
                   label="No"
                   value="notRelocatable"
-                  name="formVerticalRadios"
-                  id="formVerticalRadios2"
+                  name="formRadios"
+                  id="formRadios2"
                 />
               </Col>
             </Form.Group>
@@ -141,10 +151,15 @@ const EditProfile = () => {
         </Form.Label>
         <Form.Row>
           <Col sm={6} className="p-2">
-            <Form.Control placeholder="Name of Degree" name="degreeName" />
+            <Form.Control
+              type="text"
+              placeholder="Name of Degree"
+              name="degreeName"
+            />
           </Col>
           <Col sm={6} className="p-2">
             <Form.Control
+              type="text"
               placeholder="University / School"
               name="institutionName"
             />
