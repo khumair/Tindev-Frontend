@@ -9,110 +9,121 @@ import starsLady from '../../media/star-lady.svg'
 import CustomButton from '../../components/CustomButton'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
-import { registerEmployerRequest } from '../../redux/actions'
-import { AppState } from '../../types'
+import { registerEmployerRequest } from '../../redux/actions/employer'
+import { registerJobseekerRequest } from '../../redux/actions/jobseeker'
+import { AppState } from '../../redux/types'
+import FormContainer from '../../components/FormContainer'
+import Role from '../../components/Role'
 
 const Register = () => {
-  const [validated, setValidated] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState('')
+  const [role, setRole] = useState({})
 
-  // const employerRegister = useSelector((state: AppState) => state.employerRegister)
-  // const { loading, error, credentials } = employerRegister
+  const employer = useSelector((state: AppState) => state.employer)
+  const jobseeker = useSelector((state: AppState) => state.jobseeker)
+  const jobseekerError = useSelector((state: AppState) => state.jobseeker.error)
+  const jobseekerLoader = useSelector(
+    (state: AppState) => state.jobseeker.loading
+  )
+  const employerError = useSelector((state: AppState) => state.employer.error)
+  const employerLoader = useSelector(
+    (state: AppState) => state.employer.loading
+  )
 
   const dispatch = useDispatch()
 
-  const handleSubmit = (event: React.FormEvent) => {
-    console.log('clicked')
-    // if (form.checkValidity() === false) {
+  const handleRole = (event: React.FormEvent) => {
     event.preventDefault()
-    //   event.stopPropagation()
-    // }
-
-    // setValidated(true)
-
-    const credentials = {
-      email: email,
-      password: password,
+    if (document.getElementById('jobseeker') === event.target) {
+      setRole(jobseeker)
     }
-    console.log('credentials', credentials)
+    if (document.getElementById('employer') === event.target) {
+      setRole(employer)
+    }
+  }
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
-    } else {
-      dispatch(registerEmployerRequest(credentials))
+    }
+
+    if (role === jobseeker) {
+      dispatch(registerJobseekerRequest(email, password))
+      setMessage('Registered successfully')
+    } else if (role === employer) {
+      dispatch(registerEmployerRequest(email, password))
+      setMessage('Registered successfully')
     }
   }
 
   return (
     <>
-      <HalfCircle inputText="Welcome" />
-      <h3 className="text-center my-5">Sign up</h3>
-      {message && <Message variant="danger">{message}</Message>}
-      {/* {error && <Message variant='danger'>{error}</Message>}
-			{loading && <Loader />} */}
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-        className="container"
-      >
-        <Form.Row>
-          <Form.Group as={Col} sm="8" controlId="validationCustomEmail">
-            <Form.Control
-              required
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <Form.Control.Feedback type="invalid">
-              eMail is required
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
+      <FormContainer>
+        <HalfCircle inputText="Welcome" />
+        <h3 className="text-center my-5 purple-text">Sign up</h3>
+        {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
+        {jobseekerLoader && <Loader />}
+        {employerError && <Message variant="danger">{employerError}</Message>}
+        {employerLoader && <Loader />}
+        {!jobseekerError && !employerError && message && (
+          <Message variant="success">{message}</Message>
+        )}
+        <Form onSubmit={handleSubmit} className="container">
+          <Form.Row>
+            <Form.Group as={Col} controlId="validationCustomEmail">
+              <Form.Control
+                required
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Email is required
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Form.Row>
 
-        <Form.Row>
-          <Form.Group as={Col} sm="8" controlId="validationCustomPassword">
-            <Form.Control
-              required
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
-            <Form.Control.Feedback type="invalid">
-              Password is required
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} controlId="validationCustomPassword">
+              <Form.Control
+                required
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Password is required
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Form.Row>
 
-        <Form.Row>
-          <Form.Group
-            as={Col}
-            sm="8"
-            controlId="validationCustomConfirmPassword"
-          >
-            <Form.Control
-              required
-              type="password"
-              placeholder="Confirm password"
-              value={confirmPassword}
-              onChange={e => setConfirmPassword(e.target.value)}
-            />
-            <Form.Control.Feedback type="invalid">
-              Passwords does not match!
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} controlId="validationCustomConfirmPassword">
+              <Form.Control
+                required
+                type="password"
+                placeholder="Confirm password"
+                value={confirmPassword}
+                onChange={e => setConfirmPassword(e.target.value)}
+              />
+            </Form.Group>
+          </Form.Row>
 
-        <CustomButton text="Submit" className="my-3" />
+          <Role handleRole={handleRole} text1="Employer" text2="Jobseeker" />
 
-        <p>
-          Already a member? <Link to="/login">Sign In</Link>
-        </p>
-      </Form>
+          <CustomButton text="Register" className="my-3 register-button" />
+
+          <p>
+            Already a member? <Link to="/login">Sign In</Link>
+          </p>
+        </Form>
+      </FormContainer>
       <CustomSvgIcon img={starsLady} />
     </>
   )
