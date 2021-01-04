@@ -15,7 +15,7 @@ import { loginEmployerRequest } from '../../redux/actions/employer'
 import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 
 import { AppState } from '../../redux/types'
-import { employerInfoFromStorage } from '../../redux/saga/employer'
+//import { employerInfoFromStorage } from '../../redux/saga/employer'
 import { jobseekerInfoFromStorage } from '../../redux/saga/jobseeker'
 
 const Login = () => {
@@ -46,10 +46,10 @@ const Login = () => {
     e.preventDefault()
     if (employer) {
       dispatch(loginEmployerRequest(email, password))
-      if (employerInfoFromStorage) {
-        setLoggedIn(true)
-        history.push('/company/profile')
-      }
+      // if (employerInfoFromStorage) {
+      //   setLoggedIn(true)
+      //   history.push('/company/profile')
+      // }
     } else if (jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
       if (jobseekerInfoFromStorage) {

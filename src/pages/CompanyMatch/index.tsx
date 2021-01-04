@@ -20,7 +20,7 @@ const CompanyMatchPage = () => {
 
   return (
     <>
-      <div>
+      <div className="py-3">
         <Tab.Container defaultActiveKey="first">
           <Row>
             <Col sm={3}>

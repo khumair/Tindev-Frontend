@@ -2,8 +2,6 @@ import React from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav } from 'react-bootstrap'
 
-import './NavBar.scss'
-
 const NavBar = () => {
   return (
     <Navbar expand="lg" collapseOnSelect className="navbar">

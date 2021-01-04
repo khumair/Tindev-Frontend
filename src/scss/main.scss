@@ -16,16 +16,14 @@ body {
   text-align: center;
 }
 
-.btn-form {
+button.btn-form {
   background-color: $purple-color;
   color: #ffffff;
   border: none;
   font-family: 'poppins', sans-serif;
   margin-top: 25px;
   border-radius: 5px;
-  height: 50px;
-
-  // width: 215px;
+  height: 40px;
 }
 
 .btn-upload {
@@ -48,6 +46,7 @@ body {
   background-color: $purple-color;
   border-color: #ffffff;
 }
+
 h2 {
   line-height: 1.66;
   margin: 0;

@@ -9,15 +9,10 @@ import {
   LOGOUT_EMPLOYER,
 } from '../types'
 
-export const registerEmployerRequest = (
-  info: any,
-  email: string,
-  password: string
-) => {
+export const registerEmployerRequest = (email: string, password: string) => {
   return {
     type: REGISTER_EMPLOYER_REQUEST,
     payload: {
-      info,
       email,
       password,
     },

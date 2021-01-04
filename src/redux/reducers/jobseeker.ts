@@ -11,7 +11,6 @@ import {
 } from '../types'
 
 const initialState = {
-  info: {},
   credential: { email: '', password: '' },
   jobseekerInfo: jobseekerInfoFromStorage,
   loading: false,

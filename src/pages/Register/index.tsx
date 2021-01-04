@@ -46,16 +46,15 @@ const Register = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
-    const info = {}
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     }
 
     if (role === jobseeker) {
-      dispatch(registerJobseekerRequest(info, email, password))
+      dispatch(registerJobseekerRequest(email, password))
       setMessage('Registered successfully')
     } else if (role === employer) {
-      dispatch(registerEmployerRequest(info, email, password))
+      dispatch(registerEmployerRequest(email, password))
       setMessage('Registered successfully')
     }
   }
@@ -64,7 +63,7 @@ const Register = () => {
     <>
       <FormContainer>
         <HalfCircle inputText="Welcome" />
-        <h3 className="text-center my-5">Sign up</h3>
+        <h3 className="text-center my-5 purple-text">Sign up</h3>
         {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
         {jobseekerLoader && <Loader />}
         {employerError && <Message variant="danger">{employerError}</Message>}

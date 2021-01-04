@@ -94,6 +94,7 @@ a:hover {
 
 .login-button {
   min-width: 100%;
+  margin-top: 0.6rem;
 }
 
 /** register page */
@@ -131,6 +132,17 @@ Button.register-button {
   min-width: 100%;
 }
 
+.DatePicker__input {
+  font-size: 16px;
+  border: solid #4c3168 1px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.DatePicker__input:hover {
+  background-color: rgb(24, 21, 21);
+}
+
 /** datepicker */
 .responsive-calendar {
   font-size: 9px !important;
@@ -161,8 +173,26 @@ Button.register-button {
   }
 }
 
+/** navbar */
+.navbar {
+  background: white;
+}
+
+.navbar-brand {
+  padding-left: 1.6em;
+}
+
+button.navbar-toggler.collapsed {
+  background: white;
+}
+
+a.nav-link {
+  margin-left: 1.5rem;
+}
+
+/** footer */
 .footer {
   bottom: 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }

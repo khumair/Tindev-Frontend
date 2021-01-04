@@ -10,11 +10,11 @@ import {
 } from '../../redux/actions/jobseeker'
 
 const credential = (state: AppState) => state.jobseeker.credential
+
 function* registerJobseekerSaga() {
   try {
     const credentialData = yield select(credential)
     const req = yield axios.post('/jobseeker', {
-      info: {},
       credential: credentialData,
     })
     yield put(registerJobseekerSuccess(req.data))

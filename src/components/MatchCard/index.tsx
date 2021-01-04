@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Col } from 'react-bootstrap'
 
 import Candidate from '../Candidate'
 //import male from '../../media/male.png'
@@ -13,11 +14,7 @@ type MatchCardProps = {
 const MatchCard = ({ firstName, lastName, skills }: MatchCardProps) => {
   return (
     <div className="Container">
-      <div className="d-flex flex-row-reverse">
-        {/* <Form inline className="search-form">
-          <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
-        </Form> */}
-      </div>
+      <div className="d-flex flex-row-reverse"></div>
       <div className="Row mb-2">
         <div className="Col-md-12">
           {/* <a href="#" className="text-dark"> */}
@@ -39,9 +36,17 @@ const MatchCard = ({ firstName, lastName, skills }: MatchCardProps) => {
                   {/* <Button  className="float-right" variant="primary" >Primary</Button>
                     <Button variant="primary">Primary</Button> */}
                 </div>
+                <Col>
+                  <Link className="float-right" to="/jobseeker/profile">
+                    View Profile
+                  </Link>
+                </Col>
+                <Col>
+                  <Link to="/chat">Chat</Link>
+                </Col>
 
-                <Button className="card-button">View Profile</Button>
-                <Button className="card-button">Chat</Button>
+                {/* <Button className="card-button">View Profile</Button>
+                <Button className="card-button">Chat</Button> */}
               </div>
             </div>
           </div>
