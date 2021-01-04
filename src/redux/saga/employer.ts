@@ -16,7 +16,6 @@ function* registerEmployerSaga() {
   try {
     const credentialData = yield select(credential)
     const req = yield axios.post('/employer', {
-      info: {},
       credential: credentialData,
     })
     yield put(registerEmployerSuccess(req.data))
