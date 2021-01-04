@@ -2,7 +2,6 @@ import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
 import { AppState } from '../types'
-import LocalStorage from '../../local-storage'
 
 import {
   registerEmployerSuccess,
@@ -15,7 +14,10 @@ const credential = (state: AppState) => state.employer.credential
 function* registerEmployerSaga() {
   try {
     const credentialData = yield select(credential)
-    const req = yield axios.post('/employer', { credential: credentialData })
+    const req = yield axios.post('/employer', {
+      info: {},
+      credential: credentialData,
+    })
     yield put(registerEmployerSuccess(req.data))
   } catch (error) {
     yield put(registerEmployerFail())
@@ -29,14 +31,20 @@ function* loginEmployerSaga() {
       email: credentialData.email,
       password: credentialData.password,
     })
-    yield console.log(res)
+
     yield put(loginEmployerSuccess(res))
-    yield LocalStorage.saveToken(res.data.payload.token)
+    localStorage.setItem('employerInfo', JSON.stringify(res.data))
   } catch (error) {
     // TODO: Fix error handling
     yield put(loginEmployerFail())
+    throw new Error(error)
   }
 }
+
+export const employerInfoFromStorage = localStorage.getItem('employerInfo')
+  ? //@ts-ignore
+    JSON.parse(localStorage.getItem('employerInfo'))
+  : null
 
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),

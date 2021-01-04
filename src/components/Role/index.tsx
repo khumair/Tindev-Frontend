@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap'
 type RoleProps = {
   text1: string
   text2: string
-  handleRole: any
+  handleRole: (event: React.FormEvent) => void
 }
 
 const Role = ({ text1, text2, handleRole }: RoleProps) => {
