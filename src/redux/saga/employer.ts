@@ -41,14 +41,6 @@ function* loginEmployerSaga() {
   }
 }
 
-function* logoutEmployerSaga() {
-  try {
-    yield localStorage.removeItem('token')
-  } catch (e) {
-    console.log(e)
-  }
-}
-
 function* creatingJobPostSaga() {
   try {
     const job = yield select(jobPostFormData)
@@ -63,7 +55,6 @@ const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
   takeLatest('LOGIN_EMPLOYER_REQUEST', loginEmployerSaga),
   takeLatest('JOB_POST_REQUEST', creatingJobPostSaga),
-  takeLatest('LOGOUT_JOBSEEKER', logoutEmployerSaga),
 ]
 
 export default sagaWatcher
