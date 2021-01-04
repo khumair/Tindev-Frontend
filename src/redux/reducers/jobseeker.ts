@@ -1,4 +1,3 @@
-//import { jobseekerInfoFromStorage } from '../saga/jobseeker'
 import {
   JobseekerActions,
   REGISTER_JOBSEEKER_REQUEST,
