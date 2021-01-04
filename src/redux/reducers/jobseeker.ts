@@ -1,4 +1,4 @@
-import { jobseekerInfoFromStorage } from '../saga/jobseeker'
+//import { jobseekerInfoFromStorage } from '../saga/jobseeker'
 import {
   JobseekerActions,
   REGISTER_JOBSEEKER_REQUEST,
@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   credential: { email: '', password: '' },
-  jobseekerInfo: jobseekerInfoFromStorage,
+  jobseekerInfo: {},
   loading: false,
   error: null,
 }

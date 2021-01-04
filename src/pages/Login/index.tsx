@@ -15,13 +15,13 @@ import { loginEmployerRequest } from '../../redux/actions/employer'
 import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 
 import { AppState } from '../../redux/types'
-//import { employerInfoFromStorage } from '../../redux/saga/employer'
-import { jobseekerInfoFromStorage } from '../../redux/saga/jobseeker'
+import LocalStorage from '../../local-storage'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoggedIn, setLoggedIn] = useState(false)
+  const [token, setToken] = useState('')
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -39,20 +39,23 @@ const Login = () => {
   //const { loading, error } = jobseeker || employer
 
   useEffect(() => {
+    const token = LocalStorage.getToken()
+    //@ts-ignore
+    setToken(token)
     setLoggedIn(true)
-  }, [isLoggedIn])
+  }, [isLoggedIn, token])
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     if (employer) {
       dispatch(loginEmployerRequest(email, password))
-      // if (employerInfoFromStorage) {
-      //   setLoggedIn(true)
-      //   history.push('/company/profile')
-      // }
+      if (token) {
+        setLoggedIn(true)
+        history.push('/company/profile')
+      }
     } else if (jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
-      if (jobseekerInfoFromStorage) {
+      if (token) {
         setLoggedIn(true)
         history.push('/jobseeker/match')
       }

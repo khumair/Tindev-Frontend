@@ -31,18 +31,12 @@ function* loginEmployerSaga() {
     })
     yield console.log(res)
     yield put(loginEmployerSuccess(res))
-    //yield localStorage.setItem('employerInfo', JSON.stringify(res.data))
     yield LocalStorage.saveToken(res.data.payload.token)
   } catch (error) {
     // TODO: Fix error handling
     yield put(loginEmployerFail())
   }
 }
-
-// export const employerInfoFromStorage = localStorage.getItem('employerInfo')
-//   ? //@ts-ignore
-//     JSON.parse(localStorage.getItem('employerInfo'))
-//   : null
 
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),

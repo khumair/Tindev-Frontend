@@ -3,5 +3,5 @@ import employerWatcher from './employer'
 import jobSeekerWatcher from './jobseeker'
 
 export default function* rootSaga() {
-  yield all([...employerWatcher, jobSeekerWatcher])
+  yield all([...employerWatcher, ...jobSeekerWatcher])
 }
