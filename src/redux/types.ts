@@ -12,7 +12,9 @@ export const LOGIN_JOBSEEKER_REQUEST = 'LOGIN_JOBSEEKER_REQUEST'
 export const LOGIN_JOBSEEKER_SUCCESS = 'LOGIN_JOBSEEKER_SUCCESS'
 export const LOGIN_JOBSEEKER_FAIL = 'LOGIN_JOBSEEKER_FAIL'
 export const LOGOUT_JOBSEEKER = 'LOGOUT_JOBSEEKER'
-
+export const JOB_POST_REQUEST = 'JOB_POST_REQUEST'
+export const JOB_POST_SUCCESS = 'JOB_POST_SUCCESS'
+export const JOB_POST_FAIL = 'JOB_POST_FAIL'
 export type EmployerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction
@@ -21,6 +23,9 @@ export type EmployerActions =
   | LoginEmployerSuccessAction
   | LoginEmployerFailAction
   | LogoutEmployerAction
+  | CreatingJobActionType
+  | JobFailActionType
+  | JobSuccessActionType
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
@@ -156,6 +161,12 @@ export type CredentialStateEmployer = {
   credential: {}
   loading: Boolean
   error: any
+  jobPost: {
+    title: string
+    jobDescription: string
+    seniority: string
+    skills: any[]
+  }
 }
 
 export type CredentialStateJobseeker = {
@@ -167,4 +178,26 @@ export type CredentialStateJobseeker = {
 export type AppState = {
   employer: CredentialStateEmployer
   jobseeker: CredentialStateJobseeker
+}
+
+//  for job post ==> redux stuff
+export type JobPost = {
+  title: string
+  jobDescription: string
+  seniority: string
+  skills: any[]
+}
+
+export type CreatingJobActionType = {
+  type: typeof JOB_POST_REQUEST
+  payload: JobPost
+}
+export type JobSuccessActionType = {
+  type: typeof JOB_POST_SUCCESS
+}
+export type JobFailActionType = {
+  type: typeof JOB_POST_FAIL
+  payload: {
+    error: any
+  }
 }
