@@ -10,8 +10,11 @@ import {
   loginEmployerSuccess,
   loginEmployerFail,
 } from '../../redux/actions/employer'
+import { registerJobPostSuccess, registerJobPostFail } from '../actions/jobpost'
 
 const credential = (state: AppState) => state.employer.credential
+const jobPostFormData = (state: AppState) => state.employer.jobPost
+
 function* registerEmployerSaga() {
   try {
     const credentialData = yield select(credential)
@@ -41,9 +44,20 @@ function* loginEmployerSaga() {
   }
 }
 
+function* creatingJobPostSaga() {
+  try {
+    const job = yield select(jobPostFormData)
+    const res = yield axios.post('/employer/jobs', job)
+    console.log(res)
+    yield put(registerJobPostSuccess())
+  } catch (e) {
+    yield registerJobPostFail(e)
+  }
+}
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
   takeLatest('LOGIN_EMPLOYER_REQUEST', loginEmployerSaga),
+  takeLatest('JOB_POST_REQUEST', creatingJobPostSaga),
 ]
 
 export default sagaWatcher

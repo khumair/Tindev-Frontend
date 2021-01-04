@@ -8,6 +8,9 @@ import {
   LOGIN_EMPLOYER_SUCCESS,
   LOGIN_EMPLOYER_FAIL,
   LOGOUT_EMPLOYER,
+  JOB_POST_SUCCESS,
+  JOB_POST_REQUEST,
+  JOB_POST_FAIL,
 } from '../types'
 
 const initialState = {
@@ -15,6 +18,12 @@ const initialState = {
   employerInfo: {},
   loading: false,
   error: null,
+  jobPost: {
+    title: '',
+    jobDescription: '',
+    seniority: '',
+    skills: [],
+  },
 }
 
 const employer = (state = initialState, action: EmployerActions) => {
@@ -33,6 +42,12 @@ const employer = (state = initialState, action: EmployerActions) => {
       return { ...state, loading: false, error: action.payload }
     case LOGOUT_EMPLOYER:
       return {}
+    case JOB_POST_REQUEST:
+      return { ...state, loading: true, jobPost: action.payload }
+    case JOB_POST_SUCCESS:
+      return { ...state, loading: false, jobPost: {} }
+    case JOB_POST_FAIL:
+      return { ...state, loading: false, error: action.payload }
     default:
       return state
   }
