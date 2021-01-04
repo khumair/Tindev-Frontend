@@ -2,18 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import { Form, Row, Col } from 'react-bootstrap'
 
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
-
+import Role from '../../components/Role'
 import CustomButton from '../../components/CustomButton'
 import { loginEmployerRequest } from '../../redux/actions/employer'
 import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
-
 import { AppState } from '../../redux/types'
 import LocalStorage from '../../local-storage'
 
@@ -37,7 +36,6 @@ const Login = () => {
   const employerLoader = useSelector(
     (state: AppState) => state.employer.loading
   )
-  //const { loading, error } = jobseeker || employer
 
   useEffect(() => {
     const token = LocalStorage.getToken()
@@ -84,16 +82,6 @@ const Login = () => {
         {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
         {jobseekerLoader && <Loader />}
         <Form onSubmit={submitHandler}>
-          <Button className="employer-role" id="employer" onClick={handleRole}>
-            Login employer
-          </Button>
-          <Button
-            className="jobseeker-role"
-            id="jobseeker"
-            onClick={handleRole}
-          >
-            Login jobseeker
-          </Button>
           <Form.Group controlId="email">
             <Form.Label className="label">EMAIL</Form.Label>
             <Form.Control
@@ -112,6 +100,8 @@ const Login = () => {
               onChange={e => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
+
+          <Role handleRole={handleRole} text1="Employer" text2="Jobseeker" />
           <CustomButton text="Login" className="login-button" />
         </Form>
         <Row className="forgot-password py-3">

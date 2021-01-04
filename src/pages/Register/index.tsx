@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Form, Col, Button } from 'react-bootstrap'
+import { Form, Col } from 'react-bootstrap'
 
 import HalfCircle from '../../components/HalfCircle'
 import CustomSvgIcon from '../../components/CustomSvgIcon'
@@ -13,6 +13,7 @@ import { registerEmployerRequest } from '../../redux/actions/employer'
 import { registerJobseekerRequest } from '../../redux/actions/jobseeker'
 import { AppState } from '../../redux/types'
 import FormContainer from '../../components/FormContainer'
+import Role from '../../components/Role'
 
 const Register = () => {
   const [email, setEmail] = useState('')
@@ -72,16 +73,6 @@ const Register = () => {
           <Message variant="success">{message}</Message>
         )}
         <Form onSubmit={handleSubmit} className="container">
-          <Button className="employer-role" id="employer" onClick={handleRole}>
-            Register employer
-          </Button>
-          <Button
-            className="jobseeker-role"
-            id="jobseeker"
-            onClick={handleRole}
-          >
-            Register jobseeker
-          </Button>
           <Form.Row>
             <Form.Group as={Col} controlId="validationCustomEmail">
               <Form.Control
@@ -124,7 +115,9 @@ const Register = () => {
             </Form.Group>
           </Form.Row>
 
-          <CustomButton text="Submit" className="my-3 register-button" />
+          <Role handleRole={handleRole} text1="Employer" text2="Jobseeker" />
+
+          <CustomButton text="Register" className="my-3 register-button" />
 
           <p>
             Already a member? <Link to="/login">Sign In</Link>

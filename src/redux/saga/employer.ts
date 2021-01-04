@@ -15,7 +15,9 @@ const credential = (state: AppState) => state.employer.credential
 function* registerEmployerSaga() {
   try {
     const credentialData = yield select(credential)
-    const req = yield axios.post('/employer', { credential: credentialData })
+    const req = yield axios.post('/employer', {
+      credential: credentialData,
+    })
     yield put(registerEmployerSuccess(req.data))
   } catch (error) {
     yield put(registerEmployerFail())
@@ -29,12 +31,13 @@ function* loginEmployerSaga() {
       email: credentialData.email,
       password: credentialData.password,
     })
-    yield console.log(res)
+
     yield put(loginEmployerSuccess(res))
     yield LocalStorage.saveToken(res.data.payload.token)
   } catch (error) {
     // TODO: Fix error handling
     yield put(loginEmployerFail())
+    throw new Error(error)
   }
 }
 
