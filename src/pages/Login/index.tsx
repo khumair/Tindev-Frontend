@@ -1,77 +1,137 @@
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { Container, Form, Row, Col } from 'react-bootstrap'
+import { Form, Row, Col, Button } from 'react-bootstrap'
 
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
-import NavBar from '../../components/NavBar'
 import Loader from '../../components/Loader'
+import Message from '../../components/Message'
+import FormContainer from '../../components/FormContainer'
 
 import CustomButton from '../../components/CustomButton'
+import { loginEmployerRequest } from '../../redux/actions/employer'
+import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
+
+import { AppState } from '../../redux/types'
+import LocalStorage from '../../local-storage'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [role, setRole] = useState({})
+  const [isLoggedIn, setLoggedIn] = useState(false)
+  const [token, setToken] = useState('')
 
-  // const userInfo = { email: 'duy@abc.com', password: '12345' } // comment out due to husky verification
-  // const error = 'no no no'
-  const loading = false
-  // use useEffect here
-  // if (userInfo) {
-  // 	history.push(redirect)
-  // }
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+  const employer = useSelector((state: AppState) => state.employer)
+  const jobseeker = useSelector((state: AppState) => state.jobseeker)
+  const jobseekerError = useSelector((state: AppState) => state.jobseeker.error)
+  const jobseekerLoader = useSelector(
+    (state: AppState) => state.jobseeker.loading
+  )
+  const employerError = useSelector((state: AppState) => state.employer.error)
+  const employerLoader = useSelector(
+    (state: AppState) => state.employer.loading
+  )
+  //const { loading, error } = jobseeker || employer
+
+  useEffect(() => {
+    const token = LocalStorage.getToken()
+    //@ts-ignore
+    setToken(token)
+    setLoggedIn(true)
+  }, [isLoggedIn, token])
+
+  const handleRole = (event: React.FormEvent) => {
+    event.preventDefault()
+    if (document.getElementById('jobseeker') === event.target) {
+      setRole(jobseeker)
+    }
+    if (document.getElementById('employer') === event.target) {
+      setRole(employer)
+    }
+  }
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(email, password)
-    // dispatch login(email, password)
+    if (role === employer) {
+      dispatch(loginEmployerRequest(email, password))
+      if (token) {
+        setLoggedIn(true)
+        history.push('/company/profile')
+      }
+    } else if (role === jobseeker) {
+      dispatch(loginJobseekerRequest(email, password))
+      if (token) {
+        setLoggedIn(true)
+        history.push('/jobseeker/match')
+      }
+    } else {
+      setLoggedIn(false)
+    }
   }
 
   return (
-    <div>
-      <Container className="container">
-        <NavBar />
-        <Row className="justify-content-md-center">
-          <Col xs={12} md={4}>
-            <h2 className="text-center my-5">Sign in</h2>
-            {/* {error && <Message variant="danger">{error}</Message>} */}
-            {loading && <Loader />}
-            <Form onSubmit={submitHandler}>
-              <Form.Group controlId="email">
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  className="my-4"
-                ></Form.Control>
-              </Form.Group>
-              <Form.Group controlId="password">
-                <Form.Control
-                  type="password"
-                  placeholder="Enter password"
-                  value={email}
-                  onChange={e => setPassword(e.target.value)}
-                  className="my-4"
-                ></Form.Control>
-              </Form.Group>
-
-              <CustomButton text="Login" className="my-3" />
-            </Form>
-            <Row className="my-2">
-              <Col className="new-user my-2">
-                New User?{' '}
-                <Link className=" purple-text" to="/register">
-                  Register
-                </Link>
-              </Col>
-            </Row>
+    <>
+      <FormContainer>
+        <h2 className="signin text-center purple-text">Signin to TinDev</h2>
+        {employerError && <Message variant="danger">{employerError}</Message>}
+        {employerLoader && <Loader />}
+        {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
+        {jobseekerLoader && <Loader />}
+        <Form onSubmit={submitHandler}>
+          <Button className="employer-role" id="employer" onClick={handleRole}>
+            Login employer
+          </Button>
+          <Button
+            className="jobseeker-role"
+            id="jobseeker"
+            onClick={handleRole}
+          >
+            Login jobseeker
+          </Button>
+          <Form.Group controlId="email">
+            <Form.Label className="label">EMAIL</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId="password">
+            <Form.Label className="label">PASSWORD</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <CustomButton text="Login" className="login-button" />
+        </Form>
+        <Row className="forgot-password py-3">
+          <Col>
+            <Link className="forgot-password" to="/reset-password">
+              Forgot your password?
+            </Link>
           </Col>
         </Row>
-      </Container>
+        <Row className="new-user">
+          <Col>
+            New User?{' '}
+            <Link className="register" to="/register">
+              Register
+            </Link>
+          </Col>
+        </Row>
+      </FormContainer>
       <CustomSvgIcon img={starsLady} />
-    </div>
+    </>
   )
 }
 

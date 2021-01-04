@@ -85,3 +85,114 @@ a:hover {
   width: fit-content;
   min-width: 100px;
 }
+
+/** signin page */
+.signin {
+  padding-top: 3rem;
+  padding-bottom: 1.5em;
+}
+
+.login-button {
+  min-width: 100%;
+  margin-top: 0.6rem;
+}
+
+/** register page */
+.alert {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  text-align: center;
+}
+
+Button.employer-role,
+Button.jobseeker-role {
+  margin-bottom: 2rem;
+  min-width: 49%;
+  border: #773bb7 1px solid;
+  background: white;
+  color: black;
+  @media (max-width: 991px) {
+    min-width: 100% !important;
+  }
+  @media (max-width: 407px) {
+    min-width: 100% !important;
+  }
+}
+
+Button.employer-role:hover,
+Button.jobseeker-role:hover {
+  background: #490e87;
+}
+
+Button.employer-role {
+  margin-right: 2%;
+}
+
+Button.register-button {
+  min-width: 100%;
+}
+
+.DatePicker__input {
+  font-size: 16px;
+  border: solid #4c3168 1px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.DatePicker__input:hover {
+  background-color: rgb(24, 21, 21);
+}
+
+/** datepicker */
+.responsive-calendar {
+  font-size: 9px !important;
+}
+
+@media (max-width: 1500px) {
+  .responsive-calendar {
+    font-size: 8px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .responsive-calendar {
+    font-size: 7px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-calendar {
+    font-size: 6px !important;
+  }
+}
+
+/* Large screens */
+@media (min-width: 2500px) {
+  .responsive-calendar {
+    font-size: 12px !important;
+  }
+}
+
+/** navbar */
+.navbar {
+  background: white;
+}
+
+.navbar-brand {
+  padding-left: 1.6em;
+}
+
+button.navbar-toggler.collapsed {
+  background: white;
+}
+
+a.nav-link {
+  margin-left: 1.5rem;
+}
+
+/** footer */
+.footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
