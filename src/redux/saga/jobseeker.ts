@@ -1,22 +1,23 @@
 import { put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
 
-import { registerJobseekerDataFail } from './../actions/jobseeker'
+import {
+  updateJobseekerFail,
+  updateJobseekerSuccess,
+} from './../actions/jobseeker'
 
-function* registerJobseekerDataSaga(credential: Credential) {
-  console.log('registerJobseekerDataSaga HITS . . . ')
+function* updateJobseekerSaga(credential: Credential) {
   try {
-    // const jobseekerId = action.payload
-
-    const response = yield axios.post('/jobSeeker', { credential })
+    const response = yield axios.patch('/jobSeeker', { credential })
     console.log('response::: >', response)
+    yield put(updateJobseekerSuccess(response.data))
   } catch (error) {
-    yield put(registerJobseekerDataFail(error.message))
+    yield put(updateJobseekerFail(error.message))
   }
 }
 
 const sagaWatcher = [
-  takeLatest('REGISTER_JOBSEEKER_DATA_REQUEST', registerJobseekerDataSaga),
+  takeLatest('UPDATE_JOBSEEKER_REQUEST', updateJobseekerSaga),
 ]
 
 export default sagaWatcher

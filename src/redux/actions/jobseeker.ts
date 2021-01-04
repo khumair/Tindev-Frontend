@@ -1,28 +1,28 @@
 import {
-  REGISTER_JOBSEEKER_DATA_REQUEST,
-  REGISTER_JOBSEEKER_DATA_SUCCESS,
-  REGISTER_JOBSEEKER_DATA_FAIL,
+  UPDATE_JOBSEEKER_REQUEST,
+  UPDATE_JOBSEEKER_SUCCESS,
+  UPDATE_JOBSEEKER_FAIL,
   Credential,
 } from '../types'
 
-export const registerJobseekerDataRequest = (data: Credential) => {
+export const updateJobseekerRequest = (data: Credential) => {
   console.log('Action fired')
   return {
-    type: REGISTER_JOBSEEKER_DATA_REQUEST,
+    type: UPDATE_JOBSEEKER_REQUEST,
     payload: data,
   }
 }
 
-export const registerJobseekerDataSuccess = (data: Credential) => {
+export const updateJobseekerSuccess = (data: Credential) => {
   return {
-    type: REGISTER_JOBSEEKER_DATA_SUCCESS,
+    type: UPDATE_JOBSEEKER_SUCCESS,
     payload: data,
   }
 }
 
-export const registerJobseekerDataFail = (error: string) => {
+export const updateJobseekerFail = (error: string) => {
   return {
-    type: REGISTER_JOBSEEKER_DATA_FAIL,
+    type: UPDATE_JOBSEEKER_FAIL,
     payload: error,
   }
 }

@@ -1,9 +1,9 @@
 export const REGISTER_EMPLOYER_REQUEST = 'REGISTER_EMPLOYER_REQUEST'
 export const REGISTER_EMPLOYER_SUCCESS = 'REGISTER_EMPLOYER_SUCCESS'
 export const REGISTER_EMPLOYER_FAIL = 'REGISTER_EMPLOYER_FAIL'
-export const REGISTER_JOBSEEKER_DATA_REQUEST = 'REGISTER_JOBSEEKER_DATA_REQUEST'
-export const REGISTER_JOBSEEKER_DATA_SUCCESS = 'REGISTER_JOBSEEKER_DATA_SUCCESS'
-export const REGISTER_JOBSEEKER_DATA_FAIL = 'REGISTER_JOBSEEKER_DATA_FAIL'
+export const UPDATE_JOBSEEKER_REQUEST = 'UPDATE_JOBSEEKER_REQUEST'
+export const UPDATE_JOBSEEKER_SUCCESS = 'UPDATE_JOBSEEKER_SUCCESS'
+export const UPDATE_JOBSEEKER_FAIL = 'UPDATE_JOBSEEKER_FAIL'
 
 export type employerActions =
   | RegisterEmployerRequestAction
@@ -11,9 +11,9 @@ export type employerActions =
   | RegisterEmployerFailAction
 
 export type jobseekerDataActions =
-  | registerJobseekerDataRequestAction
-  | registerJobseekerDataSuccessAction
-  | registerJobseekerDataFailAction
+  | updateJobseekerRequestAction
+  | updateJobseekerSuccessAction
+  | updateJobseekerFailAction
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
@@ -65,15 +65,15 @@ export type AppState = {
   jobseeker: CredentialState
 }
 
-export type registerJobseekerDataRequestAction = {
-  type: typeof REGISTER_JOBSEEKER_DATA_REQUEST
+export type updateJobseekerRequestAction = {
+  type: typeof UPDATE_JOBSEEKER_REQUEST
   payload: {
     jobSeekerId: string
   }
 }
 
-export type registerJobseekerDataSuccessAction = {
-  type: typeof REGISTER_JOBSEEKER_DATA_SUCCESS
+export type updateJobseekerSuccessAction = {
+  type: typeof UPDATE_JOBSEEKER_SUCCESS
   payload: {
     firstName: string
     lastName: string
@@ -82,8 +82,8 @@ export type registerJobseekerDataSuccessAction = {
   }
 }
 
-export type registerJobseekerDataFailAction = {
-  type: typeof REGISTER_JOBSEEKER_DATA_FAIL
+export type updateJobseekerFailAction = {
+  type: typeof UPDATE_JOBSEEKER_FAIL
   payload: {
     error: any
   }

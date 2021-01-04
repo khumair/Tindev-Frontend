@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import userImg from '../../media/user-img.svg'
 import HalfCircle from '../../components/HalfCircle'
 import CustomButton from '../../components/CustomButton'
-import { registerJobseekerDataRequest } from '../../redux/actions/jobseeker'
+import { updateJobseekerRequest } from '../../redux/actions/jobseeker'
 
 const EditProfile = () => {
   const [state, setState] = React.useState({
@@ -61,7 +61,7 @@ const EditProfile = () => {
       duration,
     }
 
-    dispatch(registerJobseekerDataRequest(userData))
+    dispatch(updateJobseekerRequest(userData))
   }
 
   return (
