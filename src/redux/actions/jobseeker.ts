@@ -6,7 +6,6 @@ import {
 } from '../types'
 
 export const updateJobseekerRequest = (data: Credential) => {
-  console.log('Action fired')
   return {
     type: UPDATE_JOBSEEKER_REQUEST,
     payload: data,

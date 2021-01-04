@@ -25,7 +25,8 @@ body {
   color: var(--purple);
 }
 
-Button {
+Button,
+.customBtn {
   background: linear-gradient(#a24fae, #773bb7);
   color: #fff;
   min-width: 170px;
@@ -84,4 +85,22 @@ a:hover {
 .custom-skill {
   width: fit-content;
   min-width: 100px;
+}
+
+.preview {
+  height: 100px;
+  width: auto;
+  border-radius: 50%;
+  border: 5px solid #773bb7;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.test1 {
+  border: green 2px solid;
+}
+
+.test2 {
+  border: red 2px solid;
 }

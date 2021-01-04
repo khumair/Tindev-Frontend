@@ -7,7 +7,14 @@ import HalfCircle from '../../components/HalfCircle'
 import CustomButton from '../../components/CustomButton'
 import { updateJobseekerRequest } from '../../redux/actions/jobseeker'
 
+// Set initial state for profile image
+const initialState = { alt: 'default', src: userImg }
+
 const EditProfile = () => {
+  // Set local state for profile image upload
+  const [{ alt, src }, setPreview] = React.useState(initialState)
+
+  //Set local state for form inputs
   const [state, setState] = React.useState({
     id: '',
     firstName: '',
@@ -21,8 +28,22 @@ const EditProfile = () => {
     duration: '',
   })
 
+  // Handler for image upload
+  const fileHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target
+    setPreview(
+      files
+        ? {
+            src: URL.createObjectURL(files[0]),
+            alt: files[0].name,
+          }
+        : initialState
+    )
+  }
+
   const dispatch = useDispatch()
 
+  // Handler for form inputs
   const handleChange = (e: React.FormEvent<HTMLFormElement>) => {
     const target = e.target
     const value = (target as HTMLInputElement).value
@@ -34,6 +55,7 @@ const EditProfile = () => {
     })
   }
 
+  // Destructuring from state
   const {
     firstName,
     lastName,
@@ -46,10 +68,11 @@ const EditProfile = () => {
     duration,
   } = state
 
+  // Handler for form submit
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Submitted')
     const userData = {
+      src,
       firstName,
       lastName,
       phone,
@@ -60,7 +83,7 @@ const EditProfile = () => {
       skillLevel,
       duration,
     }
-
+    console.log('userData', userData)
     dispatch(updateJobseekerRequest(userData))
   }
 
@@ -71,12 +94,12 @@ const EditProfile = () => {
       <Form
         onSubmit={e => handleSubmit(e)}
         onChange={e => handleChange(e)}
-        className="container p-5 my-5"
+        className="container my-5"
       >
-        <div className="d-flex">
+        <div className="top-form-container d-flex">
           <div className="personal-form">
             <Form.Group as={Row} controlId="formHorizontalFName">
-              <Col sm="10">
+              <Col>
                 <Form.Control
                   type="text"
                   name="firstName"
@@ -86,7 +109,7 @@ const EditProfile = () => {
             </Form.Group>
 
             <Form.Group as={Row} controlId="formHorizontalLName">
-              <Col sm="10">
+              <Col>
                 <Form.Control
                   type="text"
                   name="lastName"
@@ -96,11 +119,11 @@ const EditProfile = () => {
             </Form.Group>
 
             <Form.Group as={Row} controlId="formHorizontalphone">
-              <Col sm="10">
+              <Col>
                 <Form.Control
                   type="tel"
                   name="phone"
-                  placeholder="phone"
+                  placeholder="Phone"
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 />
                 <small>Format: 123-456-7890</small>
@@ -108,7 +131,7 @@ const EditProfile = () => {
             </Form.Group>
 
             <Form.Group as={Row} controlId="formHorizontalSeniority">
-              <Col sm="10">
+              <Col>
                 <Form.Control
                   type="text"
                   name="seniority"
@@ -140,10 +163,19 @@ const EditProfile = () => {
               </Col>
             </Form.Group>
           </div>
-          <div className="m-auto hide-sm">
-            <img src={userImg} alt="userImg-svg" />
-            <br />
-            <CustomButton text="Upload" className="my-2 py-2" />
+          <div className="m-auto pb-5">
+            <img className="preview" src={src} alt={alt} />
+            <label htmlFor="imageUpload" className="customBtn btn btn-block">
+              Edit
+            </label>
+            <input
+              accept="image/*"
+              type="file"
+              name="preview"
+              onChange={fileHandler}
+              id="imageUpload"
+              style={{ display: 'none' }}
+            />
           </div>
         </div>
         <Form.Label as="legend" column sm={2} className="ml-n3">
@@ -177,29 +209,29 @@ const EditProfile = () => {
           </Col>
         </Form.Row>
         <br />
-        <Form.Label as="legend" column sm={4} className="ml-n3">
+        <Form.Label as="legend" column className="ml-n3">
           Work Experience
         </Form.Label>
         <br />
 
-        <Form.Label as="legend" column sm={2}>
+        <Form.Label as="legend" column>
           Level
         </Form.Label>
         <Form.Row>
-          <Col sm={4} className="px-2">
+          <Col className="px-2">
             <Form.Control name="skillLevel" placeholder="Skill level" />
           </Col>
         </Form.Row>
-        <Form.Label as="legend" column sm={2}>
+        <Form.Label as="legend" column>
           Experience
         </Form.Label>
         <Form.Row>
-          <Col sm={4} className="px-2">
+          <Col className="px-2">
             <Form.Control name="duration" placeholder="Duration" />
           </Col>
         </Form.Row>
         <br />
-        <CustomButton text="Update" className="my-2 py-2 btn-lg" />
+        <CustomButton text="Update" className="my-3 py-2" />
       </Form>
     </>
   )
