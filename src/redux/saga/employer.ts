@@ -2,6 +2,7 @@ import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
 import { AppState } from '../types'
+import LocalStorage from '../../local-storage'
 
 import {
   registerEmployerSuccess,
@@ -33,7 +34,7 @@ function* loginEmployerSaga() {
     })
 
     yield put(loginEmployerSuccess(res))
-    localStorage.setItem('employerInfo', JSON.stringify(res.data))
+    yield LocalStorage.saveToken(res.data.payload.token)
   } catch (error) {
     // TODO: Fix error handling
     yield put(loginEmployerFail())
