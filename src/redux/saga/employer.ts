@@ -41,11 +41,6 @@ function* loginEmployerSaga() {
   }
 }
 
-export const employerInfoFromStorage = localStorage.getItem('employerInfo')
-  ? //@ts-ignore
-    JSON.parse(localStorage.getItem('employerInfo'))
-  : null
-
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
   takeLatest('LOGIN_EMPLOYER_REQUEST', loginEmployerSaga),
