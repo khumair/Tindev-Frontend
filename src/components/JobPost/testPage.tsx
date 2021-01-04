@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Col, Row, Container, Button, Image } from 'react-bootstrap'
-import DateSelector from './DatePicker'
+// import DateSelector from './DatePicker'
 import uploadImage from '../../media/upload-Image.png'
 // import uploadImage from '../../medi'
 const CompanyProfile = () => {
@@ -120,7 +120,7 @@ const CompanyProfile = () => {
                   type="text"
                   placeholder="29/12/2020"
                 /> */}
-                <DateSelector />
+                {/* <DateSelector /> */}
               </Col>
             </Form.Group>
           </Form>

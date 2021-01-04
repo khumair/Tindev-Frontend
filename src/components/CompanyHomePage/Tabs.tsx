@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Col, Row, Tab, Nav } from 'react-bootstrap'
 import MatchCard from './MatchCard'
 import JobPost from '../JobPost'
-// import SearchBar from './SearchBar'
 
 const Tabs = () => {
   return (

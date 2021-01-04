@@ -9,6 +9,13 @@ export const initState: AppState = {
     credentials: '',
     loading: false,
     error: null,
+    jobPost: {
+      jobTitle: '',
+      jobDescription: '',
+      city: '',
+      country: '',
+      skills: [],
+    },
   },
 }
 

@@ -1,28 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Col, Row, Container, Button, Image } from 'react-bootstrap'
 import uploadImage from '../../media/upload-Image.png'
-import DatePicker from './DatePicker'
+// import DatePicker from '../DatePicker'
+import { useDispatch } from 'react-redux'
+import { creatingJobPostRequest } from '../../redux/actions/jobpost'
 
 const JopPost = () => {
+  const [state, setState] = useState({
+    jobTitle: '',
+    jobDescription: '',
+    skills: [],
+    city: '',
+    country: '',
+  })
+
+  const dispatch = useDispatch()
+  const handelChange = (e: React.FormEvent<HTMLFormElement>) => {
+    const target = e.target
+    const value = (target as HTMLInputElement).value
+    const name = (target as HTMLInputElement).name
+
+    setState({
+      ...state,
+      [name]: value,
+    })
+  }
+  const { jobTitle, jobDescription, skills, city, country } = state
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const jobPosted = {
+      jobTitle,
+      jobDescription,
+      city,
+      country,
+      skills,
+    }
+    dispatch(creatingJobPostRequest(jobPosted))
+  }
   return (
     <Container fluid="md">
       <h2 className="row justify-content-center">Job Post</h2>
       <Row className="job-post-row">
         <Col xs>
-          <Form>
+          <Form onSubmit={e => handleSubmit(e)} onChange={e => handelChange(e)}>
             <Form.Group
               className="form-group-set"
               as={Row}
               controlId="formElement"
             >
               <Form.Label column sm="4">
-                Job
+                Job Title
               </Form.Label>
               <Col sm="8">
                 <Form.Control
                   className="text-field"
                   type="text"
-                  placeholder="Comapny Name"
+                  name="jobTitle"
+                  placeholder="Job Title"
                 />
               </Col>
             </Form.Group>
@@ -39,6 +74,7 @@ const JopPost = () => {
                 <Form.Control
                   className="text-field"
                   as="textarea"
+                  name="jobDescription"
                   rows={4}
                   placeholder="Address"
                 />
@@ -54,10 +90,13 @@ const JopPost = () => {
                 Required Skills
               </Form.Label>
               <Col sm="8">
-                <Form.Control className="text-field" type="text" />
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  name="requiredSkills"
+                />
               </Col>
             </Form.Group>
-
             <Form.Group
               className="form-group-set"
               as={Row}
@@ -67,7 +106,11 @@ const JopPost = () => {
                 Nice to Have
               </Form.Label>
               <Col sm="8">
-                <Form.Control className="text-field" type="text" />
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  name="niceToHave"
+                />
               </Col>
             </Form.Group>
 
@@ -84,6 +127,7 @@ const JopPost = () => {
                   className="text-field"
                   type="text"
                   placeholder="Finland"
+                  name="country"
                 />
               </Col>
             </Form.Group>
@@ -100,6 +144,7 @@ const JopPost = () => {
                   className="text-field"
                   type="text"
                   placeholder="Helsinki"
+                  name="city"
                 />
               </Col>
             </Form.Group>
@@ -111,9 +156,7 @@ const JopPost = () => {
               <Form.Label column sm="4">
                 Starting At
               </Form.Label>
-              <Col sm="8">
-                <DatePicker />
-              </Col>
+              <Col sm="8">{/* <DatePicker /> */}</Col>
             </Form.Group>
           </Form>
           <Button className="btn-form" size="lg" block>

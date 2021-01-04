@@ -1,6 +1,7 @@
 import React from 'react'
-import { Image, Badge, Button, Form, FormControl } from 'react-bootstrap'
-import male from '../../assets/images/male.png'
+import { Image, Button, Form, FormControl } from 'react-bootstrap'
+import TagBadges from '../TagBadges'
+import male from '../../media/male.png'
 
 const MatchCard = () => {
   return (
@@ -23,18 +24,8 @@ const MatchCard = () => {
                   <div className="col-xs-8 col-sm-7 col-md-8">
                     <h5>Car System Alerts</h5>
                     <p>Check the battery and alternator conditions</p>
-                    <Badge
-                      pill
-                      className="tag-btn btn btn-pill btn-outline-primary ml-2"
-                    >
-                      JavaScript
-                    </Badge>
-                    <Badge
-                      pill
-                      className="tag-btn btn btn-pill btn-outline-primary ml-2"
-                    >
-                      ReactJs
-                    </Badge>
+
+                    <TagBadges />
                     {/* <Button  className="float-right" variant="primary" >Primary</Button>
                     <Button variant="primary">Primary</Button> */}
                   </div>
