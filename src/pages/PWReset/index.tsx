@@ -5,6 +5,7 @@ import CustomButton from '../../components/CustomButton'
 import starsLady from '../../media/star-lady.svg'
 import { Form, Col } from 'react-bootstrap'
 import FormContainer from '../../components/FormContainer'
+import Footer from '../../components/Footer'
 
 const PWReset = () => {
   return (
@@ -34,6 +35,7 @@ const PWReset = () => {
         </Form>
       </FormContainer>
       <CustomSvgIcon img={starsLady} />
+      <Footer />
     </div>
   )
 }

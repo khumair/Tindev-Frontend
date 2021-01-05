@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { AppState } from '../types'
 import { getSkillsSuccess, getSkillsFail } from '../actions/resources'
-import { createSkillSuccess, createSkillFail } from '../../redux/actions/skill'
+import { createSkillSuccess, createSkillFail } from '../actions/skill'
 
 const skillInfo = (state: AppState) => state.skill
 

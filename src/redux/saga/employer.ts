@@ -38,9 +38,7 @@ function* loginEmployerSaga() {
     yield put(loginEmployerSuccess(res))
     yield LocalStorage.saveToken(res.data.payload.token)
   } catch (error) {
-    // TODO: Fix error handling
     yield put(loginEmployerFail())
-    throw new Error(error)
   }
 }
 
