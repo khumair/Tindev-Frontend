@@ -1,12 +1,10 @@
 import React from 'react'
 
-import NavBar from '../../components/NavBar'
 import CustomCard from '../../components/CustomCard'
 
 const JobSeeker = () => {
   return (
     <div>
-      <NavBar />
       <div className="card-container">
         <CustomCard
           title="Front-End Developer"

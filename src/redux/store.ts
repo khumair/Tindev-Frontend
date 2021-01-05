@@ -1,12 +1,24 @@
 import { createStore, compose, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
+
 import rootReducer from './reducers'
 import rootSaga from './saga'
 import { AppState } from './types'
 
 export const initState: AppState = {
   employer: {
-    credentials: '',
+    credential: { email: '', password: '' },
+    loading: false,
+    error: null,
+    jobPost: {
+      title: '',
+      jobDescription: '',
+      seniority: '',
+      skills: [],
+    },
+  },
+  jobseeker: {
+    credential: { email: '', password: '' },
     loading: false,
     error: null,
     jobPost: {
