@@ -11,6 +11,7 @@ import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
 import Role from '../../components/Role'
 import CustomButton from '../../components/CustomButton'
+import Footer from '../../components/Footer'
 import { loginEmployerRequest } from '../../redux/actions/employer'
 import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 import { AppState } from '../../redux/types'
@@ -121,6 +122,7 @@ const Login = () => {
         </Row>
       </FormContainer>
       <CustomSvgIcon img={starsLady} />
+      <Footer />
     </>
   )
 }

@@ -1,5 +1,3 @@
-import './Footer.scss'
-
 const Footer = () => {
   const year = new Date().getFullYear()
 
