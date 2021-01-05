@@ -198,8 +198,6 @@ const EditProfile = () => {
           </Col>
         </Form.Row>
 
-        <p>+ Add more</p>
-
         <Form.Label as="legend" column sm={2} className="ml-n3">
           Skills
         </Form.Label>
