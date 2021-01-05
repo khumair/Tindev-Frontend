@@ -196,12 +196,6 @@ export type CredentialStateJobseeker = {
   }
   loading: Boolean
   error: any
-  jobPost: {
-    title: string
-    jobDescription: string
-    seniority: string
-    skills: any[]
-  }
 }
 
 export type AppState = {

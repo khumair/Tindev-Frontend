@@ -21,12 +21,6 @@ export const initState: AppState = {
     credential: { email: '', password: '' },
     loading: false,
     error: null,
-    jobPost: {
-      title: '',
-      jobDescription: '',
-      seniority: '',
-      skills: [],
-    },
   },
 }
 
