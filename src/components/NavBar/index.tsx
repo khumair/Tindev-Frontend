@@ -1,8 +1,14 @@
 import React from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+
+import { AppState } from '../../types'
 import LogOut from '../LogOut'
 
 const NavBar = () => {
+  const state = useSelector((state: AppState) => state)
+  console.log('State', state)
+
   const isAuthenticated = true // temporarily included. Will be after confirmation of authentication from backend team.
 
   return (

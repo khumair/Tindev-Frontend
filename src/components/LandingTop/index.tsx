@@ -28,10 +28,7 @@ const LandingTop = () => (
               >
                 Register
               </Link>
-              <Link
-                to="/register"
-                className="btn btn-outline-light btn-lg w-25"
-              >
+              <Link to="/login" className="btn btn-outline-light btn-lg w-25">
                 Login
               </Link>
             </div>
