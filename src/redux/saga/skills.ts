@@ -2,7 +2,7 @@ import { put, select, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
 
 import { AppState } from '../types'
-import { getSkillsSuccess, getSkillsFail } from '../../redux/actions/skills'
+import { getSkillsSuccess, getSkillsFail } from '../actions/resources'
 import { createSkillSuccess, createSkillFail } from '../../redux/actions/skill'
 
 const skillInfo = (state: AppState) => state.skill

@@ -23,7 +23,7 @@ export const initState: AppState = {
     error: null,
     skills: [],
   },
-  allSkills: {
+  resources: {
     skills: [],
     loading: false,
     error: null,

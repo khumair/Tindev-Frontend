@@ -6,7 +6,7 @@ import {
   SkillsActions,
 } from '../types'
 
-export const skills = (
+export const resources = (
   state: any = {
     skills: [],
     loading: false,
@@ -38,4 +38,4 @@ export const skills = (
   }
 }
 
-export default skills
+export default resources

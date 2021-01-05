@@ -1,4 +1,4 @@
 export * from './employer'
 export * from './jobseeker'
-export * from './skills'
+export * from './resources'
 export * from './skill'

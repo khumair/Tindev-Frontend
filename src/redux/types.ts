@@ -253,7 +253,7 @@ export type Credential = {
 }
 
 export type CredentialState = {
-  credentials: Credential
+  credential: Credential
 }
 
 export type CredentialStateEmployer = {
@@ -296,7 +296,7 @@ export type SkillState = {
 export type AppState = {
   employer: CredentialStateEmployer
   jobseeker: CredentialStateJobseeker
-  allSkills: SkillsState
+  resources: SkillsState
   skill: SkillState
 }
 

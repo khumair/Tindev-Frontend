@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 import employer from './employer'
 import jobseeker from './jobseeker'
-import skills from './skills'
+import skills from './resources'
 import skill from './skill'
 
 const rootReducer = () =>
