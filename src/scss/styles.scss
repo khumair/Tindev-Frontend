@@ -16,7 +16,16 @@ body {
   color: #ddd;
 }
 
-Button {
+.container {
+  height: 95vh;
+}
+
+.purple-text {
+  color: var(--purple);
+}
+
+Button,
+.customBtn {
   background: linear-gradient(#a24fae, #773bb7);
   color: #fff;
   min-width: 170px;
@@ -53,9 +62,6 @@ a:hover {
   text-decoration: none;
 }
 
-.user-img {
-  right: 20%;
-}
 // Customized and used on Job-Seeker
 .company-icon {
   max-width: 60px;

@@ -1,5 +1,7 @@
 import {
-  JobseekerActions,
+  UPDATE_JOBSEEKER_REQUEST,
+  UPDATE_JOBSEEKER_SUCCESS,
+  UPDATE_JOBSEEKER_FAIL,
   REGISTER_JOBSEEKER_REQUEST,
   REGISTER_JOBSEEKER_SUCCESS,
   REGISTER_JOBSEEKER_FAIL,
@@ -7,6 +9,7 @@ import {
   LOGIN_JOBSEEKER_SUCCESS,
   LOGIN_JOBSEEKER_FAIL,
   LOGOUT_JOBSEEKER,
+  JobseekerActions,
 } from '../types'
 
 const initialState = {
@@ -32,6 +35,23 @@ const jobseeker = (state = initialState, action: JobseekerActions) => {
       return { ...state, loading: false, error: action.payload }
     case LOGOUT_JOBSEEKER:
       return {}
+    case UPDATE_JOBSEEKER_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+    case UPDATE_JOBSEEKER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        credentials: action.payload,
+      }
+    case UPDATE_JOBSEEKER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      }
     default:
       return state
   }
