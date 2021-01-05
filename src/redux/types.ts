@@ -1,6 +1,9 @@
 export const REGISTER_EMPLOYER_REQUEST = 'REGISTER_EMPLOYER_REQUEST'
 export const REGISTER_EMPLOYER_SUCCESS = 'REGISTER_EMPLOYER_SUCCESS'
 export const REGISTER_EMPLOYER_FAIL = 'REGISTER_EMPLOYER_FAIL'
+export const UPDATE_JOBSEEKER_REQUEST = 'UPDATE_JOBSEEKER_REQUEST'
+export const UPDATE_JOBSEEKER_SUCCESS = 'UPDATE_JOBSEEKER_SUCCESS'
+export const UPDATE_JOBSEEKER_FAIL = 'UPDATE_JOBSEEKER_FAIL'
 export const REGISTER_JOBSEEKER_REQUEST = 'REGISTER_JOBSEEKER_REQUEST'
 export const REGISTER_JOBSEEKER_SUCCESS = 'REGISTER_JOBSEEKER_SUCCESS'
 export const REGISTER_JOBSEEKER_FAIL = 'REGISTER_JOBSEEKER_FAIL'
@@ -93,6 +96,9 @@ export type JobseekerActions =
   | LoginJobseekerSuccessAction
   | LoginJobseekerFailAction
   | LogoutJobseekerAction
+  | updateJobseekerRequestAction
+  | updateJobseekerSuccessAction
+  | updateJobseekerFailAction
 
 export type RegisterJobseekerRequestAction = {
   type: typeof REGISTER_JOBSEEKER_REQUEST
@@ -153,12 +159,26 @@ export type LogoutJobseekerAction = {
 }
 
 export type Credential = {
-  email: string
-  password: string
+  email?: string
+  password?: string
+  firstName?: string
+  lastName?: string
+  contact?: string
+  seniority?: string
+  skills?: any[]
+  skillLevel?: string
+  duration?: string
+}
+
+export type CredentialState = {
+  credentials: Credential
 }
 
 export type CredentialStateEmployer = {
-  credential: {}
+  credential: {
+    email: string
+    password: string
+  }
   loading: Boolean
   error: any
   jobPost: {
@@ -170,7 +190,10 @@ export type CredentialStateEmployer = {
 }
 
 export type CredentialStateJobseeker = {
-  credential: {}
+  credential: {
+    email: string
+    password: string
+  }
   loading: Boolean
   error: any
 }
@@ -178,6 +201,28 @@ export type CredentialStateJobseeker = {
 export type AppState = {
   employer: CredentialStateEmployer
   jobseeker: CredentialStateJobseeker
+}
+
+export type updateJobseekerRequestAction = {
+  type: typeof UPDATE_JOBSEEKER_REQUEST
+  payload: {
+    jobSeekerId: string
+  }
+}
+
+export type updateJobseekerSuccessAction = {
+  type: typeof UPDATE_JOBSEEKER_SUCCESS
+  payload: {
+    firstName: string
+    lastName: string
+    contact: string
+    seniority: string
+  }
+}
+
+export type updateJobseekerFailAction = {
+  type: typeof UPDATE_JOBSEEKER_FAIL
+  payload: string
 }
 
 //  for job post ==> redux stuff

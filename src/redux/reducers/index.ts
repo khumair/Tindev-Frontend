@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+
 import employer from './employer'
 import jobseeker from './jobseeker'
 

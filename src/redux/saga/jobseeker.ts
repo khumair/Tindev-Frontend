@@ -1,14 +1,16 @@
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 import { AppState } from '../types'
-import LocalStorage from '../../local-storage'
 
+import LocalStorage from '../../local-storage'
 import {
+  updateJobseekerFail,
+  updateJobseekerSuccess,
   registerJobseekerSuccess,
   registerJobseekerFail,
   loginJobseekerSuccess,
   loginJobseekerFail,
-} from '../../redux/actions/jobseeker'
+} from './../actions/jobseeker'
 
 const credential = (state: AppState) => state.jobseeker.credential
 
@@ -38,7 +40,18 @@ function* loginJobseekerSaga() {
   }
 }
 
+function* updateJobseekerSaga(credential: Credential) {
+  try {
+    const response = yield axios.patch('/jobSeeker', { credential })
+    console.log('response::: >', response)
+    yield put(updateJobseekerSuccess(response.data))
+  } catch (error) {
+    yield put(updateJobseekerFail(error.message))
+  }
+}
+
 const sagaWatcher = [
+  takeLatest('UPDATE_JOBSEEKER_REQUEST', updateJobseekerSaga),
   takeLatest('REGISTER_JOBSEEKER_REQUEST', registerJobseekerSaga),
   takeLatest('LOGIN_JOBSEEKER_REQUEST', loginJobseekerSaga),
 ]
