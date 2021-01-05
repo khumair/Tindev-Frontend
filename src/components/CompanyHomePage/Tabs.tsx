@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Col, Row, Tab, Nav } from 'react-bootstrap'
 import MatchCard from './MatchCard'
 import JobPost from '../JobPost'
+import ChatBox from '../ChatBox'
 
 const Tabs = () => {
   return (
@@ -33,7 +34,7 @@ const Tabs = () => {
                 <MatchCard />
               </Tab.Pane>
               <Tab.Pane eventKey="third">
-                <h2>Chat</h2>
+                <ChatBox />
               </Tab.Pane>
             </Tab.Content>
           </Col>

@@ -3,10 +3,9 @@
 @import '_mobile';
 @import '_utilities';
 
+// Variable
 
-// Variable 
-
-$purple-color :rgb(105, 99, 99);
+$purple-color: rgb(105, 99, 99);
 body {
   padding: 0px;
   margin: 0px auto;
@@ -27,13 +26,6 @@ body {
 .purple-text {
   color: var(--purple);
 }
-<<<<<<< HEAD
-// Button {
-//   background: linear-gradient(#a24fae, #773bb7);
-//   color: #fff;
-//   min-width: 170px;
-// }
-=======
 
 Button,
 .customBtn {
@@ -42,7 +34,6 @@ Button,
   min-width: 170px;
 }
 
->>>>>>> b23f313d25794b61173cb71c54239e44c54c7822
 .landing-top-bg {
   background: url(../media/header-img.svg);
   background-position: center;
@@ -92,157 +83,6 @@ a:hover {
   min-width: 100px;
 }
 
-<<<<<<< HEAD
-
-// match Card buttons 
-.card-button{
-	background: linear-gradient(#a24fae, #773bb7);
-	color: #fff;
-	height: 40px;
-  width: 10px !important;
-	// margin-top: 2%;
-	margin-right: 1px;
-}
-
-// .search-bar{
-	
-// width: 400px;
-// }
-.search-bar-sec{
-	float: right;
-}
-
-  .upload-image {
-	padding: 1rem;
-	text-align: center;
-  }
- .upload-btn {
-	position: absolute;
-	font-size: 40px;
-	opacity: 0;
-	margin: -35px;
- }
-
- .DatePicker__input {
-	background: #fff;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	padding: 0.4em 0.8em;
-	font-family: inherit;
-	text-align: center;
-	font-size: 12px;
-	height: 35px;
-	width: 100%;
-  }
-
-//   Umair Style file
-.btn-flat {
-	background-color: #55dd55;
-	color: #000;
-  }
-  .colcenter {
-	padding: 1rem;
-	text-align: center;
-  }
-  
-  .btn-form {
-	background-color: $purple-color;
-	color: #ffffff;
-	border: none;
-	font-family: "poppins", sans-serif;
-	margin-top: 25px;
-	border-radius: 5px;
-	height: 50px;
-
-  }
-  
-  .btn-upload {
-	background-color: $purple-color;
-	color: #ffffff;
-	border: none;
-	font-family: "poppins", sans-serif;
-	margin: 15px 145px;
-	border-radius: 5px;
-	height: 45px;
-	width: 100px;
-  }
-  .tag-btn {
-	font-family: "poppins", sans-serif;
-	border-color: $purple-color;
-	color: $purple-color;
-  }
-  .tag-btn:hover {
-	background-color: $purple-color;
-	border-color: #ffffff;
-  }
-  h2 {
-	line-height: 1.66;
-	margin: 0;
-	padding: 0;
-	font-weight: bold;
-	margin-bottom: 10px;
-	color: $purple-color;
-	font-family: "poppins", sans-serif;
-	font-size: 36px;
-  }
-  
-  .text-field {
-	width: auto;
-	height: 3rem;
-	border-radius: 5px;
-	border: solid 1px #000;
-
-  }
-  .form-group-set {
-	margin-top: 1.8rem;
-  }
-  .tab-content{
-	  max-width: 95%;
-  }
-
-  .search-form {
-	border: 1px solid #ddd;
-	border-radius: 4px;
-  }
-
-  /*   Company Match Page Styling */
-.view-btn {
-  background-color: #a64fae;
-  border: none;
-  margin-right: 2px;
-  height: 30px;
-  align-items: center;
-  width: 25% !important
-}
-.match-card {
-  border: solid 1px;
-  border-radius: 5px;
-}
-
-.nav-pills .nav-link.active {
-  color: $purple-color;
-  background-color: #ffffff;
-}
-
-.nav-pills .nav-link {
-  font-size: semi-bold;
-  font-weight: 2rem;
-  color: #000;
-}
-.side-nav-link {
-  margin: 10px;
-}
-
-/********** SearchBar ***************/
-
-.search-bar{
-  margin-right: 5%;
-  border: solid 1px #000000;
-  border-radius: 4px;
-
-}
-
-=======
 /** signin page */
 .signin {
   padding-top: 3rem;
@@ -354,4 +194,53 @@ a.nav-link {
   position: fixed;
   width: 100%;
 }
->>>>>>> b23f313d25794b61173cb71c54239e44c54c7822
+
+// Chat
+
+body {
+  margin-top: 20px;
+}
+
+.chat-online {
+  color: #34ce57;
+}
+
+.chat-offline {
+  color: #e4606d;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  max-height: 800px;
+  overflow-y: scroll;
+}
+
+.chat-message-left,
+.chat-message-right {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.chat-message-left {
+  margin-right: auto;
+}
+
+.chat-message-right {
+  flex-direction: row-reverse;
+  margin-left: auto;
+}
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+.px-4 {
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+}
+.flex-grow-0 {
+  flex-grow: 0 !important;
+}
+.border-top {
+  border-top: 1px solid #dee2e6 !important;
+}

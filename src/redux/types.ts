@@ -233,34 +233,10 @@ export type updateJobseekerFailAction = {
 }
 
 //  for job post ==> redux stuff
-export type JobPost = {
-  title: string
-  jobDescription: string
-  seniority: string
-  skills: any[]
-}
-
-// export type CreatingJobActionType = {
-//   type: typeof JOB_POST_REQUEST
-//   payload: JobPost
-// }
-// export type JobSuccessActionType = {
-//   type: typeof JOB_POST_SUCCESS
-// }
-// export type JobFailActionType = {
-//   type: typeof JOB_POST_FAIL
-//   payload: {
-//     error: any
-//   }
-// }
-
-// // jobPost to create and update
-// // ** All the types goes down here ** //
 // export type JobPost = {
-//   jobTitle: string
+//   title: string
 //   jobDescription: string
-//   city: string
-//   country: string
+//   seniority: string
 //   skills: any[]
 // }
 
@@ -277,3 +253,27 @@ export type JobPost = {
 //     error: any
 //   }
 // }
+
+// jobPost to create and update
+// ** All the types goes down here ** //
+export type JobPost = {
+  jobTitle: string
+  jobDescription: string
+  city: string
+  country: string
+  skills: any[]
+}
+
+export type CreatingJobActionType = {
+  type: typeof JOB_POST_REQUEST
+  payload: JobPost
+}
+export type JobSuccessActionType = {
+  type: typeof JOB_POST_SUCCESS
+}
+export type JobFailActionType = {
+  type: typeof JOB_POST_FAIL
+  payload: {
+    error: any
+  }
+}

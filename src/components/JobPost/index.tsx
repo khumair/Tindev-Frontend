@@ -36,7 +36,7 @@ const JopPost = () => {
       country,
       skills,
     }
-    dispatch(creatingJobPostRequest(jobPosted))
+    // dispatch(creatingJobPostRequest(jobPosted))
   }
   return (
     <Container fluid="md">
