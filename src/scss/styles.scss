@@ -63,11 +63,6 @@ a:hover {
   text-decoration: none;
 }
 
-// job seeker profile
-.personal-form {
-  width: 60%;
-}
-
 // Customized and used on Job-Seeker
 .company-icon {
   max-width: 60px;
@@ -85,16 +80,6 @@ a:hover {
 .custom-skill {
   width: fit-content;
   min-width: 100px;
-}
-
-.preview {
-  height: 100px;
-  width: auto;
-  border-radius: 50%;
-  border: 5px solid #773bb7;
-  margin: 10px auto;
-  display: flex;
-  justify-content: center;
 }
 
 /** signin page */

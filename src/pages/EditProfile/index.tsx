@@ -2,19 +2,11 @@ import React from 'react'
 import { Form, Row, Col } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 
-import userImg from '../../media/user-img.svg'
 import HalfCircle from '../../components/HalfCircle'
 import CustomButton from '../../components/CustomButton'
 import { updateJobseekerRequest } from '../../redux/actions/jobseeker'
 
-// Set initial state for profile image
-const initialState = { alt: 'default', src: userImg }
-
 const EditProfile = () => {
-  // Set local state for profile image upload
-  const [{ alt, src }, setPreview] = React.useState(initialState)
-
-  //Set local state for form inputs
   const [state, setState] = React.useState({
     id: '',
     firstName: '',
@@ -27,21 +19,6 @@ const EditProfile = () => {
     skillLevel: '',
     duration: '',
   })
-
-  // Handler for image upload
-  const fileHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { files } = event.target
-    setPreview(
-      files
-        ? {
-            src: URL.createObjectURL(files[0]),
-            alt: files[0].name,
-          }
-        : initialState
-    )
-  }
-
-  const dispatch = useDispatch()
 
   // Handler for form inputs
   const handleChange = (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,11 +45,12 @@ const EditProfile = () => {
     duration,
   } = state
 
+  const dispatch = useDispatch()
+
   // Handler for form submit
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const userData = {
-      src,
       firstName,
       lastName,
       phone,
@@ -83,7 +61,6 @@ const EditProfile = () => {
       skillLevel,
       duration,
     }
-    console.log('userData', userData)
     dispatch(updateJobseekerRequest(userData))
   }
 
@@ -96,88 +73,64 @@ const EditProfile = () => {
         onChange={e => handleChange(e)}
         className="container my-5"
       >
-        <div className="top-form-container d-flex">
-          <div className="personal-form">
-            <Form.Group as={Row} controlId="formHorizontalFName">
-              <Col>
-                <Form.Control
-                  type="text"
-                  name="firstName"
-                  placeholder="First name"
-                />
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} controlId="formHorizontalLName">
-              <Col>
-                <Form.Control
-                  type="text"
-                  name="lastName"
-                  placeholder="Last name"
-                />
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} controlId="formHorizontalphone">
-              <Col>
-                <Form.Control
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                />
-                <small>Format: 123-456-7890</small>
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} controlId="formHorizontalSeniority">
-              <Col>
-                <Form.Control
-                  type="text"
-                  name="seniority"
-                  placeholder="Seniority"
-                />
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row}>
-              <Form.Label as="legend" column className="pl-4">
-                Open to Relocate?
-              </Form.Label>
-              <Col as={Row} className="mt-2">
-                <Form.Check
-                  type="radio"
-                  label="Yes"
-                  name="formRadios"
-                  id="formRadios1"
-                  value="relocatable"
-                  className="pr-4"
-                />
-                <Form.Check
-                  type="radio"
-                  label="No"
-                  value="notRelocatable"
-                  name="formRadios"
-                  id="formRadios2"
-                />
-              </Col>
-            </Form.Group>
-          </div>
-          <div className="m-auto pb-5">
-            <img className="preview" src={src} alt={alt} />
-            <label htmlFor="imageUpload" className="customBtn btn btn-block">
-              Edit
-            </label>
-            <input
-              accept="image/*"
-              type="file"
-              name="preview"
-              onChange={fileHandler}
-              id="imageUpload"
-              style={{ display: 'none' }}
+        <Form.Group as={Row} controlId="formHorizontalFName">
+          <Col sm={6}>
+            <Form.Control
+              type="text"
+              name="firstName"
+              placeholder="First name"
             />
-          </div>
-        </div>
+          </Col>
+
+          <Col sm={6}>
+            <Form.Control type="text" name="lastName" placeholder="Last name" />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} controlId="formHorizontalphone">
+          <Col sm={6}>
+            <Form.Control
+              type="tel"
+              name="phone"
+              placeholder="Phone"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            />
+            <small>Format: 123-456-7890</small>
+          </Col>
+
+          <Col sm={6}>
+            <Form.Control
+              type="text"
+              name="seniority"
+              placeholder="Seniority"
+            />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row}>
+          <Col as={Row} sm={8} className="mt-2">
+            <Form.Label as="legend" column className="pl-4">
+              Open to Relocate?
+            </Form.Label>
+            <Form.Check
+              type="radio"
+              label="Yes"
+              name="formRadios"
+              id="formRadios1"
+              value="relocatable"
+              className="pr-4 pt-2"
+            />
+            <Form.Check
+              type="radio"
+              label="No"
+              value="notRelocatable"
+              name="formRadios"
+              id="formRadios2"
+              className="pt-2"
+            />
+          </Col>
+        </Form.Group>
+
         <Form.Label as="legend" column sm={2} className="ml-n3">
           Education
         </Form.Label>
@@ -198,8 +151,6 @@ const EditProfile = () => {
           </Col>
         </Form.Row>
 
-        <p>+ Add more</p>
-
         <Form.Label as="legend" column sm={2} className="ml-n3">
           Skills
         </Form.Label>
@@ -218,7 +169,7 @@ const EditProfile = () => {
           Level
         </Form.Label>
         <Form.Row>
-          <Col className="px-2">
+          <Col className="px-2" lg={6}>
             <Form.Control name="skillLevel" placeholder="Skill level" />
           </Col>
         </Form.Row>
@@ -226,7 +177,7 @@ const EditProfile = () => {
           Experience
         </Form.Label>
         <Form.Row>
-          <Col className="px-2">
+          <Col className="px-2" lg={6}>
             <Form.Control name="duration" placeholder="Duration" />
           </Col>
         </Form.Row>
