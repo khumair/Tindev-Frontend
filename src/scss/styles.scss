@@ -16,7 +16,10 @@ body {
 .card-text {
   color: #ddd;
 }
-
+.profile-page {
+  margin: auto;
+  width: 60%;
+}
 .container {
   height: 95vh;
 }
@@ -77,6 +80,7 @@ a:hover {
 }
 
 .custom-skill {
+  font-size: small;
   width: fit-content;
   min-width: 100px;
 }
