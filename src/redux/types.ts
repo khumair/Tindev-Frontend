@@ -187,7 +187,7 @@ export type Skill = {
 export type CreateSkillRequestAction = {
   type: typeof CREATE_SKILL_REQUEST
   payload: {
-    skill: Skill
+    name: Skill
   }
 }
 
