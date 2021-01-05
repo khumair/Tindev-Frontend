@@ -21,6 +21,17 @@ export const initState: AppState = {
     credential: { email: '', password: '' },
     loading: false,
     error: null,
+    skills: [],
+  },
+  allSkills: {
+    skills: [],
+    loading: false,
+    error: null,
+  },
+  skill: {
+    inProfile: [],
+    loading: false,
+    error: null,
   },
 }
 
