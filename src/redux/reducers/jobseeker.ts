@@ -1,18 +1,40 @@
 import {
-  jobseekerDataActions,
   UPDATE_JOBSEEKER_REQUEST,
   UPDATE_JOBSEEKER_SUCCESS,
   UPDATE_JOBSEEKER_FAIL,
+  REGISTER_JOBSEEKER_REQUEST,
+  REGISTER_JOBSEEKER_SUCCESS,
+  REGISTER_JOBSEEKER_FAIL,
+  LOGIN_JOBSEEKER_REQUEST,
+  LOGIN_JOBSEEKER_SUCCESS,
+  LOGIN_JOBSEEKER_FAIL,
+  LOGOUT_JOBSEEKER,
+  JobseekerActions,
 } from '../types'
 
-const initState = {
-  credentials: {},
+const initialState = {
+  credential: { email: '', password: '' },
+  jobseekerInfo: {},
   loading: false,
   error: null,
 }
 
-const jobseekerReducer = (state = initState, action: jobseekerDataActions) => {
+const jobseeker = (state = initialState, action: JobseekerActions) => {
   switch (action.type) {
+    case REGISTER_JOBSEEKER_REQUEST:
+      return { ...state, loading: true, credential: action.payload }
+    case REGISTER_JOBSEEKER_SUCCESS:
+      return { ...state, loading: false, jobseekerInfo: action.payload }
+    case REGISTER_JOBSEEKER_FAIL:
+      return { ...state, loading: false, error: action.payload }
+    case LOGIN_JOBSEEKER_REQUEST:
+      return { ...state, loading: true, credential: action.payload }
+    case LOGIN_JOBSEEKER_SUCCESS:
+      return { ...state, loading: false, jobseekerInfo: action.payload }
+    case LOGIN_JOBSEEKER_FAIL:
+      return { ...state, loading: false, error: action.payload }
+    case LOGOUT_JOBSEEKER:
+      return {}
     case UPDATE_JOBSEEKER_REQUEST:
       return {
         ...state,
@@ -30,10 +52,9 @@ const jobseekerReducer = (state = initState, action: jobseekerDataActions) => {
         loading: false,
         error: action.payload,
       }
-
     default:
       return state
   }
 }
 
-export default jobseekerReducer
+export default jobseeker

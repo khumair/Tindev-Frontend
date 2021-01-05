@@ -1,8 +1,7 @@
 import { all } from 'redux-saga/effects'
-
 import employerWatcher from './employer'
-import jobseekerWatcher from './jobseeker'
+import jobSeekerWatcher from './jobseeker'
 
 export default function* rootSaga() {
-  yield all([...employerWatcher, ...jobseekerWatcher])
+  yield all([...employerWatcher, ...jobSeekerWatcher])
 }

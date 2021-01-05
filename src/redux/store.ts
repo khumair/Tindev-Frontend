@@ -7,12 +7,18 @@ import { AppState } from './types'
 
 export const initState: AppState = {
   employer: {
-    credentials: {},
+    credential: { email: '', password: '' },
     loading: false,
     error: null,
+    jobPost: {
+      title: '',
+      jobDescription: '',
+      seniority: '',
+      skills: [],
+    },
   },
   jobseeker: {
-    credentials: {},
+    credential: { email: '', password: '' },
     loading: false,
     error: null,
   },
