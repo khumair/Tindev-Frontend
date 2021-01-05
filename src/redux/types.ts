@@ -18,6 +18,15 @@ export const LOGOUT_JOBSEEKER = 'LOGOUT_JOBSEEKER'
 export const JOB_POST_REQUEST = 'JOB_POST_REQUEST'
 export const JOB_POST_SUCCESS = 'JOB_POST_SUCCESS'
 export const JOB_POST_FAIL = 'JOB_POST_FAIL'
+export const CREATE_SKILL_REQUEST = 'CREATE_SKILLS_REQUEST'
+export const CREATE_SKILL_SUCCESS = 'CREATE_SKILL_SUCCESS'
+export const CREATE_SKILL_FAIL = 'CREATE_SKILL_FAIL'
+export const GET_SKILLS_REQUEST = 'GET_SKILLS_REQUEST'
+export const GET_SKILLS_SUCCESS = 'GET_SKILLS_SUCCESS'
+export const GET_SKILLS_FAIL = 'GET_SKILLS_FAIL'
+export const ADD_SKILL = 'ADD_SKILL'
+export const REMOVE_SKILL = 'REMOVE_SKILL'
+
 export type EmployerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction
@@ -158,6 +167,79 @@ export type LogoutJobseekerAction = {
   type: typeof LOGOUT_JOBSEEKER
 }
 
+export type SkillsActions =
+  | GetSkillsRequestAction
+  | GetSkillsSuccessAction
+  | GetSkillsFailAction
+
+export type SkillActions =
+  | CreateSkillRequestAction
+  | CreateSkillSuccessAction
+  | CreateSkillFailAction
+  | AddSkillAction
+  | RemoveSkillAction
+
+export type Skill = {
+  id: any
+  name: string
+}
+
+export type CreateSkillRequestAction = {
+  type: typeof CREATE_SKILL_REQUEST
+  payload: {
+    name: Skill
+  }
+}
+
+export type CreateSkillSuccessAction = {
+  type: typeof CREATE_SKILL_SUCCESS
+  payload: {
+    skillInfo: {
+      id: string
+      name: string
+    }
+  }
+}
+
+export type CreateSkillFailAction = {
+  type: typeof CREATE_SKILL_FAIL
+  payload: {
+    error: string
+  }
+}
+
+export type GetSkillsRequestAction = {
+  type: typeof GET_SKILLS_REQUEST
+}
+
+export type GetSkillsSuccessAction = {
+  type: typeof GET_SKILLS_SUCCESS
+  payload: {
+    skills: any[]
+  }
+}
+
+export type GetSkillsFailAction = {
+  type: typeof GET_SKILLS_FAIL
+  payload: {
+    error: string
+  }
+}
+
+export type AddSkillAction = {
+  type: typeof ADD_SKILL
+  payload: {
+    skill: Skill
+  }
+}
+
+export type RemoveSkillAction = {
+  type: typeof REMOVE_SKILL
+  payload: {
+    skill: Skill
+  }
+}
+
 export type Credential = {
   email?: string
   password?: string
@@ -171,7 +253,7 @@ export type Credential = {
 }
 
 export type CredentialState = {
-  credentials: Credential
+  credential: Credential
 }
 
 export type CredentialStateEmployer = {
@@ -196,11 +278,26 @@ export type CredentialStateJobseeker = {
   }
   loading: Boolean
   error: any
+  skills: any[]
+}
+
+export type SkillsState = {
+  skills: any[]
+  loading: boolean
+  error: any
+}
+
+export type SkillState = {
+  inProfile: any[]
+  loading: boolean
+  error: any
 }
 
 export type AppState = {
   employer: CredentialStateEmployer
   jobseeker: CredentialStateJobseeker
+  resources: SkillsState
+  skill: SkillState
 }
 
 export type updateJobseekerRequestAction = {
