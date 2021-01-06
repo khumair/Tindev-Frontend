@@ -125,11 +125,6 @@ const CompanyProfileForm = () => {
             Save
           </Button>
         </Col>
-        <Col className="upload-image">
-          {/* <Image src={uploadImage} /> <br /> */}
-          <Button className="btn-upload mt-4">Upload</Button>
-          <Form.File id="exampleFormControlFile1" className="btn-upload mt-4" />
-        </Col>
       </Row>
     </Container>
   )

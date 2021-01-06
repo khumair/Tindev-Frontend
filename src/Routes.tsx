@@ -3,11 +3,11 @@ import { Switch, Route } from 'react-router-dom'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import JobSeeker from './pages/JobSeeker'
-import EditProfile from './pages/EditProfile'
+import JobSeeker from './components/MatchCardJobseeker'
 import PWReset from './pages/PWReset'
-import Profile from './pages/Profile'
-import CompanyMatch from './pages/CompanyMatch'
+import ViewJobseeker from './pages/ViewJobseeker'
+import CompanyProfile from './pages/CompanyProfile'
+import JobseekerProfile from './pages/JobseekerProfile'
 
 const Routes = () => (
   <Switch>
@@ -15,10 +15,10 @@ const Routes = () => (
     <Route exact path="/login" component={Login} />
     <Route exact path="/register" component={Register} />
     <Route exact path="/jobseeker/match" component={JobSeeker} />
-    <Route exact path="/edit-jobseeker-profile" component={EditProfile} />
     <Route exact path="/reset-password" component={PWReset} />
-    <Route exact path="/jobseeker/profile" component={Profile} />
-    <Route exact path="/company/profile" component={CompanyMatch} />
+    <Route exact path="/jobseeker/view" component={ViewJobseeker} />
+    <Route exact path="/company/profile" component={CompanyProfile} />
+    <Route exact path="/jobseeker/profile" component={JobseekerProfile} />
   </Switch>
 )
 

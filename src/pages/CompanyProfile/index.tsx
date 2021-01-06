@@ -1,26 +1,24 @@
 import React /*, { useState } */ from 'react'
 //import { useDispatch, useSelector } from 'react-redux'
-import { Tab, Row, Col, Nav } from 'react-bootstrap'
-import MatchCard from '../../components/MatchCard'
+
+import Tabs from '../../components/Tabs'
+import MatchCardCompany from '../../components/MatchCardCompany'
 import CompanyProfileForm from '../../components/CompanyProfileForm'
 
-const CompanyMatchPage = () => {
-  const jobseekerMatches = [
-    {
-      firstName: 'Dilip',
-      lastName: 'Poudel',
-      skills: ['javascript', 'react'],
-    },
-    {
-      firstName: 'Duy',
-      lastName: 'Nguyen',
-      skills: ['javascript', 'react'],
-    },
-  ]
+const CompanyProfile = () => {
+  const match = {
+    firstName: 'Dilip',
+    lastName: 'Poudel',
+    skills: ['javascript', 'react'],
+  }
 
   return (
     <>
-      <div className="py-3">
+      <Tabs
+        formComponent={<CompanyProfileForm />}
+        matchComponent={<MatchCardCompany match={match} />}
+      />
+      {/* <div className="py-3">
         <Tab.Container defaultActiveKey="first">
           <Row>
             <Col sm={3}>
@@ -44,7 +42,7 @@ const CompanyMatchPage = () => {
                 <Tab.Pane eventKey="second">
                   {jobseekerMatches.map(jobseeker => {
                     return (
-                      <MatchCard
+                      <MatchCardCompany
                         key={jobseeker.lastName}
                         firstName={jobseeker.firstName}
                         lastName={jobseeker.lastName}
@@ -58,8 +56,8 @@ const CompanyMatchPage = () => {
             </Col>
           </Row>
         </Tab.Container>
-      </div>
+      </div> */}
     </>
   )
 }
-export default CompanyMatchPage
+export default CompanyProfile
