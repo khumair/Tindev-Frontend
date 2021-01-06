@@ -2,7 +2,7 @@ import React from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 
-import { AppState } from '../../types'
+import { AppState } from '../../redux/types'
 import LogOut from '../LogOut'
 
 const NavBar = () => {
