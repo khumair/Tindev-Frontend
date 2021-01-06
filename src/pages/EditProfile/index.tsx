@@ -1,10 +1,10 @@
 import React from 'react'
-import { Form, Row, Col } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import userImg from '../../media/user-img.svg'
+import { Form, Row, Col } from 'react-bootstrap'
+
+import { updateJobseekerRequest } from '../../redux/actions/jobseeker'
 import HalfCircle from '../../components/HalfCircle'
 import CustomButton from '../../components/CustomButton'
-import { updateJobseekerRequest } from '../../redux/actions/jobseeker'
 
 const EditProfile = () => {
   const [state, setState] = React.useState({
@@ -67,11 +67,6 @@ const EditProfile = () => {
   return (
     <div className="position-relative">
       <HalfCircle inputText="Education & Experiences" />
-      <div className="position-absolute user-img hide-sm">
-        <img src={userImg} alt="userImg-svg" />
-        <br />
-        <CustomButton text="Upload" className="my-2 py-2" />
-      </div>
 
       <Form
         onSubmit={e => handleSubmit(e)}
@@ -187,7 +182,7 @@ const EditProfile = () => {
           </Col>
         </Form.Row>
         <br />
-        <CustomButton text="Update" className="my-3 py-2" />
+        <CustomButton text="Update" className="w-25 my-3 py-2 purple-bg" />
       </Form>
     </div>
   )
