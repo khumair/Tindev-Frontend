@@ -120,7 +120,7 @@ const CompanyProfileForm = () => {
               </Col>
             </Form.Group>
           </Form>
-          <Button className="btn-form" size="lg">
+          <Button className="btn-form profile-button" size="lg">
             {' '}
             Save
           </Button>

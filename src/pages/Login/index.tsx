@@ -55,6 +55,7 @@ const Login = () => {
     }
   }
 
+  //TODO: Fix redirect
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     if (role === employer) {
@@ -67,7 +68,7 @@ const Login = () => {
       dispatch(loginJobseekerRequest(email, password))
       if (token) {
         setLoggedIn(true)
-        history.push('/jobseeker/match')
+        history.push('/jobseeker/profile')
       }
     } else {
       setLoggedIn(false)

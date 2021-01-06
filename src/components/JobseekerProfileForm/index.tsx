@@ -186,7 +186,7 @@ const JobseekerProfileForm = () => {
           </Col>
         </Form.Row>
         <br />
-        <CustomButton text="Update" className="my-3 py-2" />
+        <CustomButton text="Save" className="my-3 py-2 profile-button" />
       </Form>
     </div>
   )
