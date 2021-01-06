@@ -9,7 +9,7 @@ const Tabs = ({ formComponent, matchComponent }: any) => {
           <Col sm={3}>
             <Nav className="flex-column nav-bar">
               <Nav.Item>
-                <Nav.Link eventKey="first">Post</Nav.Link>
+                <Nav.Link eventKey="first">Profile</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="second">Match</Nav.Link>
