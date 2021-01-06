@@ -1,216 +1,127 @@
 import React from 'react'
-import ImageChar from '../../media/male.png'
-
-const ChatBox = () => {
+import { Image } from 'react-bootstrap'
+const ChatBoxs = () => {
   return (
     <>
-      <div className="container p-0">
-        <h1 className="h3 mb-3">Messages</h1>
+      <div className="container">
+        <div className="content-wrapper">
+          <div className="row gutters">
+            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div className="card m-0">
+                <div className="row no-gutters">
+                  <div className="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
+                    <div className="users-container">
+                      <div className="chat-search-box">
+                        <div className="input-group">
+                          <input
+                            className="form-control"
+                            placeholder="Search"
+                          />
+                          <div className="input-group-btn">
+                            <button type="button" className="btn btn-info">
+                              <i className="fa fa-search"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <ul className="users">
+                        <li className="person" data-chat="person1">
+                          <div className="user">
+                            <Image
+                              src="https://www.bootdey.coImageContent/avatar/avatar3.png"
+                              alt="avatar"
+                            />
+                            <span className="status busy"></span>
+                          </div>
+                          <p className="name-time">
+                            <span className="name">Dlip</span>
+                            <span className="time">4/01/2021</span>
+                          </p>
+                        </li>
+                        <li className="person" data-chat="person1">
+                          <div className="user">
+                            <Image
+                              src="https://www.bootdey.com/img/Content/avatar/avatar1.png"
+                              alt="avatar"
+                            />
+                            <span className="status offline"></span>
+                          </div>
+                          <p className="name-time">
+                            <span className="name">Kirsi</span>
+                            <span className="time">4/01/2021</span>
+                          </p>
+                        </li>
 
-        <div className="card">
-          <div className="row g-0">
-            <div className="col-12 col-lg-5 col-xl-3 border-right">
-              <div className="px-4 d-none d-md-block">
-                <div className="d-flex align-items-center">
-                  <div className="flex-grow-1">
-                    <input
-                      type="text"
-                      className="form-control my-3"
-                      placeholder="Search..."
-                    />
+                        <li className="person active-user" data-chat="person2">
+                          <div className="user">
+                            <Image
+                              src="https://www.bootdey.com/img/Content/avatar/avatar2.png"
+                              alt="avatar"
+                            />
+                            <span className="status away"></span>
+                          </div>
+                          <p className="name-time">
+                            <span className="name">BigMan</span>
+                            <span className="time">4/01/2021</span>
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </div>
+                  <div className="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+                    <div className="selected-user">
+                      <span>
+                        To: <span className="name">Dlip</span>
+                      </span>
+                    </div>
+                    <div className="chat-container chat-messages">
+                      <ul className="chat-box chatContainerScroll">
+                        <li className="chat-left">
+                          <div className="chat-avatar">
+                            <Image
+                              src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
+                              alt="avatar"
+                            />
+                            <div className="chat-name">Kirsi</div>
+                          </div>
+                          <div className="chat-text">
+                            Hello, I'm Kirsi. <br />
+                            How can I help you today?
+                          </div>
+                          <div className="chat-hour">
+                            08:55 <span className="fa fa-check-circle"></span>
+                          </div>
+                        </li>
 
-              <a
-                href="#"
-                className="list-group-item list-group-item-action border-0"
-              >
-                <div className="badge bg-success float-right">5</div>
-                <div className="d-flex align-items-start">
-                  <img
-                    src={ImageChar}
-                    className="rounded-circle mr-1"
-                    width="40"
-                    height="40"
-                  />
-                  <div className="flex-grow-1 ml-3">
-                    Dilip
-                    <div className="small">
-                      <span className="fas fa-circle chat-online"></span> Online
+                        <li className="chat-right">
+                          <div className="chat-hour">
+                            08:56 <span className="fa fa-check-circle"></span>
+                          </div>
+                          <div className="chat-text">
+                            Hi, Dlip <br />I need more information about
+                            Developer Plan.
+                          </div>
+                          <div className="chat-avatar">
+                            <Image
+                              src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
+                              alt="avatar"
+                            />
+                            <div className="chat-name">Sam</div>
+                          </div>
+                        </li>
+                      </ul>
                     </div>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="#"
-                className="list-group-item list-group-item-action border-0"
-              >
-                <div className="badge bg-success float-right">2</div>
-                <div className="d-flex align-items-start">
-                  <img
-                    src={ImageChar}
-                    className="rounded-circle mr-1"
-                    width="40"
-                    height="40"
-                  />
-                  <div className="flex-grow-1 ml-3">
-                    Kirsi
-                    <div className="small">
-                      <span className="fas fa-circle chat-online"></span> Online
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="#"
-                className="list-group-item list-group-item-action border-0"
-              >
-                <div className="d-flex align-items-start">
-                  <img
-                    src={ImageChar}
-                    className="rounded-circle mr-1"
-                    width="40"
-                    height="40"
-                  />
-                  <div className="flex-grow-1 ml-3">
-                    Duy
-                    <div className="small">
-                      <span className="fas fa-circle chat-online"></span> Online
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="#"
-                className="list-group-item list-group-item-action border-0"
-              >
-                <div className="d-flex align-items-start">
-                  <img
-                    src={ImageChar}
-                    className="rounded-circle mr-1"
-                    width="40"
-                    height="40"
-                  />
-                  <div className="flex-grow-1 ml-3">
-                    BigMan
-                    <div className="small">
-                      <span className="fas fa-circle chat-offline"></span>{' '}
-                      Offline
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <hr className="d-block d-lg-none mt-1 mb-0" />
-            </div>
-            <div className="col-12 col-lg-7 col-xl-9">
-              <div className="py-2 px-4 border-bottom d-none d-lg-block">
-                <div className="d-flex align-items-center py-1">
-                  <div className="position-relative">
-                    <img
-                      src={ImageChar}
-                      className="rounded-circle mr-1"
-                      width="40"
-                      height="40"
-                    />
-                  </div>
-                  <div className="flex-grow-1 pl-3">
-                    <strong>Dlip</strong>
-                    <div className="text-muted small">
-                      <em>Typing...</em>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="position-relative">
-                <div className="chat-messages p-4">
-                  <div className="chat-message-right pb-4">
-                    <div>
-                      <img
-                        src={ImageChar}
-                        className="rounded-circle mr-1"
-                        width="40"
-                        height="40"
-                      />
-                      <div className="text-muted small text-nowrap mt-2">
-                        2:33 am
+                    <div className="flex-grow-0 py-3 px-4 border-top">
+                      <div className="input-group">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Type your message"
+                        />
+                        <button className="btn btn-primary">Send</button>
                       </div>
                     </div>
-                    <div className="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                      <div className="font-weight-bold mb-1">You</div>
-                      Lorem ipsum dolor sit amet, vis erat denique in, dicunt
-                      prodesset te vix.
-                    </div>
                   </div>
-
-                  <div className="chat-message-right mb-4">
-                    <div>
-                      <img
-                        src={ImageChar}
-                        className="rounded-circle mr-1"
-                        width="40"
-                        height="40"
-                      />
-                      <div className="text-muted small text-nowrap mt-2">
-                        2:40 am
-                      </div>
-                    </div>
-                    <div className="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                      <div className="font-weight-bold mb-1">You</div>
-                      Cum ea graeci tractatos.
-                    </div>
-                  </div>
-
-                  <div className="chat-message-right mb-4">
-                    <div>
-                      <img
-                        src={ImageChar}
-                        className="rounded-circle mr-1"
-                        width="40"
-                        height="40"
-                      />
-                      <div className="text-muted small text-nowrap mt-2">
-                        2:43 am
-                      </div>
-                    </div>
-                    <div className="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                      <div className="font-weight-bold mb-1">You</div>
-                      Lorem ipsum dolor sit amet, vis erat denique in, dicunt
-                      prodesset te vix.
-                    </div>
-                  </div>
-
-                  <div className="chat-message-left pb-4">
-                    <div>
-                      <img
-                        src={ImageChar}
-                        className="rounded-circle mr-1"
-                        width="40"
-                        height="40"
-                      />
-                      <div className="text-muted small text-nowrap mt-2">
-                        2:44 am
-                      </div>
-                    </div>
-                    <div className="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
-                      <div className="font-weight-bold mb-1">BigMan</div>
-                      Sit meis deleniti eu, pri vidit meliore docendi ut, an eum
-                      erat animal commodo.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex-grow-0 py-3 px-4 border-top">
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Type your message"
-                  />
-                  <button className="btn btn-primary">Send</button>
                 </div>
               </div>
             </div>
@@ -220,5 +131,4 @@ const ChatBox = () => {
     </>
   )
 }
-
-export default ChatBox
+export default ChatBoxs

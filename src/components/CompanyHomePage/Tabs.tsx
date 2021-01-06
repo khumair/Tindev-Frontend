@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Col, Row, Tab, Nav } from 'react-bootstrap'
 import MatchCard from './MatchCard'
 import JobPost from '../JobPost'
-import ChatBox from '../ChatBox'
-
+// import ChatBox from '../ChatBox/index-test'
+import ChatBoxs from '../ChatBox'
 const Tabs = () => {
   return (
     <div className="Container ">
@@ -34,7 +34,7 @@ const Tabs = () => {
                 <MatchCard />
               </Tab.Pane>
               <Tab.Pane eventKey="third">
-                <ChatBox />
+                <ChatBoxs />
               </Tab.Pane>
             </Tab.Content>
           </Col>
