@@ -15,12 +15,10 @@ const Profile = () => {
         <small>Helsinki, Finland</small>
       </p>
 
-      <span className="h5">BSC in Nursing</span>
-      <br />
+      <span className="h5 pr-2">BSC in Nursing</span>
       <small>
         <em>University of Helsinki</em>
       </small>
-
       <br />
       <br />
 
