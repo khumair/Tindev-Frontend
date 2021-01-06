@@ -1,43 +1,50 @@
 import React from 'react'
-import profile from './download.jpeg'
-import { Container, Row, Col, Image, Badge, Button } from 'react-bootstrap'
+import Image from 'react-bootstrap/Image'
+
+import CustomSkill from '../../components/CustomSkill'
+import profileImg from '../../media/profile-img.svg'
+
 const Profile = () => {
   return (
-    <Container className="container">
-      <h3>PROFILE</h3>
-      <Row className="justify-content-md-center">
-        <Col xs={12} md={4}>
-          <Image src={profile} roundedCircle />
-          <h4>Degree</h4>
-          <div className="education">
-            <p className="education__title">BSC in Nursing</p>
-            <p className="education__unversity">University of Helsinki</p>
-          </div>
-          <br />
-          <div className="skills-lists">
-            <h3>Skills</h3>
-            <Badge pill variant="info">
-              JavaScript
-            </Badge>{' '}
-            <Badge pill variant="info">
-              Java
-            </Badge>{' '}
-            <Badge pill variant="info">
-              NodeJS
-            </Badge>{' '}
-          </div>
-          <br />
-          <div className="work-experience">
-            <h3>Work Experience</h3>
-            <p className="work-experience__title">Integrify</p>
-            <p className="work-experience__period">2 Years</p>
-          </div>
-          <h3>Level</h3>
-          <p>Junior Developer</p>
-          <Button variant="success">Chat</Button>
-        </Col>
-      </Row>
-    </Container>
+    <div className="profile-page p-5">
+      <Image src={profileImg} roundedCircle />
+
+      <p className="pb-3">
+        <strong className="lead">Junior developer</strong>
+        <br />
+        <small>Helsinki, Finland</small>
+      </p>
+
+      <span className="h5 pr-2">BSC in Nursing</span>
+      <small>
+        <em>University of Helsinki</em>
+      </small>
+      <br />
+      <br />
+
+      <span className="lead">Skills</span>
+      <div className="d-flex">
+        <CustomSkill skill="JavaScript" />
+        <CustomSkill skill="Redux" />
+        <CustomSkill skill="NodeJs" />
+      </div>
+      <br />
+      <br />
+
+      <span className="lead">Work Experience</span>
+      <div>
+        <small className="pr-5">Integrify</small>
+        <small>2 Years</small>
+      </div>
+      <br />
+
+      <span className="lead">Level</span>
+      <p>Junior Developer</p>
+      <br />
+      <button className="btn btn-outline-success  mr-4 w-50 py-2 p-0">
+        Chat
+      </button>
+    </div>
   )
 }
 export default Profile
