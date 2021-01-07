@@ -21,14 +21,17 @@ const LandingTop = () => (
                 Application for both developers and employers
               </small>
             </p>
-            <div className="pt-3">
+            <div className="pt-1">
               <Link
                 to="/register"
-                className="btn btn-outline-light btn-lg mr-4 w-25 py-2 p-0" // width & padding is improvised to avoid text breakage in btn.
+                className="landBtn btn btn-outline-light btn-lg mr-4 w-25 py-2 p-0" // width & padding is improvised to avoid text breakage in btn.
               >
                 Register
               </Link>
-              <Link to="/login" className="btn btn-outline-light btn-lg w-25">
+              <Link
+                to="/login"
+                className="landBtn btn btn-outline-light btn-lg w-25"
+              >
                 Login
               </Link>
             </div>
