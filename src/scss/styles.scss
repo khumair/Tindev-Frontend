@@ -1,6 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import '_mobile';
 
+$purple-color: linear-gradient(#a24fae, #773bb7);
+
 body {
   padding: 0px;
   margin: 0px auto;
@@ -91,12 +93,15 @@ a:hover {
   padding-bottom: 1.5em;
 }
 
-.login-button {
+.login-button,
+.register-button,
+.profile-button {
+  background: $purple-color;
+  border: none;
   min-width: 100%;
   margin-top: 0.6rem;
 }
 
-/** register page */
 .alert {
   margin-left: 1rem;
   margin-right: 1rem;

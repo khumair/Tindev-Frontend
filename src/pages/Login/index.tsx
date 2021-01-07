@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -15,14 +15,11 @@ import Footer from '../../components/Footer'
 import { loginEmployerRequest } from '../../redux/actions/employer'
 import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 import { AppState } from '../../redux/types'
-import LocalStorage from '../../local-storage'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [role, setRole] = useState({})
-  const [isLoggedIn, setLoggedIn] = useState(false)
-  const [token, setToken] = useState('')
 
   const dispatch = useDispatch()
   const history = useHistory()
@@ -38,13 +35,6 @@ const Login = () => {
     (state: AppState) => state.employer.loading
   )
 
-  useEffect(() => {
-    const token = LocalStorage.getToken()
-    //@ts-ignore
-    setToken(token)
-    setLoggedIn(true)
-  }, [isLoggedIn, token])
-
   const handleRole = (event: React.FormEvent) => {
     event.preventDefault()
     if (document.getElementById('jobseeker') === event.target) {
@@ -59,18 +49,10 @@ const Login = () => {
     e.preventDefault()
     if (role === employer) {
       dispatch(loginEmployerRequest(email, password))
-      if (token) {
-        setLoggedIn(true)
-        history.push('/company/profile')
-      }
+      history.push('/company/profile')
     } else if (role === jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
-      if (token) {
-        setLoggedIn(true)
-        history.push('/jobseeker/match')
-      }
-    } else {
-      setLoggedIn(false)
+      history.push('/jobseeker/profile')
     }
   }
 

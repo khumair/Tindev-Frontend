@@ -6,7 +6,7 @@ import { updateJobseekerRequest } from '../../redux/actions/jobseeker'
 import HalfCircle from '../../components/HalfCircle'
 import CustomButton from '../../components/CustomButton'
 
-const EditProfile = () => {
+const JobseekerProfileForm = () => {
   const [state, setState] = React.useState({
     id: '',
     firstName: '',
@@ -188,4 +188,4 @@ const EditProfile = () => {
   )
 }
 
-export default EditProfile
+export default JobseekerProfileForm
