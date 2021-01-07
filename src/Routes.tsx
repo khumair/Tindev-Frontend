@@ -14,7 +14,7 @@ const Routes = () => (
     <Route exact path="/login" component={Login} />
     <Route exact path="/register" component={Register} />
     <Route exact path="/reset-password" component={PWReset} />
-    <Route exact path="/jobseeker/view" component={ViewJobseeker} />
+    <Route exact path="/match/view/applicant/:id" component={ViewJobseeker} />
     <Route exact path="/company/profile" component={CompanyProfile} />
     <Route exact path="/jobseeker/profile" component={JobseekerProfile} />
   </Switch>
