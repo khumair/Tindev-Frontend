@@ -36,10 +36,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 80vh;
+  height: 90vh;
   width: 100%;
 }
 
+.landBtn {
+  min-width: 90px;
+}
 .half-circle {
   width: 200px;
   height: 100px;
