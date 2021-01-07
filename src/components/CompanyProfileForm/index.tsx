@@ -120,15 +120,10 @@ const CompanyProfileForm = () => {
               </Col>
             </Form.Group>
           </Form>
-          <Button className="btn-form" size="lg">
+          <Button className="btn-form profile-button" size="lg">
             {' '}
             Save
           </Button>
-        </Col>
-        <Col className="upload-image">
-          {/* <Image src={uploadImage} /> <br /> */}
-          <Button className="btn-upload mt-4">Upload</Button>
-          <Form.File id="exampleFormControlFile1" className="btn-upload mt-4" />
         </Col>
       </Row>
     </Container>
