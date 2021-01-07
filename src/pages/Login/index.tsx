@@ -15,7 +15,6 @@ import Footer from '../../components/Footer'
 import { loginEmployerRequest } from '../../redux/actions/employer'
 import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
 import { AppState } from '../../redux/types'
-import LocalStorage from '../../local-storage'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -47,18 +46,13 @@ const Login = () => {
   }
 
   const submitHandler = (e: React.FormEvent) => {
-    const token = LocalStorage.getToken()
     e.preventDefault()
     if (role === employer) {
       dispatch(loginEmployerRequest(email, password))
-      if (token) {
-        history.push('/company/profile')
-      }
+      history.push('/company/profile')
     } else if (role === jobseeker) {
       dispatch(loginJobseekerRequest(email, password))
-      if (token) {
-        history.push('/jobseeker/profile')
-      }
+      history.push('/jobseeker/profile')
     }
   }
 
