@@ -21,7 +21,6 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [role, setRole] = useState({})
-  //const [isLoggedIn, setLoggedIn] = useState(false)
 
   const dispatch = useDispatch()
   const history = useHistory()
