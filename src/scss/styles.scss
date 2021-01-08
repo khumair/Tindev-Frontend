@@ -44,6 +44,7 @@ body {
 
 .landBtn {
   min-width: 90px;
+  transition: all 0.5s linear;
 }
 .half-circle {
   width: 200px;
@@ -190,10 +191,6 @@ Button.register-button {
   position: absolute;
   left: 0;
   right: 0;
-}
-
-.landBtn {
-  transition: all 0.5s linear;
 }
 
 .fade-appear,
