@@ -13,12 +13,12 @@ const CompanyProfile = () => {
   }
 
   return (
-    <>
+    <div className="page">
       <Tabs
         formComponent={<CompanyProfileForm />}
         matchComponent={<MatchCardCompany match={match} />}
       />
-    </>
+    </div>
   )
 }
 export default CompanyProfile

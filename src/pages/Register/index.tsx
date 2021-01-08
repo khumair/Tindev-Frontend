@@ -60,7 +60,7 @@ const Register = () => {
   }
   const variant = message === 'Registered successfully' ? 'success' : 'danger'
   return (
-    <>
+    <div className="page">
       <FormContainer>
         <HalfCircle inputText="Welcome" />
         <h3 className="text-center my-5 purple-text">Sign up</h3>
@@ -136,8 +136,9 @@ const Register = () => {
           </p>
         </Form>
       </FormContainer>
+
       <CustomSvgIcon img={starsLady} />
-    </>
+    </div>
   )
 }
 
