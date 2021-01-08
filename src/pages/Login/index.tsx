@@ -63,7 +63,7 @@ const Login = () => {
   }
 
   return (
-    <>
+    <div className="page">
       <FormContainer>
         <h2 className="signin text-center purple-text">Signin to TinDev</h2>
         {employerError && <Message variant="danger">{employerError}</Message>}
@@ -109,9 +109,10 @@ const Login = () => {
           </Col>
         </Row>
       </FormContainer>
+
       <CustomSvgIcon img={starsLady} />
       <Footer />
-    </>
+    </div>
   )
 }
 
