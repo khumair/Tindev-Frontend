@@ -53,16 +53,16 @@ function* creatingJobPostSaga() {
     console.log(res)
     yield put(registerJobPostSuccess())
   } catch (e) {
-    yield registerJobPostFail(e)
+    yield put(registerJobPostFail(e))
   }
 }
 function* deletingJobPostSaga(action: DeletingRequestActionType) {
   try {
     const jobPostId = yield action.payload
     yield axios.delete(`/employer/jobs/${jobPostId}`)
-    deleteJobPostSuccess()
+    yield put(deleteJobPostSuccess())
   } catch (e) {
-    deleteJobPostFail(e)
+    yield put(deleteJobPostFail(e))
   }
 }
 const sagaWatcher = [
