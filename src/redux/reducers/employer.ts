@@ -27,7 +27,6 @@ const initialState = {
     seniority: '',
     skills: [],
   },
-  jobPostIdToDelete: '',
 }
 
 const employer = (state = initialState, action: EmployerActions) => {
@@ -53,7 +52,7 @@ const employer = (state = initialState, action: EmployerActions) => {
     case JOB_POST_FAIL:
       return { ...state, loading: false, error: action.payload }
     case JOB_DELETE_REQUEST:
-      return { ...state, loading: true, jobPostIdToDelete: action.payload }
+      return { ...state, loading: true }
     case JOB_DELETE_SUCCESS:
       return { ...state, loading: false }
     case JOB_DELETE_FAIL:
