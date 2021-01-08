@@ -1,3 +1,4 @@
+import { RedirectPageActionType } from './../types'
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
@@ -19,13 +20,16 @@ import {
 
 const credential = (state: AppState) => state.employer.credential
 const jobPostFormData = (state: AppState) => state.employer.jobPost
-function* registerEmployerSaga() {
+function* registerEmployerSaga(action: RedirectPageActionType) {
   try {
     const credentialData = yield select(credential)
     const req = yield axios.post('/employer', {
       credential: credentialData,
     })
     yield put(registerEmployerSuccess(req.data))
+    yield console.log('hello there ', req.status) // i could not see this in console
+    const history = yield action.payload
+    history.push('/login')
   } catch (error) {
     yield put(registerEmployerFail())
   }

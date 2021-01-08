@@ -29,6 +29,7 @@ export const GET_SKILLS_SUCCESS = 'GET_SKILLS_SUCCESS'
 export const GET_SKILLS_FAIL = 'GET_SKILLS_FAIL'
 export const ADD_SKILL = 'ADD_SKILL'
 export const REMOVE_SKILL = 'REMOVE_SKILL'
+export const REDIRECT_PAGE = 'REDIRECT_PAGE'
 
 export type EmployerActions =
   | RegisterEmployerRequestAction
@@ -44,6 +45,7 @@ export type EmployerActions =
   | DeletingRequestActionType
   | DeletingSuccessActionType
   | DeletingFailActionType
+  | RedirectPageActionType
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
@@ -361,4 +363,8 @@ export type DeletingFailActionType = {
   payload: {
     error: any
   }
+}
+export type RedirectPageActionType = {
+  type: typeof REDIRECT_PAGE
+  payload: any
 }

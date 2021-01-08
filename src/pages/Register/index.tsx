@@ -9,7 +9,10 @@ import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/star-lady.svg'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
-import { registerEmployerRequest } from '../../redux/actions/employer'
+import {
+  redirectPage,
+  registerEmployerRequest,
+} from '../../redux/actions/employer'
 import { registerJobseekerRequest } from '../../redux/actions/jobseeker'
 import { AppState } from '../../redux/types'
 import FormContainer from '../../components/FormContainer'
@@ -47,8 +50,9 @@ const Register = () => {
       if (role === employer) {
         dispatch(registerEmployerRequest(email, password))
       }
-      setMessage('Registered successfully')
-      setTimeout(() => history.push('/login'), 2000)
+      // setMessage('Registered successfully')
+      // setTimeout(() => history.push('/login'), 2000)
+      dispatch(redirectPage(history))
     }
   }
 
