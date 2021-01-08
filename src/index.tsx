@@ -11,12 +11,10 @@ axios.defaults.baseURL = 'https://tindev-dev-deploy.herokuapp.com'
 const store = makeStore()
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </Router>
-  </React.StrictMode>,
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
   document.getElementById('root')
 )

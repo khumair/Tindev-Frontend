@@ -184,3 +184,34 @@ Button.register-button {
   position: fixed;
   width: 100%;
 }
+
+// Route Navigation Animation
+.page {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.landBtn {
+  transition: all 0.5s linear;
+}
+
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 400ms linear 200ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 250ms linear;
+}
