@@ -187,10 +187,14 @@ Button.register-button {
 }
 
 // Route Navigation Animation
+.app {
+  position: relative;
+}
+
 .page {
   position: absolute;
-  left: 0;
   right: 0;
+  left: 0;
 }
 
 .fade-appear,
@@ -202,7 +206,7 @@ Button.register-button {
 .fade-appear-active,
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 400ms linear 200ms;
+  transition: opacity 300ms linear 150ms;
 }
 
 .fade-exit {
@@ -211,5 +215,5 @@ Button.register-button {
 
 .fade-exit.fade-exit-active {
   opacity: 0;
-  transition: opacity 200ms linear;
+  transition: opacity 150ms linear;
 }
