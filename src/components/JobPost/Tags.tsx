@@ -1,33 +1,23 @@
-import React , {useState} from 'react'
+import React, { useState } from 'react'
+
+import { InputTags } from 'react-bootstrap-tagsinput'
+import 'react-bootstrap-tagsinput/dist/index.css'
 
 const Tags = () => {
-    // const [tags, setTags] = useState([]);
-    // const addTags = event => {
-    //     if (event.key === "Enter" && event.target.value !== "") {
-    //         setTags([...tags, event.target.value]);
-    //         event.target.value = "";
-    //     }
-    // };
-    return (
-//         <div className="tags-input">
-//             <ul>
-//                 {tags.map((tag, index) => (
-//                     <li key={index}>
-//                         <span>{tag}</span>
-//                         <i className="material-icons">close</i>
-//                     </li>
-//                 ))}
-//             </ul>
-//             <input
-//     type="text"
-//     onKeyUp={event => addTags(event)}
-//     placeholder="Press enter to add tags"
-// />
-//         </div>
-<>
-hello
-</>
-
-    );
+  const [state, setState] = useState<string[]>([])
+  return (
+    <div style={{ margin: 10 }}>
+      <div className="input-group">
+        <InputTags values={state} onTags={value => setState(value.values)} />
+      </div>
+      <hr />
+      <ol>
+        {state.map((item, index) => (
+          <li key={item + index}>{item}</li>
+        ))}
+      </ol>
+    </div>
+  )
 }
-export default Tags;
+
+export default Tags

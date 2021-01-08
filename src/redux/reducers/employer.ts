@@ -21,8 +21,9 @@ const initialState = {
   jobPost: {
     title: '',
     jobDescription: '',
-    seniority: '',
-    skills: [],
+    city: '',
+    country: '',
+    skills: '',
   },
 }
 

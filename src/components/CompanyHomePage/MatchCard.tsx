@@ -19,7 +19,10 @@ const MatchCard = () => {
                   <div className="col-xs-8 col-sm-7 col-md-8">
                     <h5>Car System Alerts</h5>
                     <p>Check the battery and alternator conditions</p>
-                    <Badge className="btn nav-pill nav-link btn-outline-primary ">
+                    <Badge
+                      pill
+                      className="btn nav-pill nav-link btn-outline-primary ml-2 "
+                    >
                       JavaScript
                     </Badge>
                     <Badge

@@ -9,6 +9,7 @@ import PWReset from './pages/PWReset'
 import Profile from './pages/Profile'
 import CompanyMatch from './pages/CompanyMatch'
 import CompanyHomePage from './components/CompanyHomePage'
+import JobPost from './components/JobPost'
 
 const Routes = () => (
   <Switch>
@@ -21,6 +22,7 @@ const Routes = () => (
     <Route exact path="/jobseeker/profile" component={Profile} />
     <Route exact path="/company/profile" component={CompanyMatch} />
     <Route exact path="/company/profile1" component={CompanyHomePage} />
+    <Route exact path="/company/jobpost" component={JobPost} />
   </Switch>
 )
 
