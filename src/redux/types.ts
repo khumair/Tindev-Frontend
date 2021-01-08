@@ -275,7 +275,6 @@ export type CredentialStateEmployer = {
     seniority: string
     skills: any[]
   }
-  jobPostIdToDelete: string
 }
 
 export type CredentialStateJobseeker = {
@@ -352,7 +351,7 @@ export type JobFailActionType = {
 }
 export type DeletingRequestActionType = {
   type: typeof JOB_DELETE_REQUEST
-  payload: string
+  payload: number
 }
 export type DeletingSuccessActionType = {
   type: typeof JOB_DELETE_SUCCESS

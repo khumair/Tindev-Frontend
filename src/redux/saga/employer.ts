@@ -1,7 +1,7 @@
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
-import { AppState } from '../types'
+import { AppState, DeletingRequestActionType } from '../types'
 import LocalStorage from '../../local-storage'
 
 import {
@@ -19,7 +19,6 @@ import {
 
 const credential = (state: AppState) => state.employer.credential
 const jobPostFormData = (state: AppState) => state.employer.jobPost
-const id = (state: AppState) => state.employer.jobPostIdToDelete
 function* registerEmployerSaga() {
   try {
     const credentialData = yield select(credential)
@@ -57,9 +56,9 @@ function* creatingJobPostSaga() {
     yield registerJobPostFail(e)
   }
 }
-function* deletingJobPostSaga() {
+function* deletingJobPostSaga(action: DeletingRequestActionType) {
   try {
-    const jobPostId = yield select(id)
+    const jobPostId = yield action.payload
     yield axios.delete(`/employer/jobs/${jobPostId}`)
     deleteJobPostSuccess()
   } catch (e) {

@@ -16,7 +16,6 @@ export const initState: AppState = {
       seniority: '',
       skills: [],
     },
-    jobPostIdToDelete: '',
   }, // changed is here
   jobseeker: {
     credential: { email: '', password: '' },

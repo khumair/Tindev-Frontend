@@ -28,7 +28,7 @@ export const registerJobPostFail = (error: {
     payload: error,
   }
 }
-export const deleteJobPostRequest = (id: string): DeletingRequestActionType => {
+export const deleteJobPostRequest = (id: number): DeletingRequestActionType => {
   return {
     type: 'JOB_DELETE_REQUEST',
     payload: id,
