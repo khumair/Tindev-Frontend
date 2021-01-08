@@ -6,10 +6,12 @@ import MatchCardJobseeker from '../../components/MatchCardJobseeker'
 
 const JobseekerProfile = () => {
   return (
-    <Tabs
-      formComponent={<JobseekerProfileForm />}
-      matchComponent={<MatchCardJobseeker />}
-    />
+    <div className="page">
+      <Tabs
+        formComponent={<JobseekerProfileForm />}
+        matchComponent={<MatchCardJobseeker />}
+      />
+    </div>
   )
 }
 

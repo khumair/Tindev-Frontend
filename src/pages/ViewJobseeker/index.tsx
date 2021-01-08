@@ -6,7 +6,7 @@ import profileImg from '../../media/profile-img.svg'
 
 const Profile = () => {
   return (
-    <div className="profile-page p-5">
+    <div className="profile-page page p-5">
       <Image src={profileImg} roundedCircle />
 
       <p className="pb-3">

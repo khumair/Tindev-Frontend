@@ -44,6 +44,7 @@ body {
 
 .landBtn {
   min-width: 90px;
+  transition: all 0.5s linear;
 }
 .half-circle {
   width: 200px;
@@ -183,4 +184,32 @@ Button.register-button {
   bottom: 0;
   position: fixed;
   width: 100%;
+}
+
+// Route Navigation Animation
+.page {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 400ms linear 200ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms linear;
 }
