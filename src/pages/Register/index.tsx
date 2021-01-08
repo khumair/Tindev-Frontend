@@ -40,18 +40,15 @@ const Register = () => {
       setMessage('Passwords do not match')
     }
 
-    if (role === jobseeker) {
-      if (password === confirmPassword) {
+    if (password === confirmPassword) {
+      if (role === jobseeker) {
         dispatch(registerJobseekerRequest(email, password))
-        setMessage('Registered successfully')
-        setTimeout(() => history.push('/login'), 2000) // to make confirmation of message box of registration
       }
-    } else if (role === employer) {
-      if (password === confirmPassword) {
+      if (role === employer) {
         dispatch(registerEmployerRequest(email, password))
-        setMessage('Registered successfully')
-        setTimeout(() => history.push('/login'), 2000)
       }
+      setMessage('Registered successfully')
+      setTimeout(() => history.push('/login'), 2000)
     }
   }
 
