@@ -14,7 +14,6 @@ import {
   JOB_DELETE_REQUEST,
   JOB_DELETE_SUCCESS,
   JOB_DELETE_FAIL,
-  REDIRECT_PAGE,
 } from '../types'
 
 const initialState = {
@@ -58,8 +57,6 @@ const employer = (state = initialState, action: EmployerActions) => {
       return { ...state, loading: false }
     case JOB_DELETE_FAIL:
       return { ...state, error: action.payload }
-    case REDIRECT_PAGE:
-      return { ...state }
     default:
       return state
   }

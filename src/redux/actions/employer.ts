@@ -7,8 +7,6 @@ import {
   LOGIN_EMPLOYER_SUCCESS,
   LOGIN_EMPLOYER_FAIL,
   LOGOUT_EMPLOYER,
-  REDIRECT_PAGE,
-  RedirectPageActionType,
 } from '../types'
 
 export const registerEmployerRequest = (email: string, password: string) => {
@@ -60,11 +58,5 @@ export const loginEmployerFail = () => {
 export const logoutEmployer = () => {
   return {
     type: LOGOUT_EMPLOYER,
-  }
-}
-export const redirectPage = (history: any): RedirectPageActionType => {
-  return {
-    type: REDIRECT_PAGE,
-    payload: history,
   }
 }

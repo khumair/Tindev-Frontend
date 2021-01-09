@@ -45,7 +45,6 @@ export type EmployerActions =
   | DeletingRequestActionType
   | DeletingSuccessActionType
   | DeletingFailActionType
-  | RedirectPageActionType
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
@@ -363,8 +362,4 @@ export type DeletingFailActionType = {
   payload: {
     error: any
   }
-}
-export type RedirectPageActionType = {
-  type: typeof REDIRECT_PAGE
-  payload: any
 }
