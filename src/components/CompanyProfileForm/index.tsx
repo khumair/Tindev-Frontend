@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Col, Row, Container, Button /*Image*/ } from 'react-bootstrap'
 import DateSelector from '../DateSelector'
+import TagsInput from '../TagsInput'
 
 //import uploadImage from '../../media/upload-Image.png'
 
@@ -67,11 +68,7 @@ const CompanyProfileForm = () => {
                 Nice to have skills
               </Form.Label>
               <Col sm="8">
-                <Form.Control
-                  className="text-field"
-                  type="text"
-                  placeholder="JavaScript"
-                />
+                <TagsInput />
               </Col>
             </Form.Group>
 
