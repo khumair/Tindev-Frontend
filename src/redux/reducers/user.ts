@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   credential: { email: '', password: '' },
+  history: {},
   userInfo: {
     role: '',
     firstName: '',
@@ -40,7 +41,8 @@ const user = (state = initialState, action: UserActions) => {
       return {
         ...state,
         loading: true,
-        credential: action.payload,
+        credential: action.payload.credential,
+        history: action.payload,
       }
     case LOGIN_USER_SUCCESS:
       console.log('payload in redux', action.payload)

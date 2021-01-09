@@ -18,24 +18,16 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const dispatch = useDispatch()
   const history = useHistory()
+
+  const dispatch = useDispatch()
 
   const user = useSelector((state: AppState) => state.user)
   const { error, loading } = user
-  const role = useSelector((state: AppState) => state.user.userInfo.role)
 
   const submitHandler = (e: React.FormEvent) => {
-    console.log('role1', role)
     e.preventDefault()
-    dispatch(loginUserRequest(email, password))
-    if (role === 'jobseeker') {
-      console.log('role', role)
-      history.push('/jobseeker/profile')
-    } else if (role === 'employer') {
-      console.log('role', role)
-      history.push('/company/profile')
-    }
+    dispatch(loginUserRequest(email, password, history))
   }
 
   return (

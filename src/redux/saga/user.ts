@@ -1,21 +1,44 @@
-import { put, takeLatest, select } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
 
 import LocalStorage from '../../local-storage'
-import { AppState } from '../types'
+import { LoginUserRequestAction } from '../types'
 
 import { loginUserSuccess, loginUserFail } from '../actions/user'
 
-const credential = (state: AppState) => state.user.credential
+// function* loginUserSaga() {
+//   try {
+//     const credentialData = yield select(credential)
+//     const res = yield axios.post('/login/local', {
+//       email: credentialData.email,
+//       password: credentialData.password,
+//     })
+//     console.log('res', res)
 
-function* loginUserSaga() {
+//     yield put(loginUserSuccess(res.data.payload))
+//     yield LocalStorage.saveToken(res.data.payload.token)
+//   } catch (error) {
+//     yield put(loginUserFail())
+//   }
+// }
+
+function* loginUserSaga(action: LoginUserRequestAction) {
   try {
-    const credentialData = yield select(credential)
-    const res = yield axios.post('/login/local', {
-      email: credentialData.email,
-      password: credentialData.password,
-    })
+    const email = action.payload.credential.email
+    const password = action.payload.credential.password
+    const history = action.payload.history
+    const res = yield axios.post('/login/local', { email, password })
+
     console.log('res', res)
+    if (res.status === 200) {
+      //@ts-ignore
+      yield put(success(res.data))
+      if (res.data.role === 'employer') {
+        history.push('/company/profile')
+      } else if (res.data.role === 'jobseeker') {
+        history.push('/jobseeker/profile')
+      }
+    }
 
     yield put(loginUserSuccess(res.data.payload))
     yield LocalStorage.saveToken(res.data.payload.token)

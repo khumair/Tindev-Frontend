@@ -5,12 +5,17 @@ import {
   LOGOUT_USER,
 } from '../types'
 
-export const loginUserRequest = (email: string, password: string) => {
+export const loginUserRequest = (
+  email: string,
+  password: string,
+  history: any
+) => {
   return {
     type: LOGIN_USER_REQUEST,
     payload: {
       email,
       password,
+      history,
     },
   }
 }

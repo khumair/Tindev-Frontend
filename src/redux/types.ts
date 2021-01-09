@@ -39,6 +39,7 @@ export type LoginUserRequestAction = {
       email: string
       password: string
     }
+    history: any
   }
 }
 
@@ -234,6 +235,7 @@ export type RemoveSkillAction = {
 export type Credential = {
   email?: string
   password?: string
+  history?: any
   firstName?: string
   lastName?: string
   contact?: string
@@ -264,6 +266,7 @@ export type CredentialStateUser = {
     email: string
     password: string
   }
+  history: any
   userInfo: {
     role: string
   }
