@@ -285,7 +285,6 @@ export type CredentialStateUser = {
       key: string
     }
   }
-
   userInfo: {
     role: string
   }

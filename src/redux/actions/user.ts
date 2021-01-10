@@ -8,7 +8,7 @@ import {
 export const loginUserRequest = (
   email: string,
   password: string,
-  history: any = {}
+  history: any
 ) => {
   return {
     type: LOGIN_USER_REQUEST,
@@ -17,7 +17,16 @@ export const loginUserRequest = (
         email,
         password,
       },
-      history,
+      history: {
+        length: 2,
+        action: '',
+        location: {
+          pathname: '',
+          search: '',
+          hash: '',
+          key: '',
+        },
+      },
     },
   }
 }
