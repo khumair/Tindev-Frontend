@@ -3,12 +3,13 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   LOGOUT_USER,
+  CredentialStateUser,
 } from '../types'
 
 export const loginUserRequest = (
   email: string,
   password: string,
-  history: any
+  history: CredentialStateUser
 ) => {
   return {
     type: LOGIN_USER_REQUEST,
@@ -17,16 +18,7 @@ export const loginUserRequest = (
         email,
         password,
       },
-      history: {
-        length: 2,
-        action: '',
-        location: {
-          pathname: '',
-          search: '',
-          hash: '',
-          key: '',
-        },
-      },
+      history,
     },
   }
 }

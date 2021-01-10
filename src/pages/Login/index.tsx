@@ -27,6 +27,7 @@ const Login = () => {
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
+    //@ts-ignore
     dispatch(loginUserRequest(email, password, history))
   }
 
