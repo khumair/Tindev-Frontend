@@ -39,7 +39,16 @@ export type LoginUserRequestAction = {
       email: string
       password: string
     }
-    history: any
+    history: {
+      length: number
+      action: string
+      location: {
+        pathname: string
+        search: string
+        hash: string
+        key: string
+      }
+    }
   }
 }
 
@@ -266,7 +275,17 @@ export type CredentialStateUser = {
     email: string
     password: string
   }
-  history: any
+  history: {
+    length: number
+    action: string
+    location: {
+      pathname: string
+      search: string
+      hash: string
+      key: string
+    }
+  }
+
   userInfo: {
     role: string
   }

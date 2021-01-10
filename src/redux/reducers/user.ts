@@ -8,7 +8,16 @@ import {
 
 const initialState = {
   credential: { email: '', password: '' },
-  history: {},
+  history: {
+    length: 2,
+    action: '',
+    location: {
+      pathname: '',
+      search: '',
+      hash: '',
+      key: '',
+    },
+  },
   userInfo: {
     role: '',
     firstName: '',

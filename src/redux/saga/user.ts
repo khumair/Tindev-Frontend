@@ -24,9 +24,9 @@ import { loginUserSuccess, loginUserFail } from '../actions/user'
 
 function* loginUserSaga(action: LoginUserRequestAction) {
   try {
-    const email = action.payload.credential.email
-    const password = action.payload.credential.password
-    const history = action.payload.history
+    const email = yield action.payload.credential.email
+    const password = yield action.payload.credential.password
+    const history = yield action.payload.history
     const res = yield axios.post('/login/local', { email, password })
 
     console.log('res', res)
@@ -35,7 +35,8 @@ function* loginUserSaga(action: LoginUserRequestAction) {
       yield put(success(res.data))
       if (res.data.role === 'employer') {
         history.push('/company/profile')
-      } else if (res.data.role === 'jobseeker') {
+      }
+      if (res.data.role === 'jobseeker') {
         history.push('/jobseeker/profile')
       }
     }
