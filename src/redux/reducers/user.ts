@@ -51,7 +51,7 @@ const user = (state = initialState, action: UserActions) => {
         ...state,
         loading: true,
         credential: action.payload.credential,
-        history: action.payload,
+        history: action.payload.history,
       }
     case LOGIN_USER_SUCCESS:
       console.log('payload in redux', action.payload)
