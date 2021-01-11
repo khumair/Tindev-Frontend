@@ -265,7 +265,6 @@ export type CredentialStateUser = {
     email: string
     password: string
   }
-  history: any
   userInfo: {
     role: string
   }
