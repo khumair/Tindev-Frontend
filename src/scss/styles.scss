@@ -1,21 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 @import '_mobile';
-
-$purple-color: linear-gradient(#a24fae, #773bb7);
-
-body {
-  padding: 0px;
-  margin: 0px auto;
-  color: rgb(105, 99, 99);
-  font-family: 'Poppins', sans-serif;
-  width: 100%;
-  overflow-x: hidden;
-}
+@import '_config';
 
 .heading,
 .card-title,
 .card-text {
-  color: #fff;
+  color: $white;
 }
 
 .heading {
@@ -40,12 +30,14 @@ body {
 }
 
 .purple-btn {
-  background-color: var(--purple);
-  border: 1px solid var(--purple);
+  background: var(--purple-gradient);
+  border: 1px solid purple;
+  transition: all 0.5s linear;
 
   &:hover {
-    background-color: #ffffff;
+    background: var(--white);
     color: var(--purple);
+    border: 1px solid purple;
   }
 }
 
@@ -65,11 +57,11 @@ body {
 .half-circle {
   width: 200px;
   height: 100px;
-  background: linear-gradient(#a24fae, #773bb7);
+  background: var(--purple-gradient);
   border-bottom-right-radius: 100px;
   border-bottom-left-radius: 100px;
   border: 0;
-  color: #fff;
+  color: var(--white);
   text-align: center;
 }
 
@@ -113,7 +105,7 @@ a:hover {
 .login-button,
 .register-button,
 .profile-button {
-  background: $purple-color;
+  background: var(--purple-gradient);
   border: none;
   min-width: 100%;
   margin-top: 0.6rem;
