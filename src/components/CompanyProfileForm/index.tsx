@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Col, Row, Container, Button /*Image*/ } from 'react-bootstrap'
 import DateSelector from '../DateSelector'
+import LogOut from '../LogOut'
 
 //import uploadImage from '../../media/upload-Image.png'
 
@@ -8,6 +9,7 @@ const CompanyProfileForm = () => {
   return (
     <Container fluid="md">
       <h2 className="purple-text">Company Profile</h2>
+      <LogOut />
       <Row>
         <Col xs>
           <Form>
