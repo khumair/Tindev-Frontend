@@ -18,7 +18,7 @@ export const loginUserRequest = (
         email,
         password,
       },
-      history,
+      history: history,
     },
   }
 }
