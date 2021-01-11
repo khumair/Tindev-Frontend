@@ -15,8 +15,14 @@ body {
 .heading,
 .card-title,
 .card-text {
-  color: #ddd;
+  color: #fff;
 }
+
+.heading {
+  font-family: 'Merriweather Sans', sans-serif;
+  letter-spacing: 1rem;
+}
+
 .profile-page {
   margin: auto;
   width: 60%;
