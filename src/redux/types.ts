@@ -7,14 +7,10 @@ export const UPDATE_JOBSEEKER_FAIL = 'UPDATE_JOBSEEKER_FAIL'
 export const REGISTER_JOBSEEKER_REQUEST = 'REGISTER_JOBSEEKER_REQUEST'
 export const REGISTER_JOBSEEKER_SUCCESS = 'REGISTER_JOBSEEKER_SUCCESS'
 export const REGISTER_JOBSEEKER_FAIL = 'REGISTER_JOBSEEKER_FAIL'
-export const LOGIN_EMPLOYER_REQUEST = 'LOGIN_EMPLOYER_REQUEST'
-export const LOGIN_EMPLOYER_SUCCESS = 'LOGIN_EMPLOYER_SUCCESS'
-export const LOGIN_EMPLOYER_FAIL = 'LOGIN_EMPLOYER_FAIL'
-export const LOGOUT_EMPLOYER = 'LOGOUT_EMPLOYER'
-export const LOGIN_JOBSEEKER_REQUEST = 'LOGIN_JOBSEEKER_REQUEST'
-export const LOGIN_JOBSEEKER_SUCCESS = 'LOGIN_JOBSEEKER_SUCCESS'
-export const LOGIN_JOBSEEKER_FAIL = 'LOGIN_JOBSEEKER_FAIL'
-export const LOGOUT_JOBSEEKER = 'LOGOUT_JOBSEEKER'
+export const LOGIN_USER_REQUEST = 'LOGIN_USER_REQUEST'
+export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
+export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL'
+export const LOGOUT_USER = 'LOGOUT_USER'
 export const JOB_POST_REQUEST = 'JOB_POST_REQUEST'
 export const JOB_POST_SUCCESS = 'JOB_POST_SUCCESS'
 export const JOB_POST_FAIL = 'JOB_POST_FAIL'
@@ -31,14 +27,68 @@ export const ADD_SKILL = 'ADD_SKILL'
 export const REMOVE_SKILL = 'REMOVE_SKILL'
 export const REDIRECT_PAGE = 'REDIRECT_PAGE'
 
+export type UserActions =
+  | LoginUserRequestAction
+  | LoginUserSuccessAction
+  | LoginUserFailAction
+  | LogoutUserAction
+
+export type LoginUserRequestAction = {
+  type: typeof LOGIN_USER_REQUEST
+  payload: {
+    credential: {
+      email: string
+      password: string
+    }
+    history: any
+  }
+}
+
+export type LoginUserSuccessAction = {
+  type: typeof LOGIN_USER_SUCCESS
+  payload: {
+    credential: {
+      email: string
+      password: string
+    }
+    userInfo: {
+      role: string
+      firstName?: string
+      lastName?: string
+      contact?: string
+      relocate?: boolean
+      seniority?: string
+      startingDate?: string
+      created?: Date
+      education?: {
+        institute?: string
+        degree?: string
+      }
+      skills?: any[]
+      skillLevel?: string
+      companyName?: string
+      companyInfo?: string
+      address?: string
+      jobPost?: any[]
+    }
+  }
+}
+
+export type LoginUserFailAction = {
+  type: typeof LOGIN_USER_FAIL
+  payload: {
+    error: any
+  }
+}
+
+export type LogoutUserAction = {
+  type: typeof LOGOUT_USER
+}
+
 export type EmployerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction
   | RegisterEmployerFailAction
-  | LoginEmployerRequestAction
-  | LoginEmployerSuccessAction
-  | LoginEmployerFailAction
-  | LogoutEmployerAction
   | CreatingJobActionType
   | JobFailActionType
   | JobSuccessActionType
@@ -53,7 +103,6 @@ export type RegisterEmployerRequestAction = {
       email: string
       password: string
     }
-    history: any
   }
 }
 
@@ -63,6 +112,7 @@ export type RegisterEmployerSuccessAction = {
     employerInfo: {
       email: string
       password: string
+      role: string
     }
   }
 }
@@ -74,45 +124,10 @@ export type RegisterEmployerFailAction = {
   }
 }
 
-export type LoginEmployerRequestAction = {
-  type: typeof LOGIN_EMPLOYER_REQUEST
-  payload: {
-    credential: {
-      email: string
-      password: string
-    }
-  }
-}
-
-export type LoginEmployerSuccessAction = {
-  type: typeof LOGIN_EMPLOYER_SUCCESS
-  payload: {
-    employerInfo: {
-      email: string
-      password: string
-    }
-  }
-}
-
-export type LoginEmployerFailAction = {
-  type: typeof LOGIN_EMPLOYER_FAIL
-  payload: {
-    error: any
-  }
-}
-
-export type LogoutEmployerAction = {
-  type: typeof LOGOUT_EMPLOYER
-}
-
 export type JobseekerActions =
   | RegisterJobseekerRequestAction
   | RegisterJobseekerSuccessAction
   | RegisterJobseekerFailAction
-  | LoginJobseekerRequestAction
-  | LoginJobseekerSuccessAction
-  | LoginJobseekerFailAction
-  | LogoutJobseekerAction
   | updateJobseekerRequestAction
   | updateJobseekerSuccessAction
   | updateJobseekerFailAction
@@ -134,6 +149,7 @@ export type RegisterJobseekerSuccessAction = {
     jobSeekerInfo: {
       email: string
       password: string
+      role: string
     }
   }
 }
@@ -143,37 +159,6 @@ export type RegisterJobseekerFailAction = {
   payload: {
     error: any
   }
-}
-
-export type LoginJobseekerRequestAction = {
-  type: typeof LOGIN_JOBSEEKER_REQUEST
-  payload: {
-    credential: {
-      email: string
-      password: string
-    }
-  }
-}
-
-export type LoginJobseekerSuccessAction = {
-  type: typeof LOGIN_JOBSEEKER_SUCCESS
-  payload: {
-    jobSeekerInfo: {
-      email: string
-      password: string
-    }
-  }
-}
-
-export type LoginJobseekerFailAction = {
-  type: typeof LOGIN_JOBSEEKER_FAIL
-  payload: {
-    error: any
-  }
-}
-
-export type LogoutJobseekerAction = {
-  type: typeof LOGOUT_JOBSEEKER
 }
 
 export type SkillsActions =
@@ -255,14 +240,39 @@ export type Credential = {
   firstName?: string
   lastName?: string
   contact?: string
+  relocate?: string
   seniority?: string
   skills?: any[]
   skillLevel?: string
   duration?: string
+  startingDate?: string
+  created?: Date
+  education?: {
+    institute?: string
+    degree?: string
+  }
+  companyName?: string
+  companyInfo?: string
+  address?: string
+  jobPost?: any[]
+  role?: string
 }
 
 export type CredentialState = {
   credential: Credential
+}
+
+export type CredentialStateUser = {
+  credential: {
+    email: string
+    password: string
+  }
+  userInfo: {
+    role: string
+  }
+  loading: Boolean
+  error: any
+  skills: any[]
 }
 
 export type CredentialStateEmployer = {
@@ -270,6 +280,7 @@ export type CredentialStateEmployer = {
     email: string
     password: string
   }
+  role: string
   loading: Boolean
   error: any
   jobPost: {
@@ -285,6 +296,7 @@ export type CredentialStateJobseeker = {
     email: string
     password: string
   }
+  role: string
   loading: Boolean
   error: any
   skills: any[]
@@ -302,7 +314,9 @@ export type SkillState = {
   error: any
 }
 export type IdToDelete = string
+
 export type AppState = {
+  user: CredentialStateUser
   employer: CredentialStateEmployer
   jobseeker: CredentialStateJobseeker
   resources: SkillsState

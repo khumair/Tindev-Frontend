@@ -6,8 +6,18 @@ import rootSaga from './saga'
 import { AppState } from './types'
 
 export const initState: AppState = {
+  user: {
+    credential: { email: '', password: '' },
+    userInfo: {
+      role: '',
+    },
+    loading: false,
+    error: null,
+    skills: [],
+  },
   employer: {
     credential: { email: '', password: '' },
+    role: '',
     loading: false,
     error: null,
     jobPost: {
@@ -16,9 +26,10 @@ export const initState: AppState = {
       seniority: '',
       skills: [],
     },
-  }, // changed is here
+  },
   jobseeker: {
     credential: { email: '', password: '' },
+    role: '',
     loading: false,
     error: null,
     skills: [],

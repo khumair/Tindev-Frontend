@@ -9,61 +9,32 @@ import starsLady from '../../media/standing-lady.svg'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
-import Role from '../../components/Role'
 import CustomButton from '../../components/CustomButton'
 import Footer from '../../components/Footer'
-import { loginEmployerRequest } from '../../redux/actions/employer'
-import { loginJobseekerRequest } from '../../redux/actions/jobseeker'
+import { loginUserRequest } from '../../redux/actions/user'
 import { AppState } from '../../redux/types'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [role, setRole] = useState({})
 
-  const dispatch = useDispatch()
   const history = useHistory()
+  const dispatch = useDispatch()
 
-  const employer = useSelector((state: AppState) => state.employer)
-  const jobseeker = useSelector((state: AppState) => state.jobseeker)
-  const jobseekerError = useSelector((state: AppState) => state.jobseeker.error)
-  const jobseekerLoader = useSelector(
-    (state: AppState) => state.jobseeker.loading
-  )
-  const employerError = useSelector((state: AppState) => state.employer.error)
-  const employerLoader = useSelector(
-    (state: AppState) => state.employer.loading
-  )
-
-  const handleRole = (event: React.FormEvent) => {
-    event.preventDefault()
-    if (document.getElementById('jobseeker') === event.target) {
-      setRole(jobseeker)
-    }
-    if (document.getElementById('employer') === event.target) {
-      setRole(employer)
-    }
-  }
+  const user = useSelector((state: AppState) => state.user)
+  const { error, loading } = user
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    if (role === employer) {
-      dispatch(loginEmployerRequest(email, password))
-      history.push('/company/profile')
-    } else if (role === jobseeker) {
-      dispatch(loginJobseekerRequest(email, password))
-      history.push('/jobseeker/profile')
-    }
+    dispatch(loginUserRequest(email, password, history))
   }
 
   return (
-    <div className="page">
+    <>
       <FormContainer>
         <h2 className="signin text-center purple-text">Signin to TinDev</h2>
-        {employerError && <Message variant="danger">{employerError}</Message>}
-        {employerLoader && <Loader />}
-        {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
-        {jobseekerLoader && <Loader />}
+        {error && <Message variant="danger">{error}</Message>}
+        {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="email">
             <Form.Label className="label">EMAIL</Form.Label>
@@ -84,7 +55,6 @@ const Login = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Role handleRole={handleRole} text1="Employer" text2="Jobseeker" />
           <CustomButton text="Login" className="login-button" />
         </Form>
         <Row className="forgot-password py-3">
@@ -103,10 +73,9 @@ const Login = () => {
           </Col>
         </Row>
       </FormContainer>
-
       <CustomSvgIcon img={starsLady} />
       <Footer />
-    </div>
+    </>
   )
 }
 
