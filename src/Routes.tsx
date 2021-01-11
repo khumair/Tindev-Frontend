@@ -5,9 +5,8 @@ import Login from './pages/Login'
 import PWReset from './pages/PWReset'
 import Landing from './pages/Landing'
 import Register from './pages/Register'
+import AuthApp from './components/AuthApp'
 import ViewJobseeker from './pages/ViewJobseeker'
-import CompanyProfile from './pages/CompanyProfile'
-import JobseekerProfile from './pages/JobseekerProfile'
 
 const Routes = () => (
   <Route
@@ -24,12 +23,7 @@ const Routes = () => (
               path="/match/view/applicant/:id"
               component={ViewJobseeker}
             />
-            <Route exact path="/company/profile" component={CompanyProfile} />
-            <Route
-              exact
-              path="/jobseeker/profile"
-              component={JobseekerProfile}
-            />
+            <Route exact path="/user/profile" component={AuthApp} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>

@@ -3,13 +3,10 @@ import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
 import { AppState, DeletingRequestActionType } from '../types'
-import LocalStorage from '../../local-storage'
 
 import {
   registerEmployerSuccess,
   registerEmployerFail,
-  loginEmployerSuccess,
-  loginEmployerFail,
 } from '../../redux/actions/employer'
 import {
   registerJobPostSuccess,
@@ -36,21 +33,6 @@ function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   }
 }
 
-function* loginEmployerSaga() {
-  try {
-    const credentialData = yield select(credential)
-    const res = yield axios.post('/login/local', {
-      email: credentialData.email,
-      password: credentialData.password,
-    })
-
-    yield put(loginEmployerSuccess(res))
-    yield LocalStorage.saveToken(res.data.payload.token)
-  } catch (error) {
-    yield put(loginEmployerFail())
-  }
-}
-
 function* creatingJobPostSaga() {
   try {
     const job = yield select(jobPostFormData)
@@ -72,7 +54,6 @@ function* deletingJobPostSaga(action: DeletingRequestActionType) {
 }
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
-  takeLatest('LOGIN_EMPLOYER_REQUEST', loginEmployerSaga),
   takeLatest('JOB_POST_REQUEST', creatingJobPostSaga),
   takeLatest('JOB_DELETE_REQUEST', deletingJobPostSaga),
 ]
