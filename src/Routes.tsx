@@ -23,8 +23,7 @@ const Routes = () => (
               path="/match/view/applicant/:id"
               component={ViewJobseeker}
             />
-            <Route exact path="/company/profile" component={AuthApp} />
-            <Route exact path="/jobseeker/profile" component={AuthApp} />
+            <Route exact path="/user/profile" component={AuthApp} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>

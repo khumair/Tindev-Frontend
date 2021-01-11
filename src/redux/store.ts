@@ -9,16 +9,6 @@ export const initState: AppState = {
   user: {
     credential: { email: '', password: '' },
     history: [],
-    // history: {
-    //   length: 2,
-    //   action: '',
-    //   location: {
-    //     pathname: '',
-    //     search: '',
-    //     hash: '',
-    //     key: '',
-    //   },
-    // },
     userInfo: {
       role: '',
     },
@@ -37,7 +27,7 @@ export const initState: AppState = {
       seniority: '',
       skills: [],
     },
-  }, // changed is here
+  },
   jobseeker: {
     credential: { email: '', password: '' },
     role: '',

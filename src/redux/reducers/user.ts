@@ -45,7 +45,6 @@ const user = (state = initialState, action: UserActions) => {
         history: action.payload.history,
       }
     case LOGIN_USER_SUCCESS:
-      console.log('payload in redux', action.payload)
       return { ...state, loading: false, userInfo: action.payload }
     case LOGIN_USER_FAIL:
       return { ...state, loading: false, error: action.payload }
