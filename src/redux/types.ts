@@ -103,6 +103,7 @@ export type RegisterEmployerRequestAction = {
       email: string
       password: string
     }
+    history: any
   }
 }
 
