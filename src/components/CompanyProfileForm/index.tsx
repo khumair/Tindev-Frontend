@@ -119,11 +119,20 @@ const CompanyProfileForm = () => {
                 <DateSelector />
               </Col>
             </Form.Group>
+
+            <Form.Group
+              as={Row}
+              className="form-group-set"
+              controlId="formPlaintextPassword"
+            >
+              <Form.Label column sm="4"></Form.Label>
+              <Col sm="8">
+                <Button className="purple-btn w-50 mt-5" size="lg">
+                  Save
+                </Button>
+              </Col>
+            </Form.Group>
           </Form>
-          <Button className="btn-form profile-button" size="lg">
-            {' '}
-            Save
-          </Button>
         </Col>
       </Row>
     </Container>

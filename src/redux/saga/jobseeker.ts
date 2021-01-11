@@ -1,6 +1,6 @@
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
-import { AppState } from '../types'
+import { AppState, RegisterJobseekerRequestAction } from '../types'
 
 import LocalStorage from '../../local-storage'
 import {
@@ -14,13 +14,17 @@ import {
 
 const credential = (state: AppState) => state.jobseeker.credential
 
-function* registerJobseekerSaga() {
+function* registerJobseekerSaga(action: RegisterJobseekerRequestAction) {
   try {
     const credentialData = yield select(credential)
     const res = yield axios.post('/jobseeker', {
       credential: credentialData,
     })
     yield put(registerJobseekerSuccess(res.data))
+    const history = action.payload.history
+    if (res.data.status === 201) {
+      yield history.push('/login')
+    }
   } catch (error) {
     yield put(registerJobseekerFail())
   }

@@ -29,6 +29,7 @@ export const GET_SKILLS_SUCCESS = 'GET_SKILLS_SUCCESS'
 export const GET_SKILLS_FAIL = 'GET_SKILLS_FAIL'
 export const ADD_SKILL = 'ADD_SKILL'
 export const REMOVE_SKILL = 'REMOVE_SKILL'
+export const REDIRECT_PAGE = 'REDIRECT_PAGE'
 
 export type EmployerActions =
   | RegisterEmployerRequestAction
@@ -52,6 +53,7 @@ export type RegisterEmployerRequestAction = {
       email: string
       password: string
     }
+    history: any
   }
 }
 
@@ -122,6 +124,7 @@ export type RegisterJobseekerRequestAction = {
       email: string
       password: string
     }
+    history: any
   }
 }
 

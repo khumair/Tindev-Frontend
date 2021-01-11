@@ -1,3 +1,4 @@
+import { RegisterEmployerRequestAction } from './../types'
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
@@ -19,13 +20,17 @@ import {
 
 const credential = (state: AppState) => state.employer.credential
 const jobPostFormData = (state: AppState) => state.employer.jobPost
-function* registerEmployerSaga() {
+function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   try {
     const credentialData = yield select(credential)
-    const req = yield axios.post('/employer', {
+    const res = yield axios.post('/employer', {
       credential: credentialData,
     })
-    yield put(registerEmployerSuccess(req.data))
+    yield put(registerEmployerSuccess(res.data))
+    const history = action.payload.history
+    if (res.data.status === 201) {
+      yield history.push('/login')
+    }
   } catch (error) {
     yield put(registerEmployerFail())
   }
