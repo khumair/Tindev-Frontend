@@ -39,6 +39,16 @@ body {
   background-color: var(--purple);
 }
 
+.purple-btn {
+  background-color: var(--purple);
+  border: 1px solid var(--purple);
+
+  &:hover {
+    background-color: #ffffff;
+    color: var(--purple);
+  }
+}
+
 .landing-top-bg {
   background: url(../media/header-img.svg);
   background-position: center;
