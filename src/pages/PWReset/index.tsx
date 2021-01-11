@@ -5,12 +5,13 @@ import CustomButton from '../../components/CustomButton'
 import starsLady from '../../media/star-lady.svg'
 import { Form, Col } from 'react-bootstrap'
 import FormContainer from '../../components/FormContainer'
+import Footer from '../../components/Footer'
 
 const PWReset = () => {
   return (
-    <div className="container">
+    <div className="container page">
       <FormContainer>
-        <h2 className="text-center my-5">Reset Password</h2>
+        <h2 className="text-center my-5 purple-text">Reset Password</h2>
         <Form noValidate>
           <label htmlFor="new-pw" className="form-label">
             New Password
@@ -34,6 +35,7 @@ const PWReset = () => {
         </Form>
       </FormContainer>
       <CustomSvgIcon img={starsLady} />
+      <Footer />
     </div>
   )
 }

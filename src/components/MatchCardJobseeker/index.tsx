@@ -1,8 +1,8 @@
 import React from 'react'
 
-import CustomCard from '../../components/CustomCard'
+import CustomCard from '../CustomCard'
 
-const JobSeeker = () => {
+const MatchCardJobseeker = () => {
   return (
     <div>
       <div className="card-container">
@@ -28,4 +28,4 @@ const JobSeeker = () => {
   )
 }
 
-export default JobSeeker
+export default MatchCardJobseeker

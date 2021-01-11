@@ -3,49 +3,39 @@ import axios from 'axios'
 import { AppState } from '../types'
 
 import {
+  updateJobseekerFail,
+  updateJobseekerSuccess,
   registerJobseekerSuccess,
   registerJobseekerFail,
-  loginJobseekerSuccess,
-  loginJobseekerFail,
-} from '../../redux/actions/jobseeker'
+} from './../actions/jobseeker'
 
 const credential = (state: AppState) => state.jobseeker.credential
+
 function* registerJobseekerSaga() {
   try {
     const credentialData = yield select(credential)
-    const req = yield axios.post('/jobseeker', {
-      info: {},
+    const res = yield axios.post('/jobseeker', {
       credential: credentialData,
     })
-    yield put(registerJobseekerSuccess(req.data))
+    yield put(registerJobseekerSuccess(res.data))
   } catch (error) {
     yield put(registerJobseekerFail())
   }
 }
 
-function* loginJobseekerSaga() {
+function* updateJobseekerSaga(credential: Credential) {
   try {
-    const credentialData = yield select(credential)
-    const res = yield axios.post('/jobseeker/login/local', {
-      email: credentialData.email,
-      password: credentialData.password,
-    })
-    yield put(loginJobseekerSuccess(res.data))
+    const response = yield axios.patch('/jobSeeker', { credential })
+    console.log('response::: >', response)
+    yield put(updateJobseekerSuccess(response.data))
   } catch (error) {
-    yield put(loginJobseekerFail())
+    yield put(updateJobseekerFail(error.message))
   }
-
-  //localStorage.setItem('jobSeekerInfo', JSON.stringify(credential))
 }
 
-// export const jobSeekerInfoFromStorage = localStorage.getItem('jobSeekerInfo')
-//   ? //@ts-ignore
-//     JSON.parse(localStorage.getItem('jobSeekerInfo'))
-//   : null
-
 const sagaWatcher = [
+  takeLatest('UPDATE_JOBSEEKER_REQUEST', updateJobseekerSaga),
   takeLatest('REGISTER_JOBSEEKER_REQUEST', registerJobseekerSaga),
-  takeLatest('LOGIN_JOBSEEKER_REQUEST', loginJobseekerSaga),
 ]
 
 export default sagaWatcher

@@ -1,30 +1,21 @@
 import React from 'react'
-import { LinkContainer } from 'react-router-bootstrap'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 
-import './NavBar.scss'
+import LogOut from '../LogOut'
 
 const NavBar = () => {
+  const isAuthenticated = true // temporarily included. Will be after confirmation of authentication from backend team.
+
   return (
-    <Navbar expand="lg" collapseOnSelect className="navbar">
-      <LinkContainer to="/">
-        <Navbar.Brand>TinDev</Navbar.Brand>
-      </LinkContainer>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
-          <LinkContainer to="/register">
-            <Nav.Link>
-              <i className="register"></i>Register
-            </Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/login">
-            <Nav.Link>
-              <i className="fas fa-user"></i>Login
-            </Nav.Link>
-          </LinkContainer>
-        </Nav>
-      </Navbar.Collapse>
+    <Navbar bg="light" expand="lg" className="justify-content-between mx-5">
+      <Navbar.Brand href="/">TinDev</Navbar.Brand>
+      <Nav>
+        {isAuthenticated ? (
+          <Nav.Link href="/">
+            <LogOut />
+          </Nav.Link>
+        ) : null}
+      </Nav>
     </Navbar>
   )
 }

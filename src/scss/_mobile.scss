@@ -2,15 +2,14 @@
   .hide-md {
     display: none !important;
   }
+  .custom-skill {
+    min-width: unset;
+  }
 }
 
 @media screen and (max-width: 576px) {
   .hide-sm {
     display: none !important;
-  }
-
-  .personal-form {
-    width: 100% !important;
   }
 
   .card-container {

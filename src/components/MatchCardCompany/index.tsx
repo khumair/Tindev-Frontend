@@ -1,23 +1,22 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Col } from 'react-bootstrap'
 
 import Candidate from '../Candidate'
 //import male from '../../media/male.png'
 
 type MatchCardProps = {
-  firstName: string
-  lastName: string
-  skills: any[]
+  match: {
+    firstName: string
+    lastName: string
+    skills: any[]
+  }
 }
 
-const MatchCard = ({ firstName, lastName, skills }: MatchCardProps) => {
+const MatchCardCompany = ({ match }: MatchCardProps) => {
   return (
     <div className="Container">
-      <div className="d-flex flex-row-reverse">
-        {/* <Form inline className="search-form">
-          <FormControl type="text" placeholder="Search" className=" mr-sm-2" />
-        </Form> */}
-      </div>
+      <div className="d-flex flex-row-reverse"></div>
       <div className="Row mb-2">
         <div className="Col-md-12">
           {/* <a href="#" className="text-dark"> */}
@@ -30,18 +29,27 @@ const MatchCard = ({ firstName, lastName, skills }: MatchCardProps) => {
                   </div> */}
                 <div className="col-xs-8 col-sm-7 col-md-8">
                   <Candidate
-                    key={lastName}
-                    firstName={firstName}
-                    lastName={lastName}
-                    skills={skills}
+                    key={match.lastName}
+                    firstName={match.firstName}
+                    lastName={match.lastName}
+                    skills={match.skills}
                   />
 
                   {/* <Button  className="float-right" variant="primary" >Primary</Button>
                     <Button variant="primary">Primary</Button> */}
                 </div>
+                <Col>
+                  {/*TODO: path needs to be dynamic */}
+                  <Link className="float-right" to="/match/view/applicant/:id">
+                    View Profile
+                  </Link>
+                </Col>
+                <Col>
+                  <Link to="/chat">Chat</Link>
+                </Col>
 
-                <Button className="card-button">View Profile</Button>
-                <Button className="card-button">Chat</Button>
+                {/* <Button className="card-button">View Profile</Button>
+                <Button className="card-button">Chat</Button> */}
               </div>
             </div>
           </div>
@@ -51,4 +59,4 @@ const MatchCard = ({ firstName, lastName, skills }: MatchCardProps) => {
     </div>
   )
 }
-export default MatchCard
+export default MatchCardCompany

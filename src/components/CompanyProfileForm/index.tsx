@@ -1,12 +1,13 @@
 import React from 'react'
 import { Form, Col, Row, Container, Button /*Image*/ } from 'react-bootstrap'
 import DateSelector from '../DateSelector'
+
 //import uploadImage from '../../media/upload-Image.png'
 
 const CompanyProfileForm = () => {
   return (
     <Container fluid="md">
-      <h2 className="row justify-content-center">Company Profile</h2>
+      <h2 className="purple-text">Company Profile</h2>
       <Row>
         <Col xs>
           <Form>
@@ -63,7 +64,7 @@ const CompanyProfileForm = () => {
               controlId="formElement"
             >
               <Form.Label column sm="4">
-                Nice to have
+                Nice to have skills
               </Form.Label>
               <Col sm="8">
                 <Form.Control
@@ -115,28 +116,14 @@ const CompanyProfileForm = () => {
                 Starting At
               </Form.Label>
               <Col sm="8">
-                {/* <Form.Control
-                  className="text-field"
-                  type="text"
-                  placeholder="29/12/2020"
-                /> */}
                 <DateSelector />
               </Col>
             </Form.Group>
           </Form>
-          <Button className="btn-form" size="lg" block>
+          <Button className="btn-form profile-button" size="lg">
             {' '}
             Save
           </Button>
-          {/* </Col> */}
-          {/* <Col className="upload-image">
-          <Image src={uploadImage} /> <br />
-          <div className="btn btn-primary">
-            Upload
-            <Form.File type="file" name="file" className="upload-btn" />
-          </div> */}
-          {/* <Button className="btn-upload mt-4">Upload</Button> */}
-          {/* <Form.File id="exampleFormControlFile1"  className="btn-upload mt-4"/> */}
         </Col>
       </Row>
     </Container>

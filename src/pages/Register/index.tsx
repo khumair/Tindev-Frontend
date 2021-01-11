@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Form, Col, Button } from 'react-bootstrap'
+import { Form, Col } from 'react-bootstrap'
 
 import HalfCircle from '../../components/HalfCircle'
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/star-lady.svg'
-import CustomButton from '../../components/CustomButton'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { registerEmployerRequest } from '../../redux/actions/employer'
@@ -22,9 +21,9 @@ const Register = () => {
   const [role, setRole] = useState({})
 
   const employer = useSelector((state: AppState) => state.employer)
-  const jobSeeker = useSelector((state: AppState) => state.jobseeker)
-  const jobSeekerError = useSelector((state: AppState) => state.jobseeker.error)
-  const jobSeekerLoader = useSelector(
+  const jobseeker = useSelector((state: AppState) => state.jobseeker)
+  const jobseekerError = useSelector((state: AppState) => state.jobseeker.error)
+  const jobseekerLoader = useSelector(
     (state: AppState) => state.jobseeker.loading
   )
   const employerError = useSelector((state: AppState) => state.employer.error)
@@ -34,48 +33,41 @@ const Register = () => {
 
   const dispatch = useDispatch()
 
-  const handleSeeker = (event: React.FormEvent) => {
-    event.preventDefault()
-    setRole(jobSeeker)
-  }
-
-  const handleCompany = (event: React.FormEvent) => {
-    event.preventDefault()
-    setRole(employer)
-  }
-
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
-    const info = {}
     if (password !== confirmPassword) {
       setMessage('Passwords do not match')
     }
 
-    if (role === jobSeeker) {
-      dispatch(registerJobseekerRequest(info, email, password))
+    if (role === jobseeker) {
+      dispatch(registerJobseekerRequest(email, password))
+      setMessage('Registered successfully')
     } else if (role === employer) {
-      dispatch(registerEmployerRequest(info, email, password))
+      dispatch(registerEmployerRequest(email, password))
+      setMessage('Registered successfully')
     }
   }
 
+  const employerSelect = () => {
+    setRole(employer)
+  }
+  const jobseekerSelect = () => {
+    setRole(jobseeker)
+  }
+
   return (
-    <>
+    <div className="page">
       <FormContainer>
         <HalfCircle inputText="Welcome" />
-        <h3 className="text-center my-5">Sign up</h3>
-        {message && <Message variant="danger">{message}</Message>}
-        {jobSeekerError && <Message variant="danger">{jobSeekerError}</Message>}
-        {jobSeekerLoader && <Loader />}
+        <h3 className="text-center my-5 purple-text">Sign up</h3>
+        {jobseekerError && <Message variant="danger">{jobseekerError}</Message>}
+        {jobseekerLoader && <Loader />}
         {employerError && <Message variant="danger">{employerError}</Message>}
         {employerLoader && <Loader />}
-
+        {!jobseekerError && !employerError && message && (
+          <Message variant="success">{message}</Message>
+        )}
         <Form onSubmit={handleSubmit} className="container">
-          <Button className="employer-role" onClick={handleCompany}>
-            Register employer
-          </Button>
-          <Button className="jobseeker-role" onClick={handleSeeker}>
-            Register jobseeker
-          </Button>
           <Form.Row>
             <Form.Group as={Col} controlId="validationCustomEmail">
               <Form.Control
@@ -117,16 +109,32 @@ const Register = () => {
               />
             </Form.Group>
           </Form.Row>
-
-          <CustomButton text="Submit" className="my-3 register-button" />
-
-          <p>
-            Already a member? <Link to="/login">Sign In</Link>
+          <br />
+          <div className="d-flex justify-content-around  mb-5">
+            <button
+              className="employerBtn btn btn-outline-success mr-5 w-50"
+              onClick={employerSelect}
+            >
+              I am an Employer
+            </button>
+            <button
+              className="employerBtn btn btn-outline-success w-50"
+              onClick={jobseekerSelect}
+            >
+              I am a Jobseeker
+            </button>
+          </div>
+          <p className="text-center">
+            Already a member?
+            <Link to="/login" className="purple-text pl-2">
+              Sign In
+            </Link>
           </p>
         </Form>
       </FormContainer>
+
       <CustomSvgIcon img={starsLady} />
-    </>
+    </div>
   )
 }
 

@@ -1,55 +1,40 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Form, Row, Col } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
 
 import CustomSvgIcon from '../../components/CustomSvgIcon'
 import starsLady from '../../media/standing-lady.svg'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import FormContainer from '../../components/FormContainer'
-
 import CustomButton from '../../components/CustomButton'
-import {
-  loginEmployerRequest,
-  loginJobseekerRequest,
-} from '../../redux/actions/'
-
+import Footer from '../../components/Footer'
+import { loginUserRequest } from '../../redux/actions/user'
 import { AppState } from '../../redux/types'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const dispatch = useDispatch()
   const history = useHistory()
 
-  const employer = useSelector((state: AppState) => state.employer)
-  const jobseeker = useSelector((state: AppState) => state.jobseeker)
-  const { loading, error } = jobseeker || employer
+  const dispatch = useDispatch()
 
-  // useEffect(() => {
-  // 	if (userInfo) {
-  // 		history.push(redirect)
-  // 	}
-  // }, [history, userInfo, redirect])
+  const user = useSelector((state: AppState) => state.user)
+  const { error, loading } = user
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    if (employer) {
-      dispatch(loginEmployerRequest(email, password))
-      history.push('/employer/homepage')
-    } else if (jobseeker) {
-      dispatch(loginJobseekerRequest(email, password))
-      history.push('/jobseeker/homepage')
-    }
+    //@ts-ignore
+    dispatch(loginUserRequest(email, password, history))
   }
 
   return (
-    <div>
+    <>
       <FormContainer>
-        <h2 className="signin text-center">Signin to TinDev</h2>
+        <h2 className="signin text-center purple-text">Signin to TinDev</h2>
         {error && <Message variant="danger">{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
@@ -71,7 +56,8 @@ const Login = () => {
               onChange={e => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <CustomButton text="Login" />
+
+          <CustomButton text="Login" className="login-button" />
         </Form>
         <Row className="forgot-password py-3">
           <Col>
@@ -90,7 +76,8 @@ const Login = () => {
         </Row>
       </FormContainer>
       <CustomSvgIcon img={starsLady} />
-    </div>
+      <Footer />
+    </>
   )
 }
 
