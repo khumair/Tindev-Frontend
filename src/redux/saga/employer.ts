@@ -23,13 +23,12 @@ const jobPostFormData = (state: AppState) => state.employer.jobPost
 function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   try {
     const credentialData = yield select(credential)
-    const req = yield axios.post('/employer', {
+    const res = yield axios.post('/employer', {
       credential: credentialData,
     })
-    yield put(registerEmployerSuccess(req.data))
-    yield console.log('hello there ', req.data.status) // i could not see this in console
-    const history = yield action.payload
-    if (req.status === 200) {
+    yield put(registerEmployerSuccess(res.data))
+    const history = action.payload.history
+    if (res.data.status === 201) {
       yield history.push('/login')
     }
   } catch (error) {

@@ -53,6 +53,7 @@ export type RegisterEmployerRequestAction = {
       email: string
       password: string
     }
+    history: any
   }
 }
 
@@ -123,6 +124,7 @@ export type RegisterJobseekerRequestAction = {
       email: string
       password: string
     }
+    history: any
   }
 }
 

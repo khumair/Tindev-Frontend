@@ -45,7 +45,7 @@ const Register = () => {
         dispatch(registerJobseekerRequest(email, password, history))
       }
       if (role === employer) {
-        dispatch(registerEmployerRequest(email, password))
+        dispatch(registerEmployerRequest(email, password, history))
       }
       // setMessage('Registered successfully')
       // setTimeout(() => history.push('/login'), 2000)
