@@ -19,7 +19,6 @@ const Login = () => {
   const [password, setPassword] = useState('')
 
   const history = useHistory()
-
   const dispatch = useDispatch()
 
   const user = useSelector((state: AppState) => state.user)
