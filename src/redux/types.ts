@@ -1,6 +1,9 @@
 export const REGISTER_EMPLOYER_REQUEST = 'REGISTER_EMPLOYER_REQUEST'
 export const REGISTER_EMPLOYER_SUCCESS = 'REGISTER_EMPLOYER_SUCCESS'
 export const REGISTER_EMPLOYER_FAIL = 'REGISTER_EMPLOYER_FAIL'
+export const UPDATE_EMPLOYER_REQUEST = 'UPDATE_EMPLOYER_REQUEST'
+export const UPDATE_EMPLOYER_SUCCESS = 'UPDATE_EMPLOYER_SUCCESS'
+export const UPDATE_EMPLOYER_FAIL = 'UPDATE_EMPLOYER_FAIL'
 export const UPDATE_JOBSEEKER_REQUEST = 'UPDATE_JOBSEEKER_REQUEST'
 export const UPDATE_JOBSEEKER_SUCCESS = 'UPDATE_JOBSEEKER_SUCCESS'
 export const UPDATE_JOBSEEKER_FAIL = 'UPDATE_JOBSEEKER_FAIL'
@@ -14,6 +17,9 @@ export const LOGOUT_USER = 'LOGOUT_USER'
 export const JOB_POST_REQUEST = 'JOB_POST_REQUEST'
 export const JOB_POST_SUCCESS = 'JOB_POST_SUCCESS'
 export const JOB_POST_FAIL = 'JOB_POST_FAIL'
+export const JOB_UPDATE_REQUEST = 'UPDATE_JOB_REQUEST'
+export const JOB_UPDATE_SUCCESS = 'UPDATE_JOB_SUCCESS'
+export const JOB_UPDATE_FAIL = 'UPDATE_JOB_FAIL'
 export const JOB_DELETE_REQUEST = 'JOB_DELETE_REQUEST'
 export const JOB_DELETE_SUCCESS = 'JOB_DELETE_SUCCESS'
 export const JOB_DELETE_FAIL = 'JOB_DELETE_FAIL'
@@ -120,6 +126,25 @@ export type RegisterEmployerFailAction = {
   type: typeof REGISTER_EMPLOYER_FAIL
   payload: {
     error: any
+  }
+}
+
+export type UpdateJobRequestAction = {
+  type: typeof UPDATE_EMPLOYER_REQUEST
+  payload: {
+    id: number
+  }
+}
+
+export type UpdateJobSuccessAction = {
+  type: typeof UPDATE_EMPLOYER_SUCCESS
+  payload: {}
+}
+
+export type UpdateJobFailAction = {
+  type: typeof UPDATE_EMPLOYER_SUCCESS
+  payload: {
+    error: string
   }
 }
 
@@ -356,22 +381,27 @@ export type CreatingJobActionType = {
   type: typeof JOB_POST_REQUEST
   payload: JobPost
 }
+
 export type JobSuccessActionType = {
   type: typeof JOB_POST_SUCCESS
 }
+
 export type JobFailActionType = {
   type: typeof JOB_POST_FAIL
   payload: {
     error: any
   }
 }
+
 export type DeletingRequestActionType = {
   type: typeof JOB_DELETE_REQUEST
   payload: number
 }
+
 export type DeletingSuccessActionType = {
   type: typeof JOB_DELETE_SUCCESS
 }
+
 export type DeletingFailActionType = {
   type: typeof JOB_DELETE_FAIL
   payload: {
