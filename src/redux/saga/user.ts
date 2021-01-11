@@ -27,21 +27,23 @@ function* loginUserSaga(action: LoginUserRequestAction) {
     const email = yield action.payload.credential.email
     const password = yield action.payload.credential.password
     const history = yield action.payload.history
-    yield console.log('history', history)
     const res = yield axios.post('/login/local', { email, password })
 
-    console.log('res', res)
     if (res.data.status === 200) {
       yield put(loginUserSuccess(res.data.payload))
       yield LocalStorage.saveToken(res.data.payload.token)
+
       if (res.data.payload.role === 'employer') {
         history.push('/company/profile')
-      }
-      if (res.data.payload.role === 'jobseeker') {
+      } else if (res.data.payload.role === 'job seeker') {
         history.push('/jobseeker/profile')
+      } else {
+        throw new Error()
       }
     }
   } catch (error) {
+    const history = yield action.payload.history
+    history.push('/')
     yield put(loginUserFail())
   }
 }
