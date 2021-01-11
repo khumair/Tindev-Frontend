@@ -31,13 +31,13 @@
 
 .purple-btn {
   background: var(--purple-gradient);
-  border: 1px solid purple;
+  border: 1px solid var(--purple);
   transition: all 0.5s linear;
 
   &:hover {
     background: var(--white);
+    border: 1px solid var(--purple);
     color: var(--purple);
-    border: 1px solid purple;
   }
 }
 
