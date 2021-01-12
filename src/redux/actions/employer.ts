@@ -38,17 +38,17 @@ export const registerEmployerFail = () => {
   }
 }
 
-export const updateEmployerRequest = (companyName: string) => {
+export const updateEmployerRequest = (employerInfo: any) => {
   return {
     type: UPDATE_EMPLOYER_REQUEST,
-    payload: companyName,
+    payload: employerInfo,
   }
 }
 
-export const updateEmployerSuccess = (companyName: string) => {
+export const updateEmployerSuccess = (employerInfo: any) => {
   return {
     type: UPDATE_EMPLOYER_SUCCESS,
-    payload: companyName,
+    payload: employerInfo,
   }
 }
 

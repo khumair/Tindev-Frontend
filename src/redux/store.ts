@@ -24,8 +24,7 @@ export const initState: AppState = {
       title: '',
       jobDescription: '',
       seniority: '',
-      skills: [],
-      startingDate: '',
+      requiredSkills: [],
     },
   },
   jobseeker: {

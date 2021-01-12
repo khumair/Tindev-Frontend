@@ -1,11 +1,12 @@
-import {
-  RegisterEmployerRequestAction,
-  UpdateEmployerRequestAction,
-} from './../types'
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
-import { AppState, DeletingRequestActionType } from '../types'
+import {
+  RegisterEmployerRequestAction,
+  AppState,
+  DeletingRequestActionType,
+  UpdateJobPostRequestAction,
+} from './../types'
 import {
   registerEmployerSuccess,
   registerEmployerFail,
@@ -15,12 +16,15 @@ import {
 import {
   registerJobPostSuccess,
   registerJobPostFail,
+  updateJobPostSuccess,
+  updateJobPostFail,
   deleteJobPostFail,
   deleteJobPostSuccess,
 } from '../actions/jobpost'
 
 const credential = (state: AppState) => state.employer.credential
 const jobPostFormData = (state: AppState) => state.employer.jobPost
+const companyName = (state: AppState) => state.employer.employerInfo.companyName
 
 function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   try {
@@ -38,10 +42,10 @@ function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   }
 }
 
-function* updateEmployerSaga(action: UpdateEmployerRequestAction) {
+function* updateEmployerSaga() {
+  const res = yield axios.patch('/employer', companyName)
   try {
-    const res = yield axios.patch('/employer', { credential })
-    yield put(updateEmployerSuccess(res.data))
+    yield put(updateEmployerSuccess(res.data.payload.employerInfo.companyName))
   } catch (error) {
     yield put(updateEmployerFail(error))
   }
@@ -57,6 +61,17 @@ function* creatingJobPostSaga() {
     yield put(registerJobPostFail(e))
   }
 }
+
+function* updateJobPostSaga(action: UpdateJobPostRequestAction) {
+  const jobPostId = yield action.payload
+  const res = yield axios.patch(`/employer/jobs/${jobPostId}`)
+  try {
+    yield put(updateJobPostSuccess(res.data))
+  } catch (error) {
+    yield put(updateJobPostFail(error))
+  }
+}
+
 function* deletingJobPostSaga(action: DeletingRequestActionType) {
   try {
     const jobPostId = yield action.payload
@@ -70,6 +85,7 @@ const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
   takeLatest('UPDATE_EMPLOYER_REQUEST', updateEmployerSaga),
   takeLatest('JOB_POST_REQUEST', creatingJobPostSaga),
+  takeLatest('JOB_UPDATE_REQUEST', updateJobPostSaga),
   takeLatest('JOB_DELETE_REQUEST', deletingJobPostSaga),
 ]
 

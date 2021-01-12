@@ -327,9 +327,9 @@ export type CredentialStateEmployer = {
   jobPost: {
     title: string
     jobDescription: string
-    startingDate: string
+    //startingDate: string
     seniority: string
-    skills: any[]
+    requiredSkills: any[]
   }
 }
 
@@ -398,8 +398,8 @@ export type JobPost = {
   title: string
   jobDescription: string
   seniority: string
-  skills: any[]
-  startingAt: string
+  requiredSkills: any[]
+  //startingDate: string
 }
 
 export type CreatingJobActionType = {

@@ -1,50 +1,44 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Container, Button } from 'react-bootstrap'
-import DatePicker, { DayValue } from 'react-modern-calendar-datepicker'
-import 'react-modern-calendar-datepicker/lib/DatePicker.css'
+// import DatePicker, { DayValue } from 'react-modern-calendar-datepicker'
+// import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
 import { updateEmployerRequest } from '../../redux/actions/employer'
 import {
   creatingJobPostRequest,
   updateJobPostRequest,
 } from '../../redux/actions/jobpost'
-//import { AppState } from '../../redux/types'
-
-type SetJobPost = {
-  companyName: string
-  jobTitle: string
-  jobDescription: string
-  requiredSkills: string
-}
+import { AppState } from '../../redux/types'
 
 const CompanyProfileForm = () => {
+  //const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
     companyName: '',
-    jobTitle: '',
+    title: '',
     jobDescription: '',
-    requiredSkills: '',
+    requiredSkills: [],
+    seniority: '',
+    // startingAt: startingAt,
   })
 
-  const [startingAt, setStartingAt] = useState<DayValue>(null)
-  const year = new Date().getFullYear.toString().substr(-2)
-  const range = parseInt(year)
+  // const year = new Date().getFullYear.toString().substr(-2)
+  // const range = parseInt(year)
 
-  const maximumDate = {
-    year: range + 1,
-    month: 12,
-    day: 31,
-  }
+  // const maximumDate = {
+  //   year: range + 1,
+  //   month: 12,
+  //   day: 31,
+  // }
 
   const dispatch = useDispatch()
 
-  //const jobPostInfo = useSelector((state: AppState) => state.employer)
-  //const { loading, error } = jobPostInfo
+  const jobPostInfo = useSelector((state: AppState) => state.employer.jobPost)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target
 
-    setFormData((prevValue: SetJobPost) => {
+    setFormData((prevValue: any) => {
       return {
         ...prevValue,
         [name]: value,
@@ -54,7 +48,7 @@ const CompanyProfileForm = () => {
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData) {
+    if (!jobPostInfo) {
       dispatch(creatingJobPostRequest(formData))
     } else {
       dispatch(updateEmployerRequest(formData.companyName))
@@ -101,7 +95,7 @@ const CompanyProfileForm = () => {
                   type="text"
                   name="jobTitle"
                   placeholder="Job Title"
-                  value={formData.jobTitle}
+                  value={formData.title}
                   onChange={handleChange}
                 />
               </Col>
@@ -175,7 +169,7 @@ const CompanyProfileForm = () => {
                 />
               </Col>
             </Form.Group>
-            <Form.Group
+            {/* <Form.Group
               as={Row}
               className="form-group-set"
               controlId="formPlaintextPassword"
@@ -192,8 +186,7 @@ const CompanyProfileForm = () => {
                   colorPrimary="#000"
                 />
               </Col>
-            </Form.Group>
-
+            </Form.Group> */}
             <Form.Group as={Row} className="form-group-set" controlId="button">
               <Form.Label column sm="4"></Form.Label>
               <Col sm="8">

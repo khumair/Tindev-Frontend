@@ -44,7 +44,7 @@ const employer = (state = initialState, action: EmployerActions) => {
       return {
         ...state,
         loading: false,
-        companyName: action.payload.companyName,
+        employerInfo: action.payload.companyName,
       }
     case UPDATE_EMPLOYER_FAIL:
       return { ...state, loading: false, error: action.payload }
