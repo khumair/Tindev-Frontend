@@ -24,9 +24,12 @@ export const creatingJobPostRequest = (
     payload: jobForm,
   }
 }
-export const registerJobPostSuccess = (): JobSuccessActionType => {
+export const registerJobPostSuccess = (
+  jobForm: JobPost
+): JobSuccessActionType => {
   return {
     type: JOB_POST_SUCCESS,
+    payload: jobForm,
   }
 }
 export const registerJobPostFail = (error: {

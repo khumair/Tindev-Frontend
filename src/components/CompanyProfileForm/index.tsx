@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Container, Button } from 'react-bootstrap'
-// import DatePicker, { DayValue } from 'react-modern-calendar-datepicker'
-// import 'react-modern-calendar-datepicker/lib/DatePicker.css'
+import DatePicker, { DayValue } from 'react-modern-calendar-datepicker'
+import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
-import { updateEmployerRequest } from '../../redux/actions/employer'
+import Message from '../Message'
+import Loader from '../Loader'
+//import { updateEmployerRequest } from '../../redux/actions/employer'
 import {
   creatingJobPostRequest,
   updateJobPostRequest,
@@ -12,28 +14,29 @@ import {
 import { AppState } from '../../redux/types'
 
 const CompanyProfileForm = () => {
-  //const [startingAt, setStartingAt] = useState<DayValue>(null)
+  const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
     companyName: '',
     title: '',
     jobDescription: '',
     requiredSkills: [],
     seniority: '',
-    // startingAt: startingAt,
+    startingAt: startingAt,
   })
 
-  // const year = new Date().getFullYear.toString().substr(-2)
-  // const range = parseInt(year)
+  const year = new Date().getFullYear.toString().substr(-2)
+  const range = parseInt(year)
 
-  // const maximumDate = {
-  //   year: range + 1,
-  //   month: 12,
-  //   day: 31,
-  // }
+  const maximumDate = {
+    year: range + 1,
+    month: 12,
+    day: 31,
+  }
 
   const dispatch = useDispatch()
 
-  const jobPostInfo = useSelector((state: AppState) => state.employer.jobPost)
+  const employer = useSelector((state: AppState) => state.employer)
+  const { loading, error } = employer
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target
@@ -48,17 +51,19 @@ const CompanyProfileForm = () => {
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!jobPostInfo) {
-      dispatch(creatingJobPostRequest(formData))
-    } else {
-      dispatch(updateEmployerRequest(formData.companyName))
+    if (formData) {
+      //dispatch(updateEmployerRequest(formData.companyName))
       dispatch(updateJobPostRequest(formData))
+    } else {
+      dispatch(creatingJobPostRequest(formData))
     }
   }
 
   return (
     <Container fluid="md">
       <h2 className="purple-text">Company Profile</h2>
+      {error && <Message variant="danger">{error}</Message>}
+      {loading && <Loader />}
       <Row>
         <Col xs>
           <Form onSubmit={submitHandler}>
@@ -93,7 +98,7 @@ const CompanyProfileForm = () => {
                 <Form.Control
                   className="text-field"
                   type="text"
-                  name="jobTitle"
+                  name="title"
                   placeholder="Job Title"
                   value={formData.title}
                   onChange={handleChange}
@@ -169,7 +174,7 @@ const CompanyProfileForm = () => {
                 />
               </Col>
             </Form.Group>
-            {/* <Form.Group
+            <Form.Group
               as={Row}
               className="form-group-set"
               controlId="formPlaintextPassword"
@@ -186,7 +191,7 @@ const CompanyProfileForm = () => {
                   colorPrimary="#000"
                 />
               </Col>
-            </Form.Group> */}
+            </Form.Group>
             <Form.Group as={Row} className="form-group-set" controlId="button">
               <Form.Label column sm="4"></Form.Label>
               <Col sm="8">

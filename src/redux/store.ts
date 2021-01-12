@@ -17,7 +17,7 @@ export const initState: AppState = {
   },
   employer: {
     credential: { email: '', password: '' },
-    employerInfo: { companyName: '', companyInfo: '', address: '', role: '' },
+    info: { companyName: '', companyInfo: '', address: '', role: '' },
     loading: false,
     error: null,
     jobPost: {
@@ -25,6 +25,7 @@ export const initState: AppState = {
       jobDescription: '',
       seniority: '',
       requiredSkills: [],
+      startingDate: '',
     },
   },
   jobseeker: {

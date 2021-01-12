@@ -122,7 +122,7 @@ export type RegisterEmployerRequestAction = {
 export type RegisterEmployerSuccessAction = {
   type: typeof REGISTER_EMPLOYER_SUCCESS
   payload: {
-    employerInfo: {
+    info: {
       email: string
       password: string
       role: string
@@ -316,7 +316,7 @@ export type CredentialStateEmployer = {
     email: string
     password: string
   }
-  employerInfo: {
+  info: {
     companyName: string
     companyInfo: string
     address: any
@@ -327,7 +327,7 @@ export type CredentialStateEmployer = {
   jobPost: {
     title: string
     jobDescription: string
-    //startingDate: string
+    startingDate: string
     seniority: string
     requiredSkills: any[]
   }
@@ -399,7 +399,7 @@ export type JobPost = {
   jobDescription: string
   seniority: string
   requiredSkills: any[]
-  //startingDate: string
+  startingDate: string
 }
 
 export type CreatingJobActionType = {
@@ -409,6 +409,7 @@ export type CreatingJobActionType = {
 
 export type JobSuccessActionType = {
   type: typeof JOB_POST_SUCCESS
+  payload: JobPost
 }
 
 export type JobFailActionType = {

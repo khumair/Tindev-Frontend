@@ -26,7 +26,8 @@ const initialState = {
     title: '',
     jobDescription: '',
     seniority: '',
-    skills: [],
+    requiredSkills: [],
+    startingDate: '',
   },
 }
 
@@ -44,14 +45,15 @@ const employer = (state = initialState, action: EmployerActions) => {
       return {
         ...state,
         loading: false,
-        employerInfo: action.payload.companyName,
+        info: action.payload.companyName,
+        credential: Credential,
       }
     case UPDATE_EMPLOYER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case JOB_POST_REQUEST:
       return { ...state, loading: true, jobPost: action.payload }
     case JOB_POST_SUCCESS:
-      return { ...state, loading: false, jobPost: {} }
+      return { ...state, loading: false, jobPost: action.payload }
     case JOB_POST_FAIL:
       return { ...state, loading: false, error: action.payload }
     case JOB_DELETE_REQUEST:

@@ -24,7 +24,7 @@ import {
 
 const credential = (state: AppState) => state.employer.credential
 const jobPostFormData = (state: AppState) => state.employer.jobPost
-const companyName = (state: AppState) => state.employer.employerInfo.companyName
+const companyName = (state: AppState) => state.employer.info.companyName
 
 function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   try {
@@ -44,8 +44,9 @@ function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
 
 function* updateEmployerSaga() {
   const res = yield axios.patch('/employer', companyName)
+  console.log('res', res)
   try {
-    yield put(updateEmployerSuccess(res.data.payload.employerInfo.companyName))
+    yield put(updateEmployerSuccess(res.data.payload.formData.companyName))
   } catch (error) {
     yield put(updateEmployerFail(error))
   }
@@ -56,17 +57,17 @@ function* creatingJobPostSaga() {
     const job = yield select(jobPostFormData)
     const res = yield axios.post('/employer/jobs', job)
     console.log(res)
-    yield put(registerJobPostSuccess())
+    yield put(registerJobPostSuccess(job))
   } catch (e) {
     yield put(registerJobPostFail(e))
   }
 }
 
 function* updateJobPostSaga(action: UpdateJobPostRequestAction) {
-  const jobPostId = yield action.payload
+  const jobPostId = yield action.payload.jobPostId
   const res = yield axios.patch(`/employer/jobs/${jobPostId}`)
   try {
-    yield put(updateJobPostSuccess(res.data))
+    yield put(updateJobPostSuccess(res.data.payload))
   } catch (error) {
     yield put(updateJobPostFail(error))
   }

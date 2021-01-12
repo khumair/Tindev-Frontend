@@ -38,23 +38,35 @@ export const registerEmployerFail = () => {
   }
 }
 
-export const updateEmployerRequest = (employerInfo: any) => {
+export const updateEmployerRequest = (formData: any) => {
   return {
     type: UPDATE_EMPLOYER_REQUEST,
-    payload: employerInfo,
+    payload: {
+      info: {
+        companyName: formData.companyName,
+      },
+      credential: Credential,
+    },
   }
 }
 
-export const updateEmployerSuccess = (employerInfo: any) => {
+export const updateEmployerSuccess = (formData: any) => {
   return {
     type: UPDATE_EMPLOYER_SUCCESS,
-    payload: employerInfo,
+    payload: {
+      info: {
+        companyName: formData.companyName,
+      },
+      credential: Credential,
+    },
   }
 }
 
 export const updateEmployerFail = (error: string) => {
   return {
     type: UPDATE_EMPLOYER_FAIL,
-    payload: error,
+    payload: {
+      error,
+    },
   }
 }
