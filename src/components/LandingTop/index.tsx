@@ -27,21 +27,19 @@ const LandingTop = () => {
         <div className="row m-auto">
           <div className="col-md-8 align-items-center d-flex justify-content-center">
             <div className="card-body">
-              <h1 className="heading">TINDEV</h1>
+              <h1 className="heading">Tindev</h1>
               <animated.h2 style={scrollIn} className="card-title">
-                Connection between employees and employers
+                Connection between companies and applicants
               </animated.h2>
 
               <animated.p style={showIn} className="card-text">
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin commodo. Cras purus odio,
-                vestibulum.
+                Get your real match without hatch.
               </animated.p>
-              <p className="card-text">
+              {/* <p className="card-text">
                 <small className="font-weight-light">
                   Application for both developers and employers
                 </small>
-              </p>
+              </p> */}
               <animated.div style={showIn} className="pt-1">
                 <Link
                   to="/register"

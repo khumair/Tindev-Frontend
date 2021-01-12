@@ -2,6 +2,38 @@
 @import '_mobile';
 @import '_config';
 
+.heading,
+.card-title,
+.card-text {
+  color: $white;
+}
+
+q {
+  color: #ce1370;
+}
+
+.heading {
+  // font-family: 'Merriweather Sans', sans-serif;
+  letter-spacing: 0.01rem;
+  padding-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.77rem;
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: 1.8rem;
+}
+
+.profile-page {
+  margin: auto;
+  width: 60%;
+}
+
+.container {
+  height: 95vh;
+}
+
 .purple-text {
   color: var(--purple);
 }
@@ -53,63 +85,3 @@
   opacity: 0;
   transition: opacity 150ms linear;
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// class names that couldn't be found using search. These styles don't have any effect on the pages.
-// .view-btn {
-//   background-color: #a64fae;
-//   border: none;
-//   margin-right: 6px;
-//   height: 30px;
-//   align-items: center;
-// }
-
-// .match-card {
-//   border: solid 1px;
-//   border-radius: 5px;
-// }
-
-// .nav-pills .nav-link.active {
-//   color: $purple-color;
-//   background-color: #fff;
-// }
-
-// .nav-pills .nav-link {
-//   font-size: semi-bold;
-//   font-weight: 2rem;
-//   color: #000;
-// }
-
-// .side-nav-link {
-//   margin: 10px;
-// }
-
-// .btn-flat {
-//   background-color: #55dd55;
-//   color: #000;
-// }
-// .colcenter {
-//   padding: 1rem;
-//   text-align: center;
-// }
-
-// button.btn-form {
-//   background-color: $purple-color;
-//   color: #fff;
-//   border: none;
-//   margin-top: 25px;
-//   border-radius: 5px;
-//   height: 40px;
-// }
-
-// .btn-upload {
-//   background-color: $purple-color;
-//   color: #fff;
-//   border: none;
-//   font-family: 'poppins', sans-serif;
-//   margin: 15px 145px;
-//   border-radius: 5px;
-//   height: 45px;
-//   width: 100px;
-// }
-/////////////////////////////////////////////////////////////
