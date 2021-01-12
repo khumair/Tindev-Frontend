@@ -1,12 +1,12 @@
 import React from 'react'
-import { Form, Row, Col } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
+import { Form, Row, Col } from 'react-bootstrap'
 
+import { updateJobseekerRequest } from '../../redux/actions/jobseeker'
 import HalfCircle from '../../components/HalfCircle'
 import CustomButton from '../../components/CustomButton'
-import { updateJobseekerRequest } from '../../redux/actions/jobseeker'
 
-const EditProfile = () => {
+const JobseekerProfileForm = () => {
   const [state, setState] = React.useState({
     id: '',
     firstName: '',
@@ -65,7 +65,7 @@ const EditProfile = () => {
   }
 
   return (
-    <>
+    <div className="position-relative">
       <HalfCircle inputText="Education & Experiences" />
 
       <Form
@@ -182,10 +182,10 @@ const EditProfile = () => {
           </Col>
         </Form.Row>
         <br />
-        <CustomButton text="Update" className="my-3 py-2" />
+        <CustomButton text="Update" className="w-25 my-3 py-2 purple-bg" />
       </Form>
-    </>
+    </div>
   )
 }
 
-export default EditProfile
+export default JobseekerProfileForm

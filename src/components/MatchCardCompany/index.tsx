@@ -6,12 +6,14 @@ import Candidate from '../Candidate'
 //import male from '../../media/male.png'
 
 type MatchCardProps = {
-  firstName: string
-  lastName: string
-  skills: any[]
+  match: {
+    firstName: string
+    lastName: string
+    skills: any[]
+  }
 }
 
-const MatchCard = ({ firstName, lastName, skills }: MatchCardProps) => {
+const MatchCardCompany = ({ match }: MatchCardProps) => {
   return (
     <div className="Container">
       <div className="d-flex flex-row-reverse"></div>
@@ -27,17 +29,18 @@ const MatchCard = ({ firstName, lastName, skills }: MatchCardProps) => {
                   </div> */}
                 <div className="col-xs-8 col-sm-7 col-md-8">
                   <Candidate
-                    key={lastName}
-                    firstName={firstName}
-                    lastName={lastName}
-                    skills={skills}
+                    key={match.lastName}
+                    firstName={match.firstName}
+                    lastName={match.lastName}
+                    skills={match.skills}
                   />
 
                   {/* <Button  className="float-right" variant="primary" >Primary</Button>
                     <Button variant="primary">Primary</Button> */}
                 </div>
                 <Col>
-                  <Link className="float-right" to="/jobseeker/profile">
+                  {/*TODO: path needs to be dynamic */}
+                  <Link className="float-right" to="/match/view/applicant/:id">
                     View Profile
                   </Link>
                 </Col>
@@ -56,4 +59,4 @@ const MatchCard = ({ firstName, lastName, skills }: MatchCardProps) => {
     </div>
   )
 }
-export default MatchCard
+export default MatchCardCompany

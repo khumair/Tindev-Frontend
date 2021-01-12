@@ -116,16 +116,20 @@ const CompanyProfileForm = () => {
                 <DateSelector />
               </Col>
             </Form.Group>
+
+            <Form.Group
+              as={Row}
+              className="form-group-set"
+              controlId="formPlaintextPassword"
+            >
+              <Form.Label column sm="4"></Form.Label>
+              <Col sm="8">
+                <Button className="purple-btn w-50 mt-5" size="lg">
+                  Save
+                </Button>
+              </Col>
+            </Form.Group>
           </Form>
-          <Button className="btn-form" size="lg">
-            {' '}
-            Save
-          </Button>
-        </Col>
-        <Col className="upload-image">
-          {/* <Image src={uploadImage} /> <br /> */}
-          <Button className="btn-upload mt-4">Upload</Button>
-          <Form.File id="exampleFormControlFile1" className="btn-upload mt-4" />
         </Col>
       </Row>
     </Container>

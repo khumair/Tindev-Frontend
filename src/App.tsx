@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import Routes from './Routes'
-import Footer from './components/Footer'
 import './scss/styles.scss'
 import LocalStorage from './local-storage'
 
@@ -19,7 +18,6 @@ const App = () => {
   return (
     <>
       <Routes />
-      <Footer />
     </>
   )
 }

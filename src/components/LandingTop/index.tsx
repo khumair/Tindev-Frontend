@@ -1,49 +1,70 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSpring, animated } from 'react-spring'
 
 import welcome from '../../media/landing-img-1.svg'
 
-const LandingTop = () => (
-  <div className="landing-top-bg px-3">
-    <div className="card mx-auto bg-transparent border-0">
-      <div className="row m-auto">
-        <div className="col-md-8 align-items-center d-flex justify-content-center">
-          <div className="card-body">
-            <h2 className="heading">Heading</h2>
-            <h4 className="card-title">Heading Text will be here</h4>
-            <p className="card-text">
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-              scelerisque ante sollicitudin commodo. Cras purus odio,
-              vestibulum.
-            </p>
-            <p className="card-text">
-              <small className="font-weight-light">
-                Application for both developers and employers
-              </small>
-            </p>
-            <div className="pt-3">
-              <Link
-                to="/register"
-                className="btn btn-outline-light btn-lg mr-4 w-25 py-2 p-0" // width & padding is improvised to avoid text breakage in btn.
-              >
-                Register
-              </Link>
-              <Link
-                to="/register"
-                className="btn btn-outline-light btn-lg w-25"
-              >
-                Login
-              </Link>
+const LandingTop = () => {
+  const scrollIn = useSpring({
+    to: { marginTop: '0px' },
+    from: { marginTop: '-500px' },
+    delay: 1500,
+    config: { duration: 1000 },
+    reset: true,
+  })
+
+  const showIn = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    delay: 3000,
+    config: { duration: 2000 },
+  })
+
+  return (
+    <div className="landing-top-bg px-3">
+      <div className="card mx-auto bg-transparent border-0">
+        <div className="row m-auto">
+          <div className="col-md-8 align-items-center d-flex justify-content-center">
+            <div className="card-body">
+              <h1 className="heading">TINDEV</h1>
+              <animated.h2 style={scrollIn} className="card-title">
+                Connection between employees and employers
+              </animated.h2>
+
+              <animated.p style={showIn} className="card-text">
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+                scelerisque ante sollicitudin commodo. Cras purus odio,
+                vestibulum.
+              </animated.p>
+              <p className="card-text">
+                <small className="font-weight-light">
+                  Application for both developers and employers
+                </small>
+              </p>
+              <animated.div style={showIn} className="pt-1">
+                <Link
+                  to="/register"
+                  className="landBtn btn btn-outline-light btn-lg mr-4 w-25 py-2 p-0" // width & padding is improvised to avoid text breakage in btn.
+                >
+                  Register
+                </Link>
+                <Link
+                  to="/login"
+                  className="landBtn btn btn-outline-light btn-lg w-25"
+                >
+                  Login
+                </Link>
+              </animated.div>
             </div>
           </div>
-        </div>
 
-        <div className="col-md-4 mx-auto hide-md">
-          <img src={welcome} alt="landing-img" className="img-fluid" />
+          <div className="col-md-4 mx-auto hide-md">
+            <img src={welcome} alt="landing-img" className="img-fluid" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default LandingTop

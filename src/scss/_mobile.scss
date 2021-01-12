@@ -9,6 +9,9 @@
   .hide-md {
     display: none !important;
   }
+  .custom-skill {
+    min-width: unset;
+  }
 }
 @media screen and (max-width: 576px) {
   .hide-sm {
