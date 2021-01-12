@@ -1,9 +1,8 @@
-@import '../../scss/_config';
+@import '../../scss/config';
 
 .tag-btn {
-  border: 2px solid #ebeaed;
+  border: 2px solid $off-white;
   color: $purple-color;
-  font-family: 'poppins', sans-serif;
 }
 
 .tag-btn:hover {
