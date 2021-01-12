@@ -1,5 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
-@import 'react-modern-calendar-datepicker/lib/DatePicker.css';
+// @import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 @import '_mobile';
 @import '_utilities';
 
@@ -138,7 +138,7 @@ Button.register-button {
 }
 
 .DatePicker__input:hover {
-  border-color: rgb(24, 21, 21);
+  background-color: rgb(24, 21, 21);
 }
 
 /** datepicker */
