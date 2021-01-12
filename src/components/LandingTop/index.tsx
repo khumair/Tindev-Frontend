@@ -43,13 +43,13 @@ const LandingTop = () => {
               <animated.div style={showIn} className="pt-1">
                 <Link
                   to="/register"
-                  className="landBtn btn btn-outline-light btn-lg mr-4 w-25 py-2 p-0" // width & padding is improvised to avoid text breakage in btn.
+                  className="land-btn btn btn-outline-light btn-lg mr-4 w-25 py-2 p-0" // width & padding is improvised to avoid text breakage in btn.
                 >
                   Register
                 </Link>
                 <Link
                   to="/login"
-                  className="landBtn btn btn-outline-light btn-lg w-25"
+                  className="land-btn btn btn-outline-light btn-lg w-25"
                 >
                   Login
                 </Link>
