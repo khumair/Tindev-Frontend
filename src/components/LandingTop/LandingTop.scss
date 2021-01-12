@@ -1,8 +1,8 @@
 @import '../../scss/_config';
 
 .heading,
-.card-title,
-.card-text {
+.card-text,
+.card-title {
   color: $white;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .landing-top-bg {
-  background: url(../../media/header-img.svg);
+  background: url('../../media/header-img.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

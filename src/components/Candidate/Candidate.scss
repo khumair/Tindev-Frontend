@@ -1,13 +1,12 @@
-$purple-color: #a64fae;
+@import '../../scss/_config';
 
 .tag-btn {
-  font-family: 'poppins', sans-serif;
-  // border-color: $purple-color;
   border: 2px solid #ebeaed;
   color: $purple-color;
+  font-family: 'poppins', sans-serif;
 }
 
 .tag-btn:hover {
   background-color: $purple-color;
-  border-color: #ffffff;
+  border-color: $white;
 }
