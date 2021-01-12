@@ -29,12 +29,17 @@ export const updateJobseekerFail = (error: string) => {
   }
 }
 
-export const registerJobseekerRequest = (email: string, password: string) => {
+export const registerJobseekerRequest = (
+  email: string,
+  password: string,
+  history: any
+) => {
   return {
     type: REGISTER_JOBSEEKER_REQUEST,
     payload: {
       email,
       password,
+      history,
     },
   }
 }

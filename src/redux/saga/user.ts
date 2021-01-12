@@ -7,9 +7,9 @@ import { LoginUserRequestAction } from '../types'
 import { loginUserSuccess, loginUserFail } from '../actions/user'
 
 function* loginUserSaga(action: LoginUserRequestAction) {
-  const email = yield action.payload.credential.email
-  const password = yield action.payload.credential.password
-  const history = yield action.payload.history
+  const email = action.payload.credential.email
+  const password = action.payload.credential.password
+  const history = action.payload.history
 
   try {
     const res = yield axios.post('/login/local', { email, password })

@@ -11,8 +11,8 @@ import ViewJobseeker from './pages/ViewJobseeker'
 const Routes = () => (
   <Route
     render={({ location }) => (
-      <TransitionGroup>
-        <CSSTransition key={location.key} timeout={600} classNames="fade">
+      <TransitionGroup className="app">
+        <CSSTransition key={location.key} timeout={300} classNames="fade">
           <Switch location={location}>
             <Route exact path="/" component={Landing} />
             <Route exact path="/login" component={Login} />

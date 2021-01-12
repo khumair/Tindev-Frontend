@@ -1,12 +1,15 @@
 import React from 'react'
 import { Tab, Row, Col, Nav } from 'react-bootstrap'
 
+import LogOut from '../LogOut'
+
 const Tabs = ({ formComponent, matchComponent }: any) => {
   return (
     <div className="py-3">
       <Tab.Container defaultActiveKey="first">
         <Row>
           <Col sm={3}>
+            <LogOut />
             <Nav className="flex-column nav-bar">
               <Nav.Item>
                 <Nav.Link eventKey="first">Profile</Nav.Link>

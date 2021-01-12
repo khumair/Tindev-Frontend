@@ -1,22 +1,29 @@
 @import '~bootstrap/scss/bootstrap';
 @import '_mobile';
-
-$purple-color: linear-gradient(#a24fae, #773bb7);
-
-body {
-  padding: 0px;
-  margin: 0px auto;
-  color: rgb(105, 99, 99);
-  font-family: 'Poppins', sans-serif;
-  width: 100%;
-  overflow-x: hidden;
-}
+@import '_config';
 
 .heading,
 .card-title,
 .card-text {
-  color: #ddd;
+  color: $white;
 }
+
+q {
+  color: #534aa0;
+}
+
+.heading {
+  //font-family: 'Merriweather Sans', sans-serif;
+  padding-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+}
+
+.card-title {
+  font-size: 1.7rem;
+}
+
 .profile-page {
   margin: auto;
   width: 60%;
@@ -31,6 +38,18 @@ body {
 
 .purple-bg {
   background-color: var(--purple);
+}
+
+.purple-btn {
+  background: var(--purple-gradient);
+  border: 1px solid var(--purple);
+  transition: all 0.5s linear;
+
+  &:hover {
+    background: var(--white);
+    border: 1px solid var(--purple);
+    color: var(--purple);
+  }
 }
 
 .landing-top-bg {
@@ -49,11 +68,11 @@ body {
 .half-circle {
   width: 200px;
   height: 100px;
-  background: linear-gradient(#a24fae, #773bb7);
+  background: var(--purple-gradient);
   border-bottom-right-radius: 100px;
   border-bottom-left-radius: 100px;
   border: 0;
-  color: #fff;
+  color: var(--white);
   text-align: center;
 }
 
@@ -96,7 +115,7 @@ a:hover {
 
 .login-button,
 .profile-button {
-  background: $purple-color;
+  background: var(--purple-gradient);
   border: none;
   min-width: 100%;
   margin-top: 0.6rem;
@@ -157,10 +176,14 @@ a:hover {
 }
 
 // Route Navigation Animation
+.app {
+  position: relative;
+}
+
 .page {
   position: absolute;
-  left: 0;
   right: 0;
+  left: 0;
 }
 
 .fade-appear,
@@ -172,7 +195,7 @@ a:hover {
 .fade-appear-active,
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 400ms linear 200ms;
+  transition: opacity 300ms linear 150ms;
 }
 
 .fade-exit {
@@ -181,5 +204,5 @@ a:hover {
 
 .fade-exit.fade-exit-active {
   opacity: 0;
-  transition: opacity 200ms linear;
+  transition: opacity 150ms linear;
 }

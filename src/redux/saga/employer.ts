@@ -1,11 +1,16 @@
+import {
+  RegisterEmployerRequestAction,
+  UpdateEmployerRequestAction,
+} from './../types'
 import { put, takeLatest, select } from 'redux-saga/effects'
 import axios from 'axios'
 
 import { AppState, DeletingRequestActionType } from '../types'
-
 import {
   registerEmployerSuccess,
   registerEmployerFail,
+  updateEmployerSuccess,
+  updateEmployerFail,
 } from '../../redux/actions/employer'
 import {
   registerJobPostSuccess,
@@ -16,15 +21,29 @@ import {
 
 const credential = (state: AppState) => state.employer.credential
 const jobPostFormData = (state: AppState) => state.employer.jobPost
-function* registerEmployerSaga() {
+
+function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   try {
     const credentialData = yield select(credential)
-    const req = yield axios.post('/employer', {
+    const res = yield axios.post('/employer', {
       credential: credentialData,
     })
-    yield put(registerEmployerSuccess(req.data))
+    yield put(registerEmployerSuccess(res.data))
+    const history = action.payload.history
+    if (res.data.status === 201) {
+      yield history.push('/login')
+    }
   } catch (error) {
     yield put(registerEmployerFail())
+  }
+}
+
+function* updateEmployerSaga(action: UpdateEmployerRequestAction) {
+  try {
+    const res = yield axios.patch('/employer', { credential })
+    yield put(updateEmployerSuccess(res.data))
+  } catch (error) {
+    yield put(updateEmployerFail(error))
   }
 }
 
@@ -49,6 +68,7 @@ function* deletingJobPostSaga(action: DeletingRequestActionType) {
 }
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
+  takeLatest('UPDATE_EMPLOYER_REQUEST', updateEmployerSaga),
   takeLatest('JOB_POST_REQUEST', creatingJobPostSaga),
   takeLatest('JOB_DELETE_REQUEST', deletingJobPostSaga),
 ]

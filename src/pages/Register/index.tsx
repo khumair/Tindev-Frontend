@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Form, Col } from 'react-bootstrap'
 
@@ -19,7 +20,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState('')
   const [role, setRole] = useState({})
-
+  const history = useHistory()
   const employer = useSelector((state: AppState) => state.employer)
   const jobseeker = useSelector((state: AppState) => state.jobseeker)
   const jobseekerError = useSelector((state: AppState) => state.jobseeker.error)
@@ -39,12 +40,15 @@ const Register = () => {
       setMessage('Passwords do not match')
     }
 
-    if (role === jobseeker) {
-      dispatch(registerJobseekerRequest(email, password))
-      setMessage('Registered successfully')
-    } else if (role === employer) {
-      dispatch(registerEmployerRequest(email, password))
-      setMessage('Registered successfully')
+    if (password === confirmPassword) {
+      if (role === jobseeker) {
+        dispatch(registerJobseekerRequest(email, password, history))
+      }
+      if (role === employer) {
+        dispatch(registerEmployerRequest(email, password, history))
+      }
+      // setMessage('Registered successfully')
+      // setTimeout(() => history.push('/login'), 2000)
     }
   }
 
@@ -54,7 +58,7 @@ const Register = () => {
   const jobseekerSelect = () => {
     setRole(jobseeker)
   }
-
+  const variant = message === 'Registered successfully' ? 'success' : 'danger'
   return (
     <div className="page">
       <FormContainer>
@@ -65,7 +69,7 @@ const Register = () => {
         {employerError && <Message variant="danger">{employerError}</Message>}
         {employerLoader && <Loader />}
         {!jobseekerError && !employerError && message && (
-          <Message variant="success">{message}</Message>
+          <Message variant={variant}>{message}</Message>
         )}
         <Form onSubmit={handleSubmit} className="container">
           <Form.Row>

@@ -17,9 +17,9 @@ export const LOGOUT_USER = 'LOGOUT_USER'
 export const JOB_POST_REQUEST = 'JOB_POST_REQUEST'
 export const JOB_POST_SUCCESS = 'JOB_POST_SUCCESS'
 export const JOB_POST_FAIL = 'JOB_POST_FAIL'
-export const JOB_UPDATE_REQUEST = 'UPDATE_JOB_REQUEST'
-export const JOB_UPDATE_SUCCESS = 'UPDATE_JOB_SUCCESS'
-export const JOB_UPDATE_FAIL = 'UPDATE_JOB_FAIL'
+export const JOB_UPDATE_REQUEST = 'JOB_UPDATE_REQUEST'
+export const JOB_UPDATE_SUCCESS = 'JOB_UPDATE_SUCCESS'
+export const JOB_UPDATE_FAIL = 'JOB_UPDATE_FAIL'
 export const JOB_DELETE_REQUEST = 'JOB_DELETE_REQUEST'
 export const JOB_DELETE_SUCCESS = 'JOB_DELETE_SUCCESS'
 export const JOB_DELETE_FAIL = 'JOB_DELETE_FAIL'
@@ -31,6 +31,7 @@ export const GET_SKILLS_SUCCESS = 'GET_SKILLS_SUCCESS'
 export const GET_SKILLS_FAIL = 'GET_SKILLS_FAIL'
 export const ADD_SKILL = 'ADD_SKILL'
 export const REMOVE_SKILL = 'REMOVE_SKILL'
+export const REDIRECT_PAGE = 'REDIRECT_PAGE'
 
 export type UserActions =
   | LoginUserRequestAction
@@ -94,12 +95,18 @@ export type EmployerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction
   | RegisterEmployerFailAction
+  | UpdateEmployerRequestAction
+  | UpdateEmployerSuccessAction
+  | UpdateEmployerFailAction
   | CreatingJobActionType
   | JobFailActionType
   | JobSuccessActionType
   | DeletingRequestActionType
   | DeletingSuccessActionType
   | DeletingFailActionType
+  | UpdateJobPostRequestAction
+  | UpdateJobPostSuccessAction
+  | UpdateJobPostFailAction
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
@@ -108,6 +115,7 @@ export type RegisterEmployerRequestAction = {
       email: string
       password: string
     }
+    history: any
   }
 }
 
@@ -129,20 +137,24 @@ export type RegisterEmployerFailAction = {
   }
 }
 
-export type UpdateJobRequestAction = {
+export type UpdateEmployerRequestAction = {
   type: typeof UPDATE_EMPLOYER_REQUEST
   payload: {
-    id: number
+    employerId: number
   }
 }
 
-export type UpdateJobSuccessAction = {
+export type UpdateEmployerSuccessAction = {
   type: typeof UPDATE_EMPLOYER_SUCCESS
-  payload: {}
+  payload: {
+    companyName: string
+    companyInfo: string
+    address: string
+  }
 }
 
-export type UpdateJobFailAction = {
-  type: typeof UPDATE_EMPLOYER_SUCCESS
+export type UpdateEmployerFailAction = {
+  type: typeof UPDATE_EMPLOYER_FAIL
   payload: {
     error: string
   }
@@ -163,6 +175,7 @@ export type RegisterJobseekerRequestAction = {
       email: string
       password: string
     }
+    history: any
   }
 }
 
@@ -276,7 +289,7 @@ export type Credential = {
   }
   companyName?: string
   companyInfo?: string
-  address?: string
+  address?: any
   jobPost?: any[]
   role?: string
 }
@@ -290,7 +303,6 @@ export type CredentialStateUser = {
     email: string
     password: string
   }
-  history: any
   userInfo: {
     role: string
   }
@@ -304,12 +316,18 @@ export type CredentialStateEmployer = {
     email: string
     password: string
   }
-  role: string
+  employerInfo: {
+    companyName: string
+    companyInfo: string
+    address: any
+    role: string
+  }
   loading: Boolean
   error: any
   jobPost: {
     title: string
     jobDescription: string
+    startingDate: string
     seniority: string
     skills: any[]
   }
@@ -338,6 +356,12 @@ export type SkillState = {
   error: any
 }
 export type IdToDelete = string
+
+export type JobPostState = {
+  jobPost: any
+  loading: boolean
+  error: any
+}
 
 export type AppState = {
   user: CredentialStateUser
@@ -375,6 +399,7 @@ export type JobPost = {
   jobDescription: string
   seniority: string
   skills: any[]
+  startingAt: string
 }
 
 export type CreatingJobActionType = {
@@ -406,5 +431,24 @@ export type DeletingFailActionType = {
   type: typeof JOB_DELETE_FAIL
   payload: {
     error: any
+  }
+}
+
+export type UpdateJobPostRequestAction = {
+  type: typeof JOB_UPDATE_REQUEST
+  payload: {
+    jobPostId: number
+  }
+}
+
+export type UpdateJobPostSuccessAction = {
+  type: typeof JOB_UPDATE_SUCCESS
+  payload: JobPost
+}
+
+export type UpdateJobPostFailAction = {
+  type: typeof JOB_UPDATE_FAIL
+  payload: {
+    error: string
   }
 }

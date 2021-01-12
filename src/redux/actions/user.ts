@@ -3,13 +3,12 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   LOGOUT_USER,
-  CredentialStateUser,
 } from '../types'
 
 export const loginUserRequest = (
   email: string,
   password: string,
-  history: CredentialStateUser
+  history: any
 ) => {
   return {
     type: LOGIN_USER_REQUEST,
@@ -18,7 +17,7 @@ export const loginUserRequest = (
         email,
         password,
       },
-      history: history,
+      history,
     },
   }
 }
