@@ -2,6 +2,8 @@ import React from 'react'
 import DatePicker, { DayValue } from 'react-modern-calendar-datepicker'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
+import './DateSelector.scss'
+
 const DateSelector = () => {
   const [day, setDay] = React.useState<DayValue>(null)
 

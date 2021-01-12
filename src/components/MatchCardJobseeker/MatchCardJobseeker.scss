@@ -1,0 +1,15 @@
+.card-container {
+  height: 60vh;
+  width: 60vw;
+  position: absolute;
+  bottom: 20%;
+  right: 5%;
+  overflow-y: auto;
+}
+
+// exists?
+.custom-skill {
+  font-size: small;
+  width: fit-content;
+  min-width: 100px;
+}

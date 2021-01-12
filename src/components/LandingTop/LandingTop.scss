@@ -1,0 +1,26 @@
+@import '../../scss/_config';
+
+.heading,
+.card-title,
+.card-text {
+  color: $white;
+}
+
+.heading {
+  font-family: 'Merriweather Sans', sans-serif;
+  letter-spacing: 1rem;
+}
+
+.landing-top-bg {
+  background: url(../../media/header-img.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
+}
+
+.landBtn {
+  min-width: 90px;
+  transition: all 0.5s linear;
+}

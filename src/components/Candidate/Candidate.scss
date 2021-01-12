@@ -1,0 +1,13 @@
+$purple-color: #a64fae;
+
+.tag-btn {
+  font-family: 'poppins', sans-serif;
+  // border-color: $purple-color;
+  border: 2px solid #ebeaed;
+  color: $purple-color;
+}
+
+.tag-btn:hover {
+  background-color: $purple-color;
+  border-color: #ffffff;
+}

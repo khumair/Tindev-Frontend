@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
 
 import welcome from '../../media/landing-img-1.svg'
+import './LandingTop.scss'
 
 const LandingTop = () => {
   const scrollIn = useSpring({
