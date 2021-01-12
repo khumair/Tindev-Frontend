@@ -26,19 +26,19 @@ const LandingTop = () => {
         <div className="row m-auto">
           <div className="col-md-8 align-items-center d-flex justify-content-center">
             <div className="card-body">
-              <h1 className="heading">tindev</h1>
+              <h1 className="heading">TINDEV</h1>
               <animated.h2 style={scrollIn} className="card-title">
-                Connection between applicants and employers.
+                Connection between employees and employers.
               </animated.h2>
 
               <animated.p style={showIn} className="card-text">
                 Cras sit amet nibh libero, in gravida nulla.
               </animated.p>
-              {/* <p className="card-text">
+              <p className="card-text">
                 <small className="font-weight-light">
                   Application for both developers and employers
                 </small>
-              </p> */}
+              </p>
               <animated.div style={showIn} className="pt-1">
                 <Link
                   to="/register"
