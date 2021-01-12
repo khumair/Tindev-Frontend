@@ -8,15 +8,28 @@
   color: $white;
 }
 
+q {
+  color: #ce1370;
+}
+
 .heading {
-  font-family: 'Merriweather Sans', sans-serif;
-  letter-spacing: 1rem;
+  // font-family: 'Merriweather Sans', sans-serif;
+  letter-spacing: 0.01rem;
+  padding-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.77rem;
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: 1.8rem;
 }
 
 .profile-page {
   margin: auto;
   width: 60%;
 }
+
 .container {
   height: 95vh;
 }
