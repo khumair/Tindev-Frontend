@@ -7,7 +7,6 @@ import './JobPost.scss'
 const JobPost = () => {
   return (
     <>
-      <h2 className="add-post">Add Job Post</h2>
       <AddJobPost />
       <h2 className="job-posts">Job Posts</h2>
       <div className="job-post-card">

@@ -4,7 +4,10 @@ import { Form, Col, Row, Container, Button } from 'react-bootstrap'
 import DatePicker, { DayValue } from 'react-modern-calendar-datepicker'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
-const JobPostForm = () => {
+type HeaderProps = {
+  header: string
+}
+const JobPostForm = ({ header }: HeaderProps) => {
   const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
     title: '',
@@ -42,6 +45,7 @@ const JobPostForm = () => {
     <Container fluid="md">
       {/* {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />} */}
+      <h2>{header}</h2>
       <Row>
         <Col xs>
           <Form onSubmit={submitHandler}>
