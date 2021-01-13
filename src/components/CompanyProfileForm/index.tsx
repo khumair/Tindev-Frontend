@@ -6,7 +6,7 @@ import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
 import Message from '../Message'
 import Loader from '../Loader'
-//import { updateEmployerRequest } from '../../redux/actions/employer'
+import { updateEmployerRequest } from '../../redux/actions/employer'
 import {
   creatingJobPostRequest,
   updateJobPostRequest,
@@ -21,7 +21,7 @@ const CompanyProfileForm = () => {
     jobDescription: '',
     requiredSkills: [],
     seniority: '',
-    startingAt: startingAt,
+    startingDate: startingAt,
   })
 
   const year = new Date().getFullYear.toString().substr(-2)
@@ -35,6 +35,7 @@ const CompanyProfileForm = () => {
 
   const dispatch = useDispatch()
 
+  //const jobPost = useSelector((state: AppState) => state.employer.jobPost)
   const employer = useSelector((state: AppState) => state.employer)
   const { loading, error } = employer
 
@@ -52,7 +53,7 @@ const CompanyProfileForm = () => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     if (formData) {
-      //dispatch(updateEmployerRequest(formData.companyName))
+      dispatch(updateEmployerRequest(formData.companyName))
       dispatch(updateJobPostRequest(formData))
     } else {
       dispatch(creatingJobPostRequest(formData))

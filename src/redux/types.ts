@@ -140,16 +140,24 @@ export type RegisterEmployerFailAction = {
 export type UpdateEmployerRequestAction = {
   type: typeof UPDATE_EMPLOYER_REQUEST
   payload: {
-    employerId: number
+    info: {
+      companyName: string
+    }
+    credential: {
+      email: string
+      password: string
+    }
   }
 }
 
 export type UpdateEmployerSuccessAction = {
   type: typeof UPDATE_EMPLOYER_SUCCESS
   payload: {
-    companyName: string
-    companyInfo: string
-    address: string
+    info: {
+      companyName: string
+      companyInfo: string
+      address: string
+    }
   }
 }
 
@@ -355,6 +363,7 @@ export type SkillState = {
   loading: boolean
   error: any
 }
+
 export type IdToDelete = string
 
 export type JobPostState = {
@@ -385,6 +394,7 @@ export type updateJobseekerSuccessAction = {
     lastName: string
     contact: string
     seniority: string
+    startingDate: string
   }
 }
 

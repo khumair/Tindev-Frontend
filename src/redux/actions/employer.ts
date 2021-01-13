@@ -57,7 +57,6 @@ export const updateEmployerSuccess = (formData: any) => {
       info: {
         companyName: formData.companyName,
       },
-      credential: Credential,
     },
   }
 }

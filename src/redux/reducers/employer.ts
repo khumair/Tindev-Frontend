@@ -19,7 +19,7 @@ import {
 
 const initialState = {
   credential: { email: '', password: '' },
-  employerInfo: {},
+  info: { id: undefined },
   loading: false,
   error: null,
   jobPost: {
@@ -36,18 +36,18 @@ const employer = (state = initialState, action: EmployerActions) => {
     case REGISTER_EMPLOYER_REQUEST:
       return { ...state, loading: true, credential: action.payload }
     case REGISTER_EMPLOYER_SUCCESS:
-      return { ...state, loading: false, employerInfo: action.payload }
+      return { ...state, loading: false, info: action.payload }
     case REGISTER_EMPLOYER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case UPDATE_EMPLOYER_REQUEST:
       return { ...state, loading: true }
-    case UPDATE_EMPLOYER_SUCCESS:
+    case UPDATE_EMPLOYER_SUCCESS: {
       return {
         ...state,
         loading: false,
-        info: action.payload.companyName,
-        credential: Credential,
+        info: action.payload,
       }
+    }
     case UPDATE_EMPLOYER_FAIL:
       return { ...state, loading: false, error: action.payload }
     case JOB_POST_REQUEST:
