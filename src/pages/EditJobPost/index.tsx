@@ -1,7 +1,6 @@
 import React from 'react'
 
 import JobPostForm from '../../components/JobPostForm'
-import './EditJobPost.scss'
 
 const EditJobPost = () => {
   return (
