@@ -10,9 +10,7 @@ const JobPost = () => {
       <AddJobPost />
       <h2 className="job-posts">Job Posts</h2>
       <div className="job-post-card">
-        <div className="">
-          <JobPostList />
-        </div>
+        <JobPostList />
       </div>
     </>
   )
