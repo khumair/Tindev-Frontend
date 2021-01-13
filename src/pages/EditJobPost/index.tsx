@@ -1,9 +1,9 @@
 import React from 'react'
 
-import CompanyProfileForm from '../../components/CompanyProfileForm'
+import JobPostForm from '../../components/JobPostForm'
 
 const EditJobPost = () => {
-  return <CompanyProfileForm />
+  return <JobPostForm />
 }
 
 export default EditJobPost

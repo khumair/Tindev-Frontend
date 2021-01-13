@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
 import icon from '../../media/user-img.svg'
@@ -19,7 +20,9 @@ const JobPostList = () => {
         <Col md={10}>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item className="">title</ListGroup.Item>
+              <ListGroup.Item className="">
+                <Link to="/company/jobpost/:id">job title</Link>
+              </ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>

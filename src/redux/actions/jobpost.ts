@@ -9,9 +9,6 @@ import {
   JOB_POST_REQUEST,
   JOB_POST_SUCCESS,
   JOB_POST_FAIL,
-  JOB_UPDATE_REQUEST,
-  JOB_UPDATE_SUCCESS,
-  JOB_UPDATE_FAIL,
   JOB_DELETE_REQUEST,
   JOB_DELETE_SUCCESS,
   JOB_DELETE_FAIL,
@@ -54,31 +51,6 @@ export const deleteJobPostSuccess = (): DeletingSuccessActionType => {
 export const deleteJobPostFail = (error: any): DeletingFailActionType => {
   return {
     type: JOB_DELETE_FAIL,
-    payload: error,
-  }
-}
-
-export const updateJobPostRequest = (jobPost: any) => {
-  return {
-    type: JOB_UPDATE_REQUEST,
-    payload: {
-      jobPost,
-    },
-  }
-}
-
-export const updateJobPostSuccess = (jobPost: any) => {
-  return {
-    type: JOB_UPDATE_SUCCESS,
-    payload: {
-      jobPost,
-    },
-  }
-}
-
-export const updateJobPostFail = (error: string) => {
-  return {
-    type: JOB_UPDATE_FAIL,
     payload: error,
   }
 }

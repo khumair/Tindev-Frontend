@@ -1,9 +1,6 @@
 export const REGISTER_EMPLOYER_REQUEST = 'REGISTER_EMPLOYER_REQUEST'
 export const REGISTER_EMPLOYER_SUCCESS = 'REGISTER_EMPLOYER_SUCCESS'
 export const REGISTER_EMPLOYER_FAIL = 'REGISTER_EMPLOYER_FAIL'
-export const UPDATE_EMPLOYER_REQUEST = 'UPDATE_EMPLOYER_REQUEST'
-export const UPDATE_EMPLOYER_SUCCESS = 'UPDATE_EMPLOYER_SUCCESS'
-export const UPDATE_EMPLOYER_FAIL = 'UPDATE_EMPLOYER_FAIL'
 export const UPDATE_JOBSEEKER_REQUEST = 'UPDATE_JOBSEEKER_REQUEST'
 export const UPDATE_JOBSEEKER_SUCCESS = 'UPDATE_JOBSEEKER_SUCCESS'
 export const UPDATE_JOBSEEKER_FAIL = 'UPDATE_JOBSEEKER_FAIL'
@@ -95,18 +92,12 @@ export type EmployerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction
   | RegisterEmployerFailAction
-  | UpdateEmployerRequestAction
-  | UpdateEmployerSuccessAction
-  | UpdateEmployerFailAction
   | CreatingJobActionType
   | JobFailActionType
   | JobSuccessActionType
   | DeletingRequestActionType
   | DeletingSuccessActionType
   | DeletingFailActionType
-  | UpdateJobPostRequestAction
-  | UpdateJobPostSuccessAction
-  | UpdateJobPostFailAction
 
 export type RegisterEmployerRequestAction = {
   type: typeof REGISTER_EMPLOYER_REQUEST
@@ -134,37 +125,6 @@ export type RegisterEmployerFailAction = {
   type: typeof REGISTER_EMPLOYER_FAIL
   payload: {
     error: any
-  }
-}
-
-export type UpdateEmployerRequestAction = {
-  type: typeof UPDATE_EMPLOYER_REQUEST
-  payload: {
-    info: {
-      companyName: string
-    }
-    credential: {
-      email: string
-      password: string
-    }
-  }
-}
-
-export type UpdateEmployerSuccessAction = {
-  type: typeof UPDATE_EMPLOYER_SUCCESS
-  payload: {
-    info: {
-      companyName: string
-      companyInfo: string
-      address: string
-    }
-  }
-}
-
-export type UpdateEmployerFailAction = {
-  type: typeof UPDATE_EMPLOYER_FAIL
-  payload: {
-    error: string
   }
 }
 
@@ -335,9 +295,8 @@ export type CredentialStateEmployer = {
   jobPost: {
     title: string
     jobDescription: string
-    startingDate: string
     seniority: string
-    requiredSkills: any[]
+    skills: any[]
   }
 }
 
@@ -394,7 +353,6 @@ export type updateJobseekerSuccessAction = {
     lastName: string
     contact: string
     seniority: string
-    startingDate: string
   }
 }
 
@@ -408,7 +366,7 @@ export type JobPost = {
   title: string
   jobDescription: string
   seniority: string
-  requiredSkills: any[]
+  skills: any[]
   startingDate: string
 }
 
@@ -442,24 +400,5 @@ export type DeletingFailActionType = {
   type: typeof JOB_DELETE_FAIL
   payload: {
     error: any
-  }
-}
-
-export type UpdateJobPostRequestAction = {
-  type: typeof JOB_UPDATE_REQUEST
-  payload: {
-    jobPostId: number
-  }
-}
-
-export type UpdateJobPostSuccessAction = {
-  type: typeof JOB_UPDATE_SUCCESS
-  payload: JobPost
-}
-
-export type UpdateJobPostFailAction = {
-  type: typeof JOB_UPDATE_FAIL
-  payload: {
-    error: string
   }
 }

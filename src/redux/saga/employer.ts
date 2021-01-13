@@ -5,26 +5,20 @@ import {
   RegisterEmployerRequestAction,
   AppState,
   DeletingRequestActionType,
-  UpdateJobPostRequestAction,
 } from './../types'
 import {
   registerEmployerSuccess,
   registerEmployerFail,
-  updateEmployerSuccess,
-  updateEmployerFail,
 } from '../../redux/actions/employer'
 import {
   registerJobPostSuccess,
   registerJobPostFail,
-  updateJobPostSuccess,
-  updateJobPostFail,
   deleteJobPostFail,
   deleteJobPostSuccess,
 } from '../actions/jobpost'
 
 const credential = (state: AppState) => state.employer.credential
 const jobPostFormData = (state: AppState) => state.employer.jobPost
-const companyName = (state: AppState) => state.employer.info.companyName
 
 function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   try {
@@ -42,16 +36,6 @@ function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   }
 }
 
-function* updateEmployerSaga() {
-  const res = yield axios.patch('/employer', companyName)
-  console.log('res', res)
-  try {
-    yield put(updateEmployerSuccess(res.data.payload.formData.companyName))
-  } catch (error) {
-    yield put(updateEmployerFail(error))
-  }
-}
-
 function* creatingJobPostSaga() {
   try {
     const job = yield select(jobPostFormData)
@@ -60,16 +44,6 @@ function* creatingJobPostSaga() {
     yield put(registerJobPostSuccess(job))
   } catch (e) {
     yield put(registerJobPostFail(e))
-  }
-}
-
-function* updateJobPostSaga(action: UpdateJobPostRequestAction) {
-  const jobPostId = yield action.payload.jobPostId
-  const res = yield axios.patch(`/employer/jobs/${jobPostId}`)
-  try {
-    yield put(updateJobPostSuccess(res.data.payload))
-  } catch (error) {
-    yield put(updateJobPostFail(error))
   }
 }
 
@@ -84,9 +58,7 @@ function* deletingJobPostSaga(action: DeletingRequestActionType) {
 }
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
-  takeLatest('UPDATE_EMPLOYER_REQUEST', updateEmployerSaga),
   takeLatest('JOB_POST_REQUEST', creatingJobPostSaga),
-  takeLatest('JOB_UPDATE_REQUEST', updateJobPostSaga),
   takeLatest('JOB_DELETE_REQUEST', deletingJobPostSaga),
 ]
 
