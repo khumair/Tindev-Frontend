@@ -3,8 +3,9 @@ import Image from 'react-bootstrap/Image'
 
 import CustomSkill from '../../components/CustomSkill'
 import profileImg from '../../media/profile-img.svg'
+import './ViewJobseeker.scss'
 
-const Profile = () => {
+const ViewJobseeker = () => {
   return (
     <div className="profile-page page p-5">
       <Image src={profileImg} roundedCircle />
@@ -47,4 +48,4 @@ const Profile = () => {
     </div>
   )
 }
-export default Profile
+export default ViewJobseeker
