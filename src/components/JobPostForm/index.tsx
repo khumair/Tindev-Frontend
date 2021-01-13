@@ -1,24 +1,27 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+//import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Container, Button } from 'react-bootstrap'
+import DatePicker, { DayValue } from 'react-modern-calendar-datepicker'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
-import Message from '../Message'
-import Loader from '../Loader'
-import { updateEmployerRequest } from '../../redux/actions/employer'
-import { AppState } from '../../redux/types'
-
-const CompanyProfileForm = () => {
+const JobPostForm = () => {
+  const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
-    companyName: '',
-    companyInfo: '',
-    address: '',
+    title: '',
+    jobDescription: '',
+    requiredSkills: [],
+    seniority: '',
+    startingDate: startingAt,
   })
 
-  const dispatch = useDispatch()
+  const year = new Date().getFullYear.toString().substr(-2)
+  const range = parseInt(year)
 
-  const employer = useSelector((state: AppState) => state.employer)
-  const { loading, error } = employer
+  const maximumDate = {
+    year: range + 1,
+    month: 12,
+    day: 31,
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target
@@ -33,16 +36,12 @@ const CompanyProfileForm = () => {
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    if (formData) {
-      dispatch(updateEmployerRequest(formData))
-    }
   }
 
   return (
     <Container fluid="md">
-      <h2 className="purple-text">Company Profile</h2>
-      {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader />}
+      {/* {error && <Message variant="danger">{error}</Message>}
+      {loading && <Loader />} */}
       <Row>
         <Col xs>
           <Form onSubmit={submitHandler}>
@@ -52,15 +51,15 @@ const CompanyProfileForm = () => {
               controlId="formElement"
             >
               <Form.Label column sm="4">
-                Company Name
+                Job Title
               </Form.Label>
               <Col sm="8">
                 <Form.Control
                   className="text-field"
                   type="text"
-                  name="companyName"
-                  placeholder="Company name"
-                  value={formData.companyName}
+                  name="title"
+                  placeholder="Job Title"
+                  value={formData.title}
                   onChange={handleChange}
                 />
               </Col>
@@ -71,38 +70,74 @@ const CompanyProfileForm = () => {
               controlId="formElement"
             >
               <Form.Label column sm="4">
-                Address
-              </Form.Label>
-              <Col sm="8">
-                <Form.Control
-                  className="text-field"
-                  type="text"
-                  name="address"
-                  placeholder="Address"
-                  value={formData.address}
-                  onChange={handleChange}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group
-              className="form-group-set"
-              as={Row}
-              controlId="formElement"
-            >
-              <Form.Label column sm="4">
-                Company Info
+                Job Description
               </Form.Label>
               <Col sm="8">
                 <Form.Control
                   as="textarea"
-                  name="companyInfo"
-                  value={formData.companyInfo}
+                  name="jobDescription"
+                  value={formData.jobDescription}
                   onChange={handleChange}
                   rows={4}
                 />
               </Col>
             </Form.Group>
-
+            <Form.Group
+              className="form-group-set"
+              as={Row}
+              controlId="formElement"
+            >
+              <Form.Label column sm="4">
+                Required Skills
+              </Form.Label>
+              <Col sm="8">
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  name="requiredSkills"
+                  placeholder="Typescript"
+                  value={formData.requiredSkills}
+                  onChange={handleChange}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group
+              className="form-group-set"
+              as={Row}
+              controlId="formElement"
+            >
+              <Form.Label column sm="4">
+                Seniority
+              </Form.Label>
+              <Col sm="8">
+                <Form.Control
+                  className="text-field"
+                  type="text"
+                  name="seniority"
+                  placeholder="Seniority"
+                  value={formData.seniority}
+                  onChange={handleChange}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group
+              as={Row}
+              className="form-group-set"
+              controlId="formPlaintextPassword"
+            >
+              <Form.Label column sm="4">
+                Starting At
+              </Form.Label>
+              <Col sm="8">
+                <DatePicker
+                  value={startingAt}
+                  onChange={setStartingAt}
+                  inputPlaceholder="Select starting day"
+                  maximumDate={maximumDate}
+                  colorPrimary="#000"
+                />
+              </Col>
+            </Form.Group>
             <Form.Group as={Row} className="form-group-set" controlId="button">
               <Form.Label column sm="4"></Form.Label>
               <Col sm="8">
@@ -121,4 +156,4 @@ const CompanyProfileForm = () => {
     </Container>
   )
 }
-export default CompanyProfileForm
+export default JobPostForm

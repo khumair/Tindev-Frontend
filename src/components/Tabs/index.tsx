@@ -3,7 +3,7 @@ import { Tab, Row, Col, Nav } from 'react-bootstrap'
 
 import LogOut from '../LogOut'
 
-const Tabs = ({ formComponent, matchComponent }: any) => {
+const Tabs = ({ formComponent, matchComponent, jobPostPage }: any) => {
   return (
     <div className="py-3">
       <Tab.Container defaultActiveKey="first">
@@ -20,6 +20,9 @@ const Tabs = ({ formComponent, matchComponent }: any) => {
               <Nav.Item>
                 <Nav.Link eventKey="third">Chat</Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="fourth">Job Posts</Nav.Link>
+              </Nav.Item>
             </Nav>
           </Col>
           <Col sm={9} className="tab-content">
@@ -27,6 +30,7 @@ const Tabs = ({ formComponent, matchComponent }: any) => {
               <Tab.Pane eventKey="first">{formComponent}</Tab.Pane>
               <Tab.Pane eventKey="second">{matchComponent}</Tab.Pane>
               <Tab.Pane eventKey="third"></Tab.Pane>
+              <Tab.Pane eventKey="fourth">{jobPostPage}</Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>

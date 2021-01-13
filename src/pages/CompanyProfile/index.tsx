@@ -4,6 +4,7 @@ import React /*, { useState } */ from 'react'
 import Tabs from '../../components/Tabs'
 import MatchCardCompany from '../../components/MatchCardCompany'
 import CompanyProfileForm from '../../components/CompanyProfileForm'
+import JobPost from '../JobPost'
 
 const CompanyProfile = () => {
   const match = {
@@ -17,6 +18,7 @@ const CompanyProfile = () => {
       <Tabs
         formComponent={<CompanyProfileForm />}
         matchComponent={<MatchCardCompany match={match} />}
+        jobPostPage={<JobPost />}
       />
     </div>
   )
