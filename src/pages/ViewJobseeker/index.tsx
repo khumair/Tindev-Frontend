@@ -1,11 +1,15 @@
 import React from 'react'
 import Image from 'react-bootstrap/Image'
-
+import { useHistory } from 'react-router-dom'
 import CustomSkill from '../../components/CustomSkill'
 import profileImg from '../../media/profile-img.svg'
 import './ViewJobseeker.scss'
 
+  const history = useHistory()
+
 const ViewJobseeker = () => {
+  const history = useHistory()
+
   return (
     <div className="profile-page page p-5">
       <Image src={profileImg} roundedCircle />
@@ -42,8 +46,14 @@ const ViewJobseeker = () => {
       <span className="lead">Level</span>
       <p>Junior Developer</p>
       <br />
-      <button className="btn btn-outline-success  mr-4 w-50 py-2 p-0">
+      <button className="btn btn-outline-success  mr-4 w-25 py-2 p-0">
         Chat
+      </button>
+      <button
+        className="btn btn-outline-primary  mr-4 w-25 py-2 p-0"
+        onClick={() => history.push('/user/profile')}
+      >
+        Go Back
       </button>
     </div>
   )
