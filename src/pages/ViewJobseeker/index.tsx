@@ -5,8 +5,6 @@ import CustomSkill from '../../components/CustomSkill'
 import profileImg from '../../media/profile-img.svg'
 import './ViewJobseeker.scss'
 
-  const history = useHistory()
-
 const ViewJobseeker = () => {
   const history = useHistory()
 
