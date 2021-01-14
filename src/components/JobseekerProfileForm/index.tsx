@@ -66,8 +66,9 @@ const JobseekerProfileForm = () => {
 
   return (
     <div className="position-relative">
-      <HalfCircle inputText="Education & Experiences" />
-
+      <div>
+        <HalfCircle inputText="Education & Experiences" />
+      </div>
       <Form
         onSubmit={e => handleSubmit(e)}
         onChange={e => handleChange(e)}
