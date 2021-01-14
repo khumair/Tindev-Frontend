@@ -5,10 +5,13 @@ import {
   RegisterEmployerRequestAction,
   AppState,
   DeletingRequestActionType,
+  UpdateEmployerRequestAction,
 } from './../types'
 import {
   registerEmployerSuccess,
   registerEmployerFail,
+  updateEmployerSuccess,
+  updateEmployerFail,
 } from '../../redux/actions/employer'
 import {
   registerJobPostSuccess,
@@ -36,6 +39,16 @@ function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   }
 }
 
+function* updateEmployerSaga(action: UpdateEmployerRequestAction) {
+  const employerInfo = action.payload
+  try {
+    const res = yield axios.patch('/employer', employerInfo)
+    yield put(updateEmployerSuccess(res.data.payload))
+  } catch (error) {
+    yield put(updateEmployerFail(error))
+  }
+}
+
 function* creatingJobPostSaga() {
   try {
     const job = yield select(jobPostFormData)
@@ -58,6 +71,7 @@ function* deletingJobPostSaga(action: DeletingRequestActionType) {
 }
 const sagaWatcher = [
   takeLatest('REGISTER_EMPLOYER_REQUEST', registerEmployerSaga),
+  takeLatest('UPDATE_EMPLOYER_REQUEST', updateEmployerSaga),
   takeLatest('JOB_POST_REQUEST', creatingJobPostSaga),
   takeLatest('JOB_DELETE_REQUEST', deletingJobPostSaga),
 ]
