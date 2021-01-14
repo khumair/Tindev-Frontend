@@ -11,7 +11,7 @@ const Tabs = ({ formComponent, matchComponent, jobPostPage }: any) => {
       <Navbar />
       <Tab.Container defaultActiveKey="first">
         <Row>
-          <Col className="tabs" sm={2}>
+          <Col className="tabs" sm={3}>
             {/* <LogOut /> */}
             <Nav className="flex-column nav-bar">
               <Nav.Item>
