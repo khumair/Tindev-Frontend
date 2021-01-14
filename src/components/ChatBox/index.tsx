@@ -1,6 +1,17 @@
 import React from 'react'
 import { Image } from 'react-bootstrap'
 const ChatBoxs = () => {
+  // const [message, sendMessage] = useState('')
+  // const [newMessage, setNewMessage] = useState('')
+  // const handleNewMessageChange = (e: React.FormEvent<HTMLFormElement>) => {
+  //   const target = e.target
+  //   const value = (target as HTMLInputElement).value
+  //   const name = (target as HTMLInputElement).name
+  // }
+  // const handleSendMessage = () => {
+  //   sendMessage(newMessage)
+  //   setNewMessage('')
+  // }
   return (
     <>
       <div className="container">
@@ -28,7 +39,7 @@ const ChatBoxs = () => {
                         <li className="person" data-chat="person1">
                           <div className="user">
                             <Image
-                              src="https://www.bootdey.coImageContent/avatar/avatar3.png"
+                              src="https://www.bootdey.com/img/Content/avatar/avatar1.png"
                               alt="avatar"
                             />
                             <span className="status busy"></span>
@@ -116,9 +127,16 @@ const ChatBoxs = () => {
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="Type your message"
+                          // value={newMessage}
+                          // onChange={e => handleNewMessageChange(e)}
+                          placeholder="Write message..."
                         />
-                        <button className="btn btn-primary">Send</button>
+                        <button
+                          // onClick={handleSendMessage}
+                          className="btn btn-primary"
+                        >
+                          Send
+                        </button>
                       </div>
                     </div>
                   </div>

@@ -7,6 +7,7 @@ import Landing from './pages/Landing'
 import Register from './pages/Register'
 import AuthApp from './components/AuthApp'
 import ViewJobseeker from './pages/ViewJobseeker'
+import CompanyHomePage from './components/CompanyHomePage'
 
 const Routes = () => (
   <Route
@@ -24,6 +25,7 @@ const Routes = () => (
               component={ViewJobseeker}
             />
             <Route exact path="/user/profile" component={AuthApp} />
+            <Route exact path="/company/profile" component={CompanyHomePage} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>

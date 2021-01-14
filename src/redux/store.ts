@@ -43,13 +43,6 @@ export const initState: AppState = {
     inProfile: [],
     loading: false,
     error: null,
-    jobPost: {
-      jobTitle: '',
-      jobDescription: '',
-      city: '',
-      country: '',
-      skills: [],
-    },
   },
 }
 
