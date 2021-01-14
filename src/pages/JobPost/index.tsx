@@ -6,7 +6,7 @@ import './JobPost.scss'
 const JobPost = () => {
   return (
     <>
-      <h2 className="job-posts">Job Posts</h2>
+      {/* <h2 className="job-posts">Job Posts</h2> */}
       <div className="job-post-card">
         <JobPostList />
       </div>
