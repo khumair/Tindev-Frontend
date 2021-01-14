@@ -38,14 +38,20 @@ export const registerEmployerFail = () => {
   }
 }
 
-export const updateEmployerRequest = (employer: any) => {
+type EmployerUpdate = {
+  companyName: string
+  companyInfo: string
+  address: string
+}
+
+export const updateEmployerRequest = (employer: Partial<EmployerUpdate>) => {
   return {
     type: UPDATE_EMPLOYER_REQUEST,
     payload: employer,
   }
 }
 
-export const updateEmployerSuccess = (employer: any) => {
+export const updateEmployerSuccess = (employer: EmployerUpdate) => {
   return {
     type: UPDATE_EMPLOYER_SUCCESS,
     payload: employer,

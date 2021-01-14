@@ -2,7 +2,6 @@ import { createStore, compose, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import rootReducer from './reducers'
-import user from './reducers/user'
 import rootSaga from './saga'
 import { AppState } from './types'
 
@@ -12,8 +11,6 @@ export const initState: AppState = {
     userInfo: {
       role: '',
     },
-    //@ts-ignore
-    id: user.id,
     loading: false,
     error: null,
     skills: [],

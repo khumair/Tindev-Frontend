@@ -35,7 +35,6 @@ const CompanyProfileForm = () => {
     e.preventDefault()
     dispatch(
       updateEmployerRequest({
-        id: user.id,
         companyName: formData.companyName,
         companyInfo: formData.companyInfo,
         address: formData.address,
