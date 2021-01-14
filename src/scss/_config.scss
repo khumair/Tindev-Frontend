@@ -17,8 +17,16 @@ body {
   width: 100%;
 }
 
+a {
+  color: $purple-color;
+}
+
 a:hover {
   text-decoration: none;
+}
+
+a:focus {
+  color: $black;
 }
 
 .alert {
