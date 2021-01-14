@@ -5,6 +5,7 @@ import {
   RegisterEmployerRequestAction,
   AppState,
   DeletingRequestActionType,
+  UpdateEmployerRequestAction,
 } from './../types'
 import {
   registerEmployerSuccess,
@@ -20,7 +21,6 @@ import {
 } from '../actions/jobpost'
 
 const credential = (state: AppState) => state.employer.credential
-const employerInfo = (state: AppState) => state.employer.info
 const jobPostFormData = (state: AppState) => state.employer.jobPost
 
 function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
@@ -39,11 +39,10 @@ function* registerEmployerSaga(action: RegisterEmployerRequestAction) {
   }
 }
 
-function* updateEmployerSaga() {
+function* updateEmployerSaga(action: UpdateEmployerRequestAction) {
+  const employerInfo = action.payload
   try {
-    const res = yield axios.patch('/employer', {
-      employerInfo,
-    })
+    const res = yield axios.patch('/employer', employerInfo)
     yield put(updateEmployerSuccess(res.data.payload))
   } catch (error) {
     yield put(updateEmployerFail(error))

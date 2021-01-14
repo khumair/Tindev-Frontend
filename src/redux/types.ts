@@ -137,12 +137,15 @@ export type RegisterEmployerFailAction = {
   }
 }
 
+export type EmployerUpdate = {
+  companyName: string
+  companyInfo: string
+  address: string
+}
+
 export type UpdateEmployerRequestAction = {
   type: typeof UPDATE_EMPLOYER_REQUEST
-  payload: {
-    info: CredentialStateEmployer
-    credential: Credential
-  }
+  payload: Partial<EmployerUpdate>
 }
 
 export type UpdateEmployerSuccessAction = {

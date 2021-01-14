@@ -6,6 +6,7 @@ import {
   UPDATE_EMPLOYER_SUCCESS,
   UPDATE_EMPLOYER_FAIL,
   CredentialStateEmployer,
+  EmployerUpdate,
 } from '../types'
 
 export const registerEmployerRequest = (
@@ -36,12 +37,6 @@ export const registerEmployerFail = () => {
   return {
     type: REGISTER_EMPLOYER_FAIL,
   }
-}
-
-type EmployerUpdate = {
-  companyName: string
-  companyInfo: string
-  address: string
 }
 
 export const updateEmployerRequest = (employer: Partial<EmployerUpdate>) => {
