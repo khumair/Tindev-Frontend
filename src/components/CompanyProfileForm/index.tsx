@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import /*useDispatch, useSelector*/ 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Container, Button } from 'react-bootstrap'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
-// import Message from '../Message'
-// import Loader from '../Loader'
-//import { updateEmployerRequest } from '../../redux/actions/employer'
-//import { AppState } from '../../redux/types'
+import Message from '../Message'
+import Loader from '../Loader'
+import { updateEmployerRequest } from '../../redux/actions/employer'
+import { AppState } from '../../redux/types'
 
 const CompanyProfileForm = () => {
   const [formData, setFormData] = useState({
@@ -15,10 +15,10 @@ const CompanyProfileForm = () => {
     address: '',
   })
 
-  //const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-  // const employer = useSelector((state: AppState) => state.employer)
-  // const { loading, error } = employer
+  const user = useSelector((state: AppState) => state.user)
+  const { loading, error } = user
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target
@@ -33,13 +33,21 @@ const CompanyProfileForm = () => {
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
+    dispatch(
+      updateEmployerRequest({
+        id: user.id,
+        companyName: formData.companyName,
+        companyInfo: formData.companyInfo,
+        address: formData.address,
+      })
+    )
   }
 
   return (
     <Container fluid="md">
       <h2 className="purple-text">Company Profile</h2>
-      {/* {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader />} */}
+      {error && <Message variant="danger">{error}</Message>}
+      {loading && <Loader />}
       <Row>
         <Col xs>
           <Form onSubmit={submitHandler}>

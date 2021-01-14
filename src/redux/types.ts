@@ -1,6 +1,9 @@
 export const REGISTER_EMPLOYER_REQUEST = 'REGISTER_EMPLOYER_REQUEST'
 export const REGISTER_EMPLOYER_SUCCESS = 'REGISTER_EMPLOYER_SUCCESS'
 export const REGISTER_EMPLOYER_FAIL = 'REGISTER_EMPLOYER_FAIL'
+export const UPDATE_EMPLOYER_REQUEST = 'UPDATE_EMPLOYER_REQUEST'
+export const UPDATE_EMPLOYER_SUCCESS = 'UPDATE_EMPLOYER_SUCCESS'
+export const UPDATE_EMPLOYER_FAIL = 'UPDATE_EMPLOYER_FAIL'
 export const UPDATE_JOBSEEKER_REQUEST = 'UPDATE_JOBSEEKER_REQUEST'
 export const UPDATE_JOBSEEKER_SUCCESS = 'UPDATE_JOBSEEKER_SUCCESS'
 export const UPDATE_JOBSEEKER_FAIL = 'UPDATE_JOBSEEKER_FAIL'
@@ -30,6 +33,7 @@ export const ADD_SKILL = 'ADD_SKILL'
 export const REMOVE_SKILL = 'REMOVE_SKILL'
 export const REDIRECT_PAGE = 'REDIRECT_PAGE'
 
+// User
 export type UserActions =
   | LoginUserRequestAction
   | LoginUserSuccessAction
@@ -55,6 +59,7 @@ export type LoginUserSuccessAction = {
       password: string
     }
     userInfo: {
+      id: number
       role: string
       firstName?: string
       lastName?: string
@@ -88,10 +93,14 @@ export type LogoutUserAction = {
   type: typeof LOGOUT_USER
 }
 
+// Employer
 export type EmployerActions =
   | RegisterEmployerRequestAction
   | RegisterEmployerSuccessAction
   | RegisterEmployerFailAction
+  | UpdateEmployerRequestAction
+  | UpdateEmployerSuccessAction
+  | UpdateEmployerFailAction
   | CreatingJobActionType
   | JobFailActionType
   | JobSuccessActionType
@@ -128,6 +137,33 @@ export type RegisterEmployerFailAction = {
   }
 }
 
+export type UpdateEmployerRequestAction = {
+  type: typeof UPDATE_EMPLOYER_REQUEST
+  payload: {
+    info: CredentialStateEmployer
+    credential: Credential
+  }
+}
+
+export type UpdateEmployerSuccessAction = {
+  type: typeof UPDATE_EMPLOYER_SUCCESS
+  payload: {
+    info: {
+      companyName: string
+      companyInfo: string
+      address: string
+    }
+  }
+}
+
+export type UpdateEmployerFailAction = {
+  type: typeof UPDATE_EMPLOYER_FAIL
+  payload: {
+    error: any
+  }
+}
+
+// Jobseeker
 export type JobseekerActions =
   | RegisterJobseekerRequestAction
   | RegisterJobseekerSuccessAction
@@ -165,6 +201,29 @@ export type RegisterJobseekerFailAction = {
   }
 }
 
+export type updateJobseekerRequestAction = {
+  type: typeof UPDATE_JOBSEEKER_REQUEST
+  payload: {
+    jobSeekerId: string
+  }
+}
+
+export type updateJobseekerSuccessAction = {
+  type: typeof UPDATE_JOBSEEKER_SUCCESS
+  payload: {
+    firstName: string
+    lastName: string
+    contact: string
+    seniority: string
+  }
+}
+
+export type updateJobseekerFailAction = {
+  type: typeof UPDATE_JOBSEEKER_FAIL
+  payload: string
+}
+
+// Skills
 export type SkillsActions =
   | GetSkillsRequestAction
   | GetSkillsSuccessAction
@@ -178,7 +237,7 @@ export type SkillActions =
   | RemoveSkillAction
 
 export type Skill = {
-  id: any
+  id: number
   name: string
 }
 
@@ -193,7 +252,7 @@ export type CreateSkillSuccessAction = {
   type: typeof CREATE_SKILL_SUCCESS
   payload: {
     skillInfo: {
-      id: string
+      id: number
       name: string
     }
   }
@@ -238,129 +297,6 @@ export type RemoveSkillAction = {
   }
 }
 
-export type Credential = {
-  email?: string
-  password?: string
-  firstName?: string
-  lastName?: string
-  contact?: string
-  relocate?: string
-  seniority?: string
-  skills?: any[]
-  skillLevel?: string
-  duration?: string
-  startingDate?: string
-  created?: Date
-  education?: {
-    institute?: string
-    degree?: string
-  }
-  companyName?: string
-  companyInfo?: string
-  address?: any
-  jobPost?: any[]
-  role?: string
-}
-
-export type CredentialState = {
-  credential: Credential
-}
-
-export type CredentialStateUser = {
-  credential: {
-    email: string
-    password: string
-  }
-  userInfo: {
-    role: string
-  }
-  loading: Boolean
-  error: any
-  skills: any[]
-}
-
-export type CredentialStateEmployer = {
-  credential: {
-    email: string
-    password: string
-  }
-  info: {
-    companyName: string
-    companyInfo: string
-    address: any
-    role: string
-  }
-  loading: Boolean
-  error: any
-  jobPost: {
-    title: string
-    jobDescription: string
-    seniority: string
-    skills: any[]
-  }
-}
-
-export type CredentialStateJobseeker = {
-  credential: {
-    email: string
-    password: string
-  }
-  role: string
-  loading: Boolean
-  error: any
-  skills: any[]
-}
-
-export type SkillsState = {
-  skills: any[]
-  loading: boolean
-  error: any
-}
-
-export type SkillState = {
-  inProfile: any[]
-  loading: boolean
-  error: any
-}
-
-export type IdToDelete = string
-
-export type JobPostState = {
-  jobPost: any
-  loading: boolean
-  error: any
-}
-
-export type AppState = {
-  user: CredentialStateUser
-  employer: CredentialStateEmployer
-  jobseeker: CredentialStateJobseeker
-  resources: SkillsState
-  skill: SkillState
-}
-
-export type updateJobseekerRequestAction = {
-  type: typeof UPDATE_JOBSEEKER_REQUEST
-  payload: {
-    jobSeekerId: string
-  }
-}
-
-export type updateJobseekerSuccessAction = {
-  type: typeof UPDATE_JOBSEEKER_SUCCESS
-  payload: {
-    firstName: string
-    lastName: string
-    contact: string
-    seniority: string
-  }
-}
-
-export type updateJobseekerFailAction = {
-  type: typeof UPDATE_JOBSEEKER_FAIL
-  payload: string
-}
-
 //  for job post ==> redux stuff
 export type JobPost = {
   title: string
@@ -401,4 +337,109 @@ export type DeletingFailActionType = {
   payload: {
     error: any
   }
+}
+
+// Credential
+export type Credential = {
+  email?: string
+  password?: string
+  firstName?: string
+  lastName?: string
+  contact?: string
+  relocate?: string
+  seniority?: string
+  skills?: any[]
+  skillLevel?: string
+  duration?: string
+  startingDate?: string
+  created?: Date
+  education?: {
+    institute?: string
+    degree?: string
+  }
+  companyName?: string
+  companyInfo?: string
+  address?: any
+  jobPost?: any[]
+  role?: string
+}
+
+// States
+export type CredentialState = {
+  credential: Credential
+}
+
+export type CredentialStateUser = {
+  credential: {
+    email: string
+    password: string
+  }
+  userInfo: {
+    role: string
+  }
+  id: number
+  loading: Boolean
+  error: any
+  skills: any[]
+}
+
+export type CredentialStateEmployer = {
+  credential: {
+    email: string
+    password: string
+  }
+  info: {
+    companyName: string
+    companyInfo: string
+    address: any
+    role: string
+  }
+  loading: Boolean
+  error: any
+  jobPost: {
+    title: string
+    jobDescription: string
+    seniority: string
+    skills: any[]
+    startingDate: string
+  }
+}
+
+export type CredentialStateJobseeker = {
+  credential: {
+    email: string
+    password: string
+  }
+  role: string
+  loading: Boolean
+  error: any
+  skills: any[]
+}
+
+export type SkillsState = {
+  skills: any[]
+  loading: boolean
+  error: any
+}
+
+export type SkillState = {
+  inProfile: any[]
+  loading: boolean
+  error: any
+}
+
+export type IdToDelete = string
+
+export type JobPostState = {
+  jobPost: any
+  loading: boolean
+  error: any
+}
+
+export type AppState = {
+  user: CredentialStateUser
+  employer: CredentialStateEmployer
+  jobseeker: CredentialStateJobseeker
+  resources: SkillsState
+  skill: SkillState
 }
