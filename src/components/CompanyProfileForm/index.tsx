@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Container, Button } from 'react-bootstrap'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
@@ -44,7 +45,7 @@ const CompanyProfileForm = () => {
 
   return (
     <Container fluid="md">
-      <h2 className="purple-text">Company Profile</h2>
+      <Link to="/company/jobpost/">+ Job Post</Link>
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Row>

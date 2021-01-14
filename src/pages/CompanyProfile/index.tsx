@@ -5,6 +5,7 @@ import Tabs from '../../components/Tabs'
 import MatchCardCompany from '../../components/MatchCardCompany'
 import CompanyProfileForm from '../../components/CompanyProfileForm'
 import JobPost from '../JobPost'
+import './CompanyProfile.scss'
 
 const CompanyProfile = () => {
   const match = {
@@ -14,8 +15,8 @@ const CompanyProfile = () => {
   }
 
   return (
-    <div className="page">
-      <h2 className="purple-text">Company Profile</h2>
+    <div className="company-profile">
+      <h2 className="company-header purple-text">Company Profile</h2>
       <Tabs
         formComponent={<CompanyProfileForm />}
         matchComponent={<MatchCardCompany match={match} />}
