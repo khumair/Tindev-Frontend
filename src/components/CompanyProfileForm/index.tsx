@@ -106,7 +106,6 @@ const CompanyProfileForm = () => {
                 />
               </Col>
             </Form.Group>
-
             <Form.Group as={Row} className="form-group-set" controlId="button">
               <Form.Label column sm="4"></Form.Label>
               <Col sm="8">
