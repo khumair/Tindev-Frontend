@@ -11,10 +11,11 @@ const LogOut = () => {
   return (
     <>
       <button
-        className="btn btn-outline-dark"
+        className="btn btn-danger sm-2"
         onClick={() => deleteTokenFromLocalStorage()}
+        style={{ marginLeft: '5px' }}
       >
-        LogOut
+        Log Out
       </button>
     </>
   )
