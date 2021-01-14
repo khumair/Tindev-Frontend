@@ -15,6 +15,7 @@ const CompanyProfile = () => {
 
   return (
     <div className="page">
+      <h2 className="purple-text">Company Profile</h2>
       <Tabs
         formComponent={<CompanyProfileForm />}
         matchComponent={<MatchCardCompany match={match} />}
