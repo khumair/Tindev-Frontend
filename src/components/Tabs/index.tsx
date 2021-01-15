@@ -1,19 +1,24 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Tab, Row, Col, Nav } from 'react-bootstrap'
-//import LogOut from '../LogOut'
 
-//import LogOut from '../LogOut'
 import Navbar from '../Navbar-logout'
+import { getEmployerRequest } from '../../redux/actions/employer'
 import './Tabs.scss'
 
 const Tabs = ({ formComponent, matchComponent, jobPostPage }: any) => {
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(getEmployerRequest())
+  }
+
   return (
     <div>
       <Navbar />
       <Tab.Container defaultActiveKey="first">
         <Row>
           <Col className="tabs" sm={3}>
-            {/* <LogOut /> */}
             <Nav className="flex-column nav-bar">
               <Nav.Item>
                 <Nav.Link eventKey="first">Profile</Nav.Link>
@@ -24,7 +29,7 @@ const Tabs = ({ formComponent, matchComponent, jobPostPage }: any) => {
               <Nav.Item>
                 <Nav.Link eventKey="third">Chat</Nav.Link>
               </Nav.Item>
-              <Nav.Item>
+              <Nav.Item onClick={handleClick}>
                 <Nav.Link eventKey="fourth">Job Posts</Nav.Link>
               </Nav.Item>
             </Nav>

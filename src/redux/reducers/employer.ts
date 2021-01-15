@@ -9,12 +9,6 @@ import {
   GET_EMPLOYER_REQUEST,
   GET_EMPLOYER_SUCCESS,
   GET_EMPLOYER_FAIL,
-  // JOB_POST_SUCCESS,
-  // JOB_POST_REQUEST,
-  // JOB_POST_FAIL,
-  // JOB_DELETE_REQUEST,
-  // JOB_DELETE_SUCCESS,
-  // JOB_DELETE_FAIL,
 } from '../types'
 
 const initialState = {
@@ -63,18 +57,6 @@ const employer = (state = initialState, action: EmployerActions) => {
     case GET_EMPLOYER_FAIL:
       //@ts-ignore
       return { ...state, loading: false, error: action.payload }
-    // case JOB_POST_REQUEST:
-    //   return { ...state, loading: true, jobPost: action.payload }
-    // case JOB_POST_SUCCESS:
-    //   return { ...state, loading: false, jobPost: action.payload }
-    // case JOB_POST_FAIL:
-    //   return { ...state, loading: false, error: action.payload }
-    // case JOB_DELETE_REQUEST:
-    //   return { ...state, loading: true }
-    // case JOB_DELETE_SUCCESS:
-    //   return { ...state, loading: false }
-    // case JOB_DELETE_FAIL:
-    //   return { ...state, error: action.payload }
     default:
       return state
   }
