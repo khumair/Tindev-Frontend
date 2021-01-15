@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
+import Skill from '../Skill'
 import icon from '../../media/user-img.svg'
 import CompanyIcon from '../../components/CompanyIcon'
 
@@ -32,7 +33,7 @@ const JobPostList = () => {
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item>skills</ListGroup.Item>
+              <Skill />
             </ListGroup>
           </Row>
         </Col>
