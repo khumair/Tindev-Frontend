@@ -21,8 +21,8 @@ const CompanyProfile = () => {
       <Tabs
         formComponent={<CompanyProfileForm />}
         matchComponent={<MatchCardCompany match={match} />}
-        chatComponnent={<ChatBox />}
         jobPostPage={<JobPost />}
+        chatComponent={<ChatBox />}
       />
     </div>
   )

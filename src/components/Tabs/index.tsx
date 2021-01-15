@@ -5,7 +5,12 @@ import { Tab, Row, Col, Nav } from 'react-bootstrap'
 import Navbar from '../Navbar-logout'
 import './Tabs.scss'
 
-const Tabs = ({ formComponent, matchComponent, jobPostPage }: any) => {
+const Tabs = ({
+  formComponent,
+  matchComponent,
+  jobPostPage,
+  chatComponent,
+}: any) => {
   return (
     <div>
       <Navbar />
@@ -32,7 +37,7 @@ const Tabs = ({ formComponent, matchComponent, jobPostPage }: any) => {
             <Tab.Content>
               <Tab.Pane eventKey="first">{formComponent}</Tab.Pane>
               <Tab.Pane eventKey="second">{matchComponent}</Tab.Pane>
-              <Tab.Pane eventKey="third"></Tab.Pane>
+              <Tab.Pane eventKey="third">{chatComponent}</Tab.Pane>
               <Tab.Pane eventKey="fourth">{jobPostPage}</Tab.Pane>
             </Tab.Content>
           </Col>
