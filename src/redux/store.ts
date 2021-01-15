@@ -20,13 +20,7 @@ export const initState: AppState = {
     info: { companyName: '', companyInfo: '', address: '', role: '' },
     loading: false,
     error: null,
-    jobPost: {
-      title: '',
-      jobDescription: '',
-      seniority: '',
-      skills: [],
-      startingDate: '',
-    },
+    jobPosts: [],
   },
   jobseeker: {
     credential: { email: '', password: '' },
@@ -39,6 +33,13 @@ export const initState: AppState = {
     skills: [],
     loading: false,
     error: null,
+    jobPost: {
+      title: '',
+      jobDescription: '',
+      seniority: '',
+      skills: [],
+      startingDate: '',
+    },
   },
   skill: {
     inProfile: [],
