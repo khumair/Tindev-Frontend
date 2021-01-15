@@ -1,5 +1,4 @@
 @import '~bootstrap/scss/bootstrap';
-
 // Variables
 $purple-color: #a64fae;
 body {
@@ -15,17 +14,15 @@ body {
   padding: 1rem;
   text-align: center;
 }
-
 button.btn-form {
   background-color: $purple-color;
   color: #ffffff;
-  border: none;
+  border: 0;
   font-family: 'poppins', sans-serif;
   margin-top: 25px;
   border-radius: 5px;
   height: 40px;
 }
-
 .btn-upload {
   background-color: $purple-color;
   color: #ffffff;
@@ -56,7 +53,6 @@ h2 {
   font-family: 'poppins', sans-serif;
   font-size: 36px;
 }
-
 .text-field {
   width: auto;
   height: 3rem;
@@ -68,10 +64,9 @@ h2 {
 .form-group-set {
   margin-top: 1.8rem;
 }
-
 /*   Company Match Page Styling */
 .view-btn {
-  background-color: #a64fae;
+  background-color: $purple-color;
   border: none;
   margin-right: 6px;
   height: 30px;
@@ -81,21 +76,18 @@ h2 {
   border: solid 1px;
   border-radius: 5px;
 }
-
-.nav-pills .nav-link.active {
-  color: $purple-color;
-  background-color: #ffffff;
-}
-
 .nav-pills .nav-link {
   font-size: semi-bold;
   font-weight: 2rem;
   color: #000;
 }
+.nav-pills .nav-link.active {
+  color: $purple-color;
+  background-color: #ffffff;
+}
 .side-nav-link {
   margin: 10px;
 }
-
 Tab {
-  color: black;
+  color: #000;
 }
