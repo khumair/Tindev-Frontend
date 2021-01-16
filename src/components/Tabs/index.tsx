@@ -6,7 +6,7 @@ import Navbar from '../Navbar-logout'
 import { getEmployerRequest } from '../../redux/actions/employer'
 import './Tabs.scss'
 
-const Tabs = ({ formComponent, matchComponent, jobPostPage }: any) => {
+const Tabs = ({ formComponent, matchComponent, jobPostListPage }: any) => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -39,7 +39,7 @@ const Tabs = ({ formComponent, matchComponent, jobPostPage }: any) => {
               <Tab.Pane eventKey="first">{formComponent}</Tab.Pane>
               <Tab.Pane eventKey="second">{matchComponent}</Tab.Pane>
               <Tab.Pane eventKey="third"></Tab.Pane>
-              <Tab.Pane eventKey="fourth">{jobPostPage}</Tab.Pane>
+              <Tab.Pane eventKey="fourth">{jobPostListPage}</Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>

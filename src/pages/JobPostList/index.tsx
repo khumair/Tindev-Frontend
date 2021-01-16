@@ -1,17 +1,17 @@
 import React from 'react'
 
-import JobPostList from '../../components/JobPostList'
-import './JobPost.scss'
+import JobPost from '../../components/JobPost'
+import './JobPostList.scss'
 
-const JobPost = () => {
+const JobPostList = () => {
   return (
     <>
       {/* <h2 className="job-posts">Job Posts</h2> */}
       <div className="job-post-card">
-        <JobPostList />
+        <JobPost />
       </div>
     </>
   )
 }
 
-export default JobPost
+export default JobPostList

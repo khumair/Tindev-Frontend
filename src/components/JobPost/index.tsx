@@ -5,10 +5,10 @@ import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
 import Skill from '../Skill'
 import icon from '../../media/user-img.svg'
-import CompanyIcon from '../../components/CompanyIcon'
+import CompanyIcon from '../CompanyIcon'
 import { AppState } from '../../redux/types'
 
-const JobPostList = () => {
+const JobPost = () => {
   const jobPost = useSelector((state: AppState) => state.resources.jobPost)
   const { title, jobDescription, seniority, startingDate, skills } = jobPost
 
@@ -27,23 +27,23 @@ const JobPostList = () => {
           <Row>
             <ListGroup variant="flush">
               <ListGroup.Item className="">
-                <Link to="/company/jobpost/:id">{title}</Link>
+                <Link to="/company/jobpost/:id">Title: {title}</Link>
               </ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item>{jobDescription}</ListGroup.Item>
+              <ListGroup.Item>Job Description: {jobDescription}</ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item>{seniority}</ListGroup.Item>
+              <ListGroup.Item>Seniority: {seniority}</ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item>{startingDate}</ListGroup.Item>
+              <ListGroup.Item>Starting Date: {startingDate}</ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
@@ -57,4 +57,4 @@ const JobPostList = () => {
   )
 }
 
-export default JobPostList
+export default JobPost
