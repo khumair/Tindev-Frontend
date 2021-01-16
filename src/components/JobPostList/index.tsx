@@ -9,7 +9,8 @@ import CompanyIcon from '../../components/CompanyIcon'
 import { AppState } from '../../redux/types'
 
 const JobPostList = () => {
-  const jobPosts = useSelector((state: AppState) => state.employer.jobPosts)
+  const jobPost = useSelector((state: AppState) => state.resources.jobPost)
+  const { title, jobDescription, seniority, startingDate, skills } = jobPost
 
   return (
     <>
@@ -25,31 +26,29 @@ const JobPostList = () => {
         <Col md={10}>
           <Row>
             <ListGroup variant="flush">
-              {jobPosts.map(jp => {
-                return (
-                  <ListGroup.Item className="">
-                    <Link to="/company/jobpost/:id">Title{jp.title}</Link>
-                  </ListGroup.Item>
-                )
-              })}
+              <ListGroup.Item className="">
+                <Link to="/company/jobpost/:id">Title{title}</Link>
+              </ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              {jobPosts.map(jp => {
-                return (
-                  <ListGroup.Item>
-                    Description{jp.jobDescription}
-                  </ListGroup.Item>
-                )
-              })}
+              <ListGroup.Item>Description{jobDescription}</ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              {jobPosts.map(jp => {
-                return <Skill skills={jp.skills} />
-              })}
+              <ListGroup.Item>Description{seniority}</ListGroup.Item>
+            </ListGroup>
+          </Row>
+          <Row>
+            <ListGroup variant="flush">
+              <ListGroup.Item>Description{startingDate}</ListGroup.Item>
+            </ListGroup>
+          </Row>
+          <Row>
+            <ListGroup variant="flush">
+              <Skill skills={skills} />
             </ListGroup>
           </Row>
         </Col>
