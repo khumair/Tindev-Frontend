@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
@@ -8,12 +7,22 @@ import Skill from '../Skill'
 import icon from '../../media/user-img.svg'
 import CompanyIcon from '../CompanyIcon'
 import './JobPost.scss'
-import { AppState } from '../../redux/types'
 
-const JobPost = () => {
-  const jobPost = useSelector((state: AppState) => state.resources.jobPost)
-  const { title, jobDescription, seniority, startingDate, skills } = jobPost
+type JobPostProps = {
+  title: string
+  jobDescription: string
+  seniority: string
+  startingDate: string
+  skills: any[]
+}
 
+const JobPost = ({
+  title,
+  jobDescription,
+  seniority,
+  startingDate,
+  skills,
+}: JobPostProps) => {
   return (
     <>
       <Row>
