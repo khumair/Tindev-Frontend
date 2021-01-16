@@ -3,9 +3,11 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
+import JobPostRow from '../JobPostRow'
 import Skill from '../Skill'
 import icon from '../../media/user-img.svg'
 import CompanyIcon from '../CompanyIcon'
+import './JobPost.scss'
 import { AppState } from '../../redux/types'
 
 const JobPost = () => {
@@ -23,29 +25,11 @@ const JobPost = () => {
               className="image" 
               fluid /> */}
         </Col>
-        <Col md={10}>
-          <Row>
-            <ListGroup variant="flush">
-              <ListGroup.Item className="">
-                <Link to="/company/jobpost/:id">Title: {title}</Link>
-              </ListGroup.Item>
-            </ListGroup>
-          </Row>
-          <Row>
-            <ListGroup variant="flush">
-              <ListGroup.Item>Job Description: {jobDescription}</ListGroup.Item>
-            </ListGroup>
-          </Row>
-          <Row>
-            <ListGroup variant="flush">
-              <ListGroup.Item>Seniority: {seniority}</ListGroup.Item>
-            </ListGroup>
-          </Row>
-          <Row>
-            <ListGroup variant="flush">
-              <ListGroup.Item>Starting Date: {startingDate}</ListGroup.Item>
-            </ListGroup>
-          </Row>
+        <Col md={8}>
+          <JobPostRow name="Title" item={title} />
+          <JobPostRow name="Job Description" item={jobDescription} />
+          <JobPostRow name="Seniority" item={seniority} />
+          <JobPostRow name="Starting Date" item={startingDate} />
           <Row>
             <ListGroup variant="flush">
               <ListGroup.Item>
@@ -54,6 +38,9 @@ const JobPost = () => {
               </ListGroup.Item>
             </ListGroup>
           </Row>
+        </Col>
+        <Col className="edit" md={2}>
+          <Link to="/company/jobpost/:id">EDIT</Link>
         </Col>
       </Row>
     </>
