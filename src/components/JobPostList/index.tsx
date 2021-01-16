@@ -27,23 +27,23 @@ const JobPostList = () => {
           <Row>
             <ListGroup variant="flush">
               <ListGroup.Item className="">
-                <Link to="/company/jobpost/:id">Title{title}</Link>
+                <Link to="/company/jobpost/:id">{title}</Link>
               </ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item>Description{jobDescription}</ListGroup.Item>
+              <ListGroup.Item>{jobDescription}</ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item>Description{seniority}</ListGroup.Item>
+              <ListGroup.Item>{seniority}</ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item>Description{startingDate}</ListGroup.Item>
+              <ListGroup.Item>{startingDate}</ListGroup.Item>
             </ListGroup>
           </Row>
           <Row>
