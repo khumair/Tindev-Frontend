@@ -1,12 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
 import Skill from '../Skill'
 import icon from '../../media/user-img.svg'
 import CompanyIcon from '../../components/CompanyIcon'
+import { AppState } from '../../redux/types'
 
 const JobPostList = () => {
+  const jobPosts = useSelector((state: AppState) => state.employer.jobPosts)
+
   return (
     <>
       <Row>
@@ -21,19 +25,31 @@ const JobPostList = () => {
         <Col md={10}>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item className="">
-                <Link to="/company/jobpost/:id">job title</Link>
-              </ListGroup.Item>
+              {jobPosts.map(jp => {
+                return (
+                  <ListGroup.Item className="">
+                    <Link to="/company/jobpost/:id">Title{jp.title}</Link>
+                  </ListGroup.Item>
+                )
+              })}
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <ListGroup.Item>description</ListGroup.Item>
+              {jobPosts.map(jp => {
+                return (
+                  <ListGroup.Item>
+                    Description{jp.jobDescription}
+                  </ListGroup.Item>
+                )
+              })}
             </ListGroup>
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <Skill />
+              {jobPosts.map(jp => {
+                return <Skill skills={jp.skills} />
+              })}
             </ListGroup>
           </Row>
         </Col>

@@ -15,7 +15,7 @@ const Candidate = ({ firstName, lastName, skills }: CandidateProps) => {
       <h5>
         {firstName} {lastName}
       </h5>
-      <Skill />
+      <Skill skills={skills} />
     </div>
   )
 }

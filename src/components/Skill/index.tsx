@@ -1,8 +1,10 @@
 import React from 'react'
 import { Badge } from 'react-bootstrap'
 
-const Skill = () => {
-  const skills = ['javascript', 'reactjs']
+type SkillProps = {
+  skills: any[]
+}
+const Skill = ({ skills }: SkillProps) => {
   return (
     <>
       {skills.map((skill, index) => {
