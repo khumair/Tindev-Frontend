@@ -48,7 +48,10 @@ const JobPost = () => {
           </Row>
           <Row>
             <ListGroup variant="flush">
-              <Skill skills={skills} />
+              <ListGroup.Item>
+                Required Skills:
+                <Skill skills={skills} />
+              </ListGroup.Item>
             </ListGroup>
           </Row>
         </Col>
