@@ -17,12 +17,6 @@ const initialState = {
   loading: false,
   error: null,
   jobPosts: [],
-  jobPost: {
-    title: '',
-    jobDescription: '',
-    seniority: '',
-    skills: [],
-  },
 }
 
 const employer = (state = initialState, action: EmployerActions) => {
@@ -51,7 +45,7 @@ const employer = (state = initialState, action: EmployerActions) => {
       return {
         ...state,
         loading: false,
-        //@ts-ignore
+        // @ts-ignore
         employerInfo: action.payload,
       }
     case GET_EMPLOYER_FAIL:
