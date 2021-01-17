@@ -14,7 +14,7 @@ const Skill = ({ skills }: SkillProps) => {
             key={index}
             className="tag-btn btn btn-pill btn-outline-primary ml-2"
           >
-            {skill}
+            <span className="m-auto">{skill}</span>
           </Badge>
         )
       })}

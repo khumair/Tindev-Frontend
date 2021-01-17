@@ -25,7 +25,7 @@ const JobPost = ({
 }: JobPostProps) => {
   return (
     <>
-      <Row>
+      <Row className="job-post-card">
         <Col md={2}>
           <CompanyIcon icon={icon} />
           {/* <Image 

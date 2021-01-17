@@ -1,12 +1,14 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Tab, Row, Col, Nav } from 'react-bootstrap'
 
 import Navbar from '../Navbar-logout'
 import { getEmployerRequest } from '../../redux/actions/employer'
+import { AppState } from '../../redux/types'
 import './Tabs.scss'
 
 const Tabs = ({ formComponent, matchComponent, jobPostListPage }: any) => {
+  const role = useSelector((state: AppState) => state.user.userInfo.role)
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -29,9 +31,11 @@ const Tabs = ({ formComponent, matchComponent, jobPostListPage }: any) => {
               <Nav.Item>
                 <Nav.Link eventKey="third">Chat</Nav.Link>
               </Nav.Item>
-              <Nav.Item onClick={handleClick}>
-                <Nav.Link eventKey="fourth">Job Posts</Nav.Link>
-              </Nav.Item>
+              {role === 'employer' && (
+                <Nav.Item onClick={handleClick}>
+                  <Nav.Link eventKey="fourth">Job Posts</Nav.Link>
+                </Nav.Item>
+              )}
             </Nav>
           </Col>
           <Col sm={7} className="tab-content">

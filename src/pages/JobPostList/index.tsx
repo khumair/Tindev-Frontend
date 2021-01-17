@@ -30,7 +30,7 @@ const JobPostList = () => {
 
   return (
     <>
-      <div className="job-post-card">
+      <div className="">
         {jobPosts.map(jp => {
           return (
             <JobPost
