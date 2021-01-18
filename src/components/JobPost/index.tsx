@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
 import JobPostRow from '../JobPostRow'
-import Skill from '../Skill'
+import CustomSkill from '../CustomSkill'
 import icon from '../../media/user-img.svg'
 import CompanyIcon from '../CompanyIcon'
 import './JobPost.scss'
@@ -43,7 +43,7 @@ const JobPost = ({
             <ListGroup variant="flush">
               <ListGroup.Item>
                 Required Skills:
-                <Skill skills={skills} />
+                <CustomSkill skills={skills} />
               </ListGroup.Item>
             </ListGroup>
           </Row>

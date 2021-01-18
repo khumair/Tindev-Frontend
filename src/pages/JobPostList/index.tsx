@@ -6,7 +6,7 @@ import './JobPostList.scss'
 import { AppState } from '../../redux/types'
 
 const JobPostList = () => {
-  // testing
+  //  testing
   //   const jobPosts = [
   //     {
   //        id: 1,

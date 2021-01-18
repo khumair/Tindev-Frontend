@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Skill from '../Skill'
+import CustomSkill from '../CustomSkill'
 import './Candidate.scss'
 
 type CandidateProps = {
@@ -15,7 +15,7 @@ const Candidate = ({ firstName, lastName, skills }: CandidateProps) => {
       <h5>
         {firstName} {lastName}
       </h5>
-      <Skill skills={skills} />
+      <CustomSkill skills={skills} />
     </div>
   )
 }
