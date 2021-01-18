@@ -1,5 +1,8 @@
 import React from 'react'
-import { Image } from 'react-bootstrap'
+import Incoming from './Incoming'
+import Outgoing from './Outgoing'
+import { MdSearch } from 'react-icons/md'
+import UsersList from './UsersList'
 const ChatBoxs = () => {
   // const [message, sendMessage] = useState('')
   // const [newMessage, setNewMessage] = useState('')
@@ -30,53 +33,12 @@ const ChatBoxs = () => {
                           />
                           <div className="input-group-btn">
                             <button type="button" className="btn btn-info">
-                              <i className="fa fa-search"></i>
+                              <MdSearch />
                             </button>
                           </div>
                         </div>
                       </div>
-                      <ul className="users">
-                        <li className="person" data-chat="person1">
-                          <div className="user">
-                            <Image
-                              src="https://www.bootdey.com/img/Content/avatar/avatar1.png"
-                              alt="avatar"
-                            />
-                            <span className="status busy"></span>
-                          </div>
-                          <p className="name-time">
-                            <span className="name">Dlip</span>
-                            <span className="time">4/01/2021</span>
-                          </p>
-                        </li>
-                        <li className="person" data-chat="person1">
-                          <div className="user">
-                            <Image
-                              src="https://www.bootdey.com/img/Content/avatar/avatar1.png"
-                              alt="avatar"
-                            />
-                            <span className="status offline"></span>
-                          </div>
-                          <p className="name-time">
-                            <span className="name">Kirsi</span>
-                            <span className="time">4/01/2021</span>
-                          </p>
-                        </li>
-
-                        <li className="person active-user" data-chat="person2">
-                          <div className="user">
-                            <Image
-                              src="https://www.bootdey.com/img/Content/avatar/avatar2.png"
-                              alt="avatar"
-                            />
-                            <span className="status away"></span>
-                          </div>
-                          <p className="name-time">
-                            <span className="name">BigMan</span>
-                            <span className="time">4/01/2021</span>
-                          </p>
-                        </li>
-                      </ul>
+                      <UsersList />
                     </div>
                   </div>
                   <div className="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
@@ -87,39 +49,8 @@ const ChatBoxs = () => {
                     </div>
                     <div className="chat-container chat-messages">
                       <ul className="chat-box chatContainerScroll">
-                        <li className="chat-left">
-                          <div className="chat-avatar">
-                            <Image
-                              src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                              alt="avatar"
-                            />
-                            <div className="chat-name">Kirsi</div>
-                          </div>
-                          <div className="chat-text">
-                            Hello, I'm Kirsi. <br />
-                            How can I help you today?
-                          </div>
-                          <div className="chat-hour">
-                            08:55 <span className="fa fa-check-circle"></span>
-                          </div>
-                        </li>
-
-                        <li className="chat-right">
-                          <div className="chat-hour">
-                            08:56 <span className="fa fa-check-circle"></span>
-                          </div>
-                          <div className="chat-text">
-                            Hi, Dlip <br />I need more information about
-                            Developer Plan.
-                          </div>
-                          <div className="chat-avatar">
-                            <Image
-                              src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                              alt="avatar"
-                            />
-                            <div className="chat-name">Sam</div>
-                          </div>
-                        </li>
+                        <Incoming />
+                        <Outgoing />
                       </ul>
                     </div>
                     <div className="flex-grow-0 py-3 px-4 border-top">

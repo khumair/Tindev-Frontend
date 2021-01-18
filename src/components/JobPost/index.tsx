@@ -7,11 +7,11 @@ import { creatingJobPostRequest } from '../../redux/actions/jobpost'
 
 const JopPost = () => {
   const [state, setState] = useState({
-    jobTitle: '',
+    title: '',
     jobDescription: '',
     skills: [],
-    city: '',
-    country: '',
+    seniority: '',
+    startingDate: '',
   })
 
   const dispatch = useDispatch()
@@ -25,15 +25,15 @@ const JopPost = () => {
       [name]: value,
     })
   }
-  const { jobTitle, jobDescription, skills, city, country } = state
+  const { title, jobDescription, skills, seniority, startingDate } = state
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const jobPosted = {
-      jobTitle,
+      title,
       jobDescription,
-      city,
-      country,
+      seniority,
+      startingDate,
       skills,
     }
     dispatch(creatingJobPostRequest(jobPosted))
@@ -56,7 +56,7 @@ const JopPost = () => {
                 <Form.Control
                   className="text-field"
                   type="text"
-                  name="jobTitle"
+                  name="title"
                   placeholder="Job Title"
                 />
               </Col>
@@ -120,14 +120,14 @@ const JopPost = () => {
               controlId="formPlaintextPassword"
             >
               <Form.Label column sm="4">
-                Country
+                startingDate
               </Form.Label>
               <Col sm="8">
                 <Form.Control
                   className="text-field"
                   type="text"
                   placeholder="Finland"
-                  name="country"
+                  name="startingDate"
                 />
               </Col>
             </Form.Group>
@@ -137,14 +137,14 @@ const JopPost = () => {
               controlId="formPlaintextPassword"
             >
               <Form.Label column sm="4">
-                City
+                seniority
               </Form.Label>
               <Col sm="8">
                 <Form.Control
                   className="text-field"
                   type="text"
                   placeholder="Helsinki"
-                  name="city"
+                  name="seniority"
                 />
               </Col>
             </Form.Group>
