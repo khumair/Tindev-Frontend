@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Col, Row, Tab, Nav } from 'react-bootstrap'
 import MatchCard from './MatchCard'
-import JobPost from '../JobPost'
+// import JobPost from '../JobPost'
 // import ChatBox from '../ChatBox/index-test'
 import ChatBoxs from '../ChatBox'
 const Tabs = () => {
