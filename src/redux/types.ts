@@ -7,8 +7,8 @@ export const UPDATE_EMPLOYER_REQUEST = 'UPDATE_EMPLOYER_REQUEST'
 export const UPDATE_EMPLOYER_SUCCESS = 'UPDATE_EMPLOYER_SUCCESS'
 export const UPDATE_EMPLOYER_FAIL = 'UPDATE_EMPLOYER_FAIL'
 export const GET_EMPLOYER_REQUEST = 'GET_EMPLOYER_REQUEST'
-export const GET_EMPLOYER_SUCCESS = 'GET_EMPLOYER_REQUEST'
-export const GET_EMPLOYER_FAIL = 'GET_EMPLOYER_REQUEST'
+export const GET_EMPLOYER_SUCCESS = 'GET_EMPLOYER_SUCCESS'
+export const GET_EMPLOYER_FAIL = 'GET_EMPLOYER_FAIL'
 export const UPDATE_JOBSEEKER_REQUEST = 'UPDATE_JOBSEEKER_REQUEST'
 export const UPDATE_JOBSEEKER_SUCCESS = 'UPDATE_JOBSEEKER_SUCCESS'
 export const UPDATE_JOBSEEKER_FAIL = 'UPDATE_JOBSEEKER_FAIL'
@@ -175,13 +175,11 @@ export type GetEmployerRequestAction = {
 export type GetEmployerSuccessAction = {
   type: typeof GET_EMPLOYER_SUCCESS
   payload: {
-    info: {
-      companyName: string
-      companyInfo: string
-      address: string
-      role: string
-      jobPosts: []
-    }
+    companyName: string
+    companyInfo: string
+    address: string
+    role: string
+    jobPosts: []
   }
 }
 
@@ -444,15 +442,15 @@ export type CredentialStateEmployer = {
     email: string
     password: string
   }
-  info: {
+  employerInfo: {
     companyName: string
     companyInfo: string
     address: any
     role: string
+    jobPosts: any[]
   }
   loading: Boolean
   error: any
-  jobPosts: any[]
 }
 
 export type CredentialStateJobseeker = {

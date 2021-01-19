@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
 import JobPostRow from '../JobPostRow'
-import CustomSkill from '../CustomSkill'
+//import CustomSkill from '../CustomSkill'
 import icon from '../../media/user-img.svg'
 import CompanyIcon from '../CompanyIcon'
 import './JobPost.scss'
@@ -13,7 +13,7 @@ type JobPostProps = {
   jobDescription: string
   seniority: string
   startingDate: string
-  skills: any[]
+  //skills: any[]
 }
 
 const JobPost = ({
@@ -21,8 +21,8 @@ const JobPost = ({
   jobDescription,
   seniority,
   startingDate,
-  skills,
-}: JobPostProps) => {
+}: //skills,
+JobPostProps) => {
   return (
     <>
       <Row className="job-post-card">
@@ -43,7 +43,7 @@ const JobPost = ({
             <ListGroup variant="flush">
               <ListGroup.Item>
                 Required Skills:
-                <CustomSkill skills={skills} />
+                {/* <CustomSkill skills={skills} /> */}
               </ListGroup.Item>
             </ListGroup>
           </Row>

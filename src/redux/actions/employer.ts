@@ -80,7 +80,7 @@ export const getEmployerRequest = () => {
 }
 
 export const getEmployerSuccess = (employerInfo: GetEmployer) => {
-  console.log(employerInfo)
+  console.log('employerinfo in action', employerInfo) // Works
   return {
     type: GET_EMPLOYER_SUCCESS,
     payload: employerInfo,

@@ -13,10 +13,11 @@ import {
 
 const initialState = {
   credential: { email: '', password: '' },
-  info: {},
+  employerInfo: {
+    jobPosts: [],
+  },
   loading: false,
   error: null,
-  jobPosts: [],
 }
 
 const employer = (state = initialState, action: EmployerActions) => {
@@ -42,6 +43,7 @@ const employer = (state = initialState, action: EmployerActions) => {
     case GET_EMPLOYER_REQUEST:
       return { ...state, loading: true }
     case GET_EMPLOYER_SUCCESS:
+      console.log('action.payload in reducer', action.payload) // Works
       return {
         ...state,
         loading: false,

@@ -46,7 +46,8 @@ function* updateEmployerSaga(action: UpdateEmployerRequestAction) {
 function* getEmployerSaga() {
   try {
     const res = yield axios.get('/employer')
-    yield put(getEmployerSuccess(res.data))
+    console.log('res.data.payload', res.data.payload) // Works
+    yield put(getEmployerSuccess(res.data.payload))
   } catch (error) {
     yield put(getEmployerFail(error))
   }

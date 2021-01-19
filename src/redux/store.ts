@@ -17,10 +17,15 @@ export const initState: AppState = {
   },
   employer: {
     credential: { email: '', password: '' },
-    info: { companyName: '', companyInfo: '', address: '', role: '' },
+    employerInfo: {
+      companyName: '',
+      companyInfo: '',
+      address: '',
+      role: '',
+      jobPosts: [],
+    },
     loading: false,
     error: null,
-    jobPosts: [],
   },
   jobseeker: {
     credential: { email: '', password: '' },
@@ -60,7 +65,7 @@ export default function makeStore(initialState = initState) {
 
   const store = createStore(
     rootReducer(),
-    //@ts-ignore
+    // @ts-ignore
     initialState,
     composeEnhancer(applyMiddleware(sagaMiddleware))
   )

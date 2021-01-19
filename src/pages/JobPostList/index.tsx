@@ -6,43 +6,27 @@ import './JobPostList.scss'
 import { AppState } from '../../redux/types'
 
 const JobPostList = () => {
-  //  testing
-  //   const jobPosts = [
-  //     {
-  //        id: 1,
-  //        title: "fullstack developer",
-  //        jobDescription: "full stack development",
-  //        seniority: "Junior",
-  //        startingDate: "{\"day\":31,\"month\":1,\"year\":2021}",
-  //        skills: ["javascript", "reactjs", "nodejs"]
-  //     },
-  //     {
-  //        id: 2,
-  //        title: "fullstack developer",
-  //        jobDescription: "job",
-  //        seniority: "Junior",
-  //        startingDate: "{\"day\":29,\"month\":1,\"year\":2021}",
-  //        skills: ["javascript", "reactjs", "nodejs"]
-  //     },
-  //   ]
-
-  const jobPosts = useSelector((state: AppState) => state.employer.jobPosts)
-
+  //@ts-ignore
+  const jobPosts = useSelector(
+    (state: AppState) => state.employer.employerInfo?.jobPosts
+  )
+  console.log('jobPosts in JobPostList', jobPosts) // empty array
   return (
     <>
       <div className="">
-        {jobPosts.map(jp => {
-          return (
-            <JobPost
-              key={jp.id}
-              title={jp.title}
-              jobDescription={jp.jobDescription}
-              seniority={jp.seniority}
-              startingDate={jp.startingDate}
-              skills={jp.skills}
-            />
-          )
-        })}
+        {jobPosts &&
+          jobPosts.map((jp: any) => {
+            return (
+              <JobPost
+                key={jp.id}
+                title={jp.title}
+                jobDescription={jp.jobDescription}
+                seniority={jp.seniority}
+                startingDate={jp.startingDate}
+                // skills={jp.skills}
+              />
+            )
+          })}
       </div>
     </>
   )
