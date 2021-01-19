@@ -384,6 +384,9 @@ export type DeletingRequestActionType = {
 
 export type DeletingSuccessActionType = {
   type: typeof JOB_DELETE_SUCCESS
+  payload: {
+    jobPostId: any
+  }
 }
 
 export type DeletingFailActionType = {
@@ -469,6 +472,7 @@ export type ResourcesState = {
   loading: boolean
   error: any
   jobPost: JobPostState
+  jobPosts: any[]
 }
 
 export type SkillState = {

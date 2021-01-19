@@ -47,7 +47,7 @@ function* deletingJobPostSaga(action: DeletingRequestActionType) {
   try {
     const jobPostId = yield action.payload
     yield axios.delete(`/employer/jobs/${jobPostId}`)
-    yield put(deleteJobPostSuccess())
+    yield put(deleteJobPostSuccess(jobPostId))
   } catch (e) {
     yield put(deleteJobPostFail(e))
   }

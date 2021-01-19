@@ -17,6 +17,7 @@ export const resources = (
     skills: [],
     loading: false,
     error: null,
+    jobPostId: null,
   },
   action: ResourcesActions
 ): ResourcesState => {
@@ -46,9 +47,15 @@ export const resources = (
     case CREATE_JOB_POST_FAIL:
       return { ...state, loading: false, error: action.payload }
     case JOB_DELETE_REQUEST:
-      return { ...state, loading: true }
-    case JOB_DELETE_SUCCESS:
-      return { ...state, loading: false }
+      return { ...state, loading: true, jobPost: action.payload }
+    case JOB_DELETE_SUCCESS: {
+      return {
+        loading: false,
+        ...state.jobPosts.filter(
+          ({ id }: any) => id !== action.payload.jobPostId
+        ),
+      }
+    }
     case JOB_DELETE_FAIL:
       return { ...state, error: action.payload }
     default:
