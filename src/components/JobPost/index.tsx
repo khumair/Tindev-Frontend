@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
+import { Row, Button, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
 import JobPostRow from '../JobPostRow'
 //import CustomSkill from '../CustomSkill'
@@ -48,8 +48,10 @@ JobPostProps) => {
             </ListGroup>
           </Row>
         </Col>
-        <Col className="edit" md={2}>
-          <Link to="/company/jobpost/:id">EDIT</Link>
+        <Col md={2}>
+          <Button className="edit-button">
+            <Link to="/company/jobpost/:id">EDIT</Link>
+          </Button>
         </Col>
       </Row>
     </>

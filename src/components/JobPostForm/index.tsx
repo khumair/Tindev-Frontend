@@ -22,6 +22,7 @@ const JobPostForm = ({ header }: HeaderProps) => {
     startingDate: '',
   })
 
+  // TODO: date format
   const year = new Date().getFullYear.toString().substr(-2)
   const range = parseInt(year)
 
@@ -48,6 +49,7 @@ const JobPostForm = ({ header }: HeaderProps) => {
     setStartingAt(startingAt)
   }
 
+  // TODO: Add condition for edit job post
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
     dispatch(

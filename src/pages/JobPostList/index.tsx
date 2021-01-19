@@ -10,7 +10,7 @@ const JobPostList = () => {
   const jobPosts = useSelector(
     (state: AppState) => state.employer.employerInfo?.jobPosts
   )
-  console.log('jobPosts in JobPostList', jobPosts) // empty array
+
   return (
     <>
       <div className="">

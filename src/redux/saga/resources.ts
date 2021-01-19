@@ -27,7 +27,6 @@ function* createSkillSaga() {
   try {
     const skill = yield select(skillInfo)
     const res = yield axios.post('/skills', skill)
-    console.log(res)
     yield put(createSkillSuccess(res.data))
   } catch (error) {
     yield put(createSkillFail(error))
@@ -38,8 +37,7 @@ function* creatingJobPostSaga() {
   try {
     const job = yield select(jobPostFormData)
     const res = yield axios.post('/employer/jobs', job)
-    console.log(res)
-    yield put(registerJobPostSuccess(job))
+    yield put(registerJobPostSuccess(res))
   } catch (e) {
     yield put(registerJobPostFail(e))
   }

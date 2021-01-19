@@ -31,7 +31,6 @@ const employer = (state = initialState, action: EmployerActions) => {
     case UPDATE_EMPLOYER_REQUEST:
       return { ...state, loading: true }
     case UPDATE_EMPLOYER_SUCCESS:
-      console.log(action.payload)
       return {
         ...state,
         loading: false,
@@ -43,7 +42,6 @@ const employer = (state = initialState, action: EmployerActions) => {
     case GET_EMPLOYER_REQUEST:
       return { ...state, loading: true }
     case GET_EMPLOYER_SUCCESS:
-      console.log('action.payload in reducer', action.payload) // Works
       return {
         ...state,
         loading: false,

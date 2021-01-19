@@ -1,12 +1,28 @@
 @import '../../scss/config';
 
-.edit {
+button.edit-button a {
+  background: $purple-color;
+  color: $white;
   margin-top: 0.5rem;
+}
+
+button.edit-button {
+  background: $purple-color;
+  border: 0;
+  margin-top: 1rem;
+}
+
+button.edit-button:hover {
+  background: $purple-color;
+}
+
+button.edit-button a:active {
+  background: $purple-color;
 }
 
 .job-post-card {
   border: 1px solid $black;
   border-radius: 4px;
-  margin-right: 1rem;
+  margin: 0.5rem 1rem 0.5rem;
   padding: 1rem;
 }
