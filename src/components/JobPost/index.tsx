@@ -48,10 +48,15 @@ JobPostProps) => {
             </ListGroup>
           </Row>
         </Col>
-        <Col md={2}>
-          <Button className="edit-button">
-            <Link to="/company/jobpost/:id">EDIT</Link>
-          </Button>
+        <Col className="buttons" md={2}>
+          <Row>
+            <Button className="edit-button">
+              <Link to="/company/jobpost/:id">EDIT</Link>
+            </Button>
+          </Row>
+          <Row>
+            <Button className="delete-button">DELETE</Button>
+          </Row>
         </Col>
       </Row>
     </>

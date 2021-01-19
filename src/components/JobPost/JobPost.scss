@@ -3,13 +3,12 @@
 button.edit-button a {
   background: $purple-color;
   color: $white;
-  margin-top: 0.5rem;
 }
 
 button.edit-button {
   background: $purple-color;
   border: 0;
-  margin-top: 1rem;
+  min-width: 5rem;
 }
 
 button.edit-button:hover {
@@ -20,9 +19,23 @@ button.edit-button a:active {
   background: $purple-color;
 }
 
+button.delete-button {
+  background: #6f42c1;
+  margin-top: 1rem;
+  min-width: 5rem;
+}
+
 .job-post-card {
   border: 1px solid $black;
   border-radius: 4px;
   margin: 0.5rem 1rem 0.5rem;
   padding: 1rem;
+}
+
+.buttons {
+  margin-left: 0rem;
+  @media (max-width: 767px) {
+    margin-left: 1rem;
+    min-width: 3rem;
+  }
 }
