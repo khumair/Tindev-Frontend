@@ -379,9 +379,7 @@ export type UpdateJobPostFailAction = {
 
 export type DeletingRequestActionType = {
   type: typeof JOB_DELETE_REQUEST
-  payload: {
-    id: number
-  }
+  payload: JobPost
 }
 
 export type DeletingSuccessActionType = {
@@ -470,7 +468,7 @@ export type ResourcesState = {
   skills: any[]
   loading: boolean
   error: any
-  jobPost: JobPost
+  jobPost: JobPostState
 }
 
 export type SkillState = {
@@ -482,8 +480,11 @@ export type SkillState = {
 export type IdToDelete = string
 
 export type JobPostState = {
-  id: number
-  jobPost: any
+  title: string
+  jobDescription: string
+  seniority: string
+  skills: any[]
+  startingDate: DayValue | string
   loading: boolean
   error: any
 }
