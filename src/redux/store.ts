@@ -36,7 +36,6 @@ export const initState: AppState = {
   },
   resources: {
     skills: [],
-    jobPosts: [],
     loading: false,
     error: null,
     jobPost: {

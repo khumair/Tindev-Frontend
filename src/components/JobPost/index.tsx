@@ -1,5 +1,4 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Button, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
@@ -8,10 +7,8 @@ import JobPostRow from '../JobPostRow'
 import icon from '../../media/user-img.svg'
 import CompanyIcon from '../CompanyIcon'
 import './JobPost.scss'
-import { deleteJobPostRequest } from '../../redux/actions/resources'
 
 type JobPostProps = {
-  jobPostId: any
   title: string
   jobDescription: string
   seniority: string
@@ -20,19 +17,12 @@ type JobPostProps = {
 }
 
 const JobPost = ({
-  jobPostId,
   title,
   jobDescription,
   seniority,
   startingDate,
 }: //skills,
 JobPostProps) => {
-  const dispatch = useDispatch()
-
-  const handleClick = () => {
-    dispatch(deleteJobPostRequest(jobPostId))
-  }
-
   return (
     <>
       <Row className="job-post-card">
@@ -65,9 +55,7 @@ JobPostProps) => {
             </Button>
           </Row>
           <Row>
-            <Button onClick={handleClick} className="delete-button">
-              DELETE
-            </Button>
+            <Button className="delete-button">DELETE</Button>
           </Row>
         </Col>
       </Row>

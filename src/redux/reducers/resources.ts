@@ -17,7 +17,6 @@ export const resources = (
     skills: [],
     loading: false,
     error: null,
-    jobPostId: null,
   },
   action: ResourcesActions
 ): ResourcesState => {
@@ -29,6 +28,7 @@ export const resources = (
         skills: [],
       }
     case GET_SKILLS_SUCCESS:
+      console.log('action payload in reducer', action.payload)
       return {
         ...state,
         loading: false,
@@ -47,15 +47,9 @@ export const resources = (
     case CREATE_JOB_POST_FAIL:
       return { ...state, loading: false, error: action.payload }
     case JOB_DELETE_REQUEST:
-      return { ...state, loading: true, jobPost: action.payload }
-    case JOB_DELETE_SUCCESS: {
-      return {
-        loading: false,
-        ...state.jobPosts.filter(
-          ({ id }: any) => id !== action.payload.jobPostId
-        ),
-      }
-    }
+      return { ...state, loading: true }
+    case JOB_DELETE_SUCCESS:
+      return { ...state, loading: false }
     case JOB_DELETE_FAIL:
       return { ...state, error: action.payload }
     default:

@@ -45,9 +45,11 @@ const employer = (state = initialState, action: EmployerActions) => {
       return {
         ...state,
         loading: false,
+        // @ts-ignore
         employerInfo: action.payload,
       }
     case GET_EMPLOYER_FAIL:
+      //@ts-ignore
       return { ...state, loading: false, error: action.payload }
     default:
       return state

@@ -72,10 +72,9 @@ export const deleteJobPostRequest = (jobPostId: DeletingRequestActionType) => {
   }
 }
 
-export const deleteJobPostSuccess = (jobPostId: DeletingSuccessActionType) => {
+export const deleteJobPostSuccess = (): DeletingSuccessActionType => {
   return {
     type: JOB_DELETE_SUCCESS,
-    payload: jobPostId,
   }
 }
 
