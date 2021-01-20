@@ -8,12 +8,16 @@ import { AppState } from '../../redux/types'
 
 //const skills = [{id: '1', name: 'JavaScript'}, {id: '2', name: 'TypeScript'}, {id: '3', name: 'Nodejs'}, {id: '4', name: 'C++'}, {id: '5', name: 'Reactjs'}]
 
-const DropDown = () => {
+const DropDown = ({ onToggle }: any) => {
   const skills = useSelector((state: AppState) => state.resources.skills)
 
   return (
     <Dropdown>
-      <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+      <Dropdown.Toggle
+        onClick={onToggle}
+        as={CustomToggle}
+        id="dropdown-custom-components"
+      >
         Skills
       </Dropdown.Toggle>
 
@@ -21,7 +25,9 @@ const DropDown = () => {
         {skills &&
           skills.map(skill => {
             return (
-              <Dropdown.Item eventKey={skill.id}>{skill.name}</Dropdown.Item>
+              <Dropdown.Item key={skill.id} eventKey={skill.id}>
+                {skill.name}
+              </Dropdown.Item>
             )
           })}
       </Dropdown.Menu>
