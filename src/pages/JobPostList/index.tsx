@@ -17,6 +17,7 @@ const JobPostList = () => {
           jobPosts.map((jp: any) => {
             return (
               <JobPost
+                //key={jp.id}
                 jobPostId={jp.id}
                 title={jp.title}
                 jobDescription={jp.jobDescription}

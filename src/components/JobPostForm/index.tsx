@@ -62,6 +62,13 @@ const JobPostForm = ({ header }: HeaderProps) => {
         startingDate: startingAt,
       })
     )
+    setFormData({
+      title: '',
+      jobDescription: '',
+      requiredSkills: [],
+      seniority: '',
+      startingDate: '',
+    })
   }
 
   return (

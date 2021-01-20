@@ -23,7 +23,6 @@ const CompanyProfileForm = () => {
   const { loading, error } = user
 
   const handleClick = () => {
-    console.log('clicked')
     dispatch(getSkillsRequest())
   }
 

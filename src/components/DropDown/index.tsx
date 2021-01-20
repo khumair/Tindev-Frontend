@@ -8,13 +8,13 @@ import { AppState } from '../../redux/types'
 
 //const skills = [{id: '1', name: 'JavaScript'}, {id: '2', name: 'TypeScript'}, {id: '3', name: 'Nodejs'}, {id: '4', name: 'C++'}, {id: '5', name: 'Reactjs'}]
 
-const DropDown = ({ onToggle }: any) => {
+const DropDown = (/*{ onToggle }: any*/) => {
   const skills = useSelector((state: AppState) => state.resources.skills)
 
   return (
     <Dropdown>
       <Dropdown.Toggle
-        onClick={onToggle}
+        //onClick={onToggle}
         as={CustomToggle}
         id="dropdown-custom-components"
       >
