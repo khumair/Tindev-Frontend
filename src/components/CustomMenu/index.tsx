@@ -4,8 +4,6 @@ import { FormControl } from 'react-bootstrap'
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 
-// forwardRef again here!
-// Dropdown needs access to the DOM of the Menu to measure it
 const CustomMenu = React.forwardRef(
   ({ children /*, style, className, */ }, ref) => {
     const [value, setValue] = useState('')

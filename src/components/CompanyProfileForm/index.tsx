@@ -22,6 +22,7 @@ const CompanyProfileForm = () => {
   const user = useSelector((state: AppState) => state.user)
   const { loading, error } = user
 
+  // click on + job post link
   const handleClick = () => {
     dispatch(getSkillsRequest())
   }
