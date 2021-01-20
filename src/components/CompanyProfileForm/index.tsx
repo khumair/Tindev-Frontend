@@ -23,6 +23,7 @@ const CompanyProfileForm = () => {
   const { loading, error } = user
 
   const handleClick = () => {
+    console.log('clicked')
     dispatch(getSkillsRequest())
   }
 
@@ -46,6 +47,11 @@ const CompanyProfileForm = () => {
         address: formData.address,
       })
     )
+    setFormData({
+      companyName: '',
+      companyInfo: '',
+      address: '',
+    })
   }
 
   return (
