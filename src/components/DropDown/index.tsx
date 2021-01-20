@@ -1,38 +1,40 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { /*useDispatch,*/ useSelector } from 'react-redux'
 import { Dropdown } from 'react-bootstrap'
 
 import CustomMenu from '../CustomMenu'
 import CustomToggle from '../CustomToggle'
 import { AppState } from '../../redux/types'
-import { addSkill } from '../../redux/actions/skill'
+//import { addSkill } from '../../redux/actions/skill'
 
 //const skills = [{id: '1', name: 'JavaScript'}, {id: '2', name: 'TypeScript'}, {id: '3', name: 'Nodejs'}, {id: '4', name: 'C++'}, {id: '5', name: 'Reactjs'}]
 
 const DropDown = () => {
-  const [data, setData] = useState([{ id: undefined, name: '' }])
+  const [skill, setSkill] = useState({ id: null, name: '' })
 
   const skills = useSelector((state: AppState) => state.resources.skills)
+  //const inProfile = useSelector((state: AppState) => state.skill.inProfile)
 
-  const dispatch = useDispatch()
+  //const dispatch = useDispatch()
 
   const handleSelect = (e: any) => {
-    console.log('event', e) // gets the skill id
-    const value = e
-    setData((prevValue: any) => {
-      return {
-        ...prevValue,
-        value,
-      }
+    let jobPostSkills: { id: number }[]
+    jobPostSkills = []
+    const id = e
+    const jobPostSkill = setSkill({
+      id: id,
+      name: skills.find(s => s.id === skill.id && s.name),
     })
-    dispatch(
-      addSkill({
-        //@ts-ignore
-        id: data.id,
-        //@ts-ignore
-        name: data.name,
-      })
-    )
+    console.log('jobPostSkill', jobPostSkill)
+    //@ts-ignore
+    jobPostSkills.concat(jobPostSkill)
+    console.log('jobPostSkills', jobPostSkills)
+    // dispatch(
+    //   addSkill({
+    //     id: skill.id
+    //   })
+    // )
+    // inProfile.concat(id)
   }
 
   return (

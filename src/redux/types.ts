@@ -322,14 +322,14 @@ export type GetSkillsFailAction = {
 export type AddSkillAction = {
   type: typeof ADD_SKILL
   payload: {
-    skill: Skill
+    id: Skill
   }
 }
 
 export type RemoveSkillAction = {
   type: typeof REMOVE_SKILL
   payload: {
-    skill: Skill
+    id: Skill
   }
 }
 
