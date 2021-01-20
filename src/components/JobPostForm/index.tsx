@@ -9,10 +9,10 @@ import Loader from '../Loader'
 import { creatingJobPostRequest } from '../../redux/actions/resources'
 import { AppState } from '../../redux/types'
 
-type JobPostFormProps = {
+type HeaderProps = {
   header: string
 }
-const JobPostForm = ({ header }: JobPostFormProps) => {
+const JobPostForm = ({ header }: HeaderProps) => {
   const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
     title: '',
@@ -117,14 +117,14 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
                 Required Skills
               </Form.Label>
               <Col sm="8">
-                {/* <Form.Control
+                <Form.Control
                   className="text-field"
                   type="text"
                   name="requiredSkills"
                   placeholder="Typescript"
                   value={formData.requiredSkills}
                   onChange={handleChange}
-                /> */}
+                />
               </Col>
             </Form.Group>
             <Form.Group
