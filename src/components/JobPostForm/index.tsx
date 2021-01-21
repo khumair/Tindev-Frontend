@@ -46,7 +46,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
   const range = parseInt(year)
 
   const maximumDate = {
-    year: range + 1,
+    year: range,
     month: 12,
     day: 31,
   }
