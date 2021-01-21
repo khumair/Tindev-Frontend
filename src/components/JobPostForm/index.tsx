@@ -75,7 +75,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
       creatingJobPostRequest({
         title: formData.title,
         jobDescription: formData.jobDescription,
-        skills: formData.requiredSkills,
+        skills: state.tags,
         seniority: formData.seniority,
         startingDate: startingAt,
       })
@@ -90,9 +90,8 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
   }
 
   const handleDelete = (i: any) => {
-    const filteredTags = state.tags?.filter((tag, index) => index !== i)
-    //@ts-ignore
-    setState({ filteredTags })
+    const filteredTags = state.tags.filter((tag, index) => index !== i)
+    setState({ filteredTags } as any)
   }
 
   const handleAddition = (tag: any) => {
