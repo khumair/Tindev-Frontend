@@ -31,14 +31,14 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
     seniority: '',
     startingDate: '',
   })
-  //const suggestions = [{ id: 1, name: 'JavaScript' }, { id: 2, name: 'NodeJS' }]
+  //const suggestions = [{ id: '1', text: 'JavaScript' }, { id: '2', text: 'NodeJS' }] this works
   const skills = useSelector((state: AppState) => state.resources.skills)
   const suggestions = skills.map(skill => {
     return {
       id: String(skill.id),
       text: skill.name,
     }
-  })
+  }) // this doesn't work for some reason. The get skills request works just fine.
 
   // TODO: date format
   const year = new Date().getFullYear.toString().substr(-2)
