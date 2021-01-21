@@ -3,8 +3,12 @@ import axios from 'axios'
 
 import LocalStorage from '../../local-storage'
 import { LoginUserRequestAction } from '../types'
-
-import { loginUserSuccess, loginUserFail } from '../actions/user'
+import {
+  loginUserSuccess,
+  loginUserFail,
+  getUserSuccess,
+  getUserFail,
+} from '../actions/user'
 
 function* loginUserSaga(action: LoginUserRequestAction) {
   const email = action.payload.credential.email
@@ -25,6 +29,18 @@ function* loginUserSaga(action: LoginUserRequestAction) {
   }
 }
 
-const sagaWatcher = [takeLatest('LOGIN_USER_REQUEST', loginUserSaga)]
+function* getUserSaga() {
+  try {
+    const res = yield axios.get('/user')
+    yield put(getUserSuccess(res.data.payload))
+  } catch (error) {
+    yield put(getUserFail(error))
+  }
+}
+
+const sagaWatcher = [
+  takeLatest('LOGIN_USER_REQUEST', loginUserSaga),
+  takeLatest('GET_USER_REQUEST', getUserSaga),
+]
 
 export default sagaWatcher

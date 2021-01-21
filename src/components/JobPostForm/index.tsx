@@ -1,19 +1,27 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Container, Button } from 'react-bootstrap'
+import { WithContext as ReactTags } from 'react-tag-input'
 import DatePicker, { DayValue } from 'react-modern-calendar-datepicker'
 import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
 import Message from '../Message'
 import Loader from '../Loader'
-import DropDown from '../DropDown'
 import { creatingJobPostRequest } from '../../redux/actions/resources'
 import { AppState } from '../../redux/types'
 
-type HeaderProps = {
+const KeyCodes = {
+  comma: 188,
+  enter: 13,
+}
+
+const delimiters = [KeyCodes.comma, KeyCodes.enter]
+
+type JobPostFormProps = {
   header: string
 }
-const JobPostForm = ({ header }: HeaderProps) => {
+
+const JobPostForm = ({ header }: JobPostFormProps) => {
   const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
     title: '',
@@ -21,6 +29,16 @@ const JobPostForm = ({ header }: HeaderProps) => {
     requiredSkills: [],
     seniority: '',
     startingDate: '',
+  })
+
+  const [state, setState] = useState({
+    tags: [
+      {
+        id: null,
+        name: '',
+      },
+    ],
+    suggestions: useSelector((state: AppState) => state.resources.skills),
   })
 
   // TODO: date format
@@ -69,6 +87,27 @@ const JobPostForm = ({ header }: HeaderProps) => {
       seniority: '',
       startingDate: '',
     })
+  }
+
+  const handleDelete = (i: any) => {
+    const filteredTags = state.tags?.filter((tag, index) => index !== i)
+    //@ts-ignore
+    setState({ filteredTags })
+  }
+
+  const handleAddition = (tag: any) => {
+    setState(state => ({ tags: [...state.tags, tag], suggestions: [] }))
+  }
+
+  const handleDrag = (tag: any, currPos: any, newPos: any) => {
+    const tags = [...state.tags]
+    const newTags = tags.slice()
+
+    newTags.splice(currPos, 1)
+    newTags.splice(newPos, 0, tag)
+
+    // re-render
+    setState({ tags: newTags, suggestions: [] })
   }
 
   return (
@@ -125,15 +164,16 @@ const JobPostForm = ({ header }: HeaderProps) => {
                 Required Skills
               </Form.Label>
               <Col sm="8">
-                <DropDown />
-                {/* <Form.Control
-                  className="text-field"
-                  type="text"
-                  name="requiredSkills"
-                  placeholder="Typescript"
-                  value={formData.requiredSkills}
-                  onChange={handleChange}
-                /> */}
+                <ReactTags
+                  //@ts-ignore
+                  tags={state.tags}
+                  suggestions={state.suggestions}
+                  handleDelete={handleDelete}
+                  handleAddition={handleAddition}
+                  handleDrag={handleDrag}
+                  delimiters={delimiters}
+                />
+                <Form.Group as={Row}></Form.Group>
               </Col>
             </Form.Group>
             <Form.Group
