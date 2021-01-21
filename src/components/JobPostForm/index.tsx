@@ -22,6 +22,7 @@ type JobPostFormProps = {
 }
 
 const JobPostForm = ({ header }: JobPostFormProps) => {
+  const [tags, setTags] = useState<any[]>([])
   const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
     title: '',
@@ -30,15 +31,13 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
     seniority: '',
     startingDate: '',
   })
-
-  const [state, setState] = useState({
-    tags: [
-      {
-        id: null,
-        name: '',
-      },
-    ],
-    suggestions: useSelector((state: AppState) => state.resources.skills),
+  //const suggestions = [{ id: 1, name: 'JavaScript' }, { id: 2, name: 'NodeJS' }]
+  const skills = useSelector((state: AppState) => state.resources.skills)
+  const suggestions = skills.map(skill => {
+    return {
+      id: String(skill.id),
+      text: skill.name,
+    }
   })
 
   // TODO: date format
@@ -75,7 +74,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
       creatingJobPostRequest({
         title: formData.title,
         jobDescription: formData.jobDescription,
-        skills: state.tags,
+        skills: tags,
         seniority: formData.seniority,
         startingDate: startingAt,
       })
@@ -90,23 +89,22 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
   }
 
   const handleDelete = (i: any) => {
-    const filteredTags = state.tags.filter((tag, index) => index !== i)
-    setState({ filteredTags } as any)
+    const filteredTags = tags.filter((tag, index) => index !== i)
+    setTags(filteredTags)
   }
 
   const handleAddition = (tag: any) => {
-    setState(state => ({ tags: [...state.tags, tag], suggestions: [] }))
+    setTags([...tags, tag])
   }
 
   const handleDrag = (tag: any, currPos: any, newPos: any) => {
-    const tags = [...state.tags]
     const newTags = tags.slice()
 
     newTags.splice(currPos, 1)
     newTags.splice(newPos, 0, tag)
 
     // re-render
-    setState({ tags: newTags, suggestions: [] })
+    setTags([...newTags])
   }
 
   return (
@@ -164,15 +162,14 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
               </Form.Label>
               <Col sm="8">
                 <ReactTags
-                  //@ts-ignore
-                  tags={state.tags}
-                  suggestions={state.suggestions}
+                  tags={tags}
+                  suggestions={suggestions}
                   handleDelete={handleDelete}
                   handleAddition={handleAddition}
                   handleDrag={handleDrag}
                   delimiters={delimiters}
                 />
-                <Form.Group as={Row}></Form.Group>
+                <Form.Group as={Row}>{suggestions}</Form.Group>
               </Col>
             </Form.Group>
             <Form.Group

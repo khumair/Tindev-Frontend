@@ -50,10 +50,10 @@ export const getUserRequest = () => {
   }
 }
 
-export const getUserSuccess = (employerInfo: any) => {
+export const getUserSuccess = (info: any) => {
   return {
     type: GET_USER_SUCCESS,
-    payload: employerInfo,
+    payload: info,
   }
 }
 

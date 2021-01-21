@@ -16,7 +16,7 @@ type JobPostProps = {
   jobDescription: string
   seniority: string
   startingDate: string
-  //skills: any[]
+  skills: any[]
 }
 
 const JobPost = ({

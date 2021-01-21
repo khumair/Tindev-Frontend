@@ -10,6 +10,12 @@ export const initState: AppState = {
     credential: { email: '', password: '' },
     userInfo: {
       role: '',
+      companyName: '',
+      companyInfo: '',
+      address: '',
+    },
+    info: {
+      jobPosts: [],
     },
     loading: false,
     error: null,
@@ -17,7 +23,7 @@ export const initState: AppState = {
   },
   employer: {
     credential: { email: '', password: '' },
-    employerInfo: {
+    info: {
       companyName: '',
       companyInfo: '',
       address: '',

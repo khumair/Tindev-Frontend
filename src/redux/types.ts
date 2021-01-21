@@ -430,7 +430,13 @@ export type CredentialStateUser = {
     password: string
   }
   userInfo: {
+    companyName: string
+    companyInfo: string
+    address: any
     role: string
+  }
+  info: {
+    jobPosts: any[]
   }
   loading: Boolean
   error: any
@@ -442,7 +448,7 @@ export type CredentialStateEmployer = {
     email: string
     password: string
   }
-  employerInfo: {
+  info: {
     companyName: string
     companyInfo: string
     address: any

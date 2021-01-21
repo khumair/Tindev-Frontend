@@ -59,11 +59,9 @@ const user = (state = initialState, action: UserActions) => {
       return {
         ...state,
         loading: false,
-        // @ts-ignore
-        employerInfo: action.payload,
+        info: action.payload,
       }
     case GET_USER_FAIL:
-      //@ts-ignore
       return { ...state, loading: false, error: action.payload }
     default:
       return state

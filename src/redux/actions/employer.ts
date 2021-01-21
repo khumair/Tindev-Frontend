@@ -59,13 +59,3 @@ export const updateEmployerFail = (error: string) => {
     payload: error,
   }
 }
-
-// export type GetEmployer = {
-//   payload: {
-//     companyName: string
-//     companyInfo: string
-//     address: string
-//     role: string
-//     jobPosts: any[]
-//   }
-// }
