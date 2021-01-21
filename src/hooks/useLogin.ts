@@ -3,22 +3,23 @@ import { useHistory } from 'react-router'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
-import { logoutUser } from '../redux/actions'
+import { logoutUser, loginUserSuccess } from '../redux/actions'
 
 const useLogin = () => {
   const history = useHistory()
   const dispatch = useDispatch()
 
-  const validateToken = async () => {
-    const res = await axios.get('/token/validate')
+  const getUser = async () => {
+    const res = await axios.get('/user')
     const status = res.data.status
     if (status === 401) {
       dispatch(logoutUser(history))
     }
+    dispatch(loginUserSuccess(res.data.payload))
   }
 
   useEffect(() => {
-    validateToken()
+    getUser()
   })
 }
 
