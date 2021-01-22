@@ -3,7 +3,7 @@ import Incoming from './Incoming'
 import Outgoing from './Outgoing'
 import { MdSearch } from 'react-icons/md'
 import UsersList from './UsersList'
-const ChatBoxs = () => {
+const ChatBox = () => {
   // const [message, sendMessage] = useState('')
   // const [newMessage, setNewMessage] = useState('')
   // const handleNewMessageChange = (e: React.FormEvent<HTMLFormElement>) => {
@@ -80,4 +80,4 @@ const ChatBoxs = () => {
     </>
   )
 }
-export default ChatBoxs
+export default ChatBox

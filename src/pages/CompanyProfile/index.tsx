@@ -4,6 +4,7 @@ import React /*, { useState } */ from 'react'
 import Tabs from '../../components/Tabs'
 import MatchCardCompany from '../../components/MatchCardCompany'
 import CompanyProfileForm from '../../components/CompanyProfileForm'
+import ChatBox from '../../components/ChatBox'
 import JobPostList from '../JobPostList'
 import './CompanyProfile.scss'
 
@@ -20,6 +21,7 @@ const CompanyProfile = () => {
       <Tabs
         formComponent={<CompanyProfileForm />}
         matchComponent={<MatchCardCompany match={match} />}
+        chatBox={<ChatBox />}
         jobPostListPage={<JobPostList />}
       />
     </div>
