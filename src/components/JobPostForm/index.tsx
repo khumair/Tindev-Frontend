@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Col, Row, Container, Button } from 'react-bootstrap'
 import { WithContext as ReactTags } from 'react-tag-input'
@@ -23,6 +23,7 @@ type JobPostFormProps = {
 
 const JobPostForm = ({ header }: JobPostFormProps) => {
   const [tags, setTags] = useState<any[]>([])
+  //const [suggestions, setSuggestions] = useState<any[]>([])
   const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
     title: '',
@@ -31,14 +32,24 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
     seniority: '',
     startingDate: '',
   })
-  //const suggestions = [{ id: '1', text: 'JavaScript' }, { id: '2', text: 'NodeJS' }] this works
+
   const skills = useSelector((state: AppState) => state.resources.skills)
   const suggestions = skills.map(skill => {
     return {
       id: String(skill.id),
       text: skill.name,
     }
-  }) // this doesn't work for some reason. The get skills request works just fine.
+  })
+
+  useEffect(() => {
+    const suggestions = skills.map(skill => {
+      return {
+        id: String(skill.id),
+        text: skill.name,
+      }
+    })
+    console.log(suggestions)
+  }, [suggestions, skills])
 
   // TODO: date format
   const year = new Date().getFullYear.toString().substr(-2)
@@ -169,7 +180,6 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
                   handleDrag={handleDrag}
                   delimiters={delimiters}
                 />
-                <Form.Group as={Row}>{suggestions}</Form.Group>
               </Col>
             </Form.Group>
             <Form.Group
