@@ -9,6 +9,7 @@ import Message from '../Message'
 import Loader from '../Loader'
 import { creatingJobPostRequest } from '../../redux/actions/resources'
 import { AppState } from '../../redux/types'
+import './JobPostForm.scss'
 
 const KeyCodes = {
   comma: 188,
