@@ -105,16 +105,6 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
     setTags([...tags, tag])
   }
 
-  const handleDrag = (tag: any, currPos: any, newPos: any) => {
-    const newTags = tags.slice()
-
-    newTags.splice(currPos, 1)
-    newTags.splice(newPos, 0, tag)
-
-    // re-render
-    setTags([...newTags])
-  }
-
   return (
     <Container fluid="md">
       {error && <Message variant="danger">{error}</Message>}
@@ -174,7 +164,6 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
                   suggestions={suggestions}
                   handleDelete={handleDelete}
                   handleAddition={handleAddition}
-                  handleDrag={handleDrag}
                   delimiters={delimiters}
                 />
               </Col>
