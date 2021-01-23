@@ -76,7 +76,6 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
         id: parseInt(tag.id),
       }
     })
-    console.log('postSkills', postSkills)
     e.preventDefault()
     dispatch(
       creatingJobPostRequest({

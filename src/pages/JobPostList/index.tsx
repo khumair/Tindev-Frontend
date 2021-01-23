@@ -21,7 +21,7 @@ const JobPostList = () => {
                 jobDescription={jp.jobDescription}
                 seniority={jp.seniority}
                 startingDate={jp.startingDate}
-                skills={jp.skills}
+                skills={jp.skills.map((s: any) => s.name)}
               />
             )
           })}

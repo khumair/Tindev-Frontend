@@ -10,3 +10,18 @@
 .form-group-set {
   margin-top: 1.8rem;
 }
+
+span.tag-wrapper.ReactTags__tag {
+  font-size: xx-large;
+}
+
+button.ReactTags__remove {
+  background: red;
+}
+
+input.ReactTags__tagInputField {
+  background: red;
+}
+div.ReactTags__selected {
+  background-color: red;
+}

@@ -16,10 +16,10 @@ export const initState: AppState = {
     },
     info: {
       jobPosts: [],
+      skills: [],
     },
     loading: false,
     error: null,
-    skills: [],
   },
   employer: {
     credential: { email: '', password: '' },

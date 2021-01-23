@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Row, Button, Col, /*Image,*/ ListGroup } from 'react-bootstrap'
 
 import JobPostRow from '../JobPostRow'
-//import CustomSkill from '../CustomSkill'
+import CustomSkill from '../CustomSkill'
 import icon from '../../media/user-img.svg'
 import CompanyIcon from '../CompanyIcon'
 import './JobPost.scss'
@@ -25,8 +25,8 @@ const JobPost = ({
   jobDescription,
   seniority,
   startingDate,
-}: //skills,
-JobPostProps) => {
+  skills,
+}: JobPostProps) => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -53,7 +53,7 @@ JobPostProps) => {
             <ListGroup variant="flush">
               <ListGroup.Item>
                 Required Skills:
-                {/* <CustomSkill skills={skills} /> */}
+                <CustomSkill skills={skills} />
               </ListGroup.Item>
             </ListGroup>
           </Row>

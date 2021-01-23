@@ -85,7 +85,7 @@ export type LoginUserSuccessAction = {
       companyName?: string
       companyInfo?: string
       address?: string
-      jobPost?: any[]
+      jobPosts?: any[]
     }
   }
 }
@@ -180,7 +180,7 @@ export type GetUserSuccessAction = {
     companyInfo: string
     address: string
     role: string
-    jobPosts: []
+    jobPosts: any[]
   }
 }
 
@@ -416,7 +416,7 @@ export type Credential = {
   companyName?: string
   companyInfo?: string
   address?: any
-  jobPost?: any
+  jobPosts?: any[]
   role?: string
 }
 
@@ -438,10 +438,10 @@ export type CredentialStateUser = {
   }
   info: {
     jobPosts: any[]
+    skills: any[]
   }
   loading: Boolean
   error: any
-  skills: any[]
 }
 
 export type CredentialStateEmployer = {
