@@ -71,12 +71,18 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
 
   // TODO: Add condition for edit job post
   const submitHandler = (e: React.FormEvent) => {
+    const postSkills = tags.map(tag => {
+      return {
+        id: parseInt(tag.id),
+      }
+    })
+    console.log('postSkills', postSkills)
     e.preventDefault()
     dispatch(
       creatingJobPostRequest({
         title: formData.title,
         jobDescription: formData.jobDescription,
-        skills: tags,
+        skills: postSkills,
         seniority: formData.seniority,
         startingDate: startingAt,
       })
