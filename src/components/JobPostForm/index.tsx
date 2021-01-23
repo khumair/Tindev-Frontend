@@ -44,14 +44,6 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
   useEffect(() => {}, [suggestions, skills])
 
   // TODO: date format
-  const year = new Date().getFullYear.toString().substr(-2)
-  const range = parseInt(year)
-
-  const maximumDate = {
-    year: range,
-    month: 12,
-    day: 31,
-  }
 
   const user = useSelector((state: AppState) => state.user)
   const { loading, error } = user
@@ -200,7 +192,6 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
                   value={startingAt}
                   onChange={setStartingAt}
                   inputPlaceholder="Select starting day"
-                  maximumDate={maximumDate}
                   colorPrimary="#000"
                 />
               </Col>
