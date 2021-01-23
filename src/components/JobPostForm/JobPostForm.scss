@@ -4,21 +4,21 @@
   margin-top: 1rem;
 }
 
-span.tag-wrapper.ReactTags__tag {
+span.tag-wrapper {
   border: 1px solid $grey;
   border-radius: 3px;
   padding: 0.3rem;
 }
 
-button.ReactTags__remove {
+button {
   border: 0;
   border-radius: 3px;
 }
 
-input.ReactTags__tagInputField {
+input {
   border: solid 1px $grey;
   border-radius: 4px;
-  height: 2.5rem;
+  height: 2.4rem;
   padding: 0.67rem;
   width: 100%;
 }
