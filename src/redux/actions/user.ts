@@ -6,6 +6,7 @@ import {
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
   GET_USER_FAIL,
+  LogoutUserAction,
 } from '../types'
 
 export const loginUserRequest = (
@@ -38,9 +39,10 @@ export const loginUserFail = () => {
   }
 }
 
-export const logoutUser = () => {
+export const logoutUser = (history: any): LogoutUserAction => {
   return {
     type: LOGOUT_USER,
+    payload: history,
   }
 }
 

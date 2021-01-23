@@ -2,7 +2,8 @@ import { put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios'
 
 import LocalStorage from '../../local-storage'
-import { LoginUserRequestAction } from '../types'
+import { LoginUserRequestAction, LogoutUserAction } from '../types'
+
 import {
   loginUserSuccess,
   loginUserFail,
@@ -38,9 +39,15 @@ function* getUserSaga() {
   }
 }
 
+function* logout(action: LogoutUserAction) {
+  const history = action.payload
+  yield history.push('/')
+}
+
 const sagaWatcher = [
   takeLatest('LOGIN_USER_REQUEST', loginUserSaga),
   takeLatest('GET_USER_REQUEST', getUserSaga),
+  takeLatest('LOGOUT_USER', logout),
 ]
 
 export default sagaWatcher
