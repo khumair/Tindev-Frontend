@@ -23,7 +23,6 @@ type JobPostFormProps = {
 
 const JobPostForm = ({ header }: JobPostFormProps) => {
   const [tags, setTags] = useState<any[]>([])
-  //const [suggestions, setSuggestions] = useState<any[]>([])
   const [startingAt, setStartingAt] = useState<DayValue>(null)
   const [formData, setFormData] = useState({
     title: '',
@@ -41,15 +40,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
     }
   })
 
-  useEffect(() => {
-    const suggestions = skills.map(skill => {
-      return {
-        id: String(skill.id),
-        text: skill.name,
-      }
-    })
-    console.log(suggestions)
-  }, [suggestions, skills])
+  useEffect(() => {}, [suggestions, skills])
 
   // TODO: date format
   const year = new Date().getFullYear.toString().substr(-2)
