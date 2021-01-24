@@ -7,7 +7,10 @@ import 'react-modern-calendar-datepicker/lib/DatePicker.css'
 
 import Message from '../Message'
 import Loader from '../Loader'
-import { creatingJobPostRequest } from '../../redux/actions/resources'
+import {
+  creatingJobPostRequest,
+  getSkillsRequest,
+} from '../../redux/actions/resources'
 import { AppState } from '../../redux/types'
 import './JobPostForm.scss'
 
@@ -86,6 +89,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
       seniority: '',
       startingDate: '',
     })
+    dispatch(getSkillsRequest())
   }
 
   const handleDelete = (i: any) => {
