@@ -89,6 +89,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
       seniority: '',
       startingDate: '',
     })
+    // skills ready for next jobpost
     dispatch(getSkillsRequest())
   }
 
