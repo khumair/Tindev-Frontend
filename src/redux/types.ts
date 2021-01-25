@@ -96,6 +96,7 @@ export type LoginUserFailAction = {
 
 export type LogoutUserAction = {
   type: typeof LOGOUT_USER
+  payload: any
 }
 
 // Employer
