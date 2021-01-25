@@ -67,7 +67,7 @@ const CompanyProfileForm = () => {
             <Form.Group
               className="form-group-set"
               as={Row}
-              controlId="formElement"
+              controlId="formElementCompanyName"
             >
               <Form.Label column sm="4">
                 Company Name
@@ -86,7 +86,7 @@ const CompanyProfileForm = () => {
             <Form.Group
               className="form-group-set"
               as={Row}
-              controlId="formElement"
+              controlId="formElementAddress"
             >
               <Form.Label column sm="4">
                 Address
@@ -105,7 +105,7 @@ const CompanyProfileForm = () => {
             <Form.Group
               className="form-group-set"
               as={Row}
-              controlId="formElement"
+              controlId="formElementCompanyInfo"
             >
               <Form.Label column sm="4">
                 Company Info
@@ -120,7 +120,11 @@ const CompanyProfileForm = () => {
                 />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} className="form-group-set" controlId="button">
+            <Form.Group
+              as={Row}
+              className="form-group-set"
+              controlId="saveButton"
+            >
               <Form.Label column sm="4"></Form.Label>
               <Col sm="8">
                 <Button

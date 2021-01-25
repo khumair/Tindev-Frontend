@@ -113,7 +113,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
             <Form.Group
               className="form-group-set"
               as={Row}
-              controlId="formElement"
+              controlId="formElementJobTitle"
             >
               <Form.Label column sm="4">
                 Job Title
@@ -132,7 +132,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
             <Form.Group
               className="form-group-set"
               as={Row}
-              controlId="formElement"
+              controlId="formElementJobDescription"
             >
               <Form.Label column sm="4">
                 Job Description
@@ -150,7 +150,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
             <Form.Group
               className="form-group-set"
               as={Row}
-              controlId="formElement"
+              controlId="formElementRequiredSkills"
             >
               <Form.Label column sm="4">
                 Required Skills
@@ -168,7 +168,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
             <Form.Group
               className="form-group-set"
               as={Row}
-              controlId="formElement"
+              controlId="formElementSeniority"
             >
               <Form.Label column sm="4">
                 Seniority
@@ -187,7 +187,7 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
             <Form.Group
               as={Row}
               className="form-group-set"
-              controlId="formPlaintextPassword"
+              controlId="formElementStartingAt"
             >
               <Form.Label column sm="4">
                 Starting At
@@ -201,7 +201,11 @@ const JobPostForm = ({ header }: JobPostFormProps) => {
                 />
               </Col>
             </Form.Group>
-            <Form.Group as={Row} className="form-group-set" controlId="button">
+            <Form.Group
+              as={Row}
+              className="form-group-set"
+              controlId="savButton"
+            >
               <Form.Label column sm="4"></Form.Label>
               <Col sm="8">
                 <Button
