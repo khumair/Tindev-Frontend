@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image } from 'react-bootstrap'
 const Outgoing = () => {
+  const [outgoingMsgs, setOutgoingMsgs] = useState([
+    { text: 'I need more information about Developer Plan.', id: 1 },
+    { text: 'I need more information about Developer Plan.', id: 2 },
+  ])
   return (
     <>
       <li className="chat-right">
@@ -8,7 +12,14 @@ const Outgoing = () => {
           08:56 <span className="fa fa-check-circle"></span>
         </div>
         <div className="chat-text">
-          Hi, Dlip <br />I need more information about Developer Plan.
+          {outgoingMsgs.map(outgoingMsg => {
+            return (
+              <span key={outgoingMsg.id}>
+                {' '}
+                {outgoingMsg.text} <br />
+              </span>
+            )
+          })}
         </div>
         <div className="chat-avatar">
           <Image
