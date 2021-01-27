@@ -1,11 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 // Variables
 $purple-color: #a64fae;
+$white-color: #fff;
 
 body {
   font-family: 'poppins', sans-serif;
   background-color: grey;
-  background-color: #fff;
+  background-color: $white-color;
 }
 
 .btn-flat {
@@ -20,7 +21,7 @@ body {
 
 button.btn-form {
   background-color: $purple-color;
-  color: #ffffff;
+  color: $white-color;
   border: 0;
   font-family: 'poppins', sans-serif;
   margin-top: 25px;
@@ -30,7 +31,7 @@ button.btn-form {
 
 .btn-upload {
   background-color: $purple-color;
-  color: #ffffff;
+  color: $white-color;
   border: none;
   font-family: 'poppins', sans-serif;
   margin: 15px 145px;
@@ -47,7 +48,7 @@ button.btn-form {
 
 .tag-btn:hover {
   background-color: $purple-color;
-  border-color: #ffffff;
+  border-color: $white-color;
 }
 
 h2 {
@@ -94,7 +95,7 @@ h2 {
 
 .nav-pills .nav-link.active {
   color: $purple-color;
-  background-color: #ffffff;
+  background-color: $white-color;
 }
 
 .side-nav-link {

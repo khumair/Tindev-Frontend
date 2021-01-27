@@ -5,6 +5,7 @@
 
 // Variables
 $green: #9ec94a; //active user color
+$white-color: #fff;
 
 .heading,
 .card-title,
@@ -61,7 +62,7 @@ q {
   position: relative;
 }
 
-page {
+.page {
   left: 0;
   position: absolute;
   right: 0;
@@ -174,29 +175,29 @@ page {
 }
 
 .users .person:hover {
-  background-color: #ffffff;
+  background-color: $white-color;
   /* Fallback Color */
   background-image: -webkit-gradient(
     linear,
     left top,
     left bottom,
     from(#e9eff5),
-    to(#ffffff)
+    to($white-color)
   );
-  background-image: linear-gradient(to left, #e9eff5, #ffffff);
+  background-image: linear-gradient(to left, #e9eff5, $white-color);
 }
 
 .users .person.active-user {
-  background-color: #ffffff;
+  background-color: $white-color;
   /* Fallback Color */
   background-image: -webkit-gradient(
     linear,
     left top,
     left bottom,
     from(#f7f9fb),
-    to(#ffffff)
+    to($white-color)
   );
-  background-image: linear-gradient(to left, #f7f9fb, #ffffff);
+  background-image: linear-gradient(to left, #f7f9fb, $white-color);
 }
 
 .users .person:last-child {
@@ -336,7 +337,7 @@ page {
 .chat-container li .chat-text {
   padding: 0.4rem 1rem;
   border-radius: 4px;
-  background: #ffffff;
+  background: $white-color;
   font-weight: 300;
   line-height: 150%;
   position: relative;
@@ -350,7 +351,7 @@ page {
   top: 10px;
   left: -20px;
   border: 10px solid;
-  border-color: transparent #ffffff transparent transparent;
+  border-color: transparent $white-color transparent transparent;
 }
 
 .chat-container li.chat-right > .chat-text {
@@ -359,7 +360,7 @@ page {
 
 .chat-container li.chat-right > .chat-text:before {
   right: -20px;
-  border-color: transparent transparent transparent #ffffff;
+  border-color: transparent transparent transparent $white-color;
   left: inherit;
 }
 
@@ -389,21 +390,26 @@ page {
     flex-direction: column;
     margin-bottom: 30px;
   }
+
   .chat-container li img {
     width: 32px;
     height: 32px;
   }
+
   .chat-container li.chat-left .chat-avatar {
     margin: 0 0 5px 0;
     display: flex;
     align-items: center;
   }
+
   .chat-container li.chat-left .chat-hour {
     justify-content: flex-end;
   }
+
   .chat-container li.chat-left .chat-name {
     margin-left: 5px;
   }
+
   .chat-container li.chat-right .chat-avatar {
     order: -1;
     margin: 0 0 5px 0;
@@ -416,9 +422,11 @@ page {
     justify-content: flex-start;
     order: 2;
   }
+
   .chat-container li.chat-right .chat-name {
     margin-right: 5px;
   }
+
   .chat-container li .chat-text {
     font-size: 0.8rem;
   }
@@ -430,8 +438,8 @@ page {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ffffff;
-  border-top: 1px solid white;
+  background-color: $white-color;
+  border-top: 1px solid $white-color;
 }
 
 ul {
@@ -442,7 +450,7 @@ ul {
 
 .card {
   border: 0;
-  background: #f4f5fb;
+  background: $white-color;
   border-radius: 2px;
   margin-bottom: 2rem;
   box-shadow: none;
@@ -460,6 +468,7 @@ ul {
   padding: 0 8px;
   border: 1px solid rgb(214, 216, 218);
   border-radius: 6px;
+
   &:focus-within {
     border: 1px solid #0052cc;
   }
@@ -470,6 +479,7 @@ ul {
     height: 46px;
     font-size: 14px;
     padding: 4px 0 0 0;
+
     &:focus {
       outline: transparent;
     }
@@ -489,16 +499,18 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: $white-color;
   padding: 0 8px;
   font-size: 14px;
   list-style: none;
   border-radius: 6px;
   margin: 0 8px 8px 0;
   background: #0052cc;
+
   .tag-title {
     margin-top: 3px;
   }
+
   .tag-close-icon {
     display: block;
     width: 16px;
@@ -509,7 +521,7 @@ ul {
     margin-left: 8px;
     color: #0052cc;
     border-radius: 50%;
-    background: #fff;
+    background: $white-color;
     cursor: pointer;
   }
 }
