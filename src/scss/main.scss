@@ -1,19 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
 // Variables
 $purple-color: #a64fae;
+
 body {
   font-family: 'poppins', sans-serif;
   background-color: grey;
-  background-color: #ffff;
+  background-color: #fff;
 }
+
 .btn-flat {
-  background-color: #55dd55;
+  background-color: #5d5;
   color: #000;
 }
+
 .colcenter {
   padding: 1rem;
   text-align: center;
 }
+
 button.btn-form {
   background-color: $purple-color;
   color: #ffffff;
@@ -23,6 +27,7 @@ button.btn-form {
   border-radius: 5px;
   height: 40px;
 }
+
 .btn-upload {
   background-color: $purple-color;
   color: #ffffff;
@@ -33,16 +38,18 @@ button.btn-form {
   height: 45px;
   width: 100px;
 }
+
 .tag-btn {
   font-family: 'poppins', sans-serif;
-  // border-color: $purple-color;
   border: 2px solid #ebeaed;
   color: $purple-color;
 }
+
 .tag-btn:hover {
   background-color: $purple-color;
   border-color: #ffffff;
 }
+
 h2 {
   line-height: 1.66;
   margin: 0;
@@ -53,17 +60,18 @@ h2 {
   font-family: 'poppins', sans-serif;
   font-size: 36px;
 }
+
 .text-field {
   width: auto;
   height: 3rem;
   border-radius: 10px;
   border: solid 1px #000;
-  // font-family: "poppins", sans-serif;
-  // margin-top: 15px;
 }
+
 .form-group-set {
   margin-top: 1.8rem;
 }
+
 /*   Company Match Page Styling */
 .view-btn {
   background-color: $purple-color;
@@ -72,22 +80,27 @@ h2 {
   height: 30px;
   align-items: center;
 }
+
 .match-card {
   border: solid 1px;
   border-radius: 5px;
 }
+
 .nav-pills .nav-link {
   font-size: semi-bold;
   font-weight: 2rem;
   color: #000;
 }
+
 .nav-pills .nav-link.active {
   color: $purple-color;
   background-color: #ffffff;
 }
+
 .side-nav-link {
   margin: 10px;
 }
+
 Tab {
   color: #000;
 }
