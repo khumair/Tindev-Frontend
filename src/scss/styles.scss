@@ -6,6 +6,7 @@
 // Variables
 $green: #9ec94a; //active user color
 $white-color: #fff;
+$grey: #808080;
 
 .heading,
 .card-title,
@@ -179,28 +180,11 @@ q {
 
 .users .person:hover {
   background-color: $white-color;
-
-  /* Fallback Color */
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#e9eff5),
-    to($white-color)
-  );
   background-image: linear-gradient(to left, #e9eff5, $white-color);
 }
 
 .users .person.active-user {
   background-color: $white-color;
-  /* Fallback Color */
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#f7f9fb),
-    to($white-color)
-  );
   background-image: linear-gradient(to left, #f7f9fb, $white-color);
 }
 
@@ -278,26 +262,18 @@ q {
   }
 }
 
-/************************************************
-************************************************
-            Chat right side
-************************************************
-************************************************/
+// Chat right side
 .selected-user {
-  width: 100%;
-  padding: 0 15px;
-  min-height: 64px;
-  line-height: 64px;
-  border-bottom: 1px solid #e6ecf3;
+  border-bottom: 1px solid $grey;
   border-radius: 0 3px 0 0;
+  line-height: 64px;
+  min-height: 64px;
+  padding: 0 15px;
+  width: 100%;
 }
 
 .selected-user span {
   line-height: 100%;
-}
-
-.selected-user span.name {
-  font-weight: 700;
 }
 
 .chat-container {
@@ -333,17 +309,17 @@ q {
 }
 
 .chat-container li .chat-name {
-  font-size: 0.75rem;
   color: #999;
+  font-size: 0.75rem;
   text-align: center;
 }
 
 .chat-container li .chat-text {
-  padding: 0.4rem 1rem;
-  border-radius: 4px;
   background: $white-color;
+  border-radius: 4px;
   font-weight: 300;
   line-height: 150%;
+  padding: 0.4rem 1rem;
   position: relative;
 }
 
@@ -363,8 +339,8 @@ q {
 }
 
 .chat-container li.chat-right > .chat-text:before {
-  right: -20px;
   border-color: transparent transparent transparent $white-color;
+  right: -20px;
   left: inherit;
 }
 
@@ -437,13 +413,13 @@ q {
 }
 
 .chat-form {
-  padding: 15px;
-  width: 100%;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-color: $white-color;
   border-top: 1px solid $white-color;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  right: 0;
+  width: 100%;
 }
 
 ul {
@@ -456,78 +432,8 @@ ul {
   border: 0;
   background: $white-color;
   border-radius: 2px;
-  margin-bottom: 2rem;
   box-shadow: none;
-}
-
-/************************************************
-            Tags
-************************************************/
-.tags-input {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  min-height: 48px;
-  width: 480px;
-  padding: 0 8px;
-  border: 1px solid rgb(214, 216, 218);
-  border-radius: 6px;
-
-  &:focus-within {
-    border: 1px solid #0052cc;
-  }
-
-  input {
-    flex: 1;
-    border: none;
-    height: 46px;
-    font-size: 14px;
-    padding: 4px 0 0 0;
-
-    &:focus {
-      outline: transparent;
-    }
-  }
-}
-
-#tags {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 8px 0 0 0;
-}
-
-.tag {
-  width: auto;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $white-color;
-  padding: 0 8px;
-  font-size: 14px;
-  list-style: none;
-  border-radius: 6px;
-  margin: 0 8px 8px 0;
-  background: #0052cc;
-
-  .tag-title {
-    margin-top: 3px;
-  }
-
-  .tag-close-icon {
-    display: block;
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    text-align: center;
-    font-size: 14px;
-    margin-left: 8px;
-    color: #0052cc;
-    border-radius: 50%;
-    background: $white-color;
-    cursor: pointer;
-  }
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 567px) {

@@ -2,16 +2,12 @@
 // Variables
 $purple-color: #a64fae;
 $white-color: #fff;
+$black-color: #000;
+$grey: #808080;
 
 body {
   font-family: 'poppins', sans-serif;
-  background-color: grey;
   background-color: $white-color;
-}
-
-.btn-flat {
-  background-color: #5d5;
-  color: #000;
 }
 
 .colcenter {
@@ -40,17 +36,6 @@ button.btn-form {
   width: 100px;
 }
 
-.tag-btn {
-  font-family: 'poppins', sans-serif;
-  border: 2px solid #ebeaed;
-  color: $purple-color;
-}
-
-.tag-btn:hover {
-  background-color: $purple-color;
-  border-color: $white-color;
-}
-
 h2 {
   line-height: 1.66;
   margin: 0;
@@ -66,14 +51,14 @@ h2 {
   width: auto;
   height: 3rem;
   border-radius: 10px;
-  border: solid 1px #000;
+  border: solid 1px $black-color;
 }
 
 .form-group-set {
   margin-top: 1.8rem;
 }
 
-/*   Company Match Page Styling */
+// Company Match Page Styling
 .view-btn {
   background-color: $purple-color;
   border: none;
@@ -90,7 +75,7 @@ h2 {
 .nav-pills .nav-link {
   font-size: semi-bold;
   font-weight: 2rem;
-  color: #000;
+  color: $black-color;
 }
 
 .nav-pills .nav-link.active {
@@ -100,8 +85,4 @@ h2 {
 
 .side-nav-link {
   margin: 10px;
-}
-
-Tab {
-  color: #000;
 }
