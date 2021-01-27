@@ -181,7 +181,7 @@ q {
     to(#ffffff)
   );
 
-  background-image: linear-gradient(right, #e9eff5, #ffffff);
+  background-image: linear-gradient(to left, #e9eff5, #ffffff);
 }
 
 .users .person.active-user {
@@ -195,7 +195,7 @@ q {
     to(#ffffff)
   );
 
-  background-image: linear-gradient(right, #f7f9fb, #ffffff);
+  background-image: linear-gradient(to left, #f7f9fb, #ffffff);
 }
 
 .users .person:last-child {
@@ -298,13 +298,13 @@ q {
   padding: 1rem;
 }
 
-.chat-container li.chat-left,
-.chat-container li.chat-right {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  margin-bottom: 40px;
-}
+// .chat-container li.chat-left,
+// .chat-container li.chat-right {
+//   display: flex;
+//   flex: 1;
+//   flex-direction: row;
+//   margin-bottom: 40px;
+// }
 
 .chat-container li img {
   width: 48px;
@@ -446,9 +446,7 @@ ul {
 }
 
 /************************************************
-************************************************
             Tags
-************************************************
 ************************************************/
 
 .tags-input {
