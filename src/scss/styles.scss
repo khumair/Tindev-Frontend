@@ -8,11 +8,9 @@
 .card-text {
   color: $white;
 }
-
 q {
   color: #ce1370;
 }
-
 .heading {
   // font-family: 'Merriweather Sans', sans-serif;
   letter-spacing: 0.01rem;
@@ -21,7 +19,6 @@ q {
   font-size: 2.77rem;
   font-weight: bold;
 }
-
 .card-title {
   font-size: 1.7rem;
 }
@@ -29,62 +26,51 @@ q {
   margin: auto;
   width: 60%;
 }
-
 .container {
   height: 95vh;
 }
 .purple-text {
   color: var(--purple);
 }
-
 .purple-bg {
   background-color: var(--purple);
 }
-
 .purple-btn {
   background: var(--purple-gradient);
   border: 1px solid var(--purple);
   transition: all 0.5s linear;
-
   &:hover {
     background: var(--white);
     border: 1px solid var(--purple);
     color: var(--purple);
   }
 }
-
 // Route Navigation Animation
 .app {
   position: relative;
 }
-
-.page {
+page {
   left: 0;
   position: absolute;
   right: 0;
 }
-
 .fade-appear,
 .fade-enter {
   opacity: 0;
   z-index: 1;
 }
-
 .fade-appear-active,
 .fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 300ms linear 150ms;
 }
-
 .fade-exit {
   opacity: 1;
 }
-
 .fade-exit.fade-exit-active {
   opacity: 0;
   transition: opacity 150ms linear;
 }
-
 // Chat
 .py-3 {
   padding-top: 1rem !important;
@@ -97,7 +83,6 @@ q {
 .flex-grow-0 {
   flex-grow: 0 !important;
 }
-
 .chat-search-box {
   border-radius: 3px 0 0 0;
   padding: 0.75rem 1rem;
@@ -108,39 +93,32 @@ q {
   max-height: 450px;
   overflow-y: scroll;
 }
-
 .chat-search-box .input-group .form-control {
   border-radius: 2px 0 0 2px;
   border-right: 0;
 }
-
 .chat-search-box .input-group .form-control:focus {
   border-right: 0;
 }
-
 .chat-search-box .input-group .input-group-btn .btn {
   border-radius: 0 2px 2px 0;
   margin: 0;
 }
-
 .chat-search-box .input-group .input-group-btn .btn i {
   font-size: 1.2rem;
   line-height: 100%;
   vertical-align: middle;
 }
-
 @media (max-width: 767px) {
   .chat-search-box {
     display: none;
   }
 }
-
 /************************************************
 ************************************************
             Users Container
 ************************************************
 ************************************************/
-
 .users-container {
   position: relative;
   padding: 1rem 0;
@@ -151,17 +129,14 @@ q {
   -ms-flex-direction: column;
   flex-direction: column;
 }
-
 /************************************************
 ************************************************
                 Users
 ************************************************
 ************************************************/
-
 .users {
   padding: 0;
 }
-
 .users .person {
   position: relative;
   width: 100%;
@@ -169,7 +144,6 @@ q {
   cursor: pointer;
   border-bottom: 1px solid #f0f4f8;
 }
-
 .users .person:hover {
   background-color: #ffffff;
   /* Fallback Color */
@@ -180,10 +154,8 @@ q {
     from(#e9eff5),
     to(#ffffff)
   );
-
   background-image: linear-gradient(to left, #e9eff5, #ffffff);
 }
-
 .users .person.active-user {
   background-color: #ffffff;
   /* Fallback Color */
@@ -194,20 +166,16 @@ q {
     from(#f7f9fb),
     to(#ffffff)
   );
-
   background-image: linear-gradient(to left, #f7f9fb, #ffffff);
 }
-
 .users .person:last-child {
   border-bottom: 0;
 }
-
 .users .person .user {
   display: inline-block;
   position: relative;
   margin-right: 10px;
 }
-
 .users .person .user img {
   width: 48px;
   height: 48px;
@@ -215,7 +183,6 @@ q {
   -moz-border-radius: 50px;
   border-radius: 50px;
 }
-
 .users .person .user .status {
   width: 10px;
   height: 10px;
@@ -227,36 +194,29 @@ q {
   top: 0;
   right: 0;
 }
-
 .users .person .user .status.online {
   background: #9ec94a;
 }
-
 .users .person .user .status.offline {
   background: #c4d2e2;
 }
-
 .users .person .user .status.away {
   background: #f9be52;
 }
-
 .users .person .user .status.busy {
   background: #fd7274;
 }
-
 .users .person p.name-time {
   font-weight: 600;
   font-size: 0.85rem;
   display: inline-block;
 }
-
 .users .person p.name-time .time {
   font-weight: 400;
   font-size: 0.7rem;
   text-align: right;
   color: #8796af;
 }
-
 @media (max-width: 767px) {
   .users .person .user img {
     width: 30px;
@@ -269,13 +229,11 @@ q {
     display: none;
   }
 }
-
 /************************************************
 ************************************************
             Chat right side
 ************************************************
 ************************************************/
-
 .selected-user {
   width: 100%;
   padding: 0 15px;
@@ -284,53 +242,43 @@ q {
   border-bottom: 1px solid #e6ecf3;
   border-radius: 0 3px 0 0;
 }
-
 .selected-user span {
   line-height: 100%;
 }
-
 .selected-user span.name {
   font-weight: 700;
 }
-
 .chat-container {
-  position: relative;
   padding: 1rem;
+  position: relative;
 }
-
-// .chat-container li.chat-left,
-// .chat-container li.chat-right {
-//   display: flex;
-//   flex: 1;
-//   flex-direction: row;
-//   margin-bottom: 40px;
-// }
-
-.chat-container li img {
-  width: 48px;
-  height: 48px;
-  border-radius: 30px;
+.chat-container li.chat-left,
+.chat-container li.chat-right {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  margin-bottom: 40px;
 }
-
-.chat-container li .chat-avatar {
-  margin-right: 20px;
-}
-
 .chat-container li.chat-right {
   justify-content: flex-end;
 }
-
+.chat-container li img {
+  border-radius: 30px;
+  height: 48px;
+  width: 48px;
+}
+.chat-container li .chat-avatar {
+  margin-right: 20px;
+}
 .chat-container li.chat-right > .chat-avatar {
   margin-left: 20px;
   margin-right: 0;
 }
-
 .chat-container li .chat-name {
   font-size: 0.75rem;
   color: #999999;
   text-align: center;
 }
-
 .chat-container li .chat-text {
   padding: 0.4rem 1rem;
   border-radius: 4px;
@@ -339,7 +287,6 @@ q {
   line-height: 150%;
   position: relative;
 }
-
 .chat-container li .chat-text:before {
   content: '';
   position: absolute;
@@ -350,17 +297,14 @@ q {
   border: 10px solid;
   border-color: transparent #ffffff transparent transparent;
 }
-
 .chat-container li.chat-right > .chat-text {
   text-align: right;
 }
-
 .chat-container li.chat-right > .chat-text:before {
   right: -20px;
   border-color: transparent transparent transparent #ffffff;
   left: inherit;
 }
-
 .chat-container li .chat-hour {
   padding: 0;
   margin-bottom: 10px;
@@ -371,16 +315,13 @@ q {
   justify-content: center;
   margin: 0 0 0 15px;
 }
-
 .chat-container li .chat-hour > span {
   font-size: 16px;
   color: #9ec94a;
 }
-
 .chat-container li.chat-right > .chat-hour {
   margin: 0 15px 0 0;
 }
-
 @media (max-width: 767px) {
   .chat-container li.chat-left,
   .chat-container li.chat-right {
@@ -421,7 +362,6 @@ q {
     font-size: 0.8rem;
   }
 }
-
 .chat-form {
   padding: 15px;
   width: 100%;
@@ -431,7 +371,6 @@ q {
   background-color: #ffffff;
   border-top: 1px solid white;
 }
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -444,11 +383,9 @@ ul {
   margin-bottom: 2rem;
   box-shadow: none;
 }
-
 /************************************************
             Tags
 ************************************************/
-
 .tags-input {
   display: flex;
   align-items: flex-start;
@@ -472,14 +409,12 @@ ul {
     }
   }
 }
-
 #tags {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
   margin: 8px 0 0 0;
 }
-
 .tag {
   width: auto;
   height: 32px;
@@ -510,7 +445,6 @@ ul {
     cursor: pointer;
   }
 }
-
 @media screen and (max-width: 567px) {
   .tags-input {
     width: calc(100vw - 32px);
